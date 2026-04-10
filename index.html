@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bowdie's Chophouse — Cocktail Guide 2026</title>
+<title>Bowdie's Chophouse — Staff Training Reference</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -18,11 +18,20 @@
     --text-primary: #F0E8D8;
     --text-muted: #8A8070;
     --text-dim: #5A5248;
-    --whiskey: #8B3A0F;
-    --whiskey-light: #B34D15;
-    --gin: #2A4A3A;
-    --tequila: #4A3A1A;
-    --vodka: #2A3A4A;
+ 
+    --cat-whiskey: #C87941;
+    --cat-gin: #72B89A;
+    --cat-tequila: #D4A843;
+    --cat-vodka: #7BA8C4;
+    --cat-offmenu: #A07BC4;
+ 
+    --cat-bubbles: #A8C4D4;
+    --cat-whites: #D4C89A;
+    --cat-pinot: #C47A8A;
+    --cat-cab: #8A4A5A;
+    --cat-old: #B4906A;
+    --cat-blends: #7A9A8A;
+    --cat-glass: #C49A7A;
   }
  
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +44,6 @@
     overflow-x: hidden;
   }
  
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -46,11 +54,10 @@
     opacity: 0.4;
   }
  
-  /* Header */
+  /* ── HEADER ── */
   .header {
     text-align: center;
-    padding: 60px 40px 40px;
-    position: relative;
+    padding: 52px 40px 32px;
     border-bottom: 1px solid var(--border);
   }
  
@@ -60,7 +67,7 @@
     width: 120px;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 20px auto 0;
+    margin: 18px auto 0;
   }
  
   .header-eyebrow {
@@ -69,46 +76,90 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     opacity: 0.9;
   }
  
   .header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 52px);
+    font-size: clamp(30px, 5vw, 50px);
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.1;
-    letter-spacing: -0.01em;
   }
  
-  .header h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .header h1 em { font-style: italic; color: var(--gold); }
  
   .header-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     font-style: italic;
     color: var(--text-muted);
-    margin-top: 10px;
+    margin-top: 8px;
     letter-spacing: 0.05em;
   }
  
-  /* Filter bar */
+  /* ── TOP-LEVEL GUIDE TABS ── */
+  .guide-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--charcoal);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+ 
+  .guide-tab {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border: none;
+    border-bottom: 2px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+  }
+ 
+  .guide-tab:hover { color: var(--text-muted); }
+ 
+  .guide-tab.active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+ 
+  .guide-tab + .guide-tab {
+    border-left: 1px solid var(--border);
+  }
+ 
+  /* ── STICKY NAV WRAPPER (search + filters) ── */
+  .sticky-nav {
+    position: sticky;
+    top: 53px;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+ 
+  .global-search-wrap {
+    padding: 16px 40px 0;
+    max-width: 400px;
+    margin: 0 auto;
+  }
   .filter-bar {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 28px 40px;
-    border-bottom: 1px solid var(--border);
+    padding: 14px 40px 18px;
     background: var(--surface);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(8px);
   }
  
   .filter-btn {
@@ -125,26 +176,10 @@
     border-radius: 2px;
   }
  
-  .filter-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--charcoal); font-weight: 600; }
  
-  .filter-btn.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--charcoal);
-    font-weight: 600;
-  }
- 
-  /* Search */
-  .search-wrap {
-    padding: 20px 40px;
-    max-width: 400px;
-    margin: 0 auto;
-    background: var(--surface);
-  }
- 
+  /* ── SEARCH ── */
   .search-input {
     width: 100%;
     background: var(--surface-2);
@@ -161,17 +196,20 @@
   .search-input::placeholder { color: var(--text-dim); }
   .search-input:focus { border-color: var(--gold-dim); }
  
-  /* Grid */
+  /* ── GUIDE PANELS ── */
+  .guide-panel { display: none; }
+  .guide-panel.active { display: block; }
+ 
+  /* ── GRID ── */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 1px;
     background: var(--charcoal);
-    margin: 0;
     border-top: 1px solid var(--border);
   }
  
-  /* Card */
+  /* ── CARD ── */
   .card {
     background: var(--surface);
     padding: 32px 28px;
@@ -193,7 +231,6 @@
  
   .card:hover { background: var(--surface-2); }
   .card:hover::before { opacity: 1; }
- 
   .card.expanded { background: var(--surface-2); }
   .card.expanded::before { opacity: 1; }
   .card.hidden { display: none; }
@@ -216,40 +253,50 @@
     background: var(--border);
   }
  
-  .cat-whiskey { color: #C87941; }
-  .cat-gin { color: #72B89A; }
-  .cat-tequila { color: #D4A843; }
-  .cat-vodka { color: #7BA8C4; }
-  .cat-offmenu { color: #A07BC4; }
+  /* Cocktail category colors */
+  .cat-whiskey { color: var(--cat-whiskey); }
+  .cat-gin     { color: var(--cat-gin); }
+  .cat-tequila { color: var(--cat-tequila); }
+  .cat-vodka   { color: var(--cat-vodka); }
+  .cat-offmenu { color: var(--cat-offmenu); }
+ 
+  /* Wine category colors */
+  .cat-bubbles { color: var(--cat-bubbles); }
+  .cat-whites  { color: var(--cat-whites); }
+  .cat-glass   { color: var(--cat-glass); }
+  .cat-pinot   { color: var(--cat-pinot); }
+  .cat-cab     { color: var(--cat-cab); }
+  .cat-old     { color: var(--cat-old); }
+  .cat-blends  { color: var(--cat-blends); }
  
   .card-name {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     transition: color 0.2s;
   }
  
   .card:hover .card-name, .card.expanded .card-name { color: var(--gold-light); }
  
-  .card-glass {
+  .card-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: 13px;
     font-style: italic;
     color: var(--text-dim);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
  
-  /* Ingredients preview */
-  .ingredients-preview {
+  .tag-row {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    margin-bottom: 12px;
   }
  
-  .ingredient-tag {
+  .tag {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 9px;
     letter-spacing: 0.1em;
@@ -267,24 +314,19 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold-dim);
-    margin-top: 16px;
+    margin-top: 14px;
     display: flex;
     align-items: center;
     gap: 6px;
     transition: color 0.2s;
   }
  
-  .expand-hint::after {
-    content: '▾';
-    font-size: 12px;
-    transition: transform 0.25s ease;
-  }
- 
+  .expand-hint::after { content: '▾'; font-size: 12px; transition: transform 0.25s ease; }
   .card.expanded .expand-hint::after { transform: rotate(180deg); }
   .card:hover .expand-hint { color: var(--gold); }
  
-  /* Expanded content */
-  .recipe-detail {
+  /* ── EXPANDED CONTENT ── */
+  .card-detail {
     display: none;
     margin-top: 20px;
     padding-top: 20px;
@@ -292,26 +334,27 @@
     animation: fadeIn 0.2s ease;
   }
  
-  .card.expanded .recipe-detail { display: block; }
+  .card.expanded .card-detail { display: block; }
  
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
  
-  .recipe-section-label {
+  /* Cocktail detail */
+  .section-label {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 9px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    margin-top: 18px;
   }
  
-  .ingredient-list {
-    list-style: none;
-    margin-bottom: 24px;
-  }
+  .section-label:first-child { margin-top: 0; }
+ 
+  .ingredient-list { list-style: none; margin-bottom: 20px; }
  
   .ingredient-list li {
     font-family: 'Cormorant Garamond', serif;
@@ -332,10 +375,7 @@
     padding-top: 1px;
   }
  
-  .step-list {
-    list-style: none;
-    counter-reset: steps;
-  }
+  .step-list { list-style: none; counter-reset: steps; }
  
   .step-list li {
     counter-increment: steps;
@@ -353,14 +393,12 @@
   .step-list li::before {
     content: counter(steps);
     position: absolute;
-    left: 0;
-    top: 9px;
+    left: 0; top: 9px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 9px;
     color: var(--gold);
     background: rgba(201,168,76,0.1);
-    width: 20px;
-    height: 20px;
+    width: 20px; height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,7 +418,61 @@
  
   .garnish-line span { color: var(--gold); }
  
-  /* Footer */
+  /* Wine detail */
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+ 
+  .detail-value.notes {
+    font-style: italic;
+    color: #C8B888;
+    font-size: 15px;
+    line-height: 1.7;
+    border-left: 2px solid var(--gold-dim);
+    padding-left: 12px;
+  }
+ 
+  .vintage-badge {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    border-radius: 1px;
+  }
+ 
+  .vintage-badge.check {
+    border-color: var(--text-dim);
+    color: var(--text-dim);
+  }
+ 
+  .origin-line {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+ 
+  /* ── NO RESULTS ── */
+  .no-results {
+    text-align: center;
+    padding: 60px;
+    grid-column: 1 / -1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-dim);
+    display: none;
+  }
+ 
+  /* ── FOOTER ── */
   .footer {
     text-align: center;
     padding: 40px;
@@ -402,17 +494,6 @@
     background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
     margin: 12px auto;
   }
- 
-  .no-results {
-    text-align: center;
-    padding: 60px;
-    grid-column: 1 / -1;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-style: italic;
-    color: var(--text-dim);
-    display: none;
-  }
 </style>
 </head>
 <body>
@@ -420,704 +501,2185 @@
 <header class="header">
   <div class="header-eyebrow">East Grand Rapids, Michigan — 2026</div>
   <h1>Bowdie's <em>Chophouse</em></h1>
-  <p class="header-sub">Cocktail Program — Bar Training Reference</p>
+  <p class="header-sub">Staff Training Reference</p>
 </header>
  
-<nav class="filter-bar">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="whiskey">Whiskey</button>
-  <button class="filter-btn" data-filter="gin">Gin</button>
-  <button class="filter-btn" data-filter="tequila">Tequila</button>
-  <button class="filter-btn" data-filter="vodka">Vodka</button>
-  <button class="filter-btn" data-filter="offmenu">Off Menu</button>
+<!-- TOP-LEVEL GUIDE TABS -->
+<nav class="guide-tabs">
+  <button class="guide-tab active" data-guide="cocktails">Spirits</button>
+  <button class="guide-tab" data-guide="wine">Wine</button>
 </nav>
  
-<div class="search-wrap">
-  <input class="search-input" type="text" placeholder="Search cocktails or ingredients…" id="searchInput">
+<!-- STICKY NAV: shared search + per-guide filters -->
+<div class="sticky-nav">
+  <div class="global-search-wrap">
+    <input class="search-input" type="text" placeholder="Search cocktails, spirits, or ingredients…" id="search-active">
+  </div>
+  <div id="filters-cocktails" class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="whiskey">Whiskey</button>
+    <button class="filter-btn" data-filter="gin">Gin</button>
+    <button class="filter-btn" data-filter="tequila">Tequila</button>
+    <button class="filter-btn" data-filter="vodka">Vodka</button>
+    <button class="filter-btn" data-filter="offmenu">Off Menu</button>
+  </div>
+  <div id="filters-wine" class="filter-bar" style="display:none;">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="bubbles">Bubbles</button>
+    <button class="filter-btn" data-filter="whites">Whites</button>
+    <button class="filter-btn" data-filter="glass">By the Glass</button>
+    <button class="filter-btn" data-filter="pinot">Pinot Noir</button>
+    <button class="filter-btn" data-filter="cab">Cabernet</button>
+    <button class="filter-btn" data-filter="old">Old World</button>
+    <button class="filter-btn" data-filter="blends">Blends</button>
+  </div>
 </div>
  
-<div class="grid" id="grid">
+<!-- ════════════════════════════════════════
+     COCKTAILS PANEL
+════════════════════════════════════════ -->
+<div class="guide-panel active" id="panel-cocktails">
  
-  <!-- WHISKEY -->
-  <div class="card" data-category="whiskey" data-name="Bowdie's Old Fashioned">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">Bowdie's Old Fashioned</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Muddle + Stir</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Buffalo Trace</span>
-      <span class="ingredient-tag">Rum-infused Cherries</span>
-      <span class="ingredient-tag">Angostura</span>
-      <span class="ingredient-tag">Orange Slice</span>
-    </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Buffalo Trace</li>
-        <li><span class="amt">1 tsp</span> Sugar</li>
-        <li><span class="amt">3</span> Rum-infused Cherries</li>
-        <li><span class="amt">1</span> Orange Slice</li>
-        <li><span class="amt">3 dash</span> Angostura Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass</li>
-        <li>Add 2 oz Buffalo Trace</li>
-        <li>Add Large Cube and stir</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Brûléed Orange</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="whiskey" data-name="The Manhattan">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">The Manhattan</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Stir</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Maker's Mark PB</span>
-      <span class="ingredient-tag">Contratto Vermouth</span>
-      <span class="ingredient-tag">Vanilla Syrup</span>
-      <span class="ingredient-tag">Angostura</span>
-    </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Maker's Mark (private barrel)</li>
-        <li><span class="amt">1 oz</span> Contratto Vermouth</li>
-        <li><span class="amt">½ oz</span> Vanilla Syrup</li>
-        <li><span class="amt">6 dash</span> Angostura Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all ingredients in Large Rocks Glass</li>
-        <li>Add ice and stir</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Flamed Orange Peel</span></div>
-    </div>
-  </div>
+  <div class="grid" id="grid-cocktails">
  
-  <div class="card" data-category="whiskey" data-name="Vieux Carré">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">Vieux Carré</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Sazerac Rye</span>
-      <span class="ingredient-tag">Pierre Ferrand</span>
-      <span class="ingredient-tag">Contratto</span>
-      <span class="ingredient-tag">Two Bitters</span>
+    <!-- WHISKEY -->
+    <div class="card" data-category="whiskey" data-name="Bowdie's Old Fashioned">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">Bowdie's Old Fashioned</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Muddle + Stir</div>
+      <div class="tag-row">
+        <span class="tag">Buffalo Trace</span><span class="tag">Rum-infused Cherries</span><span class="tag">Angostura</span><span class="tag">Orange Slice</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Buffalo Trace</li>
+          <li><span class="amt">1 tsp</span> Sugar</li>
+          <li><span class="amt">3</span> Rum-infused Cherries</li>
+          <li><span class="amt">1</span> Orange Slice</li>
+          <li><span class="amt">3 dash</span> Angostura Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass</li>
+          <li>Add 2 oz Buffalo Trace</li>
+          <li>Add Large Cube and stir</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Brûléed Orange</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Sazerac Rye (100 Proof)</li>
-        <li><span class="amt">1 oz</span> Pierre Ferrand Cognac</li>
-        <li><span class="amt">½ oz</span> Contratto</li>
-        <li><span class="amt">1 tbsp</span> Dom Bénédictine</li>
-        <li><span class="amt">3 dash</span> Angostura Bitters</li>
-        <li><span class="amt">3 dash</span> Peychaud's Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in mixing glass</li>
-        <li>Add ice and stir</li>
-        <li>Strain into Large Rocks Glass with Large Cube</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Skewer of Rum-infused Cherries</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="whiskey" data-name="Sazerac">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">Sazerac</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Sazerac Rye</span>
-      <span class="ingredient-tag">Peychaud's</span>
-      <span class="ingredient-tag">Absente</span>
-      <span class="ingredient-tag">Sugar</span>
+    <div class="card" data-category="whiskey" data-name="The Manhattan">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">The Manhattan</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Stir</div>
+      <div class="tag-row">
+        <span class="tag">Maker's Mark PB</span><span class="tag">Contratto Vermouth</span><span class="tag">Vanilla Syrup</span><span class="tag">Angostura</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Maker's Mark (private barrel)</li>
+          <li><span class="amt">1 oz</span> Contratto Vermouth</li>
+          <li><span class="amt">½ oz</span> Vanilla Syrup</li>
+          <li><span class="amt">6 dash</span> Angostura Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all ingredients in Large Rocks Glass</li>
+          <li>Add ice and stir</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Flamed Orange Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Sazerac Rye</li>
-        <li><span class="amt">1 tsp</span> Sugar</li>
-        <li><span class="amt">5 dash</span> Peychaud's Bitters</li>
-        <li><span class="amt">¼ oz</span> Absente</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Add ice to Small Rocks Glass immediately — set aside</li>
-        <li>In mixing glass: add sugar, Peychaud's, rye, and Absente</li>
-        <li>Add ice and stir until cold</li>
-        <li>Empty ice from Rocks Glass</li>
-        <li>Strain mixing glass contents into Rocks Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="whiskey" data-name="The BG">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">The BG</div>
-    <div class="card-glass">Water Glass &nbsp;·&nbsp; Shaker</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Traveller Whiskey</span>
-      <span class="ingredient-tag">Honey Lavender</span>
-      <span class="ingredient-tag">Grapefruit</span>
-      <span class="ingredient-tag">Ginger Beer</span>
+    <div class="card" data-category="whiskey" data-name="Vieux Carré">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">Vieux Carré</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Sazerac Rye</span><span class="tag">Pierre Ferrand</span><span class="tag">Contratto</span><span class="tag">Two Bitters</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Sazerac Rye (100 Proof)</li>
+          <li><span class="amt">1 oz</span> Pierre Ferrand Cognac</li>
+          <li><span class="amt">½ oz</span> Contratto</li>
+          <li><span class="amt">1 tbsp</span> Dom Bénédictine</li>
+          <li><span class="amt">3 dash</span> Angostura Bitters</li>
+          <li><span class="amt">3 dash</span> Peychaud's Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in mixing glass</li>
+          <li>Add ice and stir</li>
+          <li>Strain into Large Rocks Glass with Large Cube</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Skewer of Rum-infused Cherries</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Traveller Whiskey (or house bourbon)</li>
-        <li><span class="amt">½ oz</span> Honey Lavender Syrup</li>
-        <li><span class="amt">1</span> Grapefruit, squeezed whole</li>
-        <li><span class="amt">3 dash</span> Black Walnut Bitters</li>
-        <li><span class="amt">—</span> Ginger Beer (top)</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine whiskey, honey lavender, grapefruit juice, and bitters in shaker</li>
-        <li>Add ice and shake</li>
-        <li>Pour into Water Glass</li>
-        <li>Top with Ginger Beer</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="whiskey" data-name="Espresso Old Fashioned">
-    <div class="card-category cat-whiskey">Whiskey</div>
-    <div class="card-name">Espresso Old Fashioned</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Shaker</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Buffalo Trace</span>
-      <span class="ingredient-tag">Bourbon Cream</span>
-      <span class="ingredient-tag">Frangelico</span>
-      <span class="ingredient-tag">Espresso</span>
+    <div class="card" data-category="whiskey" data-name="Sazerac">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">Sazerac</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Sazerac Rye</span><span class="tag">Peychaud's</span><span class="tag">Absente</span><span class="tag">Sugar</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Sazerac Rye</li>
+          <li><span class="amt">1 tsp</span> Sugar</li>
+          <li><span class="amt">5 dash</span> Peychaud's Bitters</li>
+          <li><span class="amt">¼ oz</span> Absente</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Add ice to Small Rocks Glass immediately — set aside</li>
+          <li>In mixing glass: add sugar, Peychaud's, rye, and Absente</li>
+          <li>Add ice and stir until cold</li>
+          <li>Empty ice from Rocks Glass</li>
+          <li>Strain mixing glass contents into Rocks Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Buffalo Trace</li>
-        <li><span class="amt">½ oz</span> Buffalo Bourbon Cream</li>
-        <li><span class="amt">½ oz</span> Frangelico</li>
-        <li><span class="amt">2 oz</span> Espresso</li>
-        <li><span class="amt">½ oz</span> Brown Sugar Syrup</li>
-        <li><span class="amt">3 dash</span> Angostura Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all ingredients in shaker</li>
-        <li>Add ice and shake</li>
-        <li>Pour into Large Rocks Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Espresso Beans</span></div>
-    </div>
-  </div>
  
-  <!-- GIN -->
-  <div class="card" data-category="gin" data-name="Vesper">
-    <div class="card-category cat-gin">Gin &amp; More</div>
-    <div class="card-name">Vesper</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Nolet's Gin</span>
-      <span class="ingredient-tag">Ketel One</span>
-      <span class="ingredient-tag">Lillet</span>
+    <div class="card" data-category="whiskey" data-name="The BG">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">The BG</div>
+      <div class="card-sub">Water Glass &nbsp;·&nbsp; Shaker</div>
+      <div class="tag-row">
+        <span class="tag">Traveller Whiskey</span><span class="tag">Honey Lavender</span><span class="tag">Grapefruit</span><span class="tag">Ginger Beer</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Traveller Whiskey (or house bourbon)</li>
+          <li><span class="amt">½ oz</span> Honey Lavender Syrup</li>
+          <li><span class="amt">1</span> Grapefruit, squeezed whole</li>
+          <li><span class="amt">3 dash</span> Black Walnut Bitters</li>
+          <li><span class="amt">—</span> Ginger Beer (top)</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine whiskey, honey lavender, grapefruit juice, and bitters in shaker</li>
+          <li>Add ice and shake</li>
+          <li>Pour into Water Glass</li>
+          <li>Top with Ginger Beer</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Nolet's Gin</li>
-        <li><span class="amt">1½ oz</span> Ketel One Vodka</li>
-        <li><span class="amt">1½ oz</span> Lillet</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in mixing glass with ice</li>
-        <li>Stir until cold</li>
-        <li>Strain into Martini Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="gin" data-name="Corpse Reviver">
-    <div class="card-category cat-gin">Gin</div>
-    <div class="card-name">Corpse Reviver</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Shaker + Absinthe Rinse</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Warner's Gin</span>
-      <span class="ingredient-tag">Lillet</span>
-      <span class="ingredient-tag">Pierre Ferrand</span>
-      <span class="ingredient-tag">Absinthe Rinse</span>
+    <div class="card" data-category="whiskey" data-name="Espresso Old Fashioned">
+      <div class="card-category cat-whiskey">Whiskey</div>
+      <div class="card-name">Espresso Old Fashioned</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Shaker</div>
+      <div class="tag-row">
+        <span class="tag">Buffalo Trace</span><span class="tag">Bourbon Cream</span><span class="tag">Frangelico</span><span class="tag">Espresso</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Buffalo Trace</li>
+          <li><span class="amt">½ oz</span> Buffalo Bourbon Cream</li>
+          <li><span class="amt">½ oz</span> Frangelico</li>
+          <li><span class="amt">2 oz</span> Espresso</li>
+          <li><span class="amt">½ oz</span> Brown Sugar Syrup</li>
+          <li><span class="amt">3 dash</span> Angostura Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all ingredients in shaker</li>
+          <li>Add ice and shake</li>
+          <li>Pour into Large Rocks Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Espresso Beans</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1 oz</span> Warner's Gin</li>
-        <li><span class="amt">1 oz</span> Lillet</li>
-        <li><span class="amt">1 oz</span> Pierre Ferrand Cognac</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">¼ oz</span> Absinthe (rinse)</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine gin, Lillet, cognac, and lemon in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Rinse Martini Glass with ¼ oz Absinthe — discard excess</li>
-        <li>Strain shaker into rinsed Martini Glass</li>
-      </ol>
-    </div>
-  </div>
  
-  <div class="card" data-category="gin" data-name="Aviation">
-    <div class="card-category cat-gin">Gin</div>
-    <div class="card-name">Aviation</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Aviation Gin</span>
-      <span class="ingredient-tag">Luxardo</span>
-      <span class="ingredient-tag">Crème de Violette</span>
-      <span class="ingredient-tag">Ginger Syrup</span>
+    <!-- GIN -->
+    <div class="card" data-category="gin" data-name="Vesper">
+      <div class="card-category cat-gin">Gin &amp; More</div>
+      <div class="card-name">Vesper</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Nolet's Gin</span><span class="tag">Ketel One</span><span class="tag">Lillet</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Nolet's Gin</li>
+          <li><span class="amt">1½ oz</span> Ketel One Vodka</li>
+          <li><span class="amt">1½ oz</span> Lillet</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in mixing glass with ice</li>
+          <li>Stir until cold</li>
+          <li>Strain into Martini Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Aviation Gin</li>
-        <li><span class="amt">1 oz</span> Luxardo Maraschino</li>
-        <li><span class="amt">¼ oz</span> Crème De Violette</li>
-        <li><span class="amt">½ oz</span> Ginger Syrup</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Strain into Martini Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Twist</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="gin" data-name="Cucumber Gimlet">
-    <div class="card-category cat-gin">Gin</div>
-    <div class="card-name">Cucumber Gimlet</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Muddle + Build</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Hendrick's Gin</span>
-      <span class="ingredient-tag">Cucumber</span>
-      <span class="ingredient-tag">Lime Juice</span>
-      <span class="ingredient-tag">Ginger Syrup</span>
+    <div class="card" data-category="gin" data-name="Corpse Reviver">
+      <div class="card-category cat-gin">Gin</div>
+      <div class="card-name">Corpse Reviver</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Absinthe Rinse</div>
+      <div class="tag-row">
+        <span class="tag">Warner's Gin</span><span class="tag">Lillet</span><span class="tag">Pierre Ferrand</span><span class="tag">Absinthe Rinse</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1 oz</span> Warner's Gin</li>
+          <li><span class="amt">1 oz</span> Lillet</li>
+          <li><span class="amt">1 oz</span> Pierre Ferrand Cognac</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">¼ oz</span> Absinthe (rinse)</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine gin, Lillet, cognac, and lemon in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Rinse Martini Glass with ¼ oz Absinthe — discard excess</li>
+          <li>Strain shaker into rinsed Martini Glass</li>
+        </ol>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Hendrick's Gin</li>
-        <li><span class="amt">3</span> Cucumber Slices</li>
-        <li><span class="amt">½ oz</span> Lime Juice</li>
-        <li><span class="amt">½ oz</span> Ginger Syrup</li>
-        <li><span class="amt">—</span> Soda (top)</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Muddle cucumber, lime juice, and ginger syrup in Large Rocks Glass</li>
-        <li>Add 2 oz Hendrick's Gin</li>
-        <li>Add ice and top with soda</li>
-      </ol>
-    </div>
-  </div>
  
-  <div class="card" data-category="gin" data-name="French 75">
-    <div class="card-category cat-gin">Gin</div>
-    <div class="card-name">French 75</div>
-    <div class="card-glass">Champagne Flute &nbsp;·&nbsp; Shaker + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Inverroche Gin</span>
-      <span class="ingredient-tag">Lemon Juice</span>
-      <span class="ingredient-tag">Vanilla Syrup</span>
-      <span class="ingredient-tag">Prosecco</span>
+    <div class="card" data-category="gin" data-name="Aviation">
+      <div class="card-category cat-gin">Gin</div>
+      <div class="card-name">Aviation</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Aviation Gin</span><span class="tag">Luxardo</span><span class="tag">Crème de Violette</span><span class="tag">Ginger Syrup</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Aviation Gin</li>
+          <li><span class="amt">1 oz</span> Luxardo Maraschino</li>
+          <li><span class="amt">¼ oz</span> Crème De Violette</li>
+          <li><span class="amt">½ oz</span> Ginger Syrup</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Strain into Martini Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Twist</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Inverroche Gin</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">½ oz</span> Vanilla Syrup</li>
-        <li><span class="amt">—</span> Prosecco (top)</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine gin, lemon, and vanilla in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Strain into Champagne Flute</li>
-        <li>Top with Prosecco</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="gin" data-name="Bee's Knees">
-    <div class="card-category cat-gin">Gin</div>
-    <div class="card-name">Bee's Knees</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Build</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Empress Indigo Gin</span>
-      <span class="ingredient-tag">Lemon Juice</span>
-      <span class="ingredient-tag">Honey Lavender</span>
+    <div class="card" data-category="gin" data-name="Cucumber Gimlet">
+      <div class="card-category cat-gin">Gin</div>
+      <div class="card-name">Cucumber Gimlet</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Muddle + Build</div>
+      <div class="tag-row">
+        <span class="tag">Hendrick's Gin</span><span class="tag">Cucumber</span><span class="tag">Lime Juice</span><span class="tag">Ginger Syrup</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Hendrick's Gin</li>
+          <li><span class="amt">3</span> Cucumber Slices</li>
+          <li><span class="amt">½ oz</span> Lime Juice</li>
+          <li><span class="amt">½ oz</span> Ginger Syrup</li>
+          <li><span class="amt">—</span> Soda (top)</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Muddle cucumber, lime juice, and ginger syrup in Large Rocks Glass</li>
+          <li>Add 2 oz Hendrick's Gin</li>
+          <li>Add ice and top with soda</li>
+        </ol>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Empress Indigo Gin</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">½ oz</span> Honey Lavender Syrup</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in Small Rocks Glass over ice</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <!-- TEQUILA -->
-  <div class="card" data-category="tequila" data-name="Paloma">
-    <div class="card-category cat-tequila">Tequila</div>
-    <div class="card-name">Paloma</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Build</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Reposado Tequila</span>
-      <span class="ingredient-tag">Grapefruit</span>
-      <span class="ingredient-tag">Vanilla Syrup</span>
+    <div class="card" data-category="gin" data-name="French 75">
+      <div class="card-category cat-gin">Gin</div>
+      <div class="card-name">French 75</div>
+      <div class="card-sub">Champagne Flute &nbsp;·&nbsp; Shaker + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Inverroche Gin</span><span class="tag">Lemon Juice</span><span class="tag">Vanilla Syrup</span><span class="tag">Prosecco</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Inverroche Gin</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">½ oz</span> Vanilla Syrup</li>
+          <li><span class="amt">—</span> Prosecco (top)</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine gin, lemon, and vanilla in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Strain into Champagne Flute</li>
+          <li>Top with Prosecco</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Reposado Tequila</li>
-        <li><span class="amt">½ oz</span> Vanilla Syrup</li>
-        <li><span class="amt">½</span> Grapefruit, squeezed</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in Small Rocks Glass over ice</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lime Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="tequila" data-name="Pablo Sour">
-    <div class="card-category cat-tequila">Tequila</div>
-    <div class="card-name">Pablo Sour</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Shaker + Pour (Egg White)</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Reposado Tequila</span>
-      <span class="ingredient-tag">Egg White</span>
-      <span class="ingredient-tag">Lemon Juice</span>
-      <span class="ingredient-tag">Vanilla Syrup</span>
+    <div class="card" data-category="gin" data-name="Bee's Knees">
+      <div class="card-category cat-gin">Gin</div>
+      <div class="card-name">Bee's Knees</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Build</div>
+      <div class="tag-row">
+        <span class="tag">Empress Indigo Gin</span><span class="tag">Lemon Juice</span><span class="tag">Honey Lavender</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Empress Indigo Gin</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">½ oz</span> Honey Lavender Syrup</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in Small Rocks Glass over ice</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Reposado Tequila</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">½ oz</span> Vanilla Syrup</li>
-        <li><span class="amt">1</span> Egg White</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Add ice to Small Rocks Glass immediately — set aside</li>
-        <li>In shaker: add tequila, lemon, vanilla syrup, and egg white</li>
-        <li>Add coil and shake (dry shake recommended)</li>
-        <li>Pour shaker contents into the iced Rocks Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="tequila" data-name="Margarita">
-    <div class="card-category cat-tequila">Tequila</div>
-    <div class="card-name">Margarita</div>
-    <div class="card-glass">Margarita Glass &nbsp;·&nbsp; Shaker + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Corazon Blanco</span>
-      <span class="ingredient-tag">Cointreau</span>
-      <span class="ingredient-tag">Three Citrus</span>
-      <span class="ingredient-tag">Salt Rim</span>
+    <!-- TEQUILA -->
+    <div class="card" data-category="tequila" data-name="Paloma">
+      <div class="card-category cat-tequila">Tequila</div>
+      <div class="card-name">Paloma</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Build</div>
+      <div class="tag-row">
+        <span class="tag">Reposado Tequila</span><span class="tag">Grapefruit</span><span class="tag">Vanilla Syrup</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Reposado Tequila</li>
+          <li><span class="amt">½ oz</span> Vanilla Syrup</li>
+          <li><span class="amt">½</span> Grapefruit, squeezed</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in Small Rocks Glass over ice</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lime Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Corazon Blanco Tequila</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">½ oz</span> Lime Juice</li>
-        <li><span class="amt">½ oz</span> Orange Juice</li>
-        <li><span class="amt">½ oz</span> Cointreau</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Salt the rim of Margarita Glass</li>
-        <li>Pour shaker contents into glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Salt Rim, Lime</span></div>
-    </div>
-  </div>
  
-  <!-- VODKA -->
-  <div class="card" data-category="vodka" data-name="Espresso Martini">
-    <div class="card-category cat-vodka">Vodka</div>
-    <div class="card-name">Espresso Martini</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Tito's</span>
-      <span class="ingredient-tag">Grind Espresso</span>
-      <span class="ingredient-tag">Averna Amaro</span>
-      <span class="ingredient-tag">Espresso</span>
+    <div class="card" data-category="tequila" data-name="Pablo Sour">
+      <div class="card-category cat-tequila">Tequila</div>
+      <div class="card-name">Pablo Sour</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Shaker + Pour (Egg White)</div>
+      <div class="tag-row">
+        <span class="tag">Reposado Tequila</span><span class="tag">Egg White</span><span class="tag">Lemon Juice</span><span class="tag">Vanilla Syrup</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Reposado Tequila</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">½ oz</span> Vanilla Syrup</li>
+          <li><span class="amt">1</span> Egg White</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Add ice to Small Rocks Glass immediately — set aside</li>
+          <li>In shaker: add tequila, lemon, vanilla syrup, and egg white</li>
+          <li>Add coil and shake (dry shake recommended)</li>
+          <li>Pour shaker contents into the iced Rocks Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lemon Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Tito's Handmade Vodka</li>
-        <li><span class="amt">1 oz</span> Espresso</li>
-        <li><span class="amt">1 oz</span> Grind Espresso Liqueur</li>
-        <li><span class="amt">½ oz</span> Averna Amaro</li>
-        <li><span class="amt">½ oz</span> Vanilla Syrup</li>
-        <li><span class="amt">2 dash</span> Angostura Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Strain into Martini Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>3 Espresso Beans</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="vodka" data-name="The Happy Wife">
-    <div class="card-category cat-vodka">Vodka</div>
-    <div class="card-name">The Happy Wife</div>
-    <div class="card-glass">Small Rocks Glass &nbsp;·&nbsp; Stir</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Tito's</span>
-      <span class="ingredient-tag">Orange Juice</span>
-      <span class="ingredient-tag">Ginger Syrup</span>
+    <div class="card" data-category="tequila" data-name="Margarita">
+      <div class="card-category cat-tequila">Tequila</div>
+      <div class="card-name">Margarita</div>
+      <div class="card-sub">Margarita Glass &nbsp;·&nbsp; Shaker + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Corazon Blanco</span><span class="tag">Cointreau</span><span class="tag">Three Citrus</span><span class="tag">Salt Rim</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Corazon Blanco Tequila</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">½ oz</span> Lime Juice</li>
+          <li><span class="amt">½ oz</span> Orange Juice</li>
+          <li><span class="amt">½ oz</span> Cointreau</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Salt the rim of Margarita Glass</li>
+          <li>Pour shaker contents into glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Salt Rim, Lime</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Tito's Handmade Vodka</li>
-        <li><span class="amt">1 oz</span> Orange Juice</li>
-        <li><span class="amt">½ oz</span> Ginger Syrup</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in Small Rocks Glass with ice</li>
-        <li>Stir</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Brûléed Orange</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="vodka" data-name="Transfusion">
-    <div class="card-category cat-vodka">Vodka</div>
-    <div class="card-name">Transfusion</div>
-    <div class="card-glass">Water Glass &nbsp;·&nbsp; Mixing Glass + Muddle</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Hangar 1 Vodka</span>
-      <span class="ingredient-tag">Black Grapes</span>
-      <span class="ingredient-tag">Lime Juice</span>
+    <!-- VODKA -->
+    <div class="card" data-category="vodka" data-name="Espresso Martini">
+      <div class="card-category cat-vodka">Vodka</div>
+      <div class="card-name">Espresso Martini</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Tito's</span><span class="tag">Grind Espresso</span><span class="tag">Averna Amaro</span><span class="tag">Espresso</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Tito's Handmade Vodka</li>
+          <li><span class="amt">1 oz</span> Espresso</li>
+          <li><span class="amt">1 oz</span> Grind Espresso Liqueur</li>
+          <li><span class="amt">½ oz</span> Averna Amaro</li>
+          <li><span class="amt">½ oz</span> Vanilla Syrup</li>
+          <li><span class="amt">2 dash</span> Angostura Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Strain into Martini Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>3 Espresso Beans</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Hangar 1 Vodka</li>
-        <li><span class="amt">4–5</span> Black Grapes</li>
-        <li><span class="amt">1 oz</span> Lime Juice</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Muddle grapes and lime juice in mixing glass</li>
-        <li>Add 2 oz Hangar 1 Vodka</li>
-        <li>Add ice and stir</li>
-        <li>Pour into Water Glass</li>
-        <li>Top with Ginger Beer</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Lime Peel</span></div>
-    </div>
-  </div>
  
-  <div class="card" data-category="vodka" data-name="Head Fake">
-    <div class="card-category cat-vodka">Vodka</div>
-    <div class="card-name">Head Fake</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Wheatley Vodka</span>
-      <span class="ingredient-tag">Limoncello</span>
-      <span class="ingredient-tag">Triple Sec</span>
-      <span class="ingredient-tag">Sugar Rim</span>
+    <div class="card" data-category="vodka" data-name="The Happy Wife">
+      <div class="card-category cat-vodka">Vodka</div>
+      <div class="card-name">The Happy Wife</div>
+      <div class="card-sub">Small Rocks Glass &nbsp;·&nbsp; Stir</div>
+      <div class="tag-row">
+        <span class="tag">Tito's</span><span class="tag">Orange Juice</span><span class="tag">Ginger Syrup</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Tito's Handmade Vodka</li>
+          <li><span class="amt">1 oz</span> Orange Juice</li>
+          <li><span class="amt">½ oz</span> Ginger Syrup</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in Small Rocks Glass with ice</li>
+          <li>Stir</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Brûléed Orange</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Wheatley Vodka</li>
-        <li><span class="amt">¾ oz</span> Limoncello</li>
-        <li><span class="amt">½ oz</span> Triple Sec</li>
-        <li><span class="amt">½ oz</span> Lemon Juice</li>
-        <li><span class="amt">½ oz</span> Simple Syrup</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Sugar the rim of Martini Glass</li>
-        <li>Strain into Martini Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Sugar Rim, Lemon Twist</span></div>
-    </div>
-  </div>
  
-  <!-- ADDITIONAL WHISKEY -->
-  <div class="card" data-category="offmenu gin" data-name="Negroni">
-    <div class="card-category cat-offmenu">Off Menu</div>
-    <div class="card-name">Negroni</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">House Gin</span>
-      <span class="ingredient-tag">Contratto Vermouth</span>
-      <span class="ingredient-tag">Campari</span>
+    <div class="card" data-category="vodka" data-name="Transfusion">
+      <div class="card-category cat-vodka">Vodka</div>
+      <div class="card-name">Transfusion</div>
+      <div class="card-sub">Water Glass &nbsp;·&nbsp; Mixing Glass + Muddle</div>
+      <div class="tag-row">
+        <span class="tag">Hangar 1 Vodka</span><span class="tag">Black Grapes</span><span class="tag">Lime Juice</span><span class="tag">Ginger Beer</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Hangar 1 Vodka</li>
+          <li><span class="amt">4–5</span> Black Grapes</li>
+          <li><span class="amt">1 oz</span> Lime Juice</li>
+          <li><span class="amt">—</span> Ginger Beer (top)</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Muddle grapes and lime juice in mixing glass</li>
+          <li>Add 2 oz Hangar 1 Vodka</li>
+          <li>Add ice and stir</li>
+          <li>Pour into Water Glass</li>
+          <li>Top with Ginger Beer</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Lime Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Gin (house)</li>
-        <li><span class="amt">1½ oz</span> Contratto Vermouth</li>
-        <li><span class="amt">1½ oz</span> Campari</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in mixing glass with ice</li>
-        <li>Stir until cold</li>
-        <li>Strain into Large Rocks Glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Orange Peel</span></div>
-    </div>
-  </div>
  
-  <!-- ADDITIONAL VODKA -->
-  <div class="card" data-category="offmenu vodka" data-name="Inhibited">
-    <div class="card-category cat-offmenu">Off Menu</div>
-    <div class="card-name">Inhibited</div>
-    <div class="card-glass">Martini Glass &nbsp;·&nbsp; Shaker + Chocolate Drizzle</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Tito's</span>
-      <span class="ingredient-tag">Kahlúa</span>
-      <span class="ingredient-tag">Bailey's</span>
-      <span class="ingredient-tag">Chocolate Liqueur</span>
-      <span class="ingredient-tag">Espresso</span>
+    <div class="card" data-category="vodka" data-name="Head Fake">
+      <div class="card-category cat-vodka">Vodka</div>
+      <div class="card-name">Head Fake</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
+      <div class="tag-row">
+        <span class="tag">Wheatley Vodka</span><span class="tag">Limoncello</span><span class="tag">Triple Sec</span><span class="tag">Sugar Rim</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Wheatley Vodka</li>
+          <li><span class="amt">¾ oz</span> Limoncello</li>
+          <li><span class="amt">½ oz</span> Triple Sec</li>
+          <li><span class="amt">½ oz</span> Lemon Juice</li>
+          <li><span class="amt">½ oz</span> Simple Syrup</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Sugar the rim of Martini Glass</li>
+          <li>Strain into Martini Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Sugar Rim, Lemon Twist</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">1½ oz</span> Tito's Handmade Vodka</li>
-        <li><span class="amt">½ oz</span> Kahlúa</li>
-        <li><span class="amt">½ oz</span> Bailey's Irish Cream</li>
-        <li><span class="amt">½ oz</span> Chocolate Liqueur</li>
-        <li><span class="amt">1 oz</span> Espresso</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in shaker with ice</li>
-        <li>Shake well</li>
-        <li>Drizzle Chocolate Syrup inside Martini Glass</li>
-        <li>Pour shaker contents into glass</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Chocolate Shavings</span></div>
-    </div>
-  </div>
  
-  <!-- ADDITIONAL WHISKEY -->
-  <div class="card" data-category="offmenu whiskey" data-name="Not a Paper Plane">
-    <div class="card-category cat-offmenu">Off Menu</div>
-    <div class="card-name">Not a Paper Plane</div>
-    <div class="card-glass">Large Rocks Glass &nbsp;·&nbsp; Stir</div>
-    <div class="ingredients-preview">
-      <span class="ingredient-tag">Bulleit Bourbon</span>
-      <span class="ingredient-tag">Nonino Amaro</span>
-      <span class="ingredient-tag">Aperol</span>
-      <span class="ingredient-tag">Angostura</span>
+    <!-- OFF MENU -->
+    <div class="card" data-category="offmenu gin" data-name="Negroni">
+      <div class="card-category cat-offmenu">Off Menu</div>
+      <div class="card-name">Negroni</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
+      <div class="tag-row">
+        <span class="tag">House Gin</span><span class="tag">Contratto Vermouth</span><span class="tag">Campari</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Gin (house)</li>
+          <li><span class="amt">1½ oz</span> Contratto Vermouth</li>
+          <li><span class="amt">1½ oz</span> Campari</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in mixing glass with ice</li>
+          <li>Stir until cold</li>
+          <li>Strain into Large Rocks Glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Orange Peel</span></div>
+      </div>
     </div>
-    <div class="expand-hint">Build</div>
-    <div class="recipe-detail">
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="ingredient-list">
-        <li><span class="amt">2 oz</span> Bulleit Bourbon</li>
-        <li><span class="amt">½ oz</span> Nonino Quintessential Amaro</li>
-        <li><span class="amt">½ oz</span> Aperol Apertivo</li>
-        <li><span class="amt">4 dash</span> Angostura Bitters</li>
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <ol class="step-list">
-        <li>Combine all in Large Rocks Glass</li>
-        <li>Add Large Cube and stir</li>
-      </ol>
-      <div class="garnish-line">Garnish: <span>Orange Peel</span></div>
-    </div>
-  </div>
  
-  <div class="no-results" id="noResults">No cocktails found — try a different filter.</div>
-</div>
+    <div class="card" data-category="offmenu vodka" data-name="Inhibited">
+      <div class="card-category cat-offmenu">Off Menu</div>
+      <div class="card-name">Inhibited</div>
+      <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Chocolate Drizzle</div>
+      <div class="tag-row">
+        <span class="tag">Tito's</span><span class="tag">Kahlúa</span><span class="tag">Bailey's</span><span class="tag">Chocolate Liqueur</span><span class="tag">Espresso</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">1½ oz</span> Tito's Handmade Vodka</li>
+          <li><span class="amt">½ oz</span> Kahlúa</li>
+          <li><span class="amt">½ oz</span> Bailey's Irish Cream</li>
+          <li><span class="amt">½ oz</span> Chocolate Liqueur</li>
+          <li><span class="amt">1 oz</span> Espresso</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in shaker with ice</li>
+          <li>Shake well</li>
+          <li>Drizzle Chocolate Syrup inside Martini Glass</li>
+          <li>Pour shaker contents into glass</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Chocolate Shavings</span></div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="offmenu whiskey" data-name="Not a Paper Plane">
+      <div class="card-category cat-offmenu">Off Menu</div>
+      <div class="card-name">Not a Paper Plane</div>
+      <div class="card-sub">Large Rocks Glass &nbsp;·&nbsp; Stir</div>
+      <div class="tag-row">
+        <span class="tag">Bulleit Bourbon</span><span class="tag">Nonino Amaro</span><span class="tag">Aperol</span><span class="tag">Angostura</span>
+      </div>
+      <div class="expand-hint">Build</div>
+      <div class="card-detail">
+        <div class="section-label">Ingredients</div>
+        <ul class="ingredient-list">
+          <li><span class="amt">2 oz</span> Bulleit Bourbon</li>
+          <li><span class="amt">½ oz</span> Nonino Quintessential Amaro</li>
+          <li><span class="amt">½ oz</span> Aperol Apertivo</li>
+          <li><span class="amt">4 dash</span> Angostura Bitters</li>
+        </ul>
+        <div class="section-label">Method</div>
+        <ol class="step-list">
+          <li>Combine all in Large Rocks Glass</li>
+          <li>Add Large Cube and stir</li>
+        </ol>
+        <div class="garnish-line">Garnish: <span>Orange Peel</span></div>
+      </div>
+    </div>
+ 
+    <div class="no-results" id="no-cocktails">No cocktails found — try a different filter.</div>
+  </div><!-- /grid-cocktails -->
+</div><!-- /panel-cocktails -->
+ 
+ 
+<!-- ════════════════════════════════════════
+     WINE PANEL
+════════════════════════════════════════ -->
+<div class="guide-panel" id="panel-wine">
+ 
+  <div class="grid" id="grid-wine">
+ 
+    <!-- BUBBLES -->
+    <div class="card" data-category="bubbles" data-name="G.D. Vajra Moscato d'Asti">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">G.D. Vajra Moscato d'Asti</div>
+      <div class="card-sub">Moscato &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Sparkling</span><span class="tag">Sweet</span><span class="tag">Low ABV</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Piedmont, Italy — Asti DOCG</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Moscato</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Delicate and aromatic with peach blossom, apricot, and lychee on the nose. Lively and gently sweet — effervescent citrus with a honeyed finish that stays light on its feet.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Il Colle Prosecco Superiore">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Il Colle Prosecco Superiore</div>
+      <div class="card-sub">Glera &nbsp;·&nbsp; Veneto, Italy</div>
+      <div class="tag-row"><span class="tag">Sparkling</span><span class="tag">Dry</span><span class="tag">Aperitif</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Veneto, Italy — Conegliano Valdobbiadene DOCG</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Glera</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Bright and floral with white peach and green apple aromatics. Crisp, refreshing bubbles carry a clean citrus finish — ideal as an opener or alongside lighter dishes.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Raventós Cava de NIT Rosé Brut">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Raventós Cava de NIT Rosé Brut</div>
+      <div class="card-sub">Blend &nbsp;·&nbsp; Catalonia, Spain</div>
+      <div class="tag-row"><span class="tag">Sparkling</span><span class="tag">Rosé</span><span class="tag">Dry</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Catalonia, Spain — Conca del Riu Anoia</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Dry and elegant with wild strawberry, raspberry, and a distinct mineral spine. Fine persistent bubbles carry a clean saline finish — sophisticated and food-friendly.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Laurent Perrier Le Cuvée Brut">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Laurent Perrier Le Cuvée Brut</div>
+      <div class="card-sub">Chardonnay Blend &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Brut</span><span class="tag">Non-Vintage</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Tours-sur-Marne</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Precise and refined with green apple, lemon zest, and a whisper of brioche. Vibrant acidity gives it lift while the finish is clean, long, and impeccably balanced.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Laurent Perrier Brut Rosé">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Laurent Perrier Brut Rosé</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Rosé</span><span class="tag">Brut</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Tours-sur-Marne</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of the benchmark Champagne rosés. Expressive red berry aromas — strawberry, raspberry, fresh cherry — with a silky, structured mousse and a long, elegant finish.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Veuve Clicquot Brut">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Veuve Clicquot Brut</div>
+      <div class="card-sub">Chardonnay Blend &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Brut</span><span class="tag">Approachable</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Reims</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay Blend (Pinot Noir dominant)</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The iconic yellow label. Balanced and crowd-pleasing with ripe apple, white peach, and biscuit notes. Creamy mousse and lively acidity — a reliable go-to for any celebration.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Paul Bara Grand Rosé Brut">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Paul Bara Grand Rosé Brut</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Grower</span><span class="tag">Rosé</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Bouzy Grand Cru</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A grower Champagne from one of Bouzy's finest houses. Structured and serious — ripe raspberry and red currant framed by fine bubbles and a minerally, persistent finish. More Burgundian than commercial.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Robert Moncuit Les Grand Blancs">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Robert Moncuit Les Grand Blancs</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Blanc de Blancs</span><span class="tag">Extra Brut</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Le Mesnil-sur-Oger Grand Cru</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Precise and austere in the best possible way. Chalky minerality, lemon curd, and green apple with almost no dosage — pure expression of Le Mesnil terroir. A sommelier's Champagne.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Pierre Gimonnet Special Club Brut">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Pierre Gimonnet Special Club Brut</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Blanc de Blancs</span><span class="tag">Vintage</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2015</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Côte des Blancs</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A prestige cuvée from a top grower house. Layered and complex — citrus zest, toasted brioche, and white flowers with a creamy, refined texture. The 2015 vintage adds extra depth and age-worthiness.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="bubbles" data-name="Pommery Cuvée Louise">
+      <div class="card-category cat-bubbles">Bubbles</div>
+      <div class="card-name">Pommery Cuvée Louise</div>
+      <div class="card-sub">Blend &nbsp;·&nbsp; Champagne, France</div>
+      <div class="tag-row"><span class="tag">Champagne</span><span class="tag">Prestige Cuvée</span><span class="tag">Mature</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2004</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Champagne, France — Reims</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay &amp; Pinot Noir Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Twenty years of age have brought extraordinary complexity. Toasted almond, dried apricot, honey, and a brioche-rich palate with fine, persistent bubbles. An occasion bottle — treat it accordingly.</div>
+      </div>
+    </div>
+ 
+    <!-- WHITES -->
+    <div class="card" data-category="whites" data-name="Stoneleigh Sauvignon Blanc">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Stoneleigh Sauvignon Blanc</div>
+      <div class="card-sub">Sauvignon Blanc &nbsp;·&nbsp; Marlborough, New Zealand</div>
+      <div class="tag-row"><span class="tag">Crisp</span><span class="tag">Tropical</span><span class="tag">Herbal</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Marlborough, New Zealand</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Sauvignon Blanc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Classic Marlborough expression — passionfruit, grapefruit, and fresh-cut grass with zesty acidity. Easy-drinking and consistent, a reliable by-the-glass anchor for guests who like something bright and clean.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Alexander Valley Chardonnay">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Alexander Valley Chardonnay</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Oaked</span><span class="tag">Smooth</span><span class="tag">Approachable</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Alexander Valley, Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Ripe apple, pear, and a warm vanilla note from oak aging. Smooth, balanced texture that's accessible without being simple — a solid intro for guests who enjoy California Chardonnay.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="St Supéry Sauvignon Blanc">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">St Supéry Sauvignon Blanc</div>
+      <div class="card-sub">Sauvignon Blanc &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Vibrant</span><span class="tag">Citrus</span><span class="tag">Crisp</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Dollarhide Ranch</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Sauvignon Blanc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Lemon, grapefruit, and gooseberry with a clean, lively finish. Napa-grown Sauvignon Blanc tends to be rounder than New Zealand — this one bridges freshness and body nicely.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Elk Cove Pinot Blanc">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Elk Cove Pinot Blanc</div>
+      <div class="card-sub">Pinot Blanc &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Floral</span><span class="tag">Soft</span><span class="tag">Food-Friendly</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Blanc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Soft pear, white peach, and a delicate floral lift. Medium body with refreshing acidity. A great recommendation for guests who want something lighter than Chardonnay but more interesting than Sauvignon Blanc.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Jean-Pierre Grossot Chablis">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Jean-Pierre Grossot Chablis</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Burgundy, France</div>
+      <div class="tag-row"><span class="tag">Mineral</span><span class="tag">Unoaked</span><span class="tag">Lean</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Chablis, Burgundy, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The textbook case for unoaked Chardonnay. Flinty, chalky minerality with bright lemon and green apple. Lean and precise — ideal alongside oysters, seafood, or anything delicate.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Schloss Vollrads Riesling">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Schloss Vollrads Riesling</div>
+      <div class="card-sub">Riesling &nbsp;·&nbsp; Rheingau, Germany</div>
+      <div class="tag-row"><span class="tag">Off-Dry</span><span class="tag">Aromatic</span><span class="tag">Historic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rheingau, Germany — one of the oldest wine estates in the world</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Riesling</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Apricot, white peach, and petrol with a lively acid backbone that keeps the residual sweetness in check. A gateway Riesling for skeptics — mention the estate's 700-year history as a hook.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Le Garenne Rosé">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Le Garenne Rosé</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Loire Valley, France</div>
+      <div class="tag-row"><span class="tag">Rosé</span><span class="tag">Light</span><span class="tag">Refreshing</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Loire Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Pale salmon with fresh strawberry, watermelon, and a light floral note. Dry and clean with a crisp finish — perfect for guests who want something light and seasonal.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Domaine de Berthiers Pouilly-Fumé">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Domaine de Berthiers Pouilly-Fumé</div>
+      <div class="card-sub">Sauvignon Blanc &nbsp;·&nbsp; Loire Valley, France</div>
+      <div class="tag-row"><span class="tag">Mineral</span><span class="tag">Flint</span><span class="tag">Citrus</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Pouilly-Fumé, Loire Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Sauvignon Blanc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Gun-flint minerality is the calling card — smoky and complex beneath grapefruit and lime zest. Fuller and more serious than New Zealand Sauv Blanc. Great for guests who want something with a sense of place.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Our Lady of Guadalupe Acolytes">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Our Lady of Guadalupe Acolytes</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Rich</span><span class="tag">Oaked</span><span class="tag">Creamy</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon — Trappist Monastery</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Made by monks at a Trappist monastery in Oregon. Rich and layered with ripe pear, butterscotch, and toasted oak. Worth mentioning the provenance to guests — it's a conversation starter.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Joseph Mellot Sancerre">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Joseph Mellot Sancerre</div>
+      <div class="card-sub">Sauvignon Blanc &nbsp;·&nbsp; Loire Valley, France</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Herbal</span><span class="tag">Benchmark</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sancerre, Loire Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Sauvignon Blanc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The benchmark for what Sauvignon Blanc can be. Crisp and refined with white grapefruit, chalk, fresh herbs, and a tension-filled finish. Teach guests the difference from New World styles.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Keenan Chardonnay">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Keenan Chardonnay</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Spring Mountain, Napa</div>
+      <div class="tag-row"><span class="tag">Balanced</span><span class="tag">Mountain</span><span class="tag">Oaked</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2023</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Spring Mountain District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Mountain-grown Chardonnay with more structure than valley floor fruit. Green apple, lemon curd, and subtle oak with bright acidity that gives it real food-pairing versatility.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="whites" data-name="Far Niente Chardonnay">
+      <div class="card-category cat-whites">Whites</div>
+      <div class="card-name">Far Niente Chardonnay</div>
+      <div class="card-sub">Chardonnay &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Luxurious</span><span class="tag">Full-Bodied</span><span class="tag">Iconic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Oakville</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Chardonnay</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of Napa's finest Chardonnays. Buttered citrus, toasted hazelnut, crème brûlée, and a lush, velvety texture. The finish is long and indulgent — a special occasion pour.</div>
+      </div>
+    </div>
+ 
+    <!-- BY THE GLASS -->
+    <div class="card" data-category="glass" data-name="Lunaria Coste di Moro">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Lunaria Coste di Moro</div>
+      <div class="card-sub">Montepulciano &nbsp;·&nbsp; Abruzzo, Italy</div>
+      <div class="tag-row"><span class="tag">Earthy</span><span class="tag">Dark Fruit</span><span class="tag">Rustic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Abruzzo, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Montepulciano d'Abruzzo</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Earthy and grippy with dark cherry, dried herbs, and a rustic structure. Great value with enough character to hold its own alongside beef or lamb. The go-to for guests who want Italian and approachable.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Kermit Lynch Côtes du Rhône">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Kermit Lynch Côtes du Rhône</div>
+      <div class="card-sub">Grenache Blend &nbsp;·&nbsp; Rhône Valley, France</div>
+      <div class="tag-row"><span class="tag">Spicy</span><span class="tag">Savory</span><span class="tag">French</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rhône Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Grenache Blend (Syrah, Mourvèdre)</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A Kermit Lynch selection is always a quality indicator. Red cherry, wild herbs, pepper, and a garrigue-tinged savory finish. Medium-bodied and food-friendly — the choice for guests who want something Southern French and interesting.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Alexander Valley Homestead Red">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Alexander Valley Homestead Red</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Medium Body</span><span class="tag">Accessible</span><span class="tag">Berry</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Alexander Valley, Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Bordeaux Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Plum, blackberry, and a hint of mocha with soft tannins and a smooth finish. A crowd-pleaser that pairs broadly with the menu.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Scotto Cellars The Lost Chapters">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Scotto Cellars The Lost Chapters</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; California</div>
+      <div class="tag-row"><span class="tag">Rich</span><span class="tag">Cassis</span><span class="tag">Smooth</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Black cherry, cassis, and a touch of dark chocolate with integrated tannins and a smooth, generous finish. Strong by-the-glass value.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Corazón del Sol Malbec">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Corazón del Sol Malbec</div>
+      <div class="card-sub">Malbec &nbsp;·&nbsp; Mendoza, Argentina</div>
+      <div class="tag-row"><span class="tag">Bold</span><span class="tag">Plum</span><span class="tag">Velvety</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Mendoza, Argentina</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Malbec</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Bold and plush with dark plum, blackberry jam, and a violet note. Velvety tannins and a warm finish. Easy sell to guests who enjoy full-bodied reds — lean into the Argentinian richness.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Fento Ollo de Sapo Mencía">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Fento Ollo de Sapo Mencía</div>
+      <div class="card-sub">Mencía &nbsp;·&nbsp; Galicia, Spain</div>
+      <div class="tag-row"><span class="tag">Fresh</span><span class="tag">Mineral</span><span class="tag">Unique</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Galicia, Spain — Ribeira Sacra</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Mencía</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Fresh red cherry, slate minerality, and a lively lift — lighter-bodied with a Burgundian sensibility. A great choice for the adventurous guest who wants something they've never tried.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Lingua Franca Avni Pinot Noir">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Lingua Franca Avni Pinot Noir</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Cherry</span><span class="tag">Earthy</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Dark cherry, forest floor, and a whisper of spice with refined structure. The entry point into Oregon Pinot for guests who want something serious by the glass.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Fisher Unity Pinot Noir">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Fisher Unity Pinot Noir</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Silky</span><span class="tag">Cranberry</span><span class="tag">Bright</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Bright cranberry, red cherry, and a touch of baking spice with silky tannins. Easy to recommend to guests who want something lighter than Cabernet but more substantial than rosé.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Château de Rouillac">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Château de Rouillac</div>
+      <div class="card-sub">Cabernet Blend &nbsp;·&nbsp; Bordeaux, France</div>
+      <div class="tag-row"><span class="tag">Classic</span><span class="tag">Tobacco</span><span class="tag">Structured</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Pessac-Léognan, Bordeaux, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon &amp; Merlot Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Classic left-bank Bordeaux — blackcurrant, cedar, graphite, and a tobacco finish. Structured and dry with firm tannins. For guests who know Bordeaux, an easy recommendation.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="St Supéry Cabernet Sauvignon">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">St Supéry Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Full-Bodied</span><span class="tag">Dark Fruit</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Rutherford</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Rich and full with blackberry, cassis, and a hint of mocha. Classic Napa Cabernet character at an accessible by-the-glass price point.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Quilt Cabernet Sauvignon">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Quilt Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Opulent</span><span class="tag">Blackberry</span><span class="tag">Polished</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Ripe and lush with blackberry, dark chocolate, and toasted vanilla. Polished tannins and an indulgent finish. A strong anchor for guests who want Napa Cabernet without committing to a bottle.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Scavino Barolo">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Scavino Barolo</div>
+      <div class="card-sub">Nebbiolo &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Firm Tannins</span><span class="tag">Floral</span><span class="tag">Prestige</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Barolo DOCG, Piedmont, Italy — Castiglione Falletto</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Nebbiolo</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The King of Italian wines. Tar, dried rose, cherry, and leather with powerful tannins and high acidity that demands food. Scavino is one of the top Barolo producers — worth educating guests on the prestige. Suggest with aged beef.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="glass" data-name="Caymus Cabernet Sauvignon">
+      <div class="card-category cat-glass">By the Glass</div>
+      <div class="card-name">Caymus Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Iconic</span><span class="tag">Velvety</span><span class="tag">Concentrated</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Rutherford</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of Napa's most recognized labels. Concentrated black fruit, cocoa, and mocha with famously velvety tannins and a long, warming finish. The 2020 vintage is particularly opulent — an easy pour for guests who know the name.</div>
+      </div>
+    </div>
+ 
+    <!-- PINOT NOIR -->
+    <div class="card" data-category="pinot" data-name="Cristom Mt Jefferson Cuvée">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Cristom Mt Jefferson Cuvée</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Cherry</span><span class="tag">Mineral</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2024</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon — Eola-Amity Hills</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A benchmark Oregon Pinot from one of the Willamette's finest producers. Bright cherry, raspberry, and forest floor with a mineral backbone and graceful structure. Elegant without being delicate.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Daniel Chotard Sancerre Rouge">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Daniel Chotard Sancerre Rouge</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Loire Valley, France</div>
+      <div class="tag-row"><span class="tag">Light</span><span class="tag">Earthy</span><span class="tag">French</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sancerre, Loire Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Red Sancerre is a hidden gem — lighter-bodied, earthy Pinot Noir with raspberry, chalk, and dried herbs. A distinctly French take that surprises guests expecting something richer.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Evening Land Seven Springs">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Evening Land Seven Springs</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Eola-Amity Hills, Oregon</div>
+      <div class="tag-row"><span class="tag">Savory</span><span class="tag">Complex</span><span class="tag">Cool Climate</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Eola-Amity Hills, Willamette Valley, Oregon</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Darker and more savory than typical Willamette Pinot — black cherry, smoked meat, dried rose, and crushed stone. Complex and age-worthy for guests who want something serious.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Marimar Estate Christina">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Marimar Estate Christina</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Silky</span><span class="tag">Ripe</span><span class="tag">California</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Green Valley of Russian River Valley, Sonoma, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Rich and expressive with ripe strawberry, cherry compote, and a warm spice note. Silky on the palate with a generous, smooth finish. More opulent than Oregon Pinot — great for guests who want something plush.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Jax Calesa Vineyard Pinot Noir">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Jax Calesa Vineyard Pinot Noir</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Russian River Valley, California</div>
+      <div class="tag-row"><span class="tag">Balanced</span><span class="tag">Cherry</span><span class="tag">Smooth</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Russian River Valley, Sonoma, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Red cherry, pomegranate, and subtle earth with well-balanced acidity and a smooth, clean finish. A reliable Russian River Pinot — consistent and food-friendly.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Macauley Pinot Noir">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Macauley Pinot Noir</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Soft</span><span class="tag">Berry</span><span class="tag">Approachable</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Bright and accessible with strawberry, red cherry, and a light floral note. Soft tannins and a clean finish — a reliable mid-tier Pinot recommendation.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Elk Cove Five Mountain">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Elk Cove Five Mountain</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Structured</span><span class="tag">Floral</span><span class="tag">Spice</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2023</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon — Chehalem Mountains</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Draws from five Willamette AVAs. Cherry, violet, and clove with a structured, age-worthy backbone. A step up for guests who want to explore Oregon Pinot more seriously.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="RAEN Royal St Robert">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">RAEN Royal St Robert</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Sonoma Coast, California</div>
+      <div class="tag-row"><span class="tag">Coastal</span><span class="tag">Fresh</span><span class="tag">Elegant</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Fort Ross-Seaview, Sonoma Coast, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Sea-influenced freshness gives it a Burgundian quality — red cherry, cranberry, wild strawberry, and crushed rock with silky tannins and a long mineral finish. One of California's finest Pinots.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="Sanford & Benedict Pinot Noir">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">Sanford &amp; Benedict Pinot Noir</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Santa Rita Hills, California</div>
+      <div class="tag-row"><span class="tag">Complex</span><span class="tag">Earthy</span><span class="tag">Historic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sta. Rita Hills, Santa Barbara County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The Sanford &amp; Benedict vineyard is a California Pinot legend — planted in 1971, it helped establish Santa Rita Hills as a world-class region. Rich, layered, complex — dark cherry, earth, dried herbs, and remarkable finesse.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="pinot" data-name="J Davies Ferrington Vineyards">
+      <div class="card-category cat-pinot">Pinot Noir</div>
+      <div class="card-name">J Davies Ferrington Vineyards</div>
+      <div class="card-sub">Pinot Noir &nbsp;·&nbsp; Anderson Valley, California</div>
+      <div class="tag-row"><span class="tag">Rich</span><span class="tag">Concentrated</span><span class="tag">Anderson Valley</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Anderson Valley, Mendocino County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Anderson Valley produces Pinot with more concentration than the Sonoma Coast but cooler than Russian River. Dark cherry, blackberry, and mocha with firm but refined tannins and a long finish.</div>
+      </div>
+    </div>
+ 
+    <!-- CABERNET -->
+    <div class="card" data-category="cab" data-name="Faust Napa Valley Cabernet">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Faust Napa Valley Cabernet</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Dense</span><span class="tag">Black Fruit</span><span class="tag">Structured</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Coombsville &amp; Oak Knoll</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Dark and brooding with blackcurrant, blueberry, dark chocolate, and a hint of tobacco. Structured tannins and a long, layered finish. One of Napa's best values at this price tier.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Gundlach Bundschu Cabernet">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Gundlach Bundschu Cabernet</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Sonoma Valley, California</div>
+      <div class="tag-row"><span class="tag">Classic</span><span class="tag">Cedar</span><span class="tag">Sonoma</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Sonoma Valley, California — Rhinefarm Vineyard (est. 1858)</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of California's oldest family wineries. Classic and restrained with blackberry, cedar, dried herb, and a firm tannic structure. Sonoma Cab tends to be more savory than Napa — a great talking point.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Austin Hope Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Austin Hope Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Paso Robles, California</div>
+      <div class="tag-row"><span class="tag">Bold</span><span class="tag">Plum</span><span class="tag">Paso Robles</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2023</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Paso Robles, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Bold and expressive — ripe plum, dark cherry, mocha, and warm spice with a plush, full finish. Paso Robles produces bigger, warmer reds than Napa. A great choice for guests who want maximum richness.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Jordan Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Jordan Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Alexander Valley, California</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Restrained</span><span class="tag">Iconic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Alexander Valley, Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Elegant and restrained — cassis, plum, cedar, and mint with fine-grained tannins and impeccable balance. Jordan has been producing at this level for decades — a name guests recognize and trust.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Nickel & Nickel Cabernet">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Nickel &amp; Nickel Cabernet</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Single Vineyard</span><span class="tag">Cassis</span><span class="tag">Intense</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Oakville</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Deep cassis, blackberry, graphite, and subtle oak with concentrated intensity and a structured, age-worthy finish. A prestige pour for guests who want terroir specificity in their Napa Cab.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Far Niente Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Far Niente Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Luxurious</span><span class="tag">Dark Chocolate</span><span class="tag">Prestige</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Oakville</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Lush and luxurious — blackcurrant, dark chocolate, espresso, and a hint of violet with a smooth, powerful structure and an extraordinarily long finish. Pair with the best cuts on the menu.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Odette Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Odette Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Stags Leap, Napa</div>
+      <div class="tag-row"><span class="tag">Powerful</span><span class="tag">Layered</span><span class="tag">Stags Leap</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Stags Leap District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Stags Leap produces Cabernet with an iron-fist-in-a-velvet-glove quality. Odette captures that perfectly — dark fruit, sage, cedar, and graphite with firm tannins that are remarkably refined.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Freemark Abbey Bosché">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Freemark Abbey Bosché</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Age-Worthy</span><span class="tag">Firm</span><span class="tag">Classic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rutherford, Napa Valley, California — Bosché Vineyard</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The Bosché Vineyard has been producing since 1970. Classic and structured with blackcurrant, tobacco, graphite, and firm tannins built for aging. The 2018 is drinking beautifully now with a long road ahead.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="cab" data-name="Opus One">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Opus One</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Iconic</span><span class="tag">Structured</span><span class="tag">Collector</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Oakville (Mondavi &amp; Rothschild collaboration)</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon-dominant Bordeaux Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The most famous wine on the list. Born from the collaboration between Robert Mondavi and Baron Philippe de Rothschild. Dark fruit, mocha, cedar, and dried violet with a structured, impeccably balanced finish that will evolve for decades. Sell the story as much as the wine.</div>
+      </div>
+    </div>
+ 
+    <!-- OLD WORLD -->
+    <div class="card" data-category="old" data-name="Marc Brédif Chinon">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Marc Brédif Chinon</div>
+      <div class="card-sub">Cabernet Franc &nbsp;·&nbsp; Loire Valley, France</div>
+      <div class="tag-row"><span class="tag">Herbal</span><span class="tag">Red Fruit</span><span class="tag">Elegant</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Chinon, Loire Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Franc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Lighter and more herbal than Bordeaux Cab Franc. Raspberry, red cherry, bell pepper, and forest floor with supple tannins and bright acidity. A great food wine and a talking point for guests who've never explored Loire reds.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Braida Montebruna Barbera">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Braida Montebruna Barbera</div>
+      <div class="card-sub">Barbera &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Juicy</span><span class="tag">Dark Cherry</span><span class="tag">High Acid</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Monferrato, Piedmont, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Barbera d'Asti</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Braida is the benchmark for Barbera. Intensely juicy dark cherry and blackberry with naturally high acidity and minimal tannin. Excellent with red meat or pasta — great for guests who want something Italian that isn't Barolo.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Le Volte dell'Ornellaia">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Le Volte dell'Ornellaia</div>
+      <div class="card-sub">Merlot Blend &nbsp;·&nbsp; Tuscany, Italy</div>
+      <div class="tag-row"><span class="tag">Smooth</span><span class="tag">Approachable</span><span class="tag">Super Tuscan</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Bolgheri, Tuscany, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Merlot, Cabernet Sauvignon, Sangiovese</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The second label of the legendary Ornellaia estate. Rich plum, cherry, and a hint of mocha with smooth, approachable tannins. A Super Tuscan accessible enough for everyday drinking — and a gateway to the flagship.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Muga Reserva">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Muga Reserva</div>
+      <div class="card-sub">Tempranillo &nbsp;·&nbsp; Rioja, Spain</div>
+      <div class="tag-row"><span class="tag">Savory</span><span class="tag">Oak</span><span class="tag">Spanish</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rioja Alta, Spain</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Tempranillo, Garnacha, Mazuelo, Graciano</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Classic Rioja Reserva — aged in American and French oak. Strawberry, dried cherry, vanilla, and leather with a savory, earthy finish. Muga is one of the great traditional Rioja houses.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Tenuta di Arceno Chianti Classico">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Tenuta di Arceno Chianti Classico</div>
+      <div class="card-sub">Sangiovese &nbsp;·&nbsp; Tuscany, Italy</div>
+      <div class="tag-row"><span class="tag">Cherry</span><span class="tag">Bright Acid</span><span class="tag">Tuscan</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Chianti Classico DOCG, Tuscany, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Sangiovese</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Vibrant cherry, dried herbs, tomato leaf, and a savory earthiness typical of great Chianti Classico. Medium body with firm acidity — a natural at the table.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Château Haut Segottes">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Château Haut Segottes</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Saint-Émilion, France</div>
+      <div class="tag-row"><span class="tag">Right Bank</span><span class="tag">Merlot</span><span class="tag">Earthy</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Saint-Émilion Grand Cru, Bordeaux, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Merlot &amp; Cabernet Franc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Right-bank Bordeaux — Merlot-dominant, rounder and more approachable than the left-bank Cabernet style. Plum, dark cherry, truffle, and a clayey earthiness. Good value for a Grand Cru designation.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Clos Petit Ona Grenache">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Clos Petit Ona Grenache</div>
+      <div class="card-sub">Grenache &nbsp;·&nbsp; Roussillon, France</div>
+      <div class="tag-row"><span class="tag">Mediterranean</span><span class="tag">Warm</span><span class="tag">Berry</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Roussillon, Southern France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Grenache</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Wild raspberry, kirsch, garrigue, and a warm spice note with a rich, full finish. Mediterranean in character — built for food, especially lamb and hearty dishes.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="G.D. Vajra Albe Nebbiolo">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">G.D. Vajra Albe Nebbiolo</div>
+      <div class="card-sub">Nebbiolo &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Firm</span><span class="tag">Floral</span><span class="tag">Barolo Style</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Barolo DOCG, Piedmont, Italy — La Morra</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Nebbiolo</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Classic Barolo character — tar, rose petal, dried cherry, and a firm tannic backbone. G.D. Vajra also appears in Bubbles with their Moscato — an exceptional producer across the range.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Le Ragnaie Brunello">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Le Ragnaie Brunello</div>
+      <div class="card-sub">Sangiovese &nbsp;·&nbsp; Tuscany, Italy</div>
+      <div class="tag-row"><span class="tag">Complex</span><span class="tag">Refined</span><span class="tag">Age-Worthy</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Montalcino, Tuscany, Italy — Brunello di Montalcino DOCG</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Brunello (Sangiovese Grosso)</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Brunello is Italy's most prestigious red — five years minimum aging before release. Dried cherry, tobacco, leather, rose petal, and a finish that lingers for minutes. Reserve for guests who know what they're ordering.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Domaine Tempier Bandol">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Domaine Tempier Bandol</div>
+      <div class="card-sub">Mourvèdre Blend &nbsp;·&nbsp; Provence, France</div>
+      <div class="tag-row"><span class="tag">Savory</span><span class="tag">Dark Fruit</span><span class="tag">Provence</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Bandol AOC, Provence, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Mourvèdre, Grenache, Cinsault</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of the great cult producers of France. Dense, savory, and structured — dark plum, game, olive, wild herbs, and a smoky mineral finish. Demands food and repays attention. For the guest who wants something they've never experienced.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Domaine du Grand Tinel">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Domaine du Grand Tinel</div>
+      <div class="card-sub">Grenache Blend &nbsp;·&nbsp; Rhône Valley, France</div>
+      <div class="tag-row"><span class="tag">Full-Bodied</span><span class="tag">Pepper</span><span class="tag">Châteauneuf</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Châteauneuf-du-Pape, Rhône Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Grenache, Syrah, Mourvèdre</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Full-bodied and powerful with ripe red fruit, black pepper, garrigue, and an herbal earthiness. Grand Tinel is a reliable, high-quality Châteauneuf producer.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Pio Cesare Barbaresco">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Pio Cesare Barbaresco</div>
+      <div class="card-sub">Nebbiolo &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Floral</span><span class="tag">Structured</span><span class="tag">Nebbiolo</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Barbaresco DOCG, Piedmont, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Nebbiolo</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Barbaresco is Barolo's slightly more approachable sibling — same Nebbiolo grape, different commune, generally earlier-drinking. Floral aromatics, dried cherry, tar, and firm but elegant tannins.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Château Batailley">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Château Batailley</div>
+      <div class="card-sub">Cabernet Blend &nbsp;·&nbsp; Bordeaux, France</div>
+      <div class="tag-row"><span class="tag">5th Growth</span><span class="tag">Tobacco</span><span class="tag">Classic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2017</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Pauillac, Bordeaux, France — 5ème Grand Cru Classé</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon, Merlot, Cabernet Franc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A classified Pauillac — same village as Mouton Rothschild and Latour at a fraction of the price. Classic left-bank profile: blackcurrant, tobacco, cedar, and graphite. Educate guests on the 1855 Classification when selling this.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Château Beaucastel">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Château Beaucastel</div>
+      <div class="card-sub">Grenache Blend &nbsp;·&nbsp; Rhône Valley, France</div>
+      <div class="tag-row"><span class="tag">Iconic</span><span class="tag">Complex</span><span class="tag">Châteauneuf</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Châteauneuf-du-Pape, Rhône Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">All 13 permitted Châteauneuf varieties</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of the most celebrated estates in all of France. Beaucastel uses all 13 permitted grape varieties — worth mentioning to guests. Massive complexity: dark fruit, leather, truffle, Provençal herbs, and a finish that evolves in the glass. A bucket-list bottle.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Poderi Aldo Conterno Nebbiolo">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Poderi Aldo Conterno Nebbiolo</div>
+      <div class="card-sub">Nebbiolo &nbsp;·&nbsp; Piedmont, Italy</div>
+      <div class="tag-row"><span class="tag">Tar & Rose</span><span class="tag">Age-Worthy</span><span class="tag">Prestige</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Barolo DOCG, Piedmont, Italy — Bussia, Monforte d'Alba</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Nebbiolo</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Aldo Conterno is one of Barolo's greatest names. Rose petal, tar, dried cherry, orange peel, and an iron-like minerality with tannins built to last decades. One of the most serious bottles on the list — handle accordingly.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="old" data-name="Sesti Brunello di Montalcino">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Sesti Brunello di Montalcino</div>
+      <div class="card-sub">Sangiovese &nbsp;·&nbsp; Tuscany, Italy</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Vibrant</span><span class="tag">Brunello</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Montalcino, Tuscany, Italy — Castello di Argiano</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Brunello (Sangiovese Grosso)</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A biodynamic estate producing elegant, precise Brunello. Cherry, dried rose, sandalwood, and vibrant acidity. Slightly more refined than Le Ragnaie — a complementary comparison for guests exploring the appellation.</div>
+      </div>
+    </div>
+ 
+    <!-- BLENDS & OTHERS -->
+    <div class="card" data-category="blends" data-name="Bodega Noemia A Lisa">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Bodega Noemia A Lisa</div>
+      <div class="card-sub">Malbec &nbsp;·&nbsp; Patagonia, Argentina</div>
+      <div class="tag-row"><span class="tag">Silky</span><span class="tag">Blackberry</span><span class="tag">Patagonia</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Río Negro, Patagonia, Argentina</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Malbec</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Patagonian Malbec is cooler and more elegant than Mendoza. Silky and expressive with blackberry, violet, and graphite. A step above the by-the-glass Malbec for guests who want to explore the variety.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Ghost Block Zinfandel">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Ghost Block Zinfandel</div>
+      <div class="card-sub">Zinfandel &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Jammy</span><span class="tag">Pepper</span><span class="tag">Bold</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Oakville</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Zinfandel</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Ripe jammy fruit, blackberry preserves, and a cracked pepper finish with a warm, full body. Zinfandel is an easy sell to guests who want something uniquely California. Bold and generous.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="The Prisoner Red Blend">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">The Prisoner Red Blend</div>
+      <div class="card-sub">Red Blend &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Rich</span><span class="tag">Crowd-Pleaser</span><span class="tag">Iconic</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2023</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Zinfandel, Cabernet Sauvignon, Petite Sirah, Syrah, Charbono</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of the most recognized labels in the country. Rich, layered dark fruit with smooth, integrated tannins and a lush finish. A reliable recommendation for guests who want something bold, approachable, and familiar.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Macauley Petite Syrah">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Macauley Petite Syrah</div>
+      <div class="card-sub">Petite Sirah &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Dense</span><span class="tag">Inky</span><span class="tag">Bold</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Petite Sirah</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Petite Sirah is not Syrah — known for inky color and dense, powerful tannins. Blackberry, blueberry, dark chocolate, and black pepper with a full, structured finish. Works well with the largest cuts on the menu.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Alexander Valley Cyrus">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Alexander Valley Cyrus</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Sonoma, California</div>
+      <div class="tag-row"><span class="tag">Complex</span><span class="tag">Balanced</span><span class="tag">Flagship</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Alexander Valley, Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon, Merlot, Cabernet Franc, Malbec, Petit Verdot</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The flagship from Alexander Valley Vineyards. Cassis, plum, cedar, and dark chocolate with a harmonious, long finish. Great for guests who want a Meritage without the Napa price tag.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Epoch Ingenuity">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Epoch Ingenuity</div>
+      <div class="card-sub">Rhône Blend &nbsp;·&nbsp; Paso Robles, California</div>
+      <div class="tag-row"><span class="tag">Savory</span><span class="tag">Berry</span><span class="tag">Rhône Style</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Paso Robles, California — Templeton Gap</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Syrah, Grenache, Mourvèdre</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Epoch is one of Paso's most serious producers. Blackberry, smoked meat, olive, and crushed pepper — rich and savory with a long, complex finish. For guests who want something different from Cabernet with European-inspired winemaking.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="San Simeon Stormwatch">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">San Simeon Stormwatch</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Paso Robles, California</div>
+      <div class="tag-row"><span class="tag">Dark Fruit</span><span class="tag">Structured</span><span class="tag">Value</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Paso Robles, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon dominant Bordeaux Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Dark cherry, blackcurrant, and mocha with a structured palate and a clean, elegant finish. Solid Paso Robles value — reliable when guests want something full-bodied at a reasonable price point.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Domaine Serene Grand Cheval">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Domaine Serene Grand Cheval</div>
+      <div class="card-sub">Pinot Noir Blend &nbsp;·&nbsp; Willamette Valley, Oregon</div>
+      <div class="tag-row"><span class="tag">Refined</span><span class="tag">Silky</span><span class="tag">Flagship</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Willamette Valley, Oregon — Dundee Hills &amp; Eola-Amity Hills</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Pinot Noir Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Domaine Serene's flagship. Dark cherry, Bing cherry, toasted spice, and forest floor with silky tannins and a long, layered finish. For guests who want the best Oregon has to offer.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="St Supéry Élu Meritage">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">St Supéry Élu Meritage</div>
+      <div class="card-sub">Bordeaux Blend &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Layered</span><span class="tag">Oak</span><span class="tag">Meritage</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Dollarhide Ranch</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, Malbec</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The estate flagship. Concentrated and structured with blackcurrant, black cherry, espresso, and a toasty oak note. Five years of bottle age have added integration and depth — drinking exceptionally well right now.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Darioush Cabernet Franc">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Darioush Cabernet Franc</div>
+      <div class="card-sub">Cabernet Franc &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Floral</span><span class="tag">Spice</span><span class="tag">Distinct</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2023</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Mount Veeder</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Franc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Napa Cabernet Franc is rare — worth highlighting. Darioush is known for its Persian-influenced estate, a story worth telling. Elegant and aromatic with violet, dark cherry, dried rose, and a savory herb note.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Keenan Mernet">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Keenan Mernet</div>
+      <div class="card-sub">Merlot Cabernet Blend &nbsp;·&nbsp; Spring Mountain, Napa</div>
+      <div class="tag-row"><span class="tag">Plush</span><span class="tag">Mountain</span><span class="tag">Unique</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Spring Mountain District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Merlot &amp; Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The name is a portmanteau of Merlot and Cabernet — Keenan's own terminology. Mountain-grown fruit gives it structure; the Merlot adds plush dark cherry and plum. Worth explaining the name to curious guests.</div>
+      </div>
+    </div>
+ 
+    <div class="card" data-category="blends" data-name="Jubilation by Colgin">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Jubilation by Colgin</div>
+      <div class="card-sub">Cabernet Blend &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Opulent</span><span class="tag">Collector</span><span class="tag">Cult Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Pritchard Hill &amp; Howell Mountain</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon Blend</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Colgin is one of Napa's most coveted cult producers. Blackcurrant, dark chocolate, violets, and espresso with an extraordinarily structured, age-worthy finish. Treat this bottle with the reverence it deserves.</div>
+      </div>
+    </div>
+ 
+    <div class="no-results" id="no-wine">No wines found — try a different filter.</div>
+  </div><!-- /grid-wine -->
+</div><!-- /panel-wine -->
  
 <footer class="footer">
   <div class="divider"></div>
-  <p>Bowdie's Chophouse &nbsp;·&nbsp; Bar Training Reference &nbsp;·&nbsp; 2026</p>
+  <p>Bowdie's Chophouse &nbsp;·&nbsp; Staff Training Reference &nbsp;·&nbsp; 2026</p>
   <p style="margin-top:6px; font-size:9px;">For internal use only</p>
 </footer>
  
 <script>
-  // Expand/collapse
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const wasExpanded = card.classList.contains('expanded');
-      document.querySelectorAll('.card').forEach(c => c.classList.remove('expanded'));
-      if (!wasExpanded) card.classList.add('expanded');
+  // ── GUIDE TAB SWITCHING ──
+  const guideTabs = document.querySelectorAll('.guide-tab');
+  const guidePanels = document.querySelectorAll('.guide-panel');
+  const filterBarsAll = { cocktails: document.getElementById('filters-cocktails'), wine: document.getElementById('filters-wine') };
+  const searchInput = document.getElementById('search-active');
+ 
+  let activeGuide = 'cocktails';
+  let activeFilters = { cocktails: 'all', wine: 'all' };
+  let searchTerm = '';
+ 
+  guideTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activeGuide = tab.dataset.guide;
+      guideTabs.forEach(t => t.classList.remove('active'));
+      guidePanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + activeGuide).classList.add('active');
+ 
+      // Show correct filter bar
+      Object.keys(filterBarsAll).forEach(g => {
+        filterBarsAll[g].style.display = g === activeGuide ? 'flex' : 'none';
+      });
+ 
+      // Update search placeholder
+      searchInput.placeholder = activeGuide === 'cocktails' ? 'Search cocktails, spirits, or ingredients…' : 'Search wines, varietals, or tasting notes…';
+ 
+      // Clear search on tab switch
+      searchInput.value = '';
+      searchTerm = '';
+      applyFilters();
     });
   });
  
-  // Filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.card');
-  let activeFilter = 'all';
-  let searchTerm = '';
- 
+  // ── FILTERS ──
   function applyFilters() {
+    const cards = document.querySelectorAll('#grid-' + activeGuide + ' .card');
+    const noResults = document.getElementById('no-' + activeGuide);
+    const filter = activeFilters[activeGuide];
     let visible = 0;
+ 
     cards.forEach(card => {
-      const cat = card.dataset.category;
-      const name = card.dataset.name.toLowerCase();
-      const matchesFilter = activeFilter === 'all' || cat.split(' ').includes(activeFilter);
+      const cat = card.dataset.category || '';
+      const name = (card.dataset.name || '').toLowerCase();
+      const matchesFilter = filter === 'all' || cat.split(' ').includes(filter);
       const matchesSearch = !searchTerm || name.includes(searchTerm) || card.textContent.toLowerCase().includes(searchTerm);
       if (matchesFilter && matchesSearch) {
         card.classList.remove('hidden');
@@ -1126,21 +2688,36 @@
         card.classList.add('hidden');
       }
     });
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+ 
+    if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
   }
  
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      applyFilters();
+  // Wire filter buttons for both guides
+  ['cocktails', 'wine'].forEach(guide => {
+    document.querySelectorAll('#filters-' + guide + ' .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#filters-' + guide + ' .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilters[guide] = btn.dataset.filter;
+        applyFilters();
+      });
     });
   });
  
-  document.getElementById('searchInput').addEventListener('input', e => {
+  // Shared search
+  searchInput.addEventListener('input', e => {
     searchTerm = e.target.value.toLowerCase().trim();
     applyFilters();
+  });
+ 
+  // ── EXPAND / COLLAPSE ──
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasExpanded = card.classList.contains('expanded');
+      const grid = card.closest('.grid');
+      grid.querySelectorAll('.card').forEach(c => c.classList.remove('expanded'));
+      if (!wasExpanded) card.classList.add('expanded');
+    });
   });
 </script>
 </body>
