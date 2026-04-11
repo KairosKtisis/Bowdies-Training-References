@@ -76,26 +76,45 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     opacity: 0.9;
   }
- 
-  .header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 5vw, 50px);
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.1;
+
+  .header-logo {
+    display: inline-block;
+    text-align: left;
+    line-height: 1;
   }
- 
-  .header h1 em { font-style: italic; color: var(--gold); }
+
+  .header-logo .wordmark {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(34px, 8vw, 58px);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-left: -8px;
+  }
+
+  .header-logo .script {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 3.7vw, 27.6px);
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
  
   .header-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     font-style: italic;
     color: var(--text-muted);
-    margin-top: 8px;
+    margin-top: 10px;
     letter-spacing: 0.05em;
   }
  
@@ -502,7 +521,10 @@
  
 <header class="header">
   <div class="header-eyebrow">East Grand Rapids, Michigan</div>
-  <h1>Bowdie's <em>Chophouse</em></h1>
+  <div class="header-logo">
+    <span class="wordmark">Bowdie's</span>
+    <span class="script">Chophouse</span>
+  </div>
   <p class="header-sub">Staff Training Reference</p>
 </header>
  
@@ -2713,7 +2735,24 @@
     applyFilters();
   });
  
-  // ── EXPAND / COLLAPSE ──
+  // ── LOGO ALIGNMENT: C in Chophouse under right edge of D in Bowdie's ──
+  function alignLogo() {
+    const wordmark = document.querySelector('.header-logo .wordmark');
+    const script = document.querySelector('.header-logo .script');
+    if (!wordmark || !script) return;
+
+    // Measure width of "BOWDI" to find right edge of D
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const style = window.getComputedStyle(wordmark);
+    ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+    const bowdiWidth = ctx.measureText('BOWD').width;
+
+    script.style.paddingLeft = bowdiWidth + 'px';
+  }
+
+  alignLogo();
+  window.addEventListener('resize', alignLogo);
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
