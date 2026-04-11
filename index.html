@@ -216,6 +216,7 @@
  
   .search-input::placeholder { color: var(--text-dim); }
   .search-input:focus { border-color: var(--gold-dim); }
+
  
   /* ── GUIDE PANELS ── */
   .guide-panel { display: none; }
@@ -466,6 +467,26 @@
     border: 1px solid var(--gold-dim);
     color: var(--gold);
     border-radius: 1px;
+  }
+
+  .price-badge {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 3px 10px;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--text-muted);
+    border-radius: 1px;
+    margin-left: 6px;
+  }
+
+  .card-price {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-top: 6px;
   }
  
   .vintage-badge.check {
@@ -1153,7 +1174,7 @@
         <div class="garnish-line">Garnish: <span>Orange Peel</span></div>
       </div>
     </div>
-
+ 
     <div class="card" data-category="offmenu whiskey" data-name="New York Sour">
       <div class="card-category cat-offmenu">Off Menu</div>
       <div class="card-name">New York Sour</div>
@@ -1182,7 +1203,7 @@
         <div class="garnish-line">Garnish: <span>Skewer of Rum-infused Cherries</span></div>
       </div>
     </div>
- 
+
     <div class="card" data-category="offmenu gin" data-name="Lemon Lavender Gin Martini">
       <div class="card-category cat-offmenu">Off Menu</div>
       <div class="card-name">Lemon Lavender Gin Martini</div>
@@ -1209,7 +1230,7 @@
         <div class="garnish-line">Garnish: <span>Lemon Twist</span></div>
       </div>
     </div>
- 
+
     <div class="no-results" id="no-cocktails">No cocktails found — try a different filter.</div>
   </div><!-- /grid-cocktails -->
 </div><!-- /panel-cocktails -->
@@ -2705,6 +2726,458 @@
       </div>
     </div>
  
+    <!-- RESERVE CABERNETS -->
+    <div class="card" data-category="cab" data-name="1881 Napa Valley">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">1881 Napa Valley</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Accessible</span><span class="tag">Dark Fruit</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A strong entry-point Napa Cab — dark cherry, blackcurrant, and a hint of mocha with smooth tannins and a clean finish. Reliable and approachable for guests stepping up from by-the-glass.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Silver Oak Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Silver Oak Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Alexander Valley, California</div>
+      <div class="tag-row"><span class="tag">Iconic</span><span class="tag">Vanilla</span><span class="tag">American Oak</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Alexander Valley, Sonoma County, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of Napa's most recognized labels — aged exclusively in American oak, which gives it a distinctive vanilla, coconut, and dill note alongside ripe cassis and plum. Accessible and crowd-pleasing. Guests who know Cabernet know Silver Oak.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Brandlin Estate Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Brandlin Estate Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Mount Veeder, Napa</div>
+      <div class="tag-row"><span class="tag">Mountain</span><span class="tag">Structured</span><span class="tag">Bold</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Mount Veeder, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Mount Veeder mountain fruit is dense and concentrated — higher elevation means smaller berries, thicker skins, and more structured tannins. Dark blackberry, graphite, and earth with a firm, age-worthy backbone. For guests who want a serious, food-driven Cab.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Lail Vineyards Blueprint">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Lail Vineyards Blueprint</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Elegant</span><span class="tag">Layered</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">From Robin Lail, whose family history in Napa goes back to Robert Mondavi and Inglenook. Blueprint is the entry-level bottling — polished blackcurrant, cedar, and dark cherry with refined tannins and excellent balance. A step toward the top tier for guests ready to explore.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Spottswoode Lyndenhurst">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Spottswoode Lyndenhurst</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Organic</span><span class="tag">Historic</span><span class="tag">Refined</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">St. Helena, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Spottswoode is a certified organic, family-owned estate in St. Helena with decades of producing benchmark Napa Cab. Lyndenhurst is their second label — plum, dark cherry, and violet with a silky, well-structured finish. Worth mentioning the estate's history and organic farming to guests.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Shafer 1.5">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Shafer 1.5</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Approachable</span><span class="tag">Plush</span><span class="tag">Shafer</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California — Stags Leap District</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Named for the 1.5L magnum format in which it was originally conceived. Shafer's entry-level Cab — opulent blackberry, mocha, and vanilla with plush tannins and a smooth, generous finish. A great bridge to Hillside Select for guests curious about the producer.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Cade Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Cade Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Howell Mountain, Napa</div>
+      <div class="tag-row"><span class="tag">Mountain</span><span class="tag">LEED Certified</span><span class="tag">Powerful</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Howell Mountain, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Produced at one of Napa's first LEED-certified wineries on Howell Mountain. High elevation fruit delivers intense concentration — blackberry, dark plum, iron, and volcanic mineral notes with firm tannins built for aging. A compelling story alongside a serious bottle.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Peju Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Peju Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Family Estate</span><span class="tag">Balanced</span><span class="tag">Rutherford</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rutherford, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A family-owned Rutherford estate known for producing consistently elegant, approachable Napa Cab. Dark cherry, cassis, and a hint of dusty cocoa with balanced acidity and refined tannins. Rutherford's famous "dust" character gives it a distinctive mid-palate texture.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Teeter Totter Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Teeter Totter Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Rich</span><span class="tag">Polished</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Rich and polished Napa Cab with dark fruit, mocha, and a smooth, lingering finish. A crowd-pleasing style that balances approachability with concentration — a solid mid-tier recommendation for guests who want something well-made without committing to a prestige bottle.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="J. Davies Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">J. Davies Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Diamond Creek</span><span class="tag">Estate</span><span class="tag">Structured</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Diamond Mountain District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">From the historic Schramsberg estate — the same property that produces one of America's finest sparkling wines. J. Davies is their still Cab from Diamond Mountain — volcanic soils, high elevation, and intense concentration. Dark fruit, graphite, and mineral backbone with real aging potential.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Heitz Trailside Vineyard">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Heitz Trailside Vineyard</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Single Vineyard</span><span class="tag">Classic</span><span class="tag">Heitz</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Rutherford, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Heitz Cellar is one of Napa's great historic houses. Trailside Vineyard produces a more approachable style than the legendary Martha's — dark cherry, blackcurrant, mint, and cedar with firm but refined tannins. The 2018 vintage is drinking well now.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Frias Block 5">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Frias Block 5</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Single Block</span><span class="tag">Spring Mountain</span><span class="tag">Intense</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2020</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Spring Mountain District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A single-block expression from a family-owned Spring Mountain estate. Mountain-grown intensity — concentrated blackberry, dark plum, iron, and a savory herbal note with firm, structured tannins. For guests who appreciate terroir-specific bottlings and want something off the beaten path.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Macauley Stagecoach Vineyard">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Macauley Stagecoach Vineyard</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Calistoga, Napa Valley</div>
+      <div class="tag-row"><span class="tag">Stagecoach</span><span class="tag">Concentrated</span><span class="tag">Bold</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Calistoga, Napa Valley, California — Stagecoach Vineyard</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Stagecoach Vineyard on Atlas Peak is one of Napa's most celebrated sources — high elevation, volcanic soils, and extreme diurnal shift that produces intense, structured fruit. Dark blackberry, blueberry, espresso, and iron with powerful tannins and exceptional length.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Venge Silencieux">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Venge Silencieux</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Single Vineyard</span><span class="tag">Oakville</span><span class="tag">Precise</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">From Kirk Venge, one of Napa's most respected winemakers. Silencieux is a precise, single-vineyard expression — dark cherry, cassis, chocolate, and a floral violet note with silky tannins and a long, focused finish. A winemaker's Cab worth mentioning by name.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Venge Family Reserve">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Venge Family Reserve</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Reserve</span><span class="tag">Opulent</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Oakville, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">The flagship from Kirk Venge — rich, opulent Oakville Cab with concentrated blackcurrant, dark chocolate, vanilla, and a seamless, polished finish. A step above Silencieux in power and presence. For guests looking for a prestige Napa Cab with a craftsman's pedigree.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Lail Vineyards Daniel Cuvée">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Lail Vineyards Daniel Cuvée</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Prestige</span><span class="tag">Historic</span><span class="tag">Complex</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2019</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Howell Mountain / Calistoga / Oakville / Stags Leap, Napa Valley</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Lail's flagship — a multi-appellation blend named for Robin Lail's father, who helped build the Mondavi and Inglenook empires. Dark fruit, cassis, graphite, and dried violet with extraordinary complexity and structure. One of Napa's most historically significant labels.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Heitz Martha's Vineyard">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Heitz Martha's Vineyard</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Legendary</span><span class="tag">Eucalyptus</span><span class="tag">Oakville</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2018</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Oakville, Napa Valley, California — Martha's Vineyard</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of the most iconic single-vineyard Cabernets in American wine history. Martha's Vineyard is surrounded by eucalyptus trees — which impart a distinctive minty, herbal signature to the wine alongside classic Napa dark fruit and cedar. A bucket-list bottle for guests who know Cabernet.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Simon Family Estate Reserve">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Simon Family Estate Reserve</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Estate</span><span class="tag">Reserve</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A boutique family estate producing rich, structured Napa Cab with dark plum, cassis, toasted oak, and a long, refined finish. Estate-grown fruit and reserve-level winemaking make this a compelling option for guests who want something less well-known but equally serious.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Shafer Hillside Select">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Shafer Hillside Select</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Stags Leap, Napa Valley</div>
+      <div class="tag-row"><span class="tag">Collector</span><span class="tag">Iconic</span><span class="tag">Stags Leap</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Stags Leap District, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Hillside Select is one of Napa's most coveted Cabernets — made entirely from estate hillside fruit and aged 32 months in French oak. Remarkably dense yet silky: blackcurrant, dark chocolate, violet, and graphite with extraordinary length and poise. One of the great bottles on the list.</div>
+      </div>
+    </div>
+
+    <!-- RESERVE OLD WORLD -->
+    <div class="card" data-category="old" data-name="Les Pallières Raciné">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Les Pallières Raciné</div>
+      <div class="card-sub">Grenache Blend &nbsp;·&nbsp; Rhône Valley, France</div>
+      <div class="tag-row"><span class="tag">Gigondas</span><span class="tag">Earthy</span><span class="tag">Southern Rhône</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge check">Check Inventory</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Gigondas, Rhône Valley, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Grenache, Gigondas</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Les Pallières is a celebrated Gigondas producer — the Brunier family (of Vieux Télégraphe) co-owns it. Raciné means "roots" — a nod to old vine intensity. Wild red fruit, garrigue, iron, and a distinctly earthy, mineral finish. A serious Southern Rhône for guests ready to explore beyond Châteauneuf.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="old" data-name="Fattoria Le Pupille Saffredi">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Fattoria Le Pupille Saffredi</div>
+      <div class="card-sub">Cabernet Blend &nbsp;·&nbsp; Tuscany, Italy</div>
+      <div class="tag-row"><span class="tag">Super Tuscan</span><span class="tag">Prestige</span><span class="tag">Maremma</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Maremma, Tuscany, Italy</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon, Merlot, Petit Verdot</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">One of Tuscany's most acclaimed Super Tuscans from the Maremma coast. Saffredi is rich, structured, and complex — dark plum, blackcurrant, tobacco, graphite, and a Mediterranean herbal note with a long, powerful finish. A benchmark for the Maremma appellation and a compelling alternative to Bolgheri's Sassicaia or Ornellaia.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="old" data-name="Château Gombaude-Guillot">
+      <div class="card-category cat-old">Old World</div>
+      <div class="card-name">Château Gombaude-Guillot</div>
+      <div class="card-sub">Merlot Blend &nbsp;·&nbsp; Bordeaux, France</div>
+      <div class="tag-row"><span class="tag">Pomerol</span><span class="tag">Biodynamic</span><span class="tag">Right Bank</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2016</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Pomerol, Bordeaux, France</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Merlot, Cabernet Franc</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">A biodynamic estate on Pomerol's clay plateau — the same terroir that produces Petrus. Rich and plush with dark plum, truffle, mocha, and a velvety texture that defines great Pomerol. The 2016 vintage is one of the decade's finest in Bordeaux. Worth explaining Pomerol's distinction from Saint-Émilion to guests who know right-bank Bordeaux.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Ghost Block Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Ghost Block Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Oakville</span><span class="tag">Single Vineyard</span><span class="tag">Concentrated</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2021</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Oakville, Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Note: Ghost Block also appears in Blends as a Zinfandel — this is their estate Cabernet from Oakville. Dense and structured with blackcurrant, dark cherry, graphite, and toasted oak. Oakville's golden strip produces some of Napa's most consistent Cab — this is a strong example at a fair price.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="cab" data-name="Darioush Cabernet Sauvignon">
+      <div class="card-category cat-cab">Cabernet</div>
+      <div class="card-name">Darioush Cabernet Sauvignon</div>
+      <div class="card-sub">Cabernet Sauvignon &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Persian Estate</span><span class="tag">Opulent</span><span class="tag">Napa</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Cabernet Sauvignon</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Note: Darioush also appears in Blends as a Cabernet Franc — this is their flagship Cabernet Sauvignon. The Persian-inspired winery on the Silverado Trail is one of Napa's most architecturally striking estates. Rich and opulent — blackcurrant, dark plum, mocha, and spice with a plush, full finish. The story of the estate is worth telling to guests.</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="blends" data-name="Venge Scout's Honor">
+      <div class="card-category cat-blends">Blends &amp; Others</div>
+      <div class="card-name">Venge Scout's Honor</div>
+      <div class="card-sub">Red Blend &nbsp;·&nbsp; Napa Valley, California</div>
+      <div class="tag-row"><span class="tag">Zinfandel</span><span class="tag">Bold</span><span class="tag">Venge</span></div>
+      <div class="expand-hint">Tasting Notes</div>
+      <div class="card-detail">
+        <div class="section-label">Vintage</div>
+        <span class="vintage-badge">2022</span>
+        <div class="section-label">Origin</div>
+        <div class="origin-line">Napa Valley, California</div>
+        <div class="section-label">Varietal</div>
+        <div class="detail-value">Zinfandel, Petite Sirah, Syrah</div>
+        <div class="section-label">Tasting Notes</div>
+        <div class="detail-value notes">Kirk Venge's Zinfandel-dominant blend — ripe blackberry, boysenberry, black pepper, and a hint of vanilla with full body and a warm, generous finish. Venge is best known for his Cabernet work but Scout's Honor shows his range. A great choice for guests who want something bold and distinctly Californian.</div>
+      </div>
+    </div>
+
     <div class="no-results" id="no-wine">No wines found — try a different filter.</div>
   </div><!-- /grid-wine -->
 </div><!-- /panel-wine -->
@@ -2809,6 +3282,159 @@
 
   alignLogo();
   window.addEventListener('resize', alignLogo);
+
+  // ── WINE PRICES ──
+  const winePrices = {
+    // Bubbles (glass/bottle where applicable)
+    "G.D. Vajra Moscato d'Asti": "$12 / $48",
+    "Il Colle Prosecco Superiore": "$13 / $52",
+    "Raventós Cava de NIT Rosé Brut": "$18 / $72",
+    "Laurent Perrier Le Cuvée Brut": "$25 / $100",
+    "Laurent Perrier Brut Rosé": "$120",
+    "Veuve Clicquot Brut": "$120",
+    "Paul Bara Grand Rosé Brut": "$150",
+    "Robert Moncuit Les Grand Blancs": "$160",
+    "Pierre Gimonnet Special Club Brut": "$200",
+    "Pommery Cuvée Louise": "$300",
+    // Whites (glass/bottle where applicable)
+    "Stoneleigh Sauvignon Blanc": "$10 / $40",
+    "Alexander Valley Chardonnay": "$12 / $48",
+    "St Supéry Sauvignon Blanc": "$12 / $48",
+    "Elk Cove Pinot Blanc": "$13 / $52",
+    "Jean-Pierre Grossot Chablis": "$16 / $64",
+    "Schloss Vollrads Riesling": "$16 / $64",
+    "Le Garenne Rosé": "$17 / $68",
+    "Domaine de Berthiers Pouilly-Fumé": "$19 / $76",
+    "Our Lady of Guadalupe Acolytes": "$20 / $80",
+    "Joseph Mellot Sancerre": "$76",
+    "Keenan Chardonnay": "$120",
+    "Far Niente Chardonnay": "$140",
+    // By the Glass
+    "Lunaria Coste di Moro": "$12 / $48",
+    "Kermit Lynch Côtes du Rhône": "$12 / $48",
+    "Alexander Valley Homestead Red": "$13 / $52",
+    "Scotto Cellars The Lost Chapters": "$13 / $52",
+    "Corazón del Sol Malbec": "$15 / $60",
+    "Fento Ollo de Sapo Mencía": "$15 / $60",
+    "Lingua Franca Avni Pinot Noir": "$18 / $72",
+    "Fisher Unity Pinot Noir": "$19 / $76",
+    "Château de Rouillac": "$20 / $80",
+    "St Supéry Cabernet Sauvignon": "$20 / $80",
+    "Quilt Cabernet Sauvignon": "$22 / $88",
+    "Scavino Barolo": "$25 / $100",
+    "Caymus Cabernet Sauvignon": "$28 / $180",
+    // Pinot Noir
+    "Cristom Mt Jefferson Cuvée": "$75",
+    "Daniel Chotard Sancerre Rouge": "$90",
+    "Evening Land Seven Springs": "$100",
+    "Marimar Estate Christina": "$110",
+    "Jax Calesa Vineyard Pinot Noir": "$120",
+    "Macauley Pinot Noir": "$120",
+    "Elk Cove Five Mountain": "$125",
+    "RAEN Royal St Robert": "$125",
+    "Sanford & Benedict Pinot Noir": "$130",
+    "J Davies Ferrington Vineyards": "$140",
+    // Cabernet
+    "1881 Napa Valley": "$85",
+    "Faust Napa Valley Cabernet": "$100",
+    "Gundlach Bundschu Cabernet": "$115",
+    "Venge Silencieux": "$120",
+    "Austin Hope Cabernet Sauvignon": "$135",
+    "Peju Cabernet Sauvignon": "$140",
+    "Jordan Cabernet Sauvignon": "$145",
+    "J. Davies Cabernet Sauvignon": "$150",
+    "Teeter Totter Cabernet Sauvignon": "$150",
+    "Ghost Block Cabernet Sauvignon": "$160",
+    "Silver Oak Cabernet Sauvignon": "$160",
+    "Brandlin Estate Cabernet Sauvignon": "$175",
+    "Lail Vineyards Blueprint": "$175",
+    "Spottswoode Lyndenhurst": "$175",
+    "Nickel & Nickel Cabernet": "$195",
+    "Shafer 1.5": "$195",
+    "Cade Cabernet Sauvignon": "$210",
+    "Darioush Cabernet Sauvignon": "$215",
+    "Heitz Trailside Vineyard": "$220",
+    "Frias Block 5": "$225",
+    "Far Niente Cabernet Sauvignon": "$250",
+    "Odette Cabernet Sauvignon": "$275",
+    "Macauley Stagecoach Vineyard": "$295",
+    "Freemark Abbey Bosché": "$300",
+    "Venge Family Reserve": "$325",
+    "Lail Vineyards Daniel Cuvée": "$350",
+    "Heitz Martha's Vineyard": "$400",
+    "Simon Family Estate Reserve": "$400",
+    "Shafer Hillside Select": "$450",
+    "Opus One": "$475",
+    // Old World
+    "Marc Brédif Chinon": "$60",
+    "Braida Montebruna Barbera": "$70",
+    "Le Volte dell'Ornellaia": "$80",
+    "Muga Reserva": "$80",
+    "Les Pallières Raciné": "$90",
+    "Tenuta di Arceno Chianti Classico": "$95",
+    "Château Haut Segottes": "$100",
+    "Clos Petit Ona Grenache": "$110",
+    "G.D. Vajra Albe Nebbiolo": "$120",
+    "Le Ragnaie Brunello": "$120",
+    "Domaine Tempier Bandol": "$130",
+    "Domaine du Grand Tinel": "$140",
+    "Pio Cesare Barbaresco": "$140",
+    "Fattoria Le Pupille Saffredi": "$150",
+    "Château Gombaude-Guillot": "$170",
+    "Château Batailley": "$185",
+    "Château Beaucastel": "$225",
+    "Poderi Aldo Conterno Nebbiolo": "$225",
+    "Sesti Brunello di Montalcino": "$225",
+    // Blends
+    "Bodega Noemia A Lisa": "$65",
+    "Ghost Block Zinfandel": "$90",
+    "The Prisoner Red Blend": "$100",
+    "Macauley Petite Syrah": "$120",
+    "Alexander Valley Cyrus": "$125",
+    "Epoch Ingenuity": "$125",
+    "San Simeon Stormwatch": "$130",
+    "Domaine Serene Grand Cheval": "$140",
+    "St Supéry Élu Meritage": "$140",
+    "Darioush Cabernet Franc": "$150",
+    "Keenan Mernet": "$190",
+    "Venge Scout's Honor": "$110",
+    "Jubilation by Colgin": "$350",
+  };
+
+  // Helper: extract numeric sort value from price string
+  function priceToNum(str) {
+    if (!str) return 9999;
+    const parts = str.replace(/\$/g, '').split('/');
+    return parseInt(parts[parts.length - 1].trim(), 10) || 9999;
+  }
+
+  // Sort cards within each wine category by bottle price (low to high)
+  const wineGrid = document.getElementById('grid-wine');
+  const wineNoResults = document.getElementById('no-wine');
+  const wineCategories = ['bubbles', 'whites', 'glass', 'pinot', 'cab', 'old', 'blends'];
+
+  wineCategories.forEach(cat => {
+    const cards = Array.from(wineGrid.querySelectorAll(`.card[data-category="${cat}"]`));
+    cards.sort((a, b) => priceToNum(winePrices[a.dataset.name]) - priceToNum(winePrices[b.dataset.name]));
+    cards.forEach(card => wineGrid.insertBefore(card, wineNoResults));
+  });
+
+  // Inject price badges next to vintage badges on wine cards
+  document.querySelectorAll('#grid-wine .card').forEach(card => {
+    const name = card.dataset.name;
+    const price = winePrices[name];
+    if (!price) return;
+    const badge = card.querySelector('.vintage-badge');
+    if (!badge) return;
+    // Remove existing price badge if any
+    const existing = badge.parentNode.querySelector('.price-badge');
+    if (existing) existing.remove();
+    const priceBadge = document.createElement('span');
+    priceBadge.className = 'price-badge';
+    priceBadge.textContent = price;
+    badge.insertAdjacentElement('afterend', priceBadge);
+  });
+
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
