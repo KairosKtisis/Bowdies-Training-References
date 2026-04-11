@@ -758,7 +758,7 @@
       <div class="card-category cat-gin">Gin &amp; More</div>
       <div class="card-name">Vesper</div>
       <div class="card-sub">Martini Glass &nbsp;·&nbsp; Mixing Glass + Strain</div>
-      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Vodka</span><span class="tag">Spirit Forward</span><span class="tag">Stirred</span><span class="tag">Classic</span><span class="tag">James Bond</span><span class="tag">Dry</span></div>
+      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Vodka</span><span class="tag">Spirit Forward</span><span class="tag">Stirred</span><span class="tag">Classic</span><span class="tag">James Bond</span><span class="tag">Dry</span><span class="tag">Martini</span></div>
       <div class="expand-hint">Build</div>
       <div class="card-detail">
         <div class="section-label">Ingredients</div>
@@ -781,7 +781,7 @@
       <div class="card-category cat-gin">Gin</div>
       <div class="card-name">Corpse Reviver</div>
       <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Absinthe Rinse</div>
-      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Cognac</span><span class="tag">Citrus</span><span class="tag">Lemon</span><span class="tag">Stirred</span><span class="tag">Classic</span><span class="tag">Absinthe</span></div>
+      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Cognac</span><span class="tag">Citrus</span><span class="tag">Lemon</span><span class="tag">Stirred</span><span class="tag">Classic</span><span class="tag">Absinthe</span><span class="tag">Martini</span></div>
       <div class="expand-hint">Build</div>
       <div class="card-detail">
         <div class="section-label">Ingredients</div>
@@ -806,7 +806,7 @@
       <div class="card-category cat-gin">Gin</div>
       <div class="card-name">Aviation</div>
       <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
-      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Floral</span><span class="tag">Sweet</span><span class="tag">Shaken</span><span class="tag">Classic</span><span class="tag">Cherry</span><span class="tag">Violet</span></div>
+      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Floral</span><span class="tag">Sweet</span><span class="tag">Shaken</span><span class="tag">Classic</span><span class="tag">Cherry</span><span class="tag">Violet</span><span class="tag">Martini</span></div>
       <div class="expand-hint">Build</div>
       <div class="card-detail">
         <div class="section-label">Ingredients</div>
@@ -1098,7 +1098,7 @@
       <div class="card-category cat-offmenu">Off Menu</div>
       <div class="card-name">Inhibited</div>
       <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Chocolate Drizzle</div>
-      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Vodka</span><span class="tag">Chocolate</span><span class="tag">Espresso</span><span class="tag">Coffee</span><span class="tag">Rich</span><span class="tag">Sweet</span><span class="tag">Dessert</span></div>
+      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Vodka</span><span class="tag">Chocolate</span><span class="tag">Espresso</span><span class="tag">Coffee</span><span class="tag">Rich</span><span class="tag">Sweet</span><span class="tag">Dessert</span><span class="tag">Martini</span></div>
       <div class="expand-hint">Build</div>
       <div class="card-detail">
         <div class="section-label">Ingredients</div>
@@ -1174,7 +1174,7 @@
       <div class="card-category cat-offmenu">Off Menu</div>
       <div class="card-name">Lemon Lavender Gin Martini</div>
       <div class="card-sub">Martini Glass &nbsp;·&nbsp; Shaker + Strain</div>
-      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Floral</span><span class="tag">Lavender</span><span class="tag">Citrus</span><span class="tag">Lemon</span><span class="tag">Honey</span><span class="tag">Sparkling</span></div>
+      <div class="tag-row"><span class="tag">Cocktail</span><span class="tag">Gin</span><span class="tag">Floral</span><span class="tag">Lavender</span><span class="tag">Citrus</span><span class="tag">Lemon</span><span class="tag">Honey</span><span class="tag">Sparkling</span><span class="tag">Martini</span></div>
       <div class="expand-hint">Build</div>
       <div class="card-detail">
         <div class="section-label">Ingredients</div>
@@ -3243,6 +3243,7 @@
         document.querySelectorAll('#filters-' + guide + ' .filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeFilters[guide] = btn.dataset.filter;
+        if (searchTerm.length) searchTerm = tokenizeQuery(searchInput.value.toLowerCase().trim());
         applyFilters();
       });
     });
