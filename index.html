@@ -118,6 +118,212 @@
     letter-spacing: 0.05em;
   }
  
+
+  /* ── HOME SCREEN ── */
+  #home-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px 64px;
+    transition: transform 0.4s ease;
+    transform: translateY(0);
+  }
+
+  #home-screen.dismissed {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  .home-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  .home-logo {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .home-wordmark {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(36px, 10vw, 72px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .home-script {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(22px, 5.5vw, 42px);
+    font-weight: 400;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  .home-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .home-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 28px auto 0;
+  }
+
+  /* Default state: two buttons */
+  .home-select {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 48px;
+    transition: opacity 0.25s ease;
+  }
+
+  /* Selected state: section name + return */
+  .home-active {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 48px;
+  }
+
+  .home-active.visible { display: flex; }
+  .home-select.hidden { display: none; }
+
+  .home-section-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(28px, 7vw, 48px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .home-btn {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 100%;
+  }
+
+  .home-btn:hover, .home-btn:active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .home-return {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  .home-return:hover { color: var(--text-muted); }
+
+  /* ── TOP BAR (replaces guide tabs when in guide) ── */
+  #top-bar {
+    display: none;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--charcoal);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px 14px 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .top-bar-logo {
+    display: inline-block;
+    text-align: left;
+    line-height: 1;
+  }
+
+  .top-bar-wordmark {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .top-bar-section {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    margin-top: 1px;
+  }
+
+  #top-bar-return {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  #top-bar-return:hover { color: var(--text-muted); }
+
+  /* ── HIDE HEADER AND GUIDE TABS — navigation via home screen only ── */
+  .header { display: none; }
+  .guide-tabs { display: none !important; }
+
   /* ── TOP-LEVEL GUIDE TABS ── */
   .guide-tabs {
     display: flex;
@@ -551,6 +757,37 @@
 </head>
 <body>
  
+
+<div id="home-screen">
+  <div class="home-eyebrow">East Grand Rapids, Michigan</div>
+  <div class="home-logo">
+    <span class="home-wordmark">Bowdie's</span>
+    <span class="home-script">Chophouse</span>
+  </div>
+  <p class="home-sub">Staff Training Reference</p>
+  <div class="home-divider"></div>
+
+  <!-- Default: choose a section -->
+  <div class="home-select" id="home-select">
+    <button class="home-btn" id="home-spirits">Spirits</button>
+    <button class="home-btn" id="home-wine">Wine</button>
+  </div>
+
+  <!-- After selection: section name + return -->
+  <div class="home-active" id="home-active">
+    <div class="home-section-label" id="home-section-label"></div>
+    <button class="home-return" id="home-return">← Return Home</button>
+  </div>
+</div>
+
+<div id="main-content" style="display:none; background: var(--surface);">
+<div id="top-bar">
+  <div class="top-bar-logo">
+    <span class="top-bar-wordmark">Bowdie's</span>
+    <span class="top-bar-section" id="top-bar-section"></span>
+  </div>
+  <button id="top-bar-return">← Home</button>
+</div>
 <header class="header">
   <div class="header-eyebrow">East Grand Rapids, Michigan</div>
   <div class="header-logo">
@@ -570,7 +807,7 @@
 <div class="sticky-nav">
   <div class="global-search-wrap">
     <input class="search-input" type="text" placeholder="Search cocktails, spirits, or ingredients…" id="search-active">
-    <p class="search-tip">*tip — avoid filler words &nbsp;(good searches: "campari cocktail", "light apple", "plum medium bodied soft tannin")</p>
+    <p class="search-tip" id="search-tip-text">*tip — avoid filler words &nbsp;(good searches: "campari cocktail", "stirred strained martini")</p>
   </div>
   <div id="filters-cocktails" class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
@@ -3153,6 +3390,7 @@
   <p style="margin-top:6px; font-size:9px;">For internal use only</p>
 </footer>
  
+</div>
 <script>
   // ── GUIDE TAB SWITCHING ──
   const guideTabs = document.querySelectorAll('.guide-tab');
@@ -3410,6 +3648,153 @@
     applyFilters();
   });
  
+
+  // ── HOME SCREEN ──
+  const SEARCH_TIPS = {
+    cocktails: '*tip — avoid filler words  (good searches: "campari cocktail", "stirred strained martini")',
+    wine: '*tip — avoid filler words  (good searches: "light apple", "french rose", "plum medium bodied soft tannins")'
+  };
+
+  function switchGuide(guide) {
+    document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('[data-guide="' + guide + '"]').classList.add('active');
+    document.getElementById('panel-' + guide).classList.add('active');
+    document.getElementById('filters-cocktails').style.display = guide === 'cocktails' ? 'flex' : 'none';
+    document.getElementById('filters-wine').style.display = guide === 'wine' ? 'flex' : 'none';
+    activeGuide = guide;
+    searchInput.placeholder = guide === 'wine' ? 'Search wines, varietals, or tasting notes…' : 'Search cocktails, spirits, or ingredients…';
+    const tipEl = document.getElementById('search-tip-text');
+    if (tipEl) tipEl.textContent = SEARCH_TIPS[guide];
+  }
+
+  function selectSection(guide) {
+    switchGuide(guide);
+    const label = guide === 'wine' ? 'Wine' : 'Spirits';
+    document.getElementById('home-section-label').textContent = label;
+    document.getElementById('home-select').classList.add('hidden');
+    document.getElementById('home-active').classList.add('visible');
+    // Reveal main content, show top bar, fade out home screen
+    document.getElementById('main-content').style.display = 'block';
+    const topBar = document.getElementById('top-bar');
+    topBar.style.display = 'flex';
+    document.getElementById('top-bar-section').textContent = label;
+    // Right-align section to same right edge as 'Chophouse' in home logo
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const wm = document.querySelector('.top-bar-wordmark');
+        const sc = document.querySelector('.top-bar-section');
+        const homeScript = document.querySelector('.home-script');
+        if (!wm || !sc || !homeScript) return;
+
+        // The home script already has paddingLeft set to align with home logo.
+        // Its right edge = paddingLeft + its own rendered width.
+        // We want sc's right edge to match that same proportional position
+        // relative to wm's width.
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Measure home script right edge as fraction of home wordmark width
+        const homeWm = document.querySelector('.home-wordmark');
+        const hwmStyle = window.getComputedStyle(homeWm);
+        ctx.font = hwmStyle.fontWeight + ' ' + hwmStyle.fontSize + ' ' + hwmStyle.fontFamily;
+        const homeWmWidth = ctx.measureText("BOWDIE'S").width;
+
+        const hsStyle = window.getComputedStyle(homeScript);
+        ctx.font = hsStyle.fontStyle + ' ' + hsStyle.fontWeight + ' ' + hsStyle.fontSize + ' ' + hsStyle.fontFamily;
+        const homeScWidth = ctx.measureText('Chophouse').width;
+        const homeScLeft = parseFloat(homeScript.style.paddingLeft) || 0;
+        // Right edge of Chophouse as fraction of home wordmark width
+        const rightFraction = (homeScLeft + homeScWidth) / homeWmWidth;
+
+        // Apply to top bar: sc right edge = wm width * rightFraction
+        const wmStyle = window.getComputedStyle(wm);
+        ctx.font = wmStyle.fontWeight + ' ' + wmStyle.fontSize + ' ' + wmStyle.fontFamily;
+        const tbWmWidth = ctx.measureText("BOWDIE'S").width;
+
+        const scStyle = window.getComputedStyle(sc);
+        ctx.font = scStyle.fontStyle + ' ' + scStyle.fontWeight + ' ' + scStyle.fontSize + ' ' + scStyle.fontFamily;
+        const scWidth = ctx.measureText(sc.textContent).width;
+
+        const targetRight = tbWmWidth * rightFraction;
+        sc.style.paddingLeft = Math.max(0, targetRight - scWidth) + 'px';
+      });
+    });
+    document.getElementById('home-screen').classList.add('dismissed');
+    setTimeout(() => {
+      document.getElementById('home-screen').style.display = 'none';
+    }, 400);
+  }
+
+  function returnHome() {
+    const hs = document.getElementById('home-screen');
+    // Position above viewport instantly (no transition), then slide down
+    hs.style.transition = 'none';
+    hs.style.display = 'flex';
+    hs.classList.add('dismissed'); // puts it above viewport
+    document.getElementById('home-select').classList.remove('hidden');
+    document.getElementById('home-active').classList.remove('visible');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        hs.style.transition = '';
+        hs.classList.remove('dismissed'); // slide down into view
+        // Hide main content once home screen is fully over it
+        setTimeout(() => {
+          document.getElementById('main-content').style.display = 'none';
+          document.getElementById('top-bar').style.display = 'none';
+        }, 400);
+      });
+    });
+  }
+
+  document.getElementById('home-spirits').addEventListener('click', () => selectSection('cocktails'));
+  document.getElementById('home-wine').addEventListener('click', () => selectSection('wine'));
+  document.getElementById('home-return').addEventListener('click', returnHome);
+  document.getElementById('top-bar-return').addEventListener('click', returnHome);
+
+  // Align home logo script the same way as header logo
+  function alignHomeScript() {
+    const wordmark = document.querySelector('.home-wordmark');
+    const script = document.querySelector('.home-script');
+    if (!wordmark || !script) return;
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const style = window.getComputedStyle(wordmark);
+    ctx.font = style.fontWeight + ' ' + style.fontSize + ' ' + style.fontFamily;
+    script.style.paddingLeft = ctx.measureText('BOWD').width + 'px';
+  }
+
+  alignHomeScript();
+  window.addEventListener('resize', alignHomeScript);
+
+  function alignTopBarSection() {
+    const wm = document.querySelector('.top-bar-wordmark');
+    const sc = document.querySelector('.top-bar-section');
+    const homeWm = document.querySelector('.home-wordmark');
+    const homeScript = document.querySelector('.home-script');
+    if (!wm || !sc || !sc.textContent || !homeWm || !homeScript) return;
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const hwmStyle = window.getComputedStyle(homeWm);
+    ctx.font = hwmStyle.fontWeight + ' ' + hwmStyle.fontSize + ' ' + hwmStyle.fontFamily;
+    const homeWmWidth = ctx.measureText("BOWDIE'S").width;
+    const hsStyle = window.getComputedStyle(homeScript);
+    ctx.font = hsStyle.fontStyle + ' ' + hsStyle.fontWeight + ' ' + hsStyle.fontSize + ' ' + hsStyle.fontFamily;
+    const homeScWidth = ctx.measureText('Chophouse').width;
+    const homeScLeft = parseFloat(homeScript.style.paddingLeft) || 0;
+    const rightFraction = (homeScLeft + homeScWidth) / homeWmWidth;
+    const wmStyle = window.getComputedStyle(wm);
+    ctx.font = wmStyle.fontWeight + ' ' + wmStyle.fontSize + ' ' + wmStyle.fontFamily;
+    const tbWmWidth = ctx.measureText("BOWDIE'S").width;
+    const scStyle = window.getComputedStyle(sc);
+    ctx.font = scStyle.fontStyle + ' ' + scStyle.fontWeight + ' ' + scStyle.fontSize + ' ' + scStyle.fontFamily;
+    const scWidth = ctx.measureText(sc.textContent).width;
+    const targetRight = tbWmWidth * rightFraction;
+    sc.style.paddingLeft = Math.max(0, targetRight - scWidth) + 'px';
+  }
+  window.addEventListener('resize', alignTopBarSection);
+
   // ── LOGO ALIGNMENT: C in Chophouse under right edge of D in Bowdie's ──
   function alignLogo() {
     const wordmark = document.querySelector('.header-logo .wordmark');
