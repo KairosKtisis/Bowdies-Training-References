@@ -417,61 +417,66 @@
   /* ── STICKY NAV WRAPPER (search + filters) ── */
   .sticky-nav {
     background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    padding-bottom: 4px;
   }
  
   /* Push content below fixed header + tabs + nav */
   .header { padding-bottom: 32px; }
  
   .global-search-wrap {
-    padding: 16px 40px 0;
-    max-width: 400px;
+    padding: 20px 24px 0;
+    max-width: 420px;
     margin: 0 auto;
   }
   .filter-bar {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 14px 0 18px;
+    gap: 6px;
+    padding: 18px 24px 16px;
     background: var(--surface);
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
   }
  
   .filter-btn {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 9px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    padding: 7px 18px;
-    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.08);
     background: transparent;
-    color: var(--text-muted);
+    color: var(--text-dim);
     cursor: pointer;
     transition: all 0.2s ease;
-    border-radius: 2px;
+    border-radius: 1px;
+    min-width: 80px;
+    text-align: center;
   }
  
-  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--charcoal); font-weight: 600; }
+  .filter-btn:hover { border-color: rgba(201,168,76,0.5); color: var(--text-muted); }
+  .filter-btn.active { background: rgba(201,168,76,0.12); border-color: var(--gold); color: var(--gold); font-weight: 600; letter-spacing: 0.28em; }
  
   /* ── SEARCH ── */
   .search-input {
     width: 100%;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
     color: var(--text-primary);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    padding: 10px 16px;
+    font-size: 17px;
+    padding: 10px 4px 12px;
     outline: none;
-    border-radius: 2px;
-    transition: border-color 0.2s;
+    border-radius: 0;
+    transition: border-color 0.25s;
+    letter-spacing: 0.02em;
   }
  
-  .search-input::placeholder { color: var(--text-dim); }
-  .search-input:focus { border-color: var(--gold-dim); }
+  .search-input::placeholder { color: var(--text-dim); opacity: 0.6; font-style: italic; letter-spacing: 0.03em; }
+  .search-input:focus { border-bottom-color: var(--gold); }
 
   .search-tip {
     font-family: 'Cormorant Garamond', serif;
@@ -479,9 +484,11 @@
     font-size: 11px;
     color: var(--text-dim);
     text-align: center;
-    padding: 6px 40px 12px;
-    letter-spacing: 0.02em;
-    opacity: 0.8;
+    padding: 2px 24px 16px;
+    letter-spacing: 0.03em;
+    opacity: 0.55;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    margin: 0 24px;
   }
 
  
@@ -495,13 +502,13 @@
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 1px;
     background: var(--charcoal);
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(201,168,76,0.1);
   }
  
   /* ── CARD ── */
   .card {
     background: var(--surface);
-    padding: 32px 28px;
+    padding: 26px 24px 22px;
     cursor: pointer;
     transition: background 0.2s ease;
     position: relative;
@@ -512,10 +519,10 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.3s;
   }
  
   .card:hover { background: var(--surface-2); }
@@ -526,10 +533,10 @@
  
   .card-category {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.3em;
+    font-size: 8.5px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -560,11 +567,11 @@
  
   .card-name {
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.2;
-    margin-bottom: 5px;
+    line-height: 1.15;
+    margin-bottom: 4px;
     transition: color 0.2s;
   }
  
@@ -575,39 +582,41 @@
     font-size: 13px;
     font-style: italic;
     color: var(--text-dim);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
   }
  
   .tag-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 12px;
+    gap: 4px;
+    margin-bottom: 10px;
   }
  
   .tag {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.1em;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-dim);
-    background: var(--surface-3);
-    padding: 3px 8px;
+    background: rgba(255,255,255,0.03);
+    padding: 3px 9px;
     border-radius: 1px;
-    border: 1px solid rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
   }
  
   .expand-hint {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 8.5px;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--gold-dim);
-    margin-top: 14px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 6px;
     transition: color 0.2s;
+    opacity: 0.8;
   }
  
   .expand-hint::after { content: '▾'; font-size: 12px; transition: transform 0.25s ease; }
@@ -779,6 +788,7 @@
     font-style: italic;
     color: var(--text-dim);
     display: none;
+    background: var(--surface);
   }
  
   /* ── FOOTER ── */
@@ -786,7 +796,8 @@
     text-align: center;
     padding: 40px;
     border-top: 1px solid var(--border);
-    margin-top: 40px;
+    margin-top: 0;
+    background: var(--charcoal);
   }
  
   .footer p {
@@ -831,7 +842,7 @@
   </div>
 </div>
 
-<div id="main-content" style="display:none; background: var(--surface);">
+<div id="main-content" style="display:none; background: var(--charcoal);">
 <div id="top-bar">
   <div class="top-bar-logo">
     <span class="top-bar-wordmark">Bowdie's</span>
@@ -4165,6 +4176,8 @@
     const cardTags = (card) =>
       Array.from(card.querySelectorAll('.tag')).map(el => el.textContent.trim().toLowerCase());
 
+    const EXACT_MATCH_WORDS = new Set(['yellowfin']);
+
     const wordBoundary = (text, word) => {
       // Match each word in the card text against the search input:
       // - Card words of 7+ letters: search input must share first 5 letters
@@ -4175,6 +4188,7 @@
       // Extract all words from text and check each
       const textWords = text.match(/\b[a-zÀ-ÿ']+\b/gi) || [];
       return textWords.some(tw => {
+        if (EXACT_MATCH_WORDS.has(word)) return tw.toLowerCase() === word;
         const tl = tw.length;
         if (tl >= 7) return tw.toLowerCase().startsWith(word.slice(0, 5));
         if (tl >= 5) return tw.toLowerCase().startsWith(word.slice(0, 4));
