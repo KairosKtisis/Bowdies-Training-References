@@ -9623,7 +9623,7 @@
         <div class="section-label">Description</div>
         <div class="detail-value notes">Chilled shrimp served with house cocktail sauce and our watercress puree. The puree is emulsified with roasted garlic and red wine vinegar — bright, peppery, and a counterpoint to the spice in the cocktail sauce.</div>
         <div class="section-label">Kitchen Notes</div>
-        <div class="detail-value" style="font-size:14px; color: var(--text-muted); line-height:1.6;"><span class="allergen">Contains shellfish (shrimp), fish (anchovies in worcestershire).</span> <span class="allergen">Contains gluten if served with cocktail sauce</span> — the worcestershire used in the sauce contains gluten. Cocktail sauce can be omitted to make the dish gluten free; confirm with the kitchen. Watercress puree is blended to order; if too runny, additional watercress is added.</div>
+        <div class="detail-value" style="font-size:14px; color: var(--text-muted); line-height:1.6;"><span class="allergen">Contains shellfish (shrimp), fish (anchovies in worcestershire).</span> <span class="allergen">Contains gluten if served with cocktail sauce</span> — the worcestershire used in the sauce contains gluten. Cocktail sauce can be omitted to make the dish gluten free; confirm with the kitchen. Watercress puree is batch-prepped — if consistency is too loose, additional watercress is blended in during prep.</div>
       </div>
     </div>
 
@@ -9736,7 +9736,7 @@
         <div class="section-label">Description</div>
         <div class="detail-value notes">Shrimp shells simmered 2–3 hours in heavy cream and coconut milk, then strained and rebuilt with carrot, celery, shallot, garlic, and tomato paste. Finished with smoked paprika and topped with house crème fraîche and chive oil.</div>
         <div class="section-label">Kitchen Notes</div>
-        <div class="detail-value" style="font-size:14px; color: var(--text-muted); line-height:1.6;"><span class="allergen">Contains shellfish (shrimp), dairy (heavy cream, crème fraîche).</span> Gluten free as prepared — no gluten ingredients in the bisque. The coconut milk is the unexpected element — adds subtle sweetness and body. Crème fraîche is house-made; chive oil is blanched, shocked, and strained.</div>
+        <div class="detail-value" style="font-size:14px; color: var(--text-muted); line-height:1.6;"><span class="allergen">Contains shellfish (shrimp), dairy (heavy cream, crème fraîche).</span> Gluten free as prepared — no gluten ingredients in the bisque. The coconut milk is the unexpected element — adds subtle sweetness and body. Both the crème fraîche and chive oil are batch-prepped; the chive oil is blanched, shocked, and strained for colour and freshness.</div>
       </div>
     </div>
 
@@ -10627,6 +10627,9 @@
     const topBar = document.getElementById('top-bar');
     topBar.style.display = 'flex';
     document.getElementById('top-bar-section').textContent = label;
+    // Scale font size down for longer section names
+    const sectionEl = document.getElementById('top-bar-section');
+    sectionEl.style.fontSize = label.length > 8 ? '10px' : '13px';
     // Right-align section to same right edge as 'Chophouse' in home logo
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
