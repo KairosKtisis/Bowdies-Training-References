@@ -443,6 +443,8 @@ const ALLERGEN_FREE_SYNONYMS = {
   'lactose': 'dairy',
   'wheat':   'gluten',
   'tree':    'tree nut',   // "tree free" → "tree nut free" (edge case, but covered)
+  'tree nut': 'tree nut',
+  'tree nuts': 'tree nut',
   'nuts':    'tree nut',
   'nut':     'tree nut',
   'peanuts': 'peanut',
@@ -456,8 +458,104 @@ const ALLERGEN_FREE_SYNONYMS = {
   'soy':     'soy',
 };
 
+// Normalize natural-language allergen phrases into "[allergen] free"
+// before tokenization, so the existing allergen-free path handles them.
+// Handles: "free of X", "no X", "without X", "avoid X", "need to avoid X",
+//          "X-free" (hyphenated), "X free options",
+//          "safe for X allergy", "X allergy", "have a X allergy", "i have a X allergy",
+//          "does not contain X", "contains no X",
+//          "allergic to X", "i'm/i am allergic to X",
+//          "sensitive to X", "i'm sensitive to X",
+//          "X intolerant", "intolerant to X", "i'm intolerant to X",
+//          "i can't have/eat X", "can't do/handle/touch X",
+//          "don't do X", "off X",
+//          "staying/keeping away from X", "keeping off X", "steering clear of X"
+function normalizeAllergenPhrases(str) {
+  const A =
+    '(gluten|wheat|dairy|milk|lactose|eggs|egg|fish|shellfish|shrimp|crab|lobster|oyster|' +
+    'mollusc|peanuts|peanut|tree\\s+nuts|tree\\s+nut|nuts|nut|soy|garlic|onion|mustard|' +
+    'tamarind|ginger|shallot|sesame|pork)';
+
+  // "X-free" hyphenated → "X free"
+  str = str.replace(/(\w+)-free\b/gi, '$1 free');
+
+  // "X free options" → "X free"  (consume "options" before anything else)
+  str = str.replace(new RegExp(A + '\\s+free\\s+options\\b', 'gi'), (_, a) => a + ' free');
+
+  // "free of X" → "X free"
+  str = str.replace(new RegExp('\\bfree\\s+of\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "no X" → "X free"
+  str = str.replace(new RegExp('\\bno\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "without X" → "X free"
+  str = str.replace(new RegExp('\\bwithout\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "avoid X" / "need to avoid X" / "avoiding X" → "X free"
+  str = str.replace(new RegExp('\\b(?:need\\s+to\\s+)?avoid(?:ing)?\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "off X" → "X free"
+  str = str.replace(new RegExp('\\boff\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "safe for X allergy" → "X free"
+  str = str.replace(new RegExp('\\bsafe\\s+for\\s+' + A + '(?:\\s+allergy)?', 'gi'), (_, a) => a + ' free');
+
+  // "X allergy" / "have a X allergy" / "i have a X allergy" → "X free"
+  str = str.replace(new RegExp('\\b(?:i\\s+)?(?:have\\s+a\\s+)?' + A + '\\s+allergy\\b', 'gi'), (_, a) => a + ' free');
+
+  // "does not contain X" → "X free"
+  str = str.replace(new RegExp('\\bdoes\\s+not\\s+contain\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "contains no X" → "X free"
+  str = str.replace(new RegExp('\\bcontains\\s+no\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "allergic to X" / "i'm allergic to X" / "i am allergic to X" → "X free"
+  str = str.replace(new RegExp("\\bi'?m?\\s+(?:am\\s+)?allergic\\s+to\\s+" + A, 'gi'), (_, a) => a + ' free');
+  str = str.replace(new RegExp('\\ballergic\\s+to\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "sensitive to X" / "i'm sensitive to X" → "X free"
+  str = str.replace(new RegExp("\\bi'?m?\\s+(?:am\\s+)?sensitive\\s+to\\s+" + A, 'gi'), (_, a) => a + ' free');
+  str = str.replace(new RegExp('\\bsensitive\\s+to\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "X intolerant" → "X free"
+  str = str.replace(new RegExp(A + '\\s+intolerant\\b', 'gi'), (_, a) => a + ' free');
+
+  // "intolerant to X" / "i'm intolerant to X" → "X free"
+  str = str.replace(new RegExp("\\bi'?m?\\s+(?:am\\s+)?intolerant\\s+to\\s+" + A, 'gi'), (_, a) => a + ' free');
+  str = str.replace(new RegExp('\\bintolerant\\s+to\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "i can't have X" / "i can't eat X" / "can't have X" / "can't eat X" (with or without subject) → "X free"
+  str = str.replace(new RegExp("\\b(?:\\w+\\s+)?can'?t\\s+(?:have|eat)\\s+" + A, 'gi'), (_, a) => a + ' free');
+
+  // "can't do/handle/touch X" → "X free"
+  str = str.replace(new RegExp("\\bcan'?t\\s+(?:do|handle|touch)\\s+" + A, 'gi'), (_, a) => a + ' free');
+
+  // "don't do X" / "don't eat X" / "do not eat X" → "X free"
+  str = str.replace(new RegExp("\\b(?:don'?t|do\\s+not)\\s+(?:do|eat)\\s+" + A, 'gi'), (_, a) => a + ' free');
+
+  // "staying away from X" / "keeping away from X" → "X free"
+  str = str.replace(new RegExp('\\b(?:staying|keeping)\\s+away\\s+from\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "keeping off X" → "X free"
+  str = str.replace(new RegExp('\\bkeeping\\s+off\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // "steering clear of X" → "X free"
+  str = str.replace(new RegExp('\\bsteering\\s+clear\\s+of\\s+' + A, 'gi'), (_, a) => a + ' free');
+
+  // Normalize plurals: "nuts free" → "nut free", "eggs free" → "egg free", "peanuts free" → "peanut free"
+  str = str.replace(/\bnuts\s+free\b/gi, 'nut free');
+  str = str.replace(/\beggs\s+free\b/gi, 'egg free');
+  str = str.replace(/\bpeanuts\s+free\b/gi, 'peanut free');
+
+  // Normalize "tree nut free" / "tree nuts free" spacing
+  str = str.replace(/\btree\s+nuts?\s+free\b/gi, 'tree nut free');
+
+  return str;
+}
+
 function tokenizeQuery(raw) {
   const allTags = getAllTags();
+  raw = normalizeAllergenPhrases(raw);
   const words = raw.trim()
     .replace(/\boff\s+dry\b/g, 'off-dry')
     .replace(/\bage\s+worthy\b/g, 'age-worthy')
@@ -469,12 +567,17 @@ function tokenizeQuery(raw) {
   let i = 0;
   while (i < words.length) {
     // Allergen + "free": force tag-only match — never search card text, even in fallback
-    if (words[i + 1] === 'free' && ALLERGEN_FREE_WORDS.has(words[i])) {
-      const canonical = ALLERGEN_FREE_SYNONYMS[words[i]] || words[i];
+    // Also handles two-word allergens: "tree nut free"
+    const nextIsFree = words[i + 1] === 'free';
+    const twoWordAllergen = words[i] + ' ' + words[i + 1];
+    const nextNextIsFree = words[i + 2] === 'free' && twoWordAllergen === 'tree nut';
+    if ((nextIsFree && ALLERGEN_FREE_WORDS.has(words[i])) || nextNextIsFree) {
+      const raw_allergen = nextNextIsFree ? twoWordAllergen : words[i];
+      const canonical = ALLERGEN_FREE_SYNONYMS[raw_allergen] || ALLERGEN_FREE_SYNONYMS[words[i]] || raw_allergen;
       const twoWord = canonical + ' free';
       const tagMatch = findMatchingTag(twoWord, allTags);
       tokens.push({ type: 'tag', value: tagMatch || twoWord, allergenFree: true });
-      i += 2;
+      i += nextNextIsFree ? 3 : 2;
       continue;
     }
     // Try two-word combination first — only consume both words if both match
@@ -488,13 +591,15 @@ function tokenizeQuery(raw) {
       }
     }
     // Two-word didn't match — try first word alone as a single-word tag
-    const singleMatch = findMatchingTag(words[i], allTags);
+    // Exception: allergen words not followed by "free" must fall through to text search
+    const singleMatch = !ALLERGEN_FREE_WORDS.has(words[i]) && findMatchingTag(words[i], allTags);
     if (singleMatch) {
       tokens.push({ type: 'tag', value: singleMatch });
     } else {
       // Check if this word is the start of any two-word tag
       // If so, emit it as a tag token for that two-word tag
-      const partialMatch = allTags.find(tag => {
+      // Exception: allergen words not followed by "free" must go to text search, not tags
+      const partialMatch = !ALLERGEN_FREE_WORDS.has(words[i]) && allTags.find(tag => {
         const tw = tag.split(' ');
         return tw.length === 2 && tw[0].startsWith(words[i].slice(0, 3));
       });
