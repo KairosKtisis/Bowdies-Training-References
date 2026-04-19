@@ -92,18 +92,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .items-section{margin-bottom:20px}
 .items-section-label{font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.35em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border-soft)}
 .items-section-label.considering-label{color:var(--text-dim)}
-.item-card{background:var(--surface-2);border:1px solid var(--border-soft);margin-bottom:8px;overflow:hidden}
-.item-card:last-child{margin-bottom:0}
-.item-row{display:flex;align-items:center;padding:12px 14px;gap:12px}
-.item-name{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.2;flex:1}
+.item-card{background:var(--surface-2);border:1px solid var(--border-soft);margin-bottom:6px;overflow:hidden}
+.item-row{display:flex;align-items:center;padding:13px 16px;gap:12px}
+.item-name{font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.2;flex:1}
 .item-name.state-locked{color:var(--text-primary)}
-.item-name.state-finished{color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim)}
+.item-name.state-finished{color:var(--text-dim);text-decoration:line-through;text-decoration-color:rgba(90,82,72,0.6)}
 .item-name.state-considering{color:var(--text-muted);font-style:italic}
 .item-cat{font-family:'Josefin Sans',sans-serif;font-size:7.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:2px}
-.item-finish-bar{width:100%;padding:10px 14px;background:transparent;border:none;border-top:1px solid rgba(201,168,76,0.12);color:var(--gold-dim);font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;text-align:center;transition:all 0.2s}
-.item-finish-bar:hover{background:rgba(201,168,76,0.06);color:var(--gold)}
-.item-remove-btn{color:var(--text-dim);font-size:16px;background:transparent;border:none;cursor:pointer;padding:2px 4px;transition:color 0.15s;flex-shrink:0}
-.item-remove-btn:hover{color:var(--gold)}
+.item-finish-bar{width:100%;padding:9px 16px;background:transparent;border:none;border-top:1px solid var(--border-soft);color:var(--text-dim);font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;text-align:center;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.item-finish-bar::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0.4}
+.item-finish-bar:hover{background:rgba(201,168,76,0.05);color:var(--gold-dim);border-top-color:var(--border)}
+.item-remove-btn{color:var(--text-dim);font-size:18px;font-weight:300;background:transparent;border:none;cursor:pointer;padding:2px 4px;line-height:1;transition:color 0.15s;flex-shrink:0}
+.item-remove-btn:hover{color:var(--text-muted)}
 .empty-state{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);text-align:center;padding:28px 0}
 
 /* COURSE TAB BAR */
@@ -117,11 +117,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 #recs-panel{margin-top:8px}
 .recs-heading{font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between}
 .recs-count{color:var(--text-dim);font-size:8px}
-.rec-group{margin-bottom:20px}
-.rec-group-label{font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
-.rec-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;background:none;width:100%;text-align:left;border-radius:0;transition:background 0.15s}
+.rec-group{margin-bottom:16px;border:1px solid var(--border-soft);overflow:hidden}
+.rec-group-label{font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-dim);padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border-soft)}
+.rec-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border-soft);cursor:pointer;background:var(--surface-2);width:100%;text-align:left;border-radius:0;transition:all 0.15s;border-left:2px solid transparent}
 .rec-item:last-child{border-bottom:none}
-.rec-item:hover{background:rgba(255,255,255,0.02)}
+.rec-item:first-child{border-top:none}
+.rec-item:hover{background:var(--surface-3);border-left-color:var(--gold-dim)}
+.rec-item.already-added{background:rgba(201,168,76,0.06);border-left-color:var(--gold)}
 .rec-item.already-added .rec-name{color:var(--gold-light)}
 .tier-pip{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .tier-pip.excellent{background:var(--tier-excellent)}
@@ -130,10 +132,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .rec-info{flex:1;min-width:0}
 .rec-name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text-primary);line-height:1.2;transition:color 0.2s}
 .rec-meta{font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:3px}
-.tier-badge{font-family:'Josefin Sans',sans-serif;font-size:7.5px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 8px;border-radius:1px;flex-shrink:0}
-.tier-badge.excellent{color:var(--tier-excellent);border:1px solid rgba(201,168,76,0.3)}
-.tier-badge.strong{color:var(--tier-strong);border:1px solid rgba(123,168,196,0.3)}
-.tier-badge.works{color:var(--tier-works);border:1px solid rgba(122,154,138,0.3)}
+.tier-badge{font-family:'Josefin Sans',sans-serif;font-size:7.5px;letter-spacing:0.2em;text-transform:uppercase;flex-shrink:0;padding:0}
+.tier-badge.excellent{color:var(--tier-excellent)}
+.tier-badge.strong{color:var(--tier-strong)}
+.tier-badge.works{color:var(--tier-works)}
 .legend{display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:6px;font-family:'Josefin Sans',sans-serif;font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim)}
 
@@ -426,7 +428,7 @@ footer p{font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:0.2
   <p>Internal use only</p>
 </footer>
 
-<script src="pairing-map.js?v=7"></script>
+<script src="pairing-map.js?v=8"></script>
 <script>
 // ── CONSTANTS ──────────────────────────────────────────────────────────────────
 
@@ -1029,9 +1031,9 @@ function renderItems() {
       if (!groups[cat]) return;
       html += '<div class="items-section"><div class="items-section-label">' + getCategoryForDisplay(cat) + '</div>';
       groups[cat].forEach(item => {
-        html += '<div class="item-row">'
-          + '<div><div class="item-name state-locked">' + item.name + '</div></div>'
-          + '<button class="item-action finish-btn" data-finish="' + encodeURIComponent(item.name) + '">Tap to Finish</button>'
+        html += '<div class="item-card">'
+          + '<div class="item-row"><div class="item-name state-locked">' + item.name + '</div></div>'
+          + '<button class="item-finish-bar" data-finish="' + encodeURIComponent(item.name) + '">Mark as Finished</button>'
           + '</div>';
       });
       html += '</div>';
@@ -1042,11 +1044,11 @@ function renderItems() {
   if (considering.length) {
     html += '<div class="items-section"><div class="items-section-label considering-label">Considering</div>';
     considering.forEach(item => {
-      html += '<div class="item-row">'
-        + '<div><div class="item-name state-considering">' + item.name + '</div>'
+      html += '<div class="item-card"><div class="item-row">'
+        + '<div style="flex:1"><div class="item-name state-considering">' + item.name + '</div>'
         + '<div class="item-cat">' + getCategoryForDisplay(item.category) + '</div></div>'
-        + '<button class="item-action remove-btn" data-remove="' + encodeURIComponent(item.name) + '">×</button>'
-        + '</div>';
+        + '<button class="item-remove-btn" data-remove="' + encodeURIComponent(item.name) + '">×</button>'
+        + '</div></div>';
     });
     html += '</div>';
   }
@@ -1055,12 +1057,12 @@ function renderItems() {
   if (finished.length) {
     html += '<div class="items-section"><div class="items-section-label">Finished</div>';
     finished.forEach(item => {
-      html += '<div class="item-row">'
-        + '<div><div class="item-name state-finished">' + item.name + '</div></div>'
-        + '<span style="font-family:\'Josefin Sans\',sans-serif;font-size:7.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim)">Done</span>'
-        + '</div>';
-    });
+      html += '<div class="item-card"><div class="item-row">'
+        + '<div class="item-name state-finished">' + item.name + '</div>'
+        + '<span style="font-family:\'Josefin Sans\',sans-serif;font-size:7.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);flex-shrink:0;opacity:0.5">Done</span>'
+        + '</div></div>';
     html += '</div>';
+    });
   }
 
   container.innerHTML = html;
@@ -1131,7 +1133,7 @@ function renderRecsForCourse(recsIn) {
 
   const lockedNames = new Set(g.items.filter(i => i.state === STATE_LOCKED).map(i => i.name));
 
-  let html = '<div class="legend"><div class="legend-item"><div class="tier-pip excellent"></div> Excellent</div><div class="legend-item"><div class="tier-pip strong"></div> Strong</div><div class="legend-item"><div class="tier-pip works"></div> Works</div></div>';
+  let html = '';
 
   CATEGORY_ORDER.forEach(cat => {
     if (!groups[cat]) return;
@@ -1385,6 +1387,6 @@ window.addEventListener('resize', alignSectionLabel);
 
 // ── JS COMPLETION ──────────────────────────────────────────────────────────────
 </script>
-<script src="set-the-stage-completion.js?v=7"></script>
+<script src="set-the-stage-completion.js?v=8"></script>
 </body>
 </html>
