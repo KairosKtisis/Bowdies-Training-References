@@ -112,6 +112,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .course-tab-inner{display:flex;min-width:max-content}
 .course-tab{font-family:'Josefin Sans',sans-serif;font-size:8.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);padding:10px 14px;background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .course-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.course-tab.dim{opacity:0.35;pointer-events:none}
 
 /* RECS */
 #recs-panel{margin-top:8px}
@@ -428,7 +429,7 @@ footer p{font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:0.2
   <p>Internal use only</p>
 </footer>
 
-<script src="pairing-map.js?v=8"></script>
+<script src="pairing-map.js?v=9"></script>
 <script>
 // ── CONSTANTS ──────────────────────────────────────────────────────────────────
 
@@ -1077,6 +1078,8 @@ function renderRecs() {
   const content = document.getElementById('recs-content');
   const tabBar = document.getElementById('course-tab-bar');
 
+  const activeWeighted = weighted.filter(s => s.weight > 0);
+
   if (!weighted.length) {
     empty.style.display = 'block';
     content.innerHTML = '';
@@ -1085,10 +1088,23 @@ function renderRecs() {
   }
 
   empty.style.display = 'none';
+
+  if (!activeWeighted.length) {
+    // Only finished items — guide server to add next item
+    const hasFood = g.items.some(i => FOOD_CATS.includes(i.category));
+    const hasDrinks = g.items.some(i => DRINK_CATS.includes(i.category));
+    const msg = state.path === 'drinks' && !hasFood
+      ? 'Drink finished. Search for a food item above to see pairing recommendations.'
+      : 'Add another item above to continue.';
+    content.innerHTML = '<div class="empty-state">' + msg + '</div>';
+    tabBar.style.display = 'none';
+    return;
+  }
+
   const recs = getRecommendations(weighted);
 
   if (!recs.length) {
-    content.innerHTML = '<div class="empty-state">No strong pairings found for this combination.</div>';
+    content.innerHTML = '<div class="empty-state">No strong pairings found. Try adding more items.</div>';
     tabBar.style.display = 'none';
     return;
   }
@@ -1099,7 +1115,8 @@ function renderRecs() {
   inner.innerHTML = COURSE_TABS.map(tab => {
     const hasRecs = recs.some(r => tab.cats.includes(r.category));
     const isActive = tab.id === (g.activeCourseTab || 'starters');
-    return '<button class="course-tab' + (isActive ? ' active' : '') + (hasRecs ? '' : ' style="opacity:0.4"') + '" data-course="' + tab.id + '">' + tab.label + '</button>';
+    const cls = 'course-tab' + (isActive ? ' active' : '') + (hasRecs ? '' : ' dim');
+    return '<button class="' + cls + '" data-course="' + tab.id + '">' + tab.label + '</button>';
   }).join('');
 
   inner.querySelectorAll('.course-tab').forEach(btn => {
@@ -1121,7 +1138,20 @@ function renderRecsForCourse(recsIn) {
   const filtered = recs.filter(r => tab.cats.includes(r.category));
 
   if (!filtered.length) {
-    content.innerHTML = '<div class="empty-state" style="padding:24px 0">No ' + tab.label.toLowerCase() + ' pairings for this selection. Try another course or add more items.</div>';
+    // Auto-advance to the tab with the most recs
+    const bestTab = COURSE_TABS.reduce((best, t) => {
+      const count = recs.filter(r => t.cats.includes(r.category)).length;
+      return count > (best.count || 0) ? { tab: t, count } : best;
+    }, {});
+    if (bestTab.tab && bestTab.tab.id !== tabId) {
+      g.activeCourseTab = bestTab.tab.id;
+      document.querySelectorAll('.course-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.course === bestTab.tab.id);
+      });
+      renderRecsForCourse(recs);
+      return;
+    }
+    content.innerHTML = '<div class="empty-state" style="padding:24px 0">No pairings on this tab. Select another above.</div>';
     return;
   }
 
@@ -1387,6 +1417,6 @@ window.addEventListener('resize', alignSectionLabel);
 
 // ── JS COMPLETION ──────────────────────────────────────────────────────────────
 </script>
-<script src="set-the-stage-completion.js?v=8"></script>
+<script src="set-the-stage-completion.js?v=9"></script>
 </body>
 </html>
