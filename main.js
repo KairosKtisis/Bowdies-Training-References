@@ -764,18 +764,8 @@ document.getElementById('home-prime').addEventListener('click', () => selectSect
 document.getElementById('home-return').addEventListener('click', returnHome);
 document.getElementById('top-bar-return').addEventListener('click', returnHome);
 
-// Set the Stage toast — toggle on tap, dismiss on tap elsewhere
-const wheelBtn = document.getElementById('home-wheel');
-wheelBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const toast = document.getElementById('wheel-toast');
-  const isVisible = toast.classList.toggle('visible');
-  wheelBtn.classList.toggle('home-btn-active', isVisible);
-});
-
-document.addEventListener('click', () => {
-  document.getElementById('wheel-toast').classList.remove('visible');
-  wheelBtn.classList.remove('home-btn-active');
+document.getElementById('home-wheel').addEventListener('click', function() {
+  window.location.href = 'set-the-stage.html';
 });
 
 

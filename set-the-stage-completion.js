@@ -83,7 +83,7 @@ function renderFTRecs() {
 // ── RESET ────────────────────────────────────────────────────────────────────
 
 function confirmReset() {
-  if (confirm('Reset the current session? All guest selections will be cleared.')) resetSession();
+  resetSession();
 }
 
 function resetSession() {
@@ -104,6 +104,11 @@ function resetSession() {
 
   document.getElementById('guest-tab-bar').classList.remove('visible');
   document.getElementById('guest-count-display').textContent = '1';
+  document.getElementById('ft-recs-area').style.display = 'none';
+  document.getElementById('ft-short-btn').classList.add('active');
+  document.getElementById('ft-deep-btn').classList.remove('active');
+  document.getElementById('ft-question-area').innerHTML = '';
+  document.getElementById('ft-progress').innerHTML = '';
 
   try { localStorage.removeItem('sts_session'); } catch(e) {}
   showScreen('screen-path');

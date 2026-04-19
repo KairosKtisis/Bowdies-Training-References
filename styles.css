@@ -846,7 +846,7 @@ body::before {
   padding: 40px;
   border-top: 1px solid var(--border);
   margin-top: 0;
-  background: var(--charcoal);
+  background: var(--surface);
 }
 
 .footer p {
