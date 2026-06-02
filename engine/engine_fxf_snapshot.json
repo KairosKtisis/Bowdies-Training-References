@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-06T22:47:00.495Z",
+  "generatedAt": "2026-06-02T17:34:36.692Z",
   "description": "FxF snapshot anchors — gold pairs, hand-curated AVOIDs, and curated examples.",
   "anchors": [
     {
@@ -7,7 +7,7 @@
       "a": "The Tomahawk",
       "b": "Truffle Fries",
       "key": "The Tomahawk|Truffle Fries",
-      "hash": "9e57e8c5d6d55803"
+      "hash": "4e871c0be14c5b4b"
     },
     {
       "tier": "gold",
@@ -28,7 +28,7 @@
       "a": "Porterhouse",
       "b": "Creamed Spinach",
       "key": "Porterhouse|Creamed Spinach",
-      "hash": "9b8a96db1a510b68"
+      "hash": "7a5ad54b222c2b96"
     },
     {
       "tier": "gold",
@@ -70,7 +70,7 @@
       "a": "Filet Mignon",
       "b": "Crab Cake",
       "key": "Filet Mignon|Crab Cake",
-      "hash": "27b9d8e3838b1efe"
+      "hash": "39f93b33ce6f1ffc"
     },
     {
       "tier": "avoid",
@@ -98,42 +98,42 @@
       "a": "Bone-In Filet",
       "b": "Crab Cake",
       "key": "Bone-In Filet|Crab Cake",
-      "hash": "57e85079c524a6f0"
+      "hash": "6b0f847a8f2ef8dc"
     },
     {
       "tier": "excellent",
       "a": "Filet Mignon",
       "b": "Truffle Fries",
       "key": "Filet Mignon|Truffle Fries",
-      "hash": "a7752635160d78a5"
+      "hash": "c111b62171ac7fe5"
     },
     {
       "tier": "excellent",
       "a": "Bone-In Filet",
       "b": "Lobster Mac",
       "key": "Bone-In Filet|Lobster Mac",
-      "hash": "7bc575900431a524"
+      "hash": "0da6da66619ecf0e"
     },
     {
       "tier": "excellent",
       "a": "Cowboy Ribeye",
       "b": "Au Gratin Potatoes",
       "key": "Cowboy Ribeye|Au Gratin Potatoes",
-      "hash": "95a3c41e04393cfa"
+      "hash": "b8946dc3f1116f33"
     },
     {
       "tier": "strong",
       "a": "Filet Mignon",
       "b": "Burrata",
       "key": "Filet Mignon|Burrata",
-      "hash": "645b71d315c95fbd"
+      "hash": "f14e00a37c4e7020"
     },
     {
       "tier": "strong",
       "a": "Filet Mignon",
       "b": "Escargot",
       "key": "Filet Mignon|Escargot",
-      "hash": "e9e18ecf3553df2d"
+      "hash": "9fa9300d43c8508b"
     },
     {
       "tier": "strong",
@@ -147,7 +147,7 @@
       "a": "Roast Half Chicken",
       "b": "Honey Roasted Carrots",
       "key": "Roast Half Chicken|Honey Roasted Carrots",
-      "hash": "584f6b4d5ab45a79"
+      "hash": "62ac8952b197dbd7"
     },
     {
       "tier": "strong",

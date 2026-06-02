@@ -1,0 +1,1339 @@
+// engine/bottle_profiles_curated.js
+//
+// Hand-curated bottle profiles, consumed by drink_x_food_generator.js.
+// Order of precedence in profileFor():
+//   BOTTLE_PROFILE (inline in generator)  >  BOTTLE_PROFILES_CURATED (this file)  >  BOTTLE_PROFILES_MINED  >  class default
+//
+// This file holds the next 30+ bottles after the inline core curation.
+// Add a bottle here if its mined output reads weak or its v9 voice has
+// distinctive bottle-specific framing that the class default misses.
+
+const BOTTLE_PROFILES_CURATED = {
+  // ── Scotches: Highland ─────────────────────────────────────────────────
+  'Glenmorangie 10': {
+    tastingNotes: ['Highland entry', 'tallest stills', 'honeysuckle-vanilla'],
+    character:    'tallest-stills Highland bourbon-cask character',
+    bridge1:      'the bourbon-cask vanilla settles into {foodTarget}',
+    bridge2:      'the honey-floral lifts {foodSubj}',
+    bridge1Variants: [
+          "the bourbon-cask vanilla settles into {foodTarget}",
+          "the tallest-stills Highland body meets {foodTarget}",
+          "the Glenmorangie 10 ex-bourbon character carries {foodTarget}",
+          "the gentle-Highland bourbon-cask lift wraps {foodTarget}",
+          "the entry-Glenmorangie honey-floral body threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey-floral lifts {foodSubj}",
+          "the honeysuckle-and-vanilla note underlines {foodSubj}",
+          "the gentle-Highland brightness softens {foodSubj}",
+          "the bourbon-cask floral edge plays against {foodSubj}",
+          "the soft-honey Glenmorangie finish frames {foodSubj}"
+    ],
+    verdictHook:  'entry-Highland Scotch',
+  },
+  'Glenmorangie 18': {
+    tastingNotes: ['aged Highland', 'Oloroso finish', 'dried-fruit depth'],
+    character:    'aged Highland with Oloroso finish',
+    bridge1:      'the Oloroso-cask depth wraps {foodTarget}',
+    bridge2:      'the aged-Highland weight frames {foodSubj}',
+    bridge1Variants: [
+          "the Oloroso-cask depth wraps {foodTarget}",
+          "the aged-Glenmorangie sherry-finish body meets {foodTarget}",
+          "the 15-years-bourbon-then-Oloroso Glenmorangie carries {foodTarget}",
+          "the extra-matured Highland body wraps {foodTarget}",
+          "the tallest-stills aged-Glenmorangie depth threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the aged-Highland weight frames {foodSubj}",
+          "the dried-orange-and-Oloroso edge underlines {foodSubj}",
+          "the 18-year Glenmorangie sherry-warmth softens {foodSubj}",
+          "the extra-matured honey-and-spice close plays against {foodSubj}",
+          "the aged-floral Highland finish frames {foodSubj}"
+    ],
+    verdictHook:  'aged Highland Scotch',
+  },
+  'Oban 14': {
+    tastingNotes: ['Highland-coastal', 'maritime saltiness', 'honey'],
+    character:    'maritime-Highland coastal character',
+    bridge1:      'the coastal salinity meets {foodTarget}',
+    bridge2:      'the honey rounds {foodSubj}',
+    bridge1Variants: [
+          "the coastal salinity meets {foodTarget}",
+          "the Western-Highland coastal body wraps {foodTarget}",
+          "the Oban-village distillery character carries {foodTarget}",
+          "the small-still Oban weight threads {foodTarget}",
+          "the maritime-Highland 14-year body meets {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey rounds {foodSubj}",
+          "the orange-honey-and-sea-salt note underlines {foodSubj}",
+          "the gentle-smoke-and-honey finish softens {foodSubj}",
+          "the coastal-honey edge plays against {foodSubj}",
+          "the Western-Highland honey-spice close frames {foodSubj}"
+    ],
+    verdictHook:  'maritime Highland Scotch',
+  },
+  'Oban 18': {
+    tastingNotes: ['aged maritime Highland', 'spice', 'honey'],
+    character:    'aged maritime Highland depth',
+    bridge1:      'the coastal-Highland weight wraps {foodTarget}',
+    bridge2:      'the honey-spice edge softens {foodSubj}',
+    bridge1Variants: [
+          "the coastal-Highland weight wraps {foodTarget}",
+          "the aged-Oban maritime body meets {foodTarget}",
+          "the 18-year coastal-Highland depth carries {foodTarget}",
+          "the small-still aged-Oban weight threads {foodTarget}",
+          "the limited-Oban maritime body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey-spice edge softens {foodSubj}",
+          "the aged honey-and-salt finish underlines {foodSubj}",
+          "the 18-year orange-and-smoke close plays against {foodSubj}",
+          "the coastal-honey-and-pepper edge frames {foodSubj}",
+          "the limited-Oban aged-spice finish softens {foodSubj}"
+    ],
+    verdictHook:  'flagship maritime Highland Scotch',
+  },
+  'Dalmore 12': {
+    tastingNotes: ['sherry-cask Highland', 'orange', 'chocolate'],
+    character:    'sherry-finished Highland character',
+    bridge1:      'the sherry-cask depth wraps {foodTarget}',
+    bridge2:      'the orange-and-chocolate plays against {foodSubj}',
+    bridge1Variants: [
+          "the sherry-cask depth wraps {foodTarget}",
+          "the Dalmore Highland Matusalem-cask body meets {foodTarget}",
+          "the sherry-finished Highland weight carries {foodTarget}",
+          "the orange-and-Oloroso Dalmore body threads {foodTarget}",
+          "the Highland sherry-finished character wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the orange-and-chocolate plays against {foodSubj}",
+          "the orange-marmalade-and-cocoa note frames {foodSubj}",
+          "the Matusalem-cask chocolate edge softens {foodSubj}",
+          "the candied-orange-and-coffee finish underlines {foodSubj}",
+          "the sherry-touched bittersweet finish plays against {foodSubj}"
+    ],
+    verdictHook:  'sherry-finished Highland Scotch',
+  },
+
+  // ── Scotches: Speyside ─────────────────────────────────────────────────
+  'Macallan 12 Sherry': {
+    tastingNotes: ['Speyside', 'sherry-cask', 'dried fruit', 'spice'],
+    character:    'classic Sherry-Cask Speyside character',
+    bridge1:      'the sherry-cask depth wraps {foodTarget}',
+    bridge2:      'the dried-fruit-and-spice frames {foodSubj}',
+    bridge1Variants: [
+          "the sherry-cask depth wraps {foodTarget}",
+          "the Macallan-house Oloroso-cask body meets {foodTarget}",
+          "the 12-year sherry-matured Macallan carries {foodTarget}",
+          "the Spanish-oak Macallan body threads {foodTarget}",
+          "the sherry-style Speyside benchmark wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the dried-fruit-and-spice frames {foodSubj}",
+          "the Christmas-cake Macallan note underlines {foodSubj}",
+          "the Oloroso-cask raisin-and-clove edge softens {foodSubj}",
+          "the sherry-led dried-fruit close plays against {foodSubj}",
+          "the Spanish-oak spice frames {foodSubj}"
+    ],
+    verdictHook:  'Sherry-Cask Speyside',
+  },
+  'Macallan 18': {
+    tastingNotes: ['premium aged 18yr', '100% Oloroso', 'collector register'],
+    character:    'premium aged 18yr Oloroso Speyside',
+    bridge1:      'the aged Oloroso depth wraps {foodTarget}',
+    bridge2:      'the dried-fruit-and-spice softens {foodSubj}',
+    bridge1Variants: [
+          "the aged Oloroso depth wraps {foodTarget}",
+          "the 18-year Macallan flagship body meets {foodTarget}",
+          "the Spanish-oak Macallan-18 weight carries {foodTarget}",
+          "the aged-sherry Macallan benchmark threads {foodTarget}",
+          "the collector-tier Macallan 18 body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the dried-fruit-and-spice softens {foodSubj}",
+          "the aged Christmas-cake Macallan note underlines {foodSubj}",
+          "the 18-year Oloroso-cask warmth plays against {foodSubj}",
+          "the deep-sherry dried-fig finish frames {foodSubj}",
+          "the polished aged-sherry close softens {foodSubj}"
+    ],
+    verdictHook:  'collector Speyside',
+  },
+  'Macallan Estate': {
+    tastingNotes: ['estate Speyside', 'sherry-cask', 'oak'],
+    character:    'estate Speyside character',
+    bridge1:      'the estate depth wraps {foodTarget}',
+    bridge2:      'the sherry-cask weight frames {foodSubj}',
+    bridge1Variants: [
+          "the estate depth wraps {foodTarget}",
+          "the Macallan-Estate house style meets {foodTarget}",
+          "the distillery-grown estate register carries {foodTarget}",
+          "the estate-character Speyside body threads {foodTarget}",
+          "the family-distillery Macallan depth wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the sherry-cask weight frames {foodSubj}",
+          "the estate-driven sherry-influence underlines {foodSubj}",
+          "the Macallan-house dried-fruit note plays against {foodSubj}",
+          "the estate-cask warmth softens {foodSubj}",
+          "the distillery-story sherry-finish frames {foodSubj}"
+    ],
+    verdictHook:  'estate Speyside',
+  },
+  'Aberlour 16': {
+    tastingNotes: ['double-matured Speyside', 'bourbon-plus-sherry', 'balanced'],
+    character:    'double-matured Speyside balance',
+    bridge1:      'the bourbon-plus-sherry depth wraps {foodTarget}',
+    bridge2:      'the balanced sweetness frames {foodSubj}',
+    bridge1Variants: [
+          "the bourbon-plus-sherry depth wraps {foodTarget}",
+          "the double-matured Aberlour body meets {foodTarget}",
+          "the Aberlour 16 double-cask weight carries {foodTarget}",
+          "the dual-matured Speyside register threads {foodTarget}",
+          "the bourbon-and-Oloroso Aberlour body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the balanced sweetness frames {foodSubj}",
+          "the double-cask honey-and-spice note underlines {foodSubj}",
+          "the dual-matured balance softens {foodSubj}",
+          "the sherry-touched Speyside warmth plays against {foodSubj}",
+          "the bourbon-leaning sherry-balance frames {foodSubj}"
+    ],
+    verdictHook:  'Speyside Scotch',
+  },
+  'Glenfiddich 12': {
+    tastingNotes: ['entry Speyside', 'apple-pear', 'ex-bourbon-cask'],
+    character:    'entry Speyside benchmark',
+    bridge1:      'the bourbon-cask apple lifts {foodTarget}',
+    bridge2:      'the honey rounds {foodSubj}',
+    bridge1Variants: [
+          "the bourbon-cask apple lifts {foodTarget}",
+          "the entry-Glenfiddich Speyside body meets {foodTarget}",
+          "the William-Grant Speyside flagship carries {foodTarget}",
+          "the Robbie-Dhu-Spring water Glenfiddich body threads {foodTarget}",
+          "the bourbon-and-sherry Glenfiddich 12 wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey rounds {foodSubj}",
+          "the pear-and-honey Speyside note underlines {foodSubj}",
+          "the gentle-malt honey-and-orchard finish softens {foodSubj}",
+          "the entry-Glenfiddich orchard-fruit close plays against {foodSubj}",
+          "the soft Speyside honey-edge frames {foodSubj}"
+    ],
+    verdictHook:  'entry Speyside Scotch',
+  },
+  'Glenfiddich 18': {
+    tastingNotes: ['aged 18yr Speyside', 'sherry-finish', 'oak'],
+    character:    'aged Speyside with sherry finish',
+    bridge1:      'the aged-Speyside depth wraps {foodTarget}',
+    bridge2:      'the sherry-finish frames {foodSubj}',
+    bridge1Variants: [
+          "the aged-Speyside depth wraps {foodTarget}",
+          "the 18-year small-batch Glenfiddich body meets {foodTarget}",
+          "the small-batch reserve Speyside character carries {foodTarget}",
+          "the aged William-Grant Speyside weight threads {foodTarget}",
+          "the marrying-tun-finished Glenfiddich body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the sherry-finish frames {foodSubj}",
+          "the aged-orchard-and-sherry note underlines {foodSubj}",
+          "the 18-year baked-apple-and-Oloroso edge softens {foodSubj}",
+          "the small-batch sherry-touched close plays against {foodSubj}",
+          "the polished Speyside sherry-warmth frames {foodSubj}"
+    ],
+    verdictHook:  'aged Speyside Scotch',
+  },
+  'Glenlivet 12': {
+    tastingNotes: ['entry Speyside', 'pear', 'honey'],
+    character:    'entry Speyside character',
+    bridge1:      'the bourbon-cask pear lifts {foodTarget}',
+    bridge2:      'the honey rounds {foodSubj}',
+    bridge1Variants: [
+          "the bourbon-cask pear lifts {foodTarget}",
+          "the Speyside-original Glenlivet body meets {foodTarget}",
+          "the Smith-house Speyside flagship carries {foodTarget}",
+          "the Josie-Smith founding Glenlivet body threads {foodTarget}",
+          "the gentle bourbon-and-sherry Glenlivet 12 wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey rounds {foodSubj}",
+          "the pear-and-floral Glenlivet note underlines {foodSubj}",
+          "the entry-Speyside orchard-fruit edge softens {foodSubj}",
+          "the soft-honey founding-Speyside close plays against {foodSubj}",
+          "the Smith-house honey-and-pear finish frames {foodSubj}"
+    ],
+    verdictHook:  'entry Speyside Scotch',
+  },
+  'Cragganmore 12': {
+    tastingNotes: ['Speyside complexity', 'malt', 'fruit'],
+    character:    'complex Speyside character',
+    bridge1:      'the layered malt wraps {foodTarget}',
+    bridge2:      'the fruit lifts {foodSubj}',
+    bridge1Variants: [
+          "the layered malt wraps {foodTarget}",
+          "the Cragganmore Classic-Malts body meets {foodTarget}",
+          "the small-Speyside-distillery character carries {foodTarget}",
+          "the meaty-Cragganmore body threads {foodTarget}",
+          "the layered-Speyside Cragganmore body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the fruit lifts {foodSubj}",
+          "the dried-fruit-and-meaty-malt note underlines {foodSubj}",
+          "the layered Speyside complexity softens {foodSubj}",
+          "the Classic-Malts fruit-and-spice close plays against {foodSubj}",
+          "the Cragganmore-house dried-orchard edge frames {foodSubj}"
+    ],
+    verdictHook:  'complex Speyside Scotch',
+  },
+  'Balvenie 12 American Oak': {
+    tastingNotes: ['Speyside', 'bourbon cask', 'vanilla', 'honey'],
+    character:    'bourbon-cask Speyside softness',
+    bridge1:      'the bourbon-cask vanilla settles into {foodTarget}',
+    bridge2:      'the honey rounds {foodSubj}',
+    bridge1Variants: [
+          "the bourbon-cask vanilla settles into {foodTarget}",
+          "the American-oak Speyside body meets {foodTarget}",
+          "the Balvenie 12 American-oak warmth carries {foodTarget}",
+          "the bourbon-finished honey body wraps {foodTarget}",
+          "the American-cask Speyside lift threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey rounds {foodSubj}",
+          "the American-oak vanilla underlines {foodSubj}",
+          "the entry-Speyside honey edge softens {foodSubj}",
+          "the bourbon-cask sweetness plays against {foodSubj}",
+          "the gentle-vanilla Balvenie finish frames {foodSubj}"
+    ],
+    verdictHook:  'bourbon-cask Speyside',
+  },
+  'Balvenie 14 Caribbean Cask': {
+    tastingNotes: ['Speyside', 'rum-finished', 'caramel'],
+    character:    'rum-finished Speyside character',
+    bridge1:      'the rum-cask depth meets {foodTarget}',
+    bridge2:      'the caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the rum-cask depth meets {foodTarget}",
+          "the Caribbean-rum-finished body wraps {foodTarget}",
+          "the rum-finished Speyside character carries {foodTarget}",
+          "the tropical-rum-cask Balvenie lifts {foodTarget}",
+          "the Caribbean-finish Speyside weight threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel rounds {foodSubj}",
+          "the rum-finish brown-sugar note underlines {foodSubj}",
+          "the tropical-cask sweetness softens {foodSubj}",
+          "the Caribbean-rum-finish edge plays against {foodSubj}",
+          "the rum-touched caramel frames {foodSubj}"
+    ],
+    verdictHook:  'rum-finished Speyside',
+  },
+  'Balvenie 21 Portwood': {
+    tastingNotes: ['aged 21yr Speyside', 'port-finish', 'red fruit'],
+    character:    'aged Port-finished Speyside',
+    bridge1:      'the port-cask depth wraps {foodTarget}',
+    bridge2:      'the red-fruit frames {foodSubj}',
+    bridge1Variants: [
+          "the port-cask depth wraps {foodTarget}",
+          "the 21-year Balvenie Portwood body meets {foodTarget}",
+          "the David-Stewart-finished port-cask character carries {foodTarget}",
+          "the aged-Speyside port-finish weight threads {foodTarget}",
+          "the Balvenie 21 Portuguese-port-cask body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the red-fruit frames {foodSubj}",
+          "the port-cask dried-cherry-and-fig note underlines {foodSubj}",
+          "the 21-year port-finish dark-fruit edge softens {foodSubj}",
+          "the rich Portwood Balvenie close plays against {foodSubj}",
+          "the deep red-fruit-and-spice Portwood frames {foodSubj}"
+    ],
+    verdictHook:  'Port-finished Speyside',
+  },
+  'Monkey Shoulder': {
+    tastingNotes: ['blended Speyside malts', 'soft', 'honey'],
+    character:    'blended Speyside softness',
+    bridge1:      'the blended-malt body sits with {foodTarget}',
+    bridge2:      'the honey rounds {foodSubj}',
+    bridge1Variants: [
+          "the blended-malt body sits with {foodTarget}",
+          "the triple-malt William-Grant blend meets {foodTarget}",
+          "the three-Speyside-malts Monkey Shoulder carries {foodTarget}",
+          "the approachable-Speyside blend body wraps {foodTarget}",
+          "the cocktail-friendly Monkey Shoulder body threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey rounds {foodSubj}",
+          "the gentle-Speyside honey-and-vanilla note underlines {foodSubj}",
+          "the triple-malt soft-honey edge softens {foodSubj}",
+          "the approachable-blend orchard-and-honey close plays against {foodSubj}",
+          "the William-Grant blended-honey finish frames {foodSubj}"
+    ],
+    verdictHook:  'blended Speyside',
+  },
+
+  // ── Scotches: Islay ────────────────────────────────────────────────────
+  'Lagavulin 8': {
+    tastingNotes: ['Islay peat', 'younger-bottling', 'salt'],
+    character:    'younger-Islay peat character',
+    bridge1:      'the peat-smoke meets {foodTarget}',
+    bridge2:      'the saline edge frames {foodSubj}',
+    bridge1Variants: [
+          "the peat-smoke meets {foodTarget}",
+          "the bicentenary-release Lagavulin body wraps {foodTarget}",
+          "the younger-Lagavulin Islay character carries {foodTarget}",
+          "the 8-year Lagavulin smoke-and-malt weight threads {foodTarget}",
+          "the entry-Lagavulin Islay-smoke body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the saline edge frames {foodSubj}",
+          "the maritime-Islay smoke-and-brine note underlines {foodSubj}",
+          "the Lagavulin-house peat-and-salt finish softens {foodSubj}",
+          "the younger Lagavulin smoke-edge plays against {foodSubj}",
+          "the brine-and-peat Islay close frames {foodSubj}"
+    ],
+    verdictHook:  'younger Islay',
+  },
+  'Laphroaig 10': {
+    tastingNotes: ['Islay', 'peat-smoke', 'iodine'],
+    character:    'classic Islay peat',
+    bridge1:      'the peat-smoke meets {foodTarget}',
+    bridge2:      'the iodine-edge frames {foodSubj}',
+    bridge1Variants: [
+          "the peat-smoke meets {foodTarget}",
+          "the medicinal-Islay Laphroaig body wraps {foodTarget}",
+          "the Royal-Warrant Laphroaig 10 character carries {foodTarget}",
+          "the iodine-and-peat Laphroaig body threads {foodTarget}",
+          "the southern-Islay 10-year body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the iodine-edge frames {foodSubj}",
+          "the medicinal-Laphroaig iodine-and-seaweed note underlines {foodSubj}",
+          "the Islay-peat-and-iodine edge softens {foodSubj}",
+          "the tar-and-brine Laphroaig close plays against {foodSubj}",
+          "the heavy-peat medicinal finish frames {foodSubj}"
+    ],
+    verdictHook:  'classic Islay',
+  },
+  'Bowmore 12': {
+    tastingNotes: ['Islay', 'lighter peat', 'sea-salt'],
+    character:    'lighter-Islay peat character',
+    bridge1:      'the lighter peat meets {foodTarget}',
+    bridge2:      'the sea-salt frames {foodSubj}',
+    bridge1Variants: [
+          "the lighter peat meets {foodTarget}",
+          "the entry-Bowmore Islay-light body wraps {foodTarget}",
+          "the gentle-Islay peat character carries {foodTarget}",
+          "the Bowmore 12 lighter-smoke body threads {foodTarget}",
+          "the maritime-Islay lighter-peat register wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the sea-salt frames {foodSubj}",
+          "the maritime-salt edge underlines {foodSubj}",
+          "the coastal-Islay note softens {foodSubj}",
+          "the gentle-smoke-and-brine finish plays against {foodSubj}",
+          "the lighter-peat-and-citrus close frames {foodSubj}"
+    ],
+    verdictHook:  'lighter Islay',
+  },
+  'Bruichladdich': {
+    tastingNotes: ['unpeated Islay', 'progressive', 'malt'],
+    character:    'progressive unpeated Islay',
+    bridge1:      'the unpeated Islay body sits with {foodTarget}',
+    bridge2:      'the malt edge frames {foodSubj}',
+    bridge1Variants: [
+          "the unpeated Islay body sits with {foodTarget}",
+          "the Bruichladdich Classic-Laddie body meets {foodTarget}",
+          "the unpeated Bruichladdich Islay outlier carries {foodTarget}",
+          "the Adam-Hannett Bruichladdich body threads {foodTarget}",
+          "the malt-forward unpeated Islay body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the malt edge frames {foodSubj}",
+          "the clean malt-and-coastal-mineral note underlines {foodSubj}",
+          "the unpeated Islay barley-edge softens {foodSubj}",
+          "the Classic-Laddie maritime-floral close plays against {foodSubj}",
+          "the bright-malt Bruichladdich finish frames {foodSubj}"
+    ],
+    verdictHook:  'unpeated Islay',
+  },
+
+  // ── Japanese whisky ────────────────────────────────────────────────────
+  'Yamazaki 12 Year': {
+    tastingNotes: ['Suntory', 'Japanese flagship', 'silky'],
+    character:    'Suntory Japanese flagship character',
+    bridge1:      'the Japanese-whisky precision frames {foodTarget}',
+    bridge2:      'the silky body rounds {foodSubj}',
+    bridge1Variants: [
+          "the Japanese-whisky precision frames {foodTarget}",
+          "the Suntory flagship register meets {foodTarget}",
+          "the Yamazaki house-style body wraps {foodTarget}",
+          "the precision-distilled Japanese body carries {foodTarget}",
+          "the silky-flagship Yamazaki lift meets {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the silky body rounds {foodSubj}",
+          "the honey-orchid finish softens {foodSubj}",
+          "the polished Japanese-whisky note underlines {foodSubj}",
+          "the silk-and-honey close plays against {foodSubj}",
+          "the precision-finished register frames {foodSubj}"
+    ],
+    verdictHook:  'Japanese flagship',
+  },
+  'Yamazaki 18 Year': {
+    tastingNotes: ['aged Suntory', 'mizunara cask', 'silky'],
+    character:    'aged Suntory mizunara character',
+    bridge1:      'the mizunara-cask depth wraps {foodTarget}',
+    bridge2:      'the silky precision frames {foodSubj}',
+    bridge1Variants: [
+          "the mizunara-cask depth wraps {foodTarget}",
+          "the aged Japanese-mizunara body meets {foodTarget}",
+          "the Yamazaki-18 collector register carries {foodTarget}",
+          "the aged-flagship mizunara depth threads {foodTarget}",
+          "the rare Japanese-mizunara weight wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the silky precision frames {foodSubj}",
+          "the mizunara-cask incense underlines {foodSubj}",
+          "the sandalwood-spice mizunara note frames {foodSubj}",
+          "the aged-Suntory polish softens {foodSubj}",
+          "the collector-tier silk plays against {foodSubj}"
+    ],
+    verdictHook:  'aged Japanese flagship',
+  },
+  'Hibiki Japanese Harmony': {
+    tastingNotes: ['blended Japanese', 'harmony', 'silky'],
+    character:    'blended Japanese harmony',
+    bridge1:      'the blended-whisky harmony frames {foodTarget}',
+    bridge2:      'the silky body rounds {foodSubj}',
+    bridge1Variants: [
+          "the blended-whisky harmony frames {foodTarget}",
+          "the Suntory blended-Hibiki body meets {foodTarget}",
+          "the multi-distillery Hibiki harmony carries {foodTarget}",
+          "the Yamazaki-Hakushu-Chita blend threads {foodTarget}",
+          "the Japanese-blended-flagship body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the silky body rounds {foodSubj}",
+          "the polished Hibiki silk-and-honey note underlines {foodSubj}",
+          "the multi-cask Japanese-blend finish softens {foodSubj}",
+          "the Suntory-harmony silk close plays against {foodSubj}",
+          "the floral-and-honey Hibiki finish frames {foodSubj}"
+    ],
+    verdictHook:  'Japanese harmony blend',
+  },
+  'Hakushu 12 Year': {
+    tastingNotes: ['Suntory Hakushu', 'lightly peated', 'forest'],
+    character:    'lightly-peated Hakushu character',
+    bridge1:      'the lightly-peated Hakushu meets {foodTarget}',
+    bridge2:      'the forest-floor frames {foodSubj}',
+    bridge1Variants: [
+          "the lightly-peated Hakushu meets {foodTarget}",
+          "the Forest-Distillery green-smoke lifts {foodTarget}",
+          "the Suntory \"Forest Distillery\" character wraps {foodTarget}",
+          "the gentle-peat Hakushu body carries {foodTarget}",
+          "the Yamanashi-mountain whisky lift meets {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the forest-floor frames {foodSubj}",
+          "the green-smoke edge softens {foodSubj}",
+          "the gentle-peat finish underlines {foodSubj}",
+          "the pine-needle-and-grass note plays against {foodSubj}",
+          "the Forest-Distillery brightness frames {foodSubj}"
+    ],
+    verdictHook:  'Hakushu Japanese',
+  },
+  'Toki Suntory Japanese Whisky': {
+    tastingNotes: ['Suntory entry', 'light', 'citrus'],
+    character:    'entry Suntory Toki character',
+    bridge1:      'the entry Suntory body sits with {foodTarget}',
+    bridge2:      'the citrus lifts {foodSubj}',
+    bridge1Variants: [
+          "the entry Suntory body sits with {foodTarget}",
+          "the light Toki blend lifts {foodTarget}",
+          "the Suntory entry-level body brightens {foodTarget}",
+          "the gentle Japanese-whisky register meets {foodTarget}",
+          "the entry-tier Suntory grain composes with {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the citrus lifts {foodSubj}",
+          "the green-citrus edge frames {foodSubj}",
+          "the entry-Toki brightness underlines {foodSubj}",
+          "the soft-citrus finish softens {foodSubj}",
+          "the Japanese-blend lift plays against {foodSubj}"
+    ],
+    verdictHook:  'entry Japanese whisky',
+  },
+
+  // ── Irish whiskey ──────────────────────────────────────────────────────
+  'Jameson Irish Whiskey': {
+    tastingNotes: ['Irish blend', 'triple-distilled', 'soft'],
+    character:    'classic Irish blend smoothness',
+    bridge1:      'the triple-distilled softness sits with {foodTarget}',
+    bridge2:      'the malt rounds {foodSubj}',
+    bridge1Variants: [
+          "the triple-distilled softness sits with {foodTarget}",
+          "the Jameson blend body wraps {foodTarget}",
+          "the classic Irish-blend smoothness meets {foodTarget}",
+          "the workhorse-Irish register carries {foodTarget}",
+          "the gentle triple-distilled body composes with {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the malt rounds {foodSubj}",
+          "the smooth-Irish finish softens {foodSubj}",
+          "the entry-Jameson brightness underlines {foodSubj}",
+          "the soft-malt-and-grain note plays against {foodSubj}",
+          "the blended-Irish gentleness frames {foodSubj}"
+    ],
+    verdictHook:  'classic Irish whiskey',
+  },
+  'Redbreast 12 Year': {
+    tastingNotes: ['single pot still Irish', 'sherry-cask', 'spice'],
+    character:    'single pot still Irish character',
+    bridge1:      'the pot-still depth wraps {foodTarget}',
+    bridge2:      'the sherry-cask spice frames {foodSubj}',
+    bridge1Variants: [
+          "the pot-still depth wraps {foodTarget}",
+          "the single-pot-still Irish weight meets {foodTarget}",
+          "the Redbreast 12 sherry-cask body carries {foodTarget}",
+          "the pure-pot-still register wraps {foodTarget}",
+          "the Midleton pot-still depth threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the sherry-cask spice frames {foodSubj}",
+          "the Oloroso-cask warmth underlines {foodSubj}",
+          "the pot-still spice brightens {foodSubj}",
+          "the Christmas-cake notes play against {foodSubj}",
+          "the dried-fruit-and-spice edge frames {foodSubj}"
+    ],
+    verdictHook:  'single pot still Irish',
+  },
+  'Redbreast 21 Year': {
+    tastingNotes: ['aged single pot still', 'sherry-cask', 'rich'],
+    character:    'aged single pot still Irish',
+    bridge1:      'the aged pot-still depth wraps {foodTarget}',
+    bridge2:      'the sherry-cask spice frames {foodSubj}',
+    bridge1Variants: [
+          "the aged pot-still depth wraps {foodTarget}",
+          "the 21-year Midleton pot-still body meets {foodTarget}",
+          "the long-aged single-pot-still Irish carries {foodTarget}",
+          "the aged-Redbreast Oloroso-and-bourbon body threads {foodTarget}",
+          "the Midleton flagship 21-year body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the sherry-cask spice frames {foodSubj}",
+          "the aged-pot-still dried-fruit-and-clove note underlines {foodSubj}",
+          "the 21-year Oloroso-cask warmth softens {foodSubj}",
+          "the deep Redbreast-21 Christmas-cake close plays against {foodSubj}",
+          "the long-aged Irish pot-still spice frames {foodSubj}"
+    ],
+    verdictHook:  'aged Irish whiskey',
+  },
+  'Tullamore D.E.W.': {
+    tastingNotes: ['Irish blend', 'triple-distilled', 'gentle'],
+    character:    'gentle Irish blend',
+    bridge1:      'the gentle Irish body sits with {foodTarget}',
+    bridge2:      'the soft malt rounds {foodSubj}',
+    bridge1Variants: [
+          "the gentle Irish body sits with {foodTarget}",
+          "the triple-distilled triple-cask Tullamore body meets {foodTarget}",
+          "the Daniel-E-Williams Irish blend carries {foodTarget}",
+          "the bourbon-sherry-rum-cask Tullamore body threads {foodTarget}",
+          "the gentle-Irish triple-cask body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the soft malt rounds {foodSubj}",
+          "the triple-cask honey-and-grain note underlines {foodSubj}",
+          "the soft-Irish-blend finish softens {foodSubj}",
+          "the Tullamore triple-distilled close plays against {foodSubj}",
+          "the gentle-malt-and-vanilla Irish finish frames {foodSubj}"
+    ],
+    verdictHook:  'Irish blend',
+  },
+
+  // ── Canadian whisky ────────────────────────────────────────────────────
+  'Crown Royal': {
+    tastingNotes: ['Canadian blend', 'soft', 'caramel'],
+    character:    'classic Canadian blend smoothness',
+    bridge1:      'the Canadian-whisky body sits with {foodTarget}',
+    bridge2:      'the caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the Canadian-whisky body sits with {foodTarget}",
+          "the Royal-blend Crown body meets {foodTarget}",
+          "the Manitoba-distilled Crown Royal carries {foodTarget}",
+          "the velvet-Canadian Crown body threads {foodTarget}",
+          "the 1939-Royal-Tour blend body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel rounds {foodSubj}",
+          "the gentle vanilla-and-caramel Canadian note underlines {foodSubj}",
+          "the soft-rye Crown caramel-edge softens {foodSubj}",
+          "the velvet Canadian-blend close plays against {foodSubj}",
+          "the Crown-house honeyed-caramel finish frames {foodSubj}"
+    ],
+    verdictHook:  'classic Canadian whisky',
+  },
+  'Canadian Club': {
+    tastingNotes: ['Canadian blend', 'light', 'gentle'],
+    character:    'workhorse Canadian blend',
+    bridge1:      'the Canadian-blend body sits with {foodTarget}',
+    bridge2:      'the gentle caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the Canadian-blend body sits with {foodTarget}",
+          "the Hiram-Walker Canadian Club body meets {foodTarget}",
+          "the pre-Prohibition Canadian Club character carries {foodTarget}",
+          "the workhorse Canadian-blend body threads {foodTarget}",
+          "the entry-Canadian-whisky body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the gentle caramel rounds {foodSubj}",
+          "the soft-rye-and-corn caramel note underlines {foodSubj}",
+          "the Hiram-Walker blended-grain finish softens {foodSubj}",
+          "the entry Canadian-whisky caramel-edge plays against {foodSubj}",
+          "the workhorse Canadian-blend finish frames {foodSubj}"
+    ],
+    verdictHook:  'workhorse Canadian whisky',
+  },
+
+  // ── Cognac ─────────────────────────────────────────────────────────────
+  'Hennessy Cognac': {
+    tastingNotes: ['VS/VSOP cognac', 'dried-fruit', 'vanilla'],
+    character:    'classic dried-fruit-and-vanilla cognac',
+    bridge1:      'the cognac depth wraps {foodTarget}',
+    bridge2:      'the dried-fruit-and-vanilla rounds {foodSubj}',
+    bridge1Variants: [
+          "the cognac depth wraps {foodTarget}",
+          "the largest-cognac-house Hennessy body meets {foodTarget}",
+          "the V.S Hennessy benchmark carries {foodTarget}",
+          "the four-region Hennessy blend body threads {foodTarget}",
+          "the Cognac-house entry Hennessy body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the dried-fruit-and-vanilla rounds {foodSubj}",
+          "the Hennessy V.S dried-fruit edge underlines {foodSubj}",
+          "the entry-cognac vanilla-and-spice finish softens {foodSubj}",
+          "the world-cognac-bestseller close plays against {foodSubj}",
+          "the Hennessy-house oak-and-fruit edge frames {foodSubj}"
+    ],
+    verdictHook:  'classic Hennessy cognac',
+  },
+  'Pierre Ferrand Cognac': {
+    tastingNotes: ['artisan cognac', 'orange peel', 'oak'],
+    character:    'artisan cognac with orange peel',
+    bridge1:      'the artisan-cognac depth wraps {foodTarget}',
+    bridge2:      'the orange-peel frames {foodSubj}',
+    bridge1Variants: [
+          "the artisan-cognac depth wraps {foodTarget}",
+          "the Pierre-Ferrand small-house body meets {foodTarget}",
+          "the craft-cognac orange-peel character carries {foodTarget}",
+          "the Grande-Champagne artisan body threads {foodTarget}",
+          "the Pierre-Ferrand floral-cognac depth wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the orange-peel frames {foodSubj}",
+          "the floral-cognac edge softens {foodSubj}",
+          "the candied-orange Pierre-Ferrand note underlines {foodSubj}",
+          "the honeyed-floral cognac finish plays against {foodSubj}",
+          "the orange-and-honey artisan edge frames {foodSubj}"
+    ],
+    verdictHook:  'artisan cognac',
+  },
+  'Remy VSOP Cognac': {
+    tastingNotes: ['VSOP', 'fine champagne', 'vanilla'],
+    character:    'VSOP fine-champagne cognac',
+    bridge1:      'the fine-champagne depth wraps {foodTarget}',
+    bridge2:      'the vanilla rounds {foodSubj}',
+    bridge1Variants: [
+          "the fine-champagne depth wraps {foodTarget}",
+          "the Remy Martin Fine-Champagne Cognac body meets {foodTarget}",
+          "the Grande-and-Petite-Champagne VSOP carries {foodTarget}",
+          "the centaur-house Remy body threads {foodTarget}",
+          "the VSOP-tier Fine-Champagne Remy body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the vanilla rounds {foodSubj}",
+          "the floral-vanilla-and-apricot note underlines {foodSubj}",
+          "the Fine-Champagne mid-tier vanilla edge softens {foodSubj}",
+          "the polished VSOP vanilla-and-spice close plays against {foodSubj}",
+          "the Remy-house silky-vanilla finish frames {foodSubj}"
+    ],
+    verdictHook:  'VSOP cognac',
+  },
+  'Courvoisier Cognac': {
+    tastingNotes: ['VS cognac', 'caramel', 'oak'],
+    character:    'classic VS cognac',
+    bridge1:      'the cognac depth wraps {foodTarget}',
+    bridge2:      'the caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the cognac depth wraps {foodTarget}",
+          "the \"Cognac-of-Napoleon\" Courvoisier body meets {foodTarget}",
+          "the Jarnac-house Courvoisier character carries {foodTarget}",
+          "the Napoleon-favored Courvoisier body threads {foodTarget}",
+          "the historic-Cognac Courvoisier body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel rounds {foodSubj}",
+          "the toffee-and-toasted-oak Courvoisier note underlines {foodSubj}",
+          "the Jarnac-house caramel-and-floral edge softens {foodSubj}",
+          "the Napoleon-tier caramel-and-spice close plays against {foodSubj}",
+          "the Courvoisier-house dried-apricot-and-toffee finish frames {foodSubj}"
+    ],
+    verdictHook:  'VS cognac',
+  },
+
+  // ── Big Reds (additions) ──────────────────────────────────────────────
+  'Spottswoode Lyndenhurst': {
+    tastingNotes: ['Napa estate Cab', 'cassis-and-dark-fruit', 'structured'],
+    character:    'Napa estate Cab with structured cassis',
+    bridge1:      'the structured-Cab depth wraps {foodTarget}',
+    bridge2:      'the cassis frames {foodSubj}',
+    bridge1Variants: [
+          "the structured-Cab depth wraps {foodTarget}",
+          "the Spottswoode-estate St. Helena body meets {foodTarget}",
+          "the second-label Lyndenhurst structure carries {foodTarget}",
+          "the organic-farmed Spottswoode Cab weight threads {foodTarget}",
+          "the estate-blended Lyndenhurst body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the cassis frames {foodSubj}",
+          "the bright-cassis-and-violet note underlines {foodSubj}",
+          "the polished red-fruit-and-cassis finish softens {foodSubj}",
+          "the estate-elegant cassis close frames {foodSubj}",
+          "the Spottswoode-house cassis edge plays against {foodSubj}"
+    ],
+    verdictHook:  'estate Napa Cab',
+  },
+  'Shafer Hillside Select': {
+    tastingNotes: ['Stags Leap allocated icon', 'cassis', 'graphite'],
+    character:    'Stags Leap allocated Cab power',
+    bridge1:      'the allocated-Cab depth wraps {foodTarget}',
+    bridge2:      'the graphite frames {foodSubj}',
+    bridge1Variants: [
+          "the allocated-Cab depth wraps {foodTarget}",
+          "the Stags-Leap-District flagship body meets {foodTarget}",
+          "the Shafer collector-tier Cab carries {foodTarget}",
+          "the Hillside-Select hillside-fruit weight threads {foodTarget}",
+          "the allocation-list Shafer body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the graphite frames {foodSubj}",
+          "the dark-graphite-and-tobacco note underlines {foodSubj}",
+          "the Stags-Leap-District graphite edge softens {foodSubj}",
+          "the collector-tier graphite-and-cassis close plays against {foodSubj}",
+          "the Hillside-Select pencil-lead finish frames {foodSubj}"
+    ],
+    verdictHook:  'allocated Stags Leap Cab',
+  },
+  'J. Davies Cabernet Sauvignon': {
+    tastingNotes: ['Davies Estate', 'Diamond Mountain', 'mineral'],
+    character:    'Diamond Mountain Cab character',
+    bridge1:      'the Diamond-Mountain-Cab body wraps {foodTarget}',
+    bridge2:      'the mineral edge frames {foodSubj}',
+    bridge1Variants: [
+          "the Diamond-Mountain-Cab body wraps {foodTarget}",
+          "the J. Davies mountain-grown Cab structure meets {foodTarget}",
+          "the Schramsberg-house Diamond-Mountain Cab carries {foodTarget}",
+          "the mountain-fruit Cab weight threads {foodTarget}",
+          "the rocky-soil Cab depth wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the mineral edge frames {foodSubj}",
+          "the volcanic-soil mineral-edge note underlines {foodSubj}",
+          "the Diamond-Mountain rocky-finish frames {foodSubj}",
+          "the graphite-and-mineral close plays against {foodSubj}",
+          "the mountain-fruit mineral grip frames {foodSubj}"
+    ],
+    verdictHook:  'Diamond Mountain Cab',
+  },
+  'Cade Cabernet Sauvignon': {
+    tastingNotes: ['Howell Mountain Cab', 'cassis', 'mountain tannin'],
+    character:    'Howell Mountain Cab character',
+    bridge1:      'the Howell-Mountain Cab tannin frames {foodTarget}',
+    bridge2:      'the cassis grips {foodSubj}',
+    bridge1Variants: [
+          "the Howell-Mountain Cab tannin frames {foodTarget}",
+          "the Plumpjack-family Howell-Mountain structure meets {foodTarget}",
+          "the high-elevation Cade Cab tannin carries {foodTarget}",
+          "the volcanic Howell-Mountain Cab weight threads {foodTarget}",
+          "the mountain-fruit Cade body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the cassis grips {foodSubj}",
+          "the dense-cassis-and-tannin grip underlines {foodSubj}",
+          "the volcanic-soil cassis edge frames {foodSubj}",
+          "the Howell-Mountain dark-fruit grip plays against {foodSubj}",
+          "the mountain-Cab cassis tension frames {foodSubj}"
+    ],
+    verdictHook:  'Howell Mountain Cab',
+  },
+
+  // ── Vodka (Detroit framing) ────────────────────────────────────────────
+  'Detroit City Vodka': {
+    tastingNotes: ['Detroit Distillery', 'hometown craft', 'silky'],
+    character:    'hometown craft vodka',
+    bridge1:      'the silky vodka body sits with {foodTarget}',
+    bridge2:      'the clean profile carries {foodSubj}',
+    bridge1Variants: [
+          "the silky vodka body sits with {foodTarget}",
+          "the Detroit-craft-distillery DCD vodka body meets {foodTarget}",
+          "the Eastern-Market-distilled Detroit City body carries {foodTarget}",
+          "the Michigan-craft vodka clean body threads {foodTarget}",
+          "the local-Detroit craft-spirit body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the clean profile carries {foodSubj}",
+          "the Michigan-craft clean-grain note underlines {foodSubj}",
+          "the Eastern-Market-distilled clean profile softens {foodSubj}",
+          "the local-Detroit silky-finish close plays against {foodSubj}",
+          "the DCD craft-vodka clean edge frames {foodSubj}"
+    ],
+    verdictHook:  'hometown craft vodka',
+  },
+  'Titos Vodka': {
+    tastingNotes: ['American', 'corn-based', 'slightly sweet'],
+    character:    'American corn-based vodka',
+    bridge1:      'the round Tito\'s mouthfeel sits with {foodTarget}',
+    bridge2:      'the slight sweetness softens {foodSubj}',
+    bridge1Variants: [
+          "the round Tito's mouthfeel sits with {foodTarget}",
+          "the Texas-distilled corn-based Tito's body meets {foodTarget}",
+          "the Bert-\"Tito\"-Beveridge Austin vodka carries {foodTarget}",
+          "the gluten-free corn-mash Tito's body threads {foodTarget}",
+          "the Mockingbird-Distillery Tito's body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the slight sweetness softens {foodSubj}",
+          "the corn-mash slight-sweetness Tito's note underlines {foodSubj}",
+          "the Texas-craft round-mouthfeel edge softens {foodSubj}",
+          "the Austin-distilled corn-vanilla close plays against {foodSubj}",
+          "the Tito's gentle corn-grain finish frames {foodSubj}"
+    ],
+    verdictHook:  'American vodka',
+  },
+
+  // ── Gin (Detroit) ───────────────────────────────────────────────────────
+  'Detroit City Gin': {
+    tastingNotes: ['Detroit Distillery', 'hometown craft', 'urban juniper'],
+    character:    'Detroit urban-craft gin',
+    bridge1:      'the city-distilled juniper frames {foodTarget}',
+    bridge2:      'the local-spirit character meets {foodSubj}',
+    bridge1Variants: [
+          "the city-distilled juniper frames {foodTarget}",
+          "the Eastern-Market-distilled Detroit City Gin body meets {foodTarget}",
+          "the Michigan-craft juniper-and-botanical body carries {foodTarget}",
+          "the DCD gin botanical-build body threads {foodTarget}",
+          "the local-Detroit gin juniper-led body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the local-spirit character meets {foodSubj}",
+          "the Michigan-craft botanical edge underlines {foodSubj}",
+          "the Eastern-Market-distilled local-character close softens {foodSubj}",
+          "the Detroit-City juniper-and-coriander close plays against {foodSubj}",
+          "the DCD gin Michigan-botanical finish frames {foodSubj}"
+    ],
+    verdictHook:  'Michigan-pride gin',
+  },
+
+  // ── Light spirit / Rum (additions) ────────────────────────────────────
+  'Bacardi Rum': {
+    tastingNotes: ['Carta Blanca', 'workhorse light rum', 'clean'],
+    character:    'crisp workhorse-clean character',
+    bridge1:      'the crisp body lifts {foodTarget}',
+    bridge2:      'the clean profile carries {foodSubj}',
+    bridge1Variants: [
+          "the crisp body lifts {foodTarget}",
+          "the Puerto-Rico-distilled Bacardi Superior body meets {foodTarget}",
+          "the Bacardi-house light-rum benchmark carries {foodTarget}",
+          "the 1862-Don-Facundo-founded Bacardi body threads {foodTarget}",
+          "the column-distilled Bacardi white-rum body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the clean profile carries {foodSubj}",
+          "the light-rum clean-and-cane note underlines {foodSubj}",
+          "the Bacardi-Superior clean-sugar-cane edge softens {foodSubj}",
+          "the bat-logo workhorse-rum close plays against {foodSubj}",
+          "the Puerto-Rico cane-and-citrus finish frames {foodSubj}"
+    ],
+    verdictHook:  'workhorse light rum',
+  },
+  'Ron Zacapa Rum': {
+    tastingNotes: ['Solera 23', 'Guatemalan', 'honey-vanilla-caramel'],
+    character:    'Solera-honey premium-sipping rum',
+    bridge1:      'the Solera honey wraps {foodTarget}',
+    bridge2:      'the caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the Solera honey wraps {foodTarget}",
+          "the Sistema-Solera Guatemalan Ron Zacapa body meets {foodTarget}",
+          "the high-altitude-aged Ron Zacapa 23 carries {foodTarget}",
+          "the Guatemalan virgin-sugarcane-honey body threads {foodTarget}",
+          "the Sistema-Solera barrel-blended Zacapa body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel rounds {foodSubj}",
+          "the Solera-aged dark-caramel-and-toffee note underlines {foodSubj}",
+          "the high-altitude Solera oak-and-honey edge softens {foodSubj}",
+          "the Zacapa-house dried-fruit-and-caramel close plays against {foodSubj}",
+          "the Guatemalan virgin-honey-and-vanilla finish frames {foodSubj}"
+    ],
+    verdictHook:  'premium-sipping rum',
+  },
+
+  // ── Tequila (additions for high-traffic premium) ──────────────────────
+  'Don Julio 1942': {
+    tastingNotes: ['extra añejo', 'caramel', 'oak vanilla'],
+    character:    'icon extra-añejo character',
+    bridge1:      'the extra-añejo depth wraps {foodTarget}',
+    bridge2:      'the caramel-vanilla rounds {foodSubj}',
+    bridge1Variants: [
+          "the extra-añejo depth wraps {foodTarget}",
+          "the Don-Julio González anniversary-bottling body meets {foodTarget}",
+          "the 1942-founding-vintage tribute extra-añejo carries {foodTarget}",
+          "the 2.5-year-aged Don Julio 1942 body threads {foodTarget}",
+          "the Jalisco-highland Don Julio extra-añejo body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel-vanilla rounds {foodSubj}",
+          "the deep agave-and-caramel Don Julio note underlines {foodSubj}",
+          "the extra-añejo cooked-agave-and-vanilla edge softens {foodSubj}",
+          "the 1942 caramel-and-toasted-oak close plays against {foodSubj}",
+          "the anniversary-bottling vanilla-honey finish frames {foodSubj}"
+    ],
+    verdictHook:  'icon extra añejo',
+  },
+  'Clase Azul Reposado': {
+    tastingNotes: ['ceramic-bottle reposado', 'caramel', 'agave'],
+    character:    'ceramic-icon reposado character',
+    bridge1:      'the ceramic-icon reposado depth wraps {foodTarget}',
+    bridge2:      'the agave-and-caramel rounds {foodSubj}',
+    bridge1Variants: [
+          "the ceramic-icon reposado depth wraps {foodTarget}",
+          "the hand-painted-decanter Clase Azul body meets {foodTarget}",
+          "the 8-month-aged Clase Azul Reposado carries {foodTarget}",
+          "the Los-Altos-de-Jalisco Clase Azul body threads {foodTarget}",
+          "the Pueblo-Mata artisan reposado body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the agave-and-caramel rounds {foodSubj}",
+          "the cooked-agave-and-honey Clase Azul note underlines {foodSubj}",
+          "the Jalisco-highland agave-and-vanilla edge softens {foodSubj}",
+          "the hand-decanter reposado caramel-and-spice close plays against {foodSubj}",
+          "the Clase-Azul agave-honey-and-oak finish frames {foodSubj}"
+    ],
+    verdictHook:  'icon reposado',
+  },
+  'The Manhattan': {
+    tastingNotes: ['rye whiskey, sweet vermouth, Angostura', 'classic cocktail', 'cherry-garnish ritual'],
+    character:    'classic Manhattan with rye-and-vermouth depth',
+    bridge1:      'the rye-vermouth body settles into {foodTarget}',
+    bridge2:      'the cherry-bitters edge frames {foodSubj}',
+    bridge1Variants: [
+          "the rye-vermouth body settles into {foodTarget}",
+          "the classic Manhattan build meets {foodTarget}",
+          "the rye-and-sweet-vermouth weight carries {foodTarget}",
+          "the stirred whiskey-cocktail body wraps {foodTarget}",
+          "the bourbon-or-rye Manhattan register threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the cherry-bitters edge frames {foodSubj}",
+          "the Angostura-and-cherry note underlines {foodSubj}",
+          "the bitter-cherry finish softens {foodSubj}",
+          "the orange-bitters edge plays against {foodSubj}",
+          "the stirred-cocktail close frames {foodSubj}"
+    ],
+    verdictHook:  'classic Manhattan',
+  },
+  'French 75': {
+    tastingNotes: ['gin, lemon, Champagne top', 'celebratory cocktail', 'effervescent build'],
+    character:    'gin-and-Champagne lift with citrus snap',
+    bridge1:      'the bubble-and-citrus build brightens {foodTarget}',
+    bridge2:      'the gin botanicals frame {foodSubj}',
+    bridge1Variants: [
+          "the bubble-and-citrus build brightens {foodTarget}",
+          "the gin-lemon-Champagne French-75 body meets {foodTarget}",
+          "the WWI-artillery-named French-75 carries {foodTarget}",
+          "the Harry's-Bar Paris-origin French-75 body threads {foodTarget}",
+          "the gin-and-Champagne-coupe French-75 body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the gin botanicals frame {foodSubj}",
+          "the juniper-and-citrus French-75 note underlines {foodSubj}",
+          "the gin-led citrus-and-bubble edge softens {foodSubj}",
+          "the Harry's-Bar gin-Champagne close plays against {foodSubj}",
+          "the gin-botanical-and-mousse finish frames {foodSubj}"
+    ],
+    verdictHook:  'celebratory French 75',
+  },
+  'Margarita': {
+    tastingNotes: ['blanco tequila, lime, salt rim', 'patio classic', 'agave-citrus build'],
+    character:    'blanco-and-citrus margarita brightness',
+    bridge1:      'the agave-citrus body brightens {foodTarget}',
+    bridge2:      'the salt-rim edge frames {foodSubj}',
+    bridge1Variants: [
+          "the agave-citrus body brightens {foodTarget}",
+          "the tequila-lime-triple-sec Margarita body meets {foodTarget}",
+          "the classic-Margarita three-part build carries {foodTarget}",
+          "the salt-rimmed-coupe Margarita body threads {foodTarget}",
+          "the bartender-canon Margarita body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the salt-rim edge frames {foodSubj}",
+          "the lime-and-agave-and-salt note underlines {foodSubj}",
+          "the salt-rim tequila-citrus edge softens {foodSubj}",
+          "the orange-liqueur-and-lime close plays against {foodSubj}",
+          "the agave-citrus-and-salt finish frames {foodSubj}"
+    ],
+    verdictHook:  'classic Margarita',
+  },
+  'Espresso Martini': {
+    tastingNotes: ['vodka, espresso, coffee liqueur', 'after-dinner staple', 'bittersweet roast'],
+    character:    'roasted-coffee martini richness',
+    bridge1:      'the espresso depth meets {foodTarget}',
+    bridge2:      'the coffee-liqueur edge frames {foodSubj}',
+    bridge1Variants: [
+          "the espresso depth meets {foodTarget}",
+          "the Bradsell-1980s espresso-martini body wraps {foodTarget}",
+          "the vodka-Kahlúa-espresso build carries {foodTarget}",
+          "the shaken-espresso-foam cocktail body threads {foodTarget}",
+          "the after-dinner espresso-martini body meets {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the coffee-liqueur edge frames {foodSubj}",
+          "the Kahlúa-and-espresso bittersweet note underlines {foodSubj}",
+          "the shaken-espresso crema-and-coffee edge softens {foodSubj}",
+          "the Dick-Bradsell coffee-and-vodka close plays against {foodSubj}",
+          "the espresso-martini coffee-bitterness finish frames {foodSubj}"
+    ],
+    verdictHook:  'after-dinner Espresso Martini',
+  },
+  'Pierre Gimonnet Special Club Brut': {
+    tastingNotes: ['blanc de blancs', 'grand cru Chardonnay', 'fine bead'],
+    character:    'grand cru blanc-de-blancs with mineral lift',
+    bridge1:      'the chalk-and-citrus body lifts {foodTarget}',
+    bridge2:      'the fine bead frames {foodSubj}',
+    bridge1Variants: [
+          "the chalk-and-citrus body lifts {foodTarget}",
+          "the Côte-des-Blancs grower-Champagne body meets {foodTarget}",
+          "the Special-Club-tier blanc-de-blancs Gimonnet carries {foodTarget}",
+          "the chalk-driven Cuis-village Champagne body threads {foodTarget}",
+          "the Pierre-Gimonnet Chardonnay-only Champagne body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the fine bead frames {foodSubj}",
+          "the chalk-and-lemon-pith fine-bead note underlines {foodSubj}",
+          "the Special-Club blanc-de-blancs mineral edge softens {foodSubj}",
+          "the Côte-des-Blancs chalk-and-citrus close plays against {foodSubj}",
+          "the grower-Champagne fine-mousse finish frames {foodSubj}"
+    ],
+    verdictHook:  'grand cru blanc-de-blancs',
+  },
+  'Veuve Clicquot Brut': {
+    tastingNotes: ['yellow-label Champagne', 'pinot-driven blend', 'restaurant-pour standard'],
+    character:    'classic yellow-label Champagne body',
+    bridge1:      'the pinot-driven lift brightens {foodTarget}',
+    bridge2:      'the toast-and-citrus edge frames {foodSubj}',
+    bridge1Variants: [
+          "the pinot-driven lift brightens {foodTarget}",
+          "the Yellow-Label Veuve Clicquot body meets {foodTarget}",
+          "the Pinot-Noir-dominant Veuve blend carries {foodTarget}",
+          "the Madame-Clicquot-house Champagne body threads {foodTarget}",
+          "the 50-55%-Pinot-Noir Veuve blend body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the toast-and-citrus edge frames {foodSubj}",
+          "the brioche-and-yellow-apple Veuve note underlines {foodSubj}",
+          "the Pinot-led toast-and-stone-fruit edge softens {foodSubj}",
+          "the Yellow-Label toast-and-citrus close plays against {foodSubj}",
+          "the Veuve-house autolytic-toast finish frames {foodSubj}"
+    ],
+    verdictHook:  'yellow-label Champagne',
+  },
+  'Raventós Cava de NIT Rose Brut': {
+    tastingNotes: ['rosé Cava', 'Penedès estate', 'red-fruit lift'],
+    character:    'rosé Cava with red-fruit and floral lift',
+    bridge1:      'the red-fruit Cava body lifts {foodTarget}',
+    bridge2:      'the floral edge frames {foodSubj}',
+    bridge1Variants: [
+          "the red-fruit Cava body lifts {foodTarget}",
+          "the Conca-del-Riu-Anoia Raventós rosé body meets {foodTarget}",
+          "the traditional-method Penedès rosé carries {foodTarget}",
+          "the Raventós-i-Blanc estate-rosé body threads {foodTarget}",
+          "the Macabeo-Xarello-Monastrell de-NIT rosé body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the floral edge frames {foodSubj}",
+          "the strawberry-and-floral Raventós note underlines {foodSubj}",
+          "the traditional-method Penedès-rosé mousse softens {foodSubj}",
+          "the Conca-del-Anoia red-fruit-and-citrus close plays against {foodSubj}",
+          "the de-NIT estate-rosé floral-bead finish frames {foodSubj}"
+    ],
+    verdictHook:  'rosé Cava',
+  },
+  'Vin Santo': {
+    tastingNotes: ['Tuscan dessert wine', 'dried-fruit and honey', 'biscotti pour'],
+    character:    'Tuscan dried-fruit-and-honey sweetness',
+    bridge1:      'the dried-fruit body mirrors {foodTarget}',
+    bridge2:      'the honey-nut edge threads {foodSubj}',
+    bridge1Variants: [
+          "the dried-fruit body mirrors {foodTarget}",
+          "the Tuscan-appassimento Vin Santo body meets {foodTarget}",
+          "the dried-grape-aged Vin-Santo del Chianti carries {foodTarget}",
+          "the caratelli-cask aged Tuscan dessert wine body threads {foodTarget}",
+          "the Trebbiano-and-Malvasia Vin Santo body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the honey-nut edge threads {foodSubj}",
+          "the dried-apricot-and-walnut Vin Santo note underlines {foodSubj}",
+          "the caratelli-cask honey-and-almond edge softens {foodSubj}",
+          "the Tuscan dessert-wine fig-and-walnut close plays against {foodSubj}",
+          "the appassimento honey-and-orange-peel finish frames {foodSubj}"
+    ],
+    verdictHook:  'Tuscan Vin Santo',
+  },
+  "Graham's 20 Year Tawny": {
+    tastingNotes: ['aged tawny port', 'nutty-caramel', 'Douro classic'],
+    character:    'aged tawny with nutty-caramel depth',
+    bridge1:      'the tawny depth wraps {foodTarget}',
+    bridge2:      'the walnut-caramel edge threads {foodSubj}',
+    bridge1Variants: [
+          "the tawny depth wraps {foodTarget}",
+          "the Symington-family 20-year tawny body meets {foodTarget}",
+          "the cask-aged Graham's 20 tawny carries {foodTarget}",
+          "the average-20-year-blend tawny body threads {foodTarget}",
+          "the Douro-aged Graham's 20-year tawny body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the walnut-caramel edge threads {foodSubj}",
+          "the oxidative walnut-and-orange-peel note underlines {foodSubj}",
+          "the 20-year tawny dried-fig-and-caramel edge softens {foodSubj}",
+          "the Symington-house walnut-and-spice close plays against {foodSubj}",
+          "the cask-aged Graham's caramel-and-nut finish frames {foodSubj}"
+    ],
+    verdictHook:  'aged tawny port',
+  },
+  "Graham's 2017 Vintage Port": {
+    tastingNotes: ['vintage port', 'structured dark-fruit', 'cellar-worthy'],
+    character:    'structured vintage port with dark-fruit weight',
+    bridge1:      'the vintage-port depth wraps {foodTarget}',
+    bridge2:      'the dark-fruit-and-spice edge threads {foodSubj}',
+    bridge1Variants: [
+          "the vintage-port depth wraps {foodTarget}",
+          "the 2017-declared Graham's Vintage body meets {foodTarget}",
+          "the Symington-family 2017 vintage carries {foodTarget}",
+          "the Douro-vineyards 2017-declaration Vintage Port body threads {foodTarget}",
+          "the bottle-aging Graham's 2017 Vintage body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the dark-fruit-and-spice edge threads {foodSubj}",
+          "the blackberry-and-clove 2017 Graham's note underlines {foodSubj}",
+          "the Douro vintage dark-fruit-and-pepper edge softens {foodSubj}",
+          "the declared-year cassis-and-violet close plays against {foodSubj}",
+          "the bottle-aging Vintage Port tannic-fruit finish frames {foodSubj}"
+    ],
+    verdictHook:  'vintage port',
+  },
+  'Taylor Fladgate Tawny': {
+    tastingNotes: ['classic tawny port', 'caramel-nut character', 'restaurant standard'],
+    character:    'classic tawny with caramel-nut sweetness',
+    bridge1:      'the tawny body mirrors {foodTarget}',
+    bridge2:      'the caramel-nut edge threads {foodSubj}',
+    bridge1Variants: [
+          "the tawny body mirrors {foodTarget}",
+          "the oldest-port-house (1692) Taylor body meets {foodTarget}",
+          "the Yeatman-family Taylor Fladgate tawny carries {foodTarget}",
+          "the Vargellas-vineyard-sourced tawny body threads {foodTarget}",
+          "the Taylor-house aged-tawny body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the caramel-nut edge threads {foodSubj}",
+          "the dried-fig-and-walnut Taylor note underlines {foodSubj}",
+          "the 1692-house oxidative caramel edge softens {foodSubj}",
+          "the Taylor-Fladgate dried-orange-and-nut close plays against {foodSubj}",
+          "the aged-tawny caramel-and-toffee finish frames {foodSubj}"
+    ],
+    verdictHook:  'classic tawny port',
+  },
+  'Keenan Chardonnay': {
+    tastingNotes: ['Spring Mountain Chardonnay', 'oaked Napa', 'tropical-fruit and toast'],
+    character:    'oaked Spring Mountain Chardonnay',
+    bridge1:      'the toasted-Chard body lifts {foodTarget}',
+    bridge2:      'the tropical-fruit edge frames {foodSubj}',
+    bridge1Variants: [
+          "the toasted-Chard body lifts {foodTarget}",
+          "the Spring-Mountain-District Keenan body meets {foodTarget}",
+          "the Keenan-family Mountain-Napa Chardonnay carries {foodTarget}",
+          "the elevation-grown Keenan Chardonnay body threads {foodTarget}",
+          "the Spring-Mountain estate Chardonnay body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the tropical-fruit edge frames {foodSubj}",
+          "the pineapple-and-toasted-oak Keenan note underlines {foodSubj}",
+          "the Spring-Mountain elevation citrus-and-oak edge softens {foodSubj}",
+          "the Mountain-Napa stone-fruit-and-vanilla close plays against {foodSubj}",
+          "the Keenan-house toasted-oak finish frames {foodSubj}"
+    ],
+    verdictHook:  'oaked Napa Chardonnay',
+  },
+  'Schloss Vollrads Riesling': {
+    tastingNotes: ['Rheingau Riesling', 'off-dry German classic', 'lime-and-petrol'],
+    character:    'off-dry Rheingau Riesling with lime-petrol edge',
+    bridge1:      'the off-dry body brightens {foodTarget}',
+    bridge2:      'the lime-petrol note threads {foodSubj}',
+    bridge1Variants: [
+          "the off-dry body brightens {foodTarget}",
+          "the Rheingau-estate Schloss Vollrads body meets {foodTarget}",
+          "the 1211-founded Schloss Vollrads Riesling carries {foodTarget}",
+          "the oldest-Rheingau-estate Riesling body threads {foodTarget}",
+          "the slate-soil Vollrads Riesling body wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the lime-petrol note threads {foodSubj}",
+          "the slate-driven lime-and-petrol Vollrads note underlines {foodSubj}",
+          "the Rheingau off-dry citrus-and-mineral edge softens {foodSubj}",
+          "the medieval-estate Riesling lime-and-honey close plays against {foodSubj}",
+          "the slate-soil Schloss Vollrads finish frames {foodSubj}"
+    ],
+    verdictHook:  'Rheingau Riesling',
+  },
+  'Faust Napa Valley Cabernet': {
+    tastingNotes: ['Faust Napa Cab', 'Quintessa-family bottling', 'structured dark-fruit'],
+    character:    'structured Napa Cab with cassis depth',
+    bridge1:      'the structured-Cab body wraps {foodTarget}',
+    bridge2:      'the cassis-and-cedar edge frames {foodSubj}',
+    bridge1Variants: [
+          "the structured-Cab body wraps {foodTarget}",
+          "the Agustin-Huneeus Napa-floor Cab body meets {foodTarget}",
+          "the Faust Napa-Cab structure carries {foodTarget}",
+          "the polished valley-floor Cab depth wraps {foodTarget}",
+          "the Atlas-Peak-sourced Cab weight threads {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the cassis-and-cedar edge frames {foodSubj}",
+          "the dark-cassis-and-toasty-oak note underlines {foodSubj}",
+          "the polished cedar-and-cassis finish softens {foodSubj}",
+          "the cassis-driven Napa close plays against {foodSubj}",
+          "the cedar-and-graphite Faust edge frames {foodSubj}"
+    ],
+    verdictHook:  'Quintessa-family Napa Cab',
+  },
+  'Nickel & Nickel Cabernet': {
+    tastingNotes: ['single-vineyard Napa Cab', 'concentrated dark-fruit', 'sister to Far Niente'],
+    character:    'single-vineyard Napa Cab depth',
+    bridge1:      'the concentrated body wraps {foodTarget}',
+    bridge2:      'the cassis-and-oak edge frames {foodSubj}',
+    bridge1Variants: [
+          "the concentrated body wraps {foodTarget}",
+          "the single-vineyard Far-Niente-family Cab meets {foodTarget}",
+          "the Nickel & Nickel vineyard-designate body carries {foodTarget}",
+          "the concentrated Oakville-bench Cab weight threads {foodTarget}",
+          "the single-site Cab structure wraps {foodTarget}"
+    ],
+    bridge2Variants: [
+          "the cassis-and-oak edge frames {foodSubj}",
+          "the dark-cassis-and-American-oak note underlines {foodSubj}",
+          "the polished oak-and-cassis Napa finish softens {foodSubj}",
+          "the vineyard-designate cassis-and-toast close plays against {foodSubj}",
+          "the Nickel-house oak-driven Cab edge frames {foodSubj}"
+    ],
+    verdictHook:  'single-vineyard Napa Cab',
+  },
+};
+
+module.exports = { BOTTLE_PROFILES_CURATED };

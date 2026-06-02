@@ -1,0 +1,114 @@
+[
+  {
+    "key": "Cowboy Ribeye|Crab Cake",
+    "note": "The cowboy ribeye's marbled char-and-fat richness obliterates the crab cake's delicate sweet crab in a crisp crust: the marbled char overshadows the delicate crab cake, and the rendered fat crowds out the sweet shellfish plate. Avoid; the cut is too bold for the delicate starter. Stand the crab cake on its own course -- pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin -- and pour Caymus Cabernet Sauvignon, Silver Oak Cabernet Sauvignon, or Shafer Hillside Select for the cowboy ribeye.",
+    "wc": 87,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Crab Cake|Cowboy Ribeye",
+    "note": "The cowboy ribeye's marbled char-and-fat richness obliterates the crab cake's delicate sweet crab in a crisp crust: the marbled char overshadows the delicate crab cake, and the rendered fat crowds out the sweet shellfish plate. Avoid; the cut is too bold for the delicate starter. Stand the crab cake on its own course -- pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin -- and pour Caymus Cabernet Sauvignon, Silver Oak Cabernet Sauvignon, or Shafer Hillside Select for the cowboy ribeye.",
+    "wc": 87,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "Crab Cake|The Tomahawk",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the crab cake's delicate sweet crab in a crisp crust: the marbled char overshadows the sweet shellfish plate, and the smoky bone-in weight crowds out the delicate crab cake. Avoid; the courses can't share a meal cleanly. Pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 78,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "The Tomahawk|Crab Cake",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the crab cake's delicate sweet crab in a crisp crust: the marbled char overshadows the sweet shellfish plate, and the smoky bone-in weight crowds out the delicate crab cake. Avoid; the courses can't share a meal cleanly. Pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 78,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Crab Cake|Porterhouse",
+    "note": "The porterhouse's dual strip-and-filet character overwhelms the crab cake's delicate sweet crab in a crisp crust: the dual strip-and-filet overshadows the delicate crab cake, and the bold beefy character crowds out the sweet shellfish plate. Avoid; the courses can't share a meal cleanly. Pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin on a different visit; pour Odette Cabernet Sauvignon, Weller 12 Year, or Domaine du Grand Tinel alongside the porterhouse.",
+    "wc": 77,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "Porterhouse|Crab Cake",
+    "note": "The porterhouse's dual strip-and-filet character overwhelms the crab cake's delicate sweet crab in a crisp crust: the dual strip-and-filet overshadows the delicate crab cake, and the bold beefy character crowds out the sweet shellfish plate. Avoid; the courses can't share a meal cleanly. Pair the crab cake with Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin on a different visit; pour Odette Cabernet Sauvignon, Weller 12 Year, or Domaine du Grand Tinel alongside the porterhouse.",
+    "wc": 77,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Faroe Island Salmon|Filet Mignon",
+    "note": "The filet's lean buttery tenderness clashes with the salmon's rich oily flesh: the buttery beef overwhelms the oily-rich fish, and the lean cut crowds out the salmon. Avoid; the two protein courses pull in different directions. Order one or the other -- pour Cristom Mt Jefferson Cuvée, Maker's Mark Cellar Aged, or Yamazaki 18 Year for the filet, or Cristom Mt Jefferson Cuvée, Lingua Franca Avni Pinot Noir, or Elk Cove Five Mountain for the salmon.",
+    "wc": 76,
+    "catA": "main",
+    "catB": "steak"
+  },
+  {
+    "key": "Filet Mignon|Faroe Island Salmon",
+    "note": "The filet's lean buttery tenderness clashes with the salmon's rich oily flesh: the buttery beef overwhelms the oily-rich fish, and the lean cut crowds out the salmon. Avoid; the two protein courses pull in different directions. Order one or the other -- pour Cristom Mt Jefferson Cuvée, Maker's Mark Cellar Aged, or Yamazaki 18 Year for the filet, or Cristom Mt Jefferson Cuvée, Lingua Franca Avni Pinot Noir, or Elk Cove Five Mountain for the salmon.",
+    "wc": 76,
+    "catA": "steak",
+    "catB": "main"
+  },
+  {
+    "key": "Burrata|The Tomahawk",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the burrata's fresh basil-tomato-cream delicacy: the smoky bone-in weight crowds out the burrata, and the marbled char fights the milky cheese plate. Avoid; the courses can't share a meal cleanly. Pair the burrata with Il Colle Prosecco Superiore, St Supéry Sauvignon Blanc, or Stoneleigh Sauvignon Blanc on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 72,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "Cowboy Ribeye|Seared Scallops",
+    "note": "The cowboy ribeye's marbled char-and-fat richness overwhelms the scallops' caramelized sear-and-sweet richness: the rendered fat overshadows the scallops, and the marbled char crowds out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Caymus Cabernet Sauvignon, Silver Oak Cabernet Sauvignon, or Shafer Hillside Select alongside the cowboy ribeye.",
+    "wc": 72,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Seared Scallops|Cowboy Ribeye",
+    "note": "The cowboy ribeye's marbled char-and-fat richness overwhelms the scallops' caramelized sear-and-sweet richness: the rendered fat overshadows the scallops, and the marbled char crowds out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Caymus Cabernet Sauvignon, Silver Oak Cabernet Sauvignon, or Shafer Hillside Select alongside the cowboy ribeye.",
+    "wc": 72,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "Seared Scallops|The Tomahawk",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the scallops' caramelized sear-and-sweet richness: the smoky bone-in weight obliterates the scallops, and the marbled char crowds out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 72,
+    "catA": "starter",
+    "catB": "steak"
+  },
+  {
+    "key": "The Tomahawk|Burrata",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the burrata's fresh basil-tomato-cream delicacy: the smoky bone-in weight crowds out the burrata, and the marbled char fights the milky cheese plate. Avoid; the courses can't share a meal cleanly. Pair the burrata with Il Colle Prosecco Superiore, St Supéry Sauvignon Blanc, or Stoneleigh Sauvignon Blanc on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 72,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "The Tomahawk|Seared Scallops",
+    "note": "The Tomahawk's theatrical bone-in marbling and smoky char overwhelms the scallops' caramelized sear-and-sweet richness: the smoky bone-in weight obliterates the scallops, and the marbled char crowds out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Opus One, Caymus Cabernet Sauvignon, or George T. Stagg alongside the Tomahawk.",
+    "wc": 72,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Porterhouse|Seared Scallops",
+    "note": "The porterhouse's dual strip-and-filet character overwhelms the scallops' caramelized sear-and-sweet richness: the bold beefy character obliterates the scallops, and the dual strip-and-filet drowns out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Odette Cabernet Sauvignon, Weller 12 Year, or Domaine du Grand Tinel alongside the porterhouse.",
+    "wc": 71,
+    "catA": "steak",
+    "catB": "starter"
+  },
+  {
+    "key": "Seared Scallops|Porterhouse",
+    "note": "The porterhouse's dual strip-and-filet character overwhelms the scallops' caramelized sear-and-sweet richness: the bold beefy character obliterates the scallops, and the dual strip-and-filet drowns out the seared-rare scallop plate. Avoid; the courses can't share a meal cleanly. Pair the scallops with Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre on a different visit; pour Odette Cabernet Sauvignon, Weller 12 Year, or Domaine du Grand Tinel alongside the porterhouse.",
+    "wc": 71,
+    "catA": "starter",
+    "catB": "steak"
+  }
+]

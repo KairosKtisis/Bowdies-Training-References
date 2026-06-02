@@ -46,4 +46,3 @@ missingTier.forEach(k => console.log('  ' + k));
 console.log('');
 console.log('Missing pair-notes: ' + missingNote.length);
 missingNote.forEach(k => console.log('  ' + k));
- + k));

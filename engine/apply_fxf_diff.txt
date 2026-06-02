@@ -1,0 +1,24 @@
+=== APPLY FxF EDITORIAL — SAMPLE DIFF ===
+Run mode: COMMIT
+Generated: 2026-06-01T18:16:19.577Z
+Total changes: 10
+
+[Myers's Rum × Bone Marrow]
+  BEFORE: Bone Marrow: umami fat meets Myers's. Excellent; the molasses-heavy profile handles marrow's umami at workhorse register.
+  AFTER:  Myers's Rum with bone marrow — Jamaican dark rum, Diageo's molasses-heavy workhorse, deep brown-sugar register against umami fat. Excellent; the molasses-forward Jamaican profile carries marrow's beefy unctuousness — a workhorse pour that gives the starter its rum-tier pairing without reaching for Ron Zacapa or Doctor Bird's higher-register price point.
+
+[Myers's Rum × Carrot Cake]
+  BEFORE: Carrot Cake: cream cheese and cinnamon meet Myers's. Excellent; the molasses-dark character threads carrot-cake spice at Diageo-workhorse register.
+  AFTER:  Myers's Rum with carrot cake — Jamaican dark rum's molasses register threads cream cheese and cinnamon. Excellent; the dark-molasses-and-spice profile finds carrot cake's raisin-and-cinnamon spine without overspecifying the dessert — Myers's lands the rum-cake-pairing at workhorse register, leaving Ron Zacapa or Doctor Bird for chocolate-tier desserts.
+
+[Myers's Rum × Cheesecake]
+  BEFORE: Cheesecake: custard-dairy dessert meets Myers's. Excellent; the Jamaican dark-rum molasses profile frames the cream at workhorse register — the accessible dark-rum-dessert option.
+  AFTER:  Myers's Rum with cheesecake — Jamaican dark-rum molasses profile against custard-dairy weight. Excellent; the molasses-forward Diageo workhorse threads cheesecake's cream without crowding the custard — a confident rum-dessert call at workhorse register, leaving the higher-tier Ron Zacapa or Doctor Bird for more dimensional dessert pairings.
+
+[Jung and Wulff Trinidad × Carrot Cake]
+  BEFORE: Carrot Cake: cream cheese and cinnamon meet Jung and Wulff Trinidad. Excellent; the refined-caramel character threads carrot-cake spice at cleaner-than-Demerara register.
+  AFTER:  Jung and Wulff Trinidad with carrot cake — Angostura's column-still Trinidad rum, refined medium-character with caramel and moderate ester. Excellent; the polished caramel-and-spice register threads carrot cake's raisin-and-cinnamon line without the wild hogo of Doctor Bird — Trinidad's column-still polish reads as the right tier for cream-cheese-frosted spice cake.
+
+[Ron Zacapa Rum × Cheesecake]
+  BEFORE: Cheesecake: custard-dairy dessert meets Ron Zacapa. Excellent; the honey-vanilla-solera character threads the cheesecake's creamy register beautifully — premium-sipping-rum-meets-dessert textbook.
+  AFTER:  Ron Zacapa Rum with cheesecake — Guatemalan Solera 23, Andean-aged premium-sipping rum, honey-vanilla-caramel register against custard-dairy weight. Excellent; the Solera-honey character threads cheesecake's cream and the polished aged sweetness elevates the custard without overpowering — a confident luxury-rum call on a classic dessert.

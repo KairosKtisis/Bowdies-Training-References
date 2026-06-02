@@ -1,0 +1,198 @@
+
+======= SWEET_LIQUEUR x soup-salad (426 notes) =======
+
+  [Ancho Reyes|Broccoli Cheddar]  (Broccoli Cheddar -> soup-salad-cream)
+  BEFORE: Ancho Reyes' sweet liqueur character overpowers the broccoli cheddar's cheddar-and-broccoli cream -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a digestif. Avoid; recommend one of the alternatives. Save the Ancho Reyes for the steak course.
+  AFTER:  Ancho Reyes' sweet liqueur character overwhelms the broccoli cheddar's cheddar-and-broccoli cream -- the liqueur's sweetness buries the soup's creamy base instead of supporting it. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a digestif. Avoid; recommend one of the alternatives. Save the Ancho Reyes for the steak course.
+
+  [Drambuie|Tomato Basil]  (Tomato Basil -> soup-salad-broth)
+  BEFORE: Drambuie's digestif-pour sweetness overpowers the tomato basil's bright tomato-basil acid -- the plate deserves Stoneleigh Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Le Garenne Rosé, not a digestif. Avoid; pick from the alternatives. Pour the Drambuie on the steak course instead.
+  AFTER:  Drambuie's digestif-pour sweetness clashes with the tomato basil's bright tomato-basil acid -- the soup-salad course needs lift or acid — sweet liqueur brings neither. The plate deserves Stoneleigh Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Le Garenne Rosé, not a digestif. Avoid; pick from the alternatives. Pour the Drambuie on the steak course instead.
+
+  [Limoncello|Tomato Basil]  (Tomato Basil -> soup-salad-broth)
+  BEFORE: Limoncello's sweet liqueur character overpowers the tomato basil's bright tomato-basil acid -- the plate deserves Stoneleigh Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Le Garenne Rosé, not a digestif. Avoid; route the table to a better-fit pour. Hold the Limoncello for the steak course.
+  AFTER:  Limoncello's sweet liqueur character clashes with the tomato basil's bright tomato-basil acid -- the soup-salad course needs lift or acid — sweet liqueur brings neither. The plate deserves Stoneleigh Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Le Garenne Rosé, not a digestif. Avoid; route the table to a better-fit pour. Hold the Limoncello for the steak course.
+
+  [Vegetable Curry with Chickpeas|Sambuca]  (Vegetable Curry with Chickpeas -> soup-salad-broth)
+  BEFORE: Sambuca's after-dinner liqueur weight overpowers the curry's spiced chickpea-curry warmth -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a digestif. Avoid; reach for any of those instead. Hold the Sambuca for the steak course.
+  AFTER:  Sambuca's after-dinner liqueur weight clashes with the curry's spiced chickpea-curry warmth -- the soup-salad course needs lift or acid — sweet liqueur brings neither. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a digestif. Avoid; reach for any of those instead. Hold the Sambuca for the steak course.
+
+======= SWEET_LIQUEUR x side (318 notes) =======
+
+  [Ancho Reyes|Asparagus]  (Asparagus -> side-vegetable)
+  BEFORE: Ancho Reyes' sweet liqueur character overpowers the asparagus' green-vegetal edge -- the plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a digestif. Avoid; the better calls are above. Hold the Ancho Reyes for the steak course.
+  AFTER:  Ancho Reyes' sweet liqueur character clashes with the asparagus' green-vegetal edge -- sugar on a clean vegetable side is wrong direction — needs herb-acid lift, not sweetness. The plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a digestif. Avoid; the better calls are above. Hold the Ancho Reyes for the steak course.
+
+  [Creamed Spinach|Frangelico]  (Creamed Spinach -> side-cream)
+  BEFORE: Frangelico's after-dinner liqueur weight overpowers the creamed spinach's rich bechamel-laced greens -- the plate deserves Weller 12 Year, Keenan Chardonnay, or Far Niente Chardonnay, not a digestif. Avoid; pick from the alternatives. Reserve the Frangelico for the steak course.
+  AFTER:  Frangelico's after-dinner liqueur weight overwhelms the creamed spinach's rich bechamel-laced greens -- the liqueur's sugar buries the side's cream instead of lifting it. The plate deserves Weller 12 Year, Keenan Chardonnay, or Far Niente Chardonnay, not a digestif. Avoid; pick from the alternatives. Reserve the Frangelico for the steak course.
+
+  [Limoncello|Sauteed Garlic Spinach]  (Sauteed Garlic Spinach -> side-vegetable)
+  BEFORE: Limoncello's herbal-and-sugar liqueur register overpowers the garlic spinach's garlic-buttered greens -- the plate deserves Keenan Chardonnay, Lingua Franca Avni Pinot Noir, or Evening Land Seven Springs, not a digestif. Avoid; the alts above are the call. Limoncello belongs on the steak course.
+  AFTER:  Limoncello's herbal-and-sugar liqueur register clashes with the garlic spinach's garlic-buttered greens -- a sweet liqueur on a savory side is wrong-course energy. The plate deserves Keenan Chardonnay, Lingua Franca Avni Pinot Noir, or Evening Land Seven Springs, not a digestif. Avoid; the alts above are the call. Limoncello belongs on the steak course.
+
+  [Truffle Fries|Sambuca]  (Truffle Fries -> side-starch)
+  BEFORE: Sambuca's herbal-and-sugar liqueur register overpowers the truffle fries' parmesan-and-truffle fry weight -- the plate deserves Maker's Mark, Pommery Cuvée Louise, or Belvedere Vodka, not a digestif. Avoid; one of those is the move. Hold the Sambuca for the steak course.
+  AFTER:  Sambuca's herbal-and-sugar liqueur register clashes with the truffle fries' parmesan-and-truffle fry weight -- a sweet liqueur on a savory side is wrong-course energy. The plate deserves Maker's Mark, Pommery Cuvée Louise, or Belvedere Vodka, not a digestif. Avoid; one of those is the move. Hold the Sambuca for the steak course.
+
+======= SWEET_LIQUEUR x main (240 notes) =======
+
+  [Ancho Reyes|Chilean Seabass]  (Chilean Seabass -> main-fish-rich)
+  BEFORE: Ancho Reyes' sweet liqueur character overpowers the seabass' buttery seabass flesh -- the plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a digestif. Avoid; lead with the alternatives instead. Save the Ancho Reyes for the steak course.
+  AFTER:  Ancho Reyes' sweet liqueur character clashes with the seabass' buttery seabass flesh -- a sweet liqueur is dessert-course energy — wrong register for any main protein. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a digestif. Avoid; lead with the alternatives instead. Save the Ancho Reyes for the steak course.
+
+  [Fireball Whisky|Market Fish]  (Market Fish -> main-fish-delicate)
+  BEFORE: Fireball Whisky's herbal-and-sugar liqueur register overpowers the market fish's clean white-fish flesh -- the plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a digestif. Avoid; route the table to a better-fit pour. Reserve the Fireball Whisky for the steak course.
+  AFTER:  Fireball Whisky's herbal-and-sugar liqueur register overwhelms the market fish's clean white-fish flesh -- sugar on delicate fish is wrong direction — the plate needs acid, not sweetness. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a digestif. Avoid; route the table to a better-fit pour. Reserve the Fireball Whisky for the steak course.
+
+  [Rainbow Trout|Chambord]  (Rainbow Trout -> main-fish-delicate)
+  BEFORE: Chambord's after-dinner liqueur weight overpowers the trout's delicate flesh -- the plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a digestif. Avoid; offer the alts at the table — they fit. Chambord belongs on the steak course.
+  AFTER:  Chambord's after-dinner liqueur weight smothers the trout's delicate flesh -- the liqueur's sweet register buries the gentle flesh's lift. The plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a digestif. Avoid; offer the alts at the table — they fit. Chambord belongs on the steak course.
+
+  [Tuxedo-Crusted Yellowfin Tuna|Sambuca]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  BEFORE: Sambuca's syrupy-sweet liqueur body overpowers the tuna's seared-rare flesh with sesame crust -- the plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a digestif. Avoid; one of those is the move. Sambuca belongs on the steak course.
+  AFTER:  Sambuca's syrupy-sweet liqueur body clashes with the tuna's seared-rare flesh with sesame crust -- a sweet liqueur is dessert-course energy — wrong register for any main protein. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a digestif. Avoid; one of those is the move. Sambuca belongs on the steak course.
+
+======= SWEET_LIQUEUR x starter (188 notes) =======
+
+  [Ancho Reyes|Bone Marrow]  (Bone Marrow -> starter-meat)
+  BEFORE: Ancho Reyes' sweet liqueur character overpowers the bone marrow's unctuous rendered-marrow richness -- the plate deserves Fernet Branca, Lagavulin 8, or George T. Stagg, not a digestif. Avoid; redirect the order — the alternatives carry it. Ancho Reyes belongs on the steak course.
+  AFTER:  Ancho Reyes' sweet liqueur character clashes with the bone marrow's unctuous rendered-marrow richness -- sweet liqueur is dessert energy — wrong place for the table's first course. The plate deserves Fernet Branca, Lagavulin 8, or George T. Stagg, not a digestif. Avoid; redirect the order — the alternatives carry it. Ancho Reyes belongs on the steak course.
+
+  [Crab Cake|Frangelico]  (Crab Cake -> starter-shellfish)
+  BEFORE: Frangelico's digestif-pour sweetness overpowers the crab cake's delicate sweet crab in a crisp crust -- the plate deserves Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin, not a digestif. Avoid; pick from the alternatives. Save the Frangelico for the steak course.
+  AFTER:  Frangelico's digestif-pour sweetness overwhelms the crab cake's delicate sweet crab in a crisp crust -- sweet liqueur on cold shellfish is wrong-course energy — too forward for a clean opener. The plate deserves Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin, not a digestif. Avoid; pick from the alternatives. Save the Frangelico for the steak course.
+
+  [Licor 43|Prime Tartare]  (Prime Tartare -> starter-meat)
+  BEFORE: Licor 43's digestif-pour sweetness overpowers the tartare's raw beef-and-brine umami -- the plate deserves Pierre Gimonnet Special Club Brut, Pommery Cuvée Louise, or Belvedere Vodka, not a digestif. Avoid; one of those is the move. Pour the Licor 43 on the steak course instead.
+  AFTER:  Licor 43's digestif-pour sweetness flattens the tartare's raw beef-and-brine umami -- sugar dulls the savory edge of a rich meat opener instead of complementing it. The plate deserves Pierre Gimonnet Special Club Brut, Pommery Cuvée Louise, or Belvedere Vodka, not a digestif. Avoid; one of those is the move. Pour the Licor 43 on the steak course instead.
+
+  [Shrimp Cocktail|Sambuca]  (Shrimp Cocktail -> starter-shellfish)
+  BEFORE: Sambuca's digestif-pour sweetness overpowers the shrimp cocktail's cool brine-and-citrus shellfish -- the plate deserves Bacardi Rum, Grey Goose Vodka, or Laurent Perrier Le Cuvée Brut, not a digestif. Avoid; the alts above are the call. Pour the Sambuca on the steak course instead.
+  AFTER:  Sambuca's digestif-pour sweetness overwhelms the shrimp cocktail's cool brine-and-citrus shellfish -- sweet liqueur on cold shellfish is wrong-course energy — too forward for a clean opener. The plate deserves Bacardi Rum, Grey Goose Vodka, or Laurent Perrier Le Cuvée Brut, not a digestif. Avoid; the alts above are the call. Pour the Sambuca on the steak course instead.
+
+======= GIN x dessert (398 notes) =======
+
+  [2 James Gin|Carrot Cake]  (Carrot Cake -> dessert-cake-spice)
+  BEFORE: 2 James Gin's coriander-and-juniper register overpowers the carrot cake's cream-cheese-frosted spice cake -- the plate deserves Vin Santo, Disaronno, or Graham's 10 Year Tawny, not a gin. Avoid; pick from the alternatives. 2 James Gin belongs on the steak course.
+  AFTER:  2 James Gin's coriander-and-juniper register clashes with the carrot cake's cream-cheese-frosted spice cake -- juniper-citrus and warm cake spices pull in opposite directions. The plate deserves Vin Santo, Disaronno, or Graham's 10 Year Tawny, not a gin. Avoid; pick from the alternatives. 2 James Gin belongs on the steak course.
+
+  [Chocolate Cake|Beefeater Gin]  (Chocolate Cake -> dessert-chocolate)
+  BEFORE: Beefeater Gin's herbal-botanical edge overpowers the chocolate cake's layered chocolate body -- the plate deserves Taylor Fladgate Vintage Bottle, Graham's 2017 Vintage Port, or Baileys Irish Cream, not a gin. Avoid; steer the table to the alternatives. Beefeater Gin belongs on the steak course.
+  AFTER:  Beefeater Gin's herbal-botanical edge clashes with the chocolate cake's layered chocolate body -- gin botanicals jar against the chocolate's sweetness with no bridge. The plate deserves Taylor Fladgate Vintage Bottle, Graham's 2017 Vintage Port, or Baileys Irish Cream, not a gin. Avoid; steer the table to the alternatives. Beefeater Gin belongs on the steak course.
+
+  [Iron Fish Gin|Creme Brulee]  (Creme Brulee -> dessert-custard)
+  BEFORE: Iron Fish Gin's juniper-and-citrus lift overpowers the brulee's burnt-sugar custard -- the plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a gin. Avoid; steer the table to the alternatives. Iron Fish Gin belongs on the steak course.
+  AFTER:  Iron Fish Gin's juniper-and-citrus lift jars against the brulee's burnt-sugar custard -- sharp botanicals cut through dairy custard without resolving — the dessert reads broken. The plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a gin. Avoid; steer the table to the alternatives. Iron Fish Gin belongs on the steak course.
+
+  [Tanqueray Gin|Peanut Butter Brownie]  (Peanut Butter Brownie -> dessert-chocolate)
+  BEFORE: Tanqueray Gin's botanical-driven lift overpowers the PB brownie's peanut-butter-and-chocolate fudge -- the plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a gin. Avoid; route the table to a better-fit pour. Tanqueray Gin belongs on the steak course.
+  AFTER:  Tanqueray Gin's botanical-driven lift clashes with the PB brownie's peanut-butter-and-chocolate fudge -- gin's botanical-citrus register fights dessert sweetness without a bridge. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a gin. Avoid; route the table to a better-fit pour. Tanqueray Gin belongs on the steak course.
+
+======= GIN x steak (204 notes) =======
+
+  [2 James Gin|Bone-In Filet]  (Bone-In Filet -> steak-medium)
+  BEFORE: 2 James Gin's coriander-and-juniper register overpowers the bone-in filet's bone-enhanced buttery tenderness -- the plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a gin. Avoid; reach for any of those instead. Save the 2 James Gin for another course.
+  AFTER:  2 James Gin's coriander-and-juniper register underclubs the bone-in filet's bone-enhanced buttery tenderness -- gin reads light against the prime cut's weight — needs a red or whiskey. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a gin. Avoid; reach for any of those instead. Save the 2 James Gin for another course.
+
+  [Cowboy Ribeye|Tanqueray Gin]  (Cowboy Ribeye -> steak-big)
+  BEFORE: Tanqueray Gin's juniper-and-citrus lift overpowers the cowboy ribeye's marbled char-and-fat richness -- the plate deserves Silver Oak Cabernet Sauvignon, Macallan 18, or Caymus Cabernet Sauvignon, not a gin. Avoid; steer the table to the alternatives. Tanqueray Gin belongs on another course.
+  AFTER:  Tanqueray Gin's juniper-and-citrus lift underclubs the cowboy ribeye's marbled char-and-fat richness -- gin's light register can't carry the marbled char — the cut deserves a bigger pour. The plate deserves Silver Oak Cabernet Sauvignon, Macallan 18, or Caymus Cabernet Sauvignon, not a gin. Avoid; steer the table to the alternatives. Tanqueray Gin belongs on another course.
+
+  [Kansas City|Tanq 10 Gin]  (Kansas City -> steak-medium)
+  BEFORE: Tanq 10 Gin's botanical-driven lift overpowers the KC's lean-bold strip with savory grain -- the plate deserves Pappy Van Winkle 13 Year Rye, Jordan Cabernet Sauvignon, or Pio Cesare Barbaresco, not a gin. Avoid; steer the table to the alternatives. Save the Tanq 10 Gin for another course.
+  AFTER:  Tanq 10 Gin's botanical-driven lift underclubs the KC's lean-bold strip with savory grain -- gin reads light against the prime cut's weight — needs a red or whiskey. The plate deserves Pappy Van Winkle 13 Year Rye, Jordan Cabernet Sauvignon, or Pio Cesare Barbaresco, not a gin. Avoid; steer the table to the alternatives. Save the Tanq 10 Gin for another course.
+
+  [Tanqueray Gin|Porterhouse]  (Porterhouse -> steak-big)
+  BEFORE: Tanqueray Gin's juniper-and-citrus lift overpowers the porterhouse's dual strip-and-filet character -- the plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a gin. Avoid; one of those is the move. Save the Tanqueray Gin for another course.
+  AFTER:  Tanqueray Gin's juniper-and-citrus lift underclubs the porterhouse's dual strip-and-filet character -- gin reads light against the prime cut's weight — needs a red or whiskey. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a gin. Avoid; one of those is the move. Save the Tanqueray Gin for another course.
+
+======= SWEET_WINE x soup-salad (238 notes) =======
+
+  [Broccoli Cheddar|Casa LBV Port]  (Broccoli Cheddar -> soup-salad-cream)
+  BEFORE: Casa LBV Port's noble-rot-driven sugar overpowers the broccoli cheddar's cheddar-and-broccoli cream -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a dessert wine. Avoid; pick from the alternatives. Casa LBV Port belongs on the steak course.
+  AFTER:  Casa LBV Port's noble-rot-driven sugar clashes with the broccoli cheddar's cheddar-and-broccoli cream -- the soup-salad course needs acid, not dessert sugar. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a dessert wine. Avoid; pick from the alternatives. Casa LBV Port belongs on the steak course.
+
+  [Graham's 20 Year Tawny|Mushroom Bisque]  (Mushroom Bisque -> soup-salad-cream)
+  BEFORE: Graham's 20 Year Tawny's aged tawny with nutty-caramel depth overpowers the mushroom bisque's silky earthy mushroom cream -- the plate deserves Keenan Chardonnay, Jean-Pierre Grossot Chablis, or Far Niente Chardonnay, not a dessert wine. Avoid; one of those is the move. Hold the Graham's 20 Year Tawny for the steak course.
+  AFTER:  Graham's 20 Year Tawny's aged tawny with nutty-caramel depth clashes with the mushroom bisque's silky earthy mushroom cream -- the soup-salad course needs acid, not dessert sugar. The plate deserves Keenan Chardonnay, Jean-Pierre Grossot Chablis, or Far Niente Chardonnay, not a dessert wine. Avoid; one of those is the move. Hold the Graham's 20 Year Tawny for the steak course.
+
+  [Sauternes Glass|Roasted Red Pepper Chickpea]  (Roasted Red Pepper Chickpea -> soup-salad-broth)
+  BEFORE: Sauternes Glass' dessert-wine sweetness overpowers the chickpea soup's roasted-pepper chickpea warmth -- the plate deserves St Supéry Sauvignon Blanc, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a dessert wine. Avoid; one of those is the move. Hold the Sauternes Glass for the steak course.
+  AFTER:  Sauternes Glass' dessert-wine sweetness clashes with the chickpea soup's roasted-pepper chickpea warmth -- honeyed sugar on savory broth jars — wrong direction for the course. The plate deserves St Supéry Sauvignon Blanc, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a dessert wine. Avoid; one of those is the move. Hold the Sauternes Glass for the steak course.
+
+  [Vin Santo|Vegetable Curry with Chickpeas]  (Vegetable Curry with Chickpeas -> soup-salad-broth)
+  BEFORE: Vin Santo's Tuscan dried-fruit-and-honey sweetness overpowers the curry's spiced chickpea-curry warmth -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a dessert wine. Avoid; one of those is the move. Save the Vin Santo for the steak course.
+  AFTER:  Vin Santo's Tuscan dried-fruit-and-honey sweetness clashes with the curry's spiced chickpea-curry warmth -- the soup-salad course needs acid, not dessert sugar. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a dessert wine. Avoid; one of those is the move. Save the Vin Santo for the steak course.
+
+======= SWEET_WINE x main (128 notes) =======
+
+  [Casa LBV Port|Chilean Seabass]  (Chilean Seabass -> main-fish-rich)
+  BEFORE: Casa LBV Port's botrytis-influenced sweetness overpowers the seabass' buttery seabass flesh -- the plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a dessert wine. Avoid; one of those is the move. Save the Casa LBV Port for the steak course.
+  AFTER:  Casa LBV Port's botrytis-influenced sweetness doubles down on the seabass' buttery seabass flesh -- honeyed wine and oily fish double up richness with no contrast. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a dessert wine. Avoid; one of those is the move. Save the Casa LBV Port for the steak course.
+
+  [Graham's 2017 Vintage Port|Market Fish]  (Market Fish -> main-fish-delicate)
+  BEFORE: Graham's 2017 Vintage Port's structured vintage port with dark-fruit weight overpowers the market fish's clean white-fish flesh -- the plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a dessert wine. Avoid; recommend one of the alternatives. Hold the Graham's 2017 Vintage Port for the steak course.
+  AFTER:  Graham's 2017 Vintage Port's structured vintage port with dark-fruit weight overwhelms the market fish's clean white-fish flesh -- dessert wine on delicate fish is wrong-course energy — needs a dry white, not honeyed sugar. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a dessert wine. Avoid; recommend one of the alternatives. Hold the Graham's 2017 Vintage Port for the steak course.
+
+  [Sauternes Glass|Salt-Cured Halibut]  (Salt-Cured Halibut -> main-fish-delicate)
+  BEFORE: Sauternes Glass' dessert-wine sweetness overpowers the halibut's salt-cured flesh -- the plate deserves Jean-Pierre Grossot Chablis, St Supéry Sauvignon Blanc, or Far Niente Chardonnay, not a dessert wine. Avoid; the alts above are the call. Sauternes Glass belongs on the steak course.
+  AFTER:  Sauternes Glass' dessert-wine sweetness overwhelms the halibut's salt-cured flesh -- dessert wine on delicate fish is wrong-course energy — needs a dry white, not honeyed sugar. The plate deserves Jean-Pierre Grossot Chablis, St Supéry Sauvignon Blanc, or Far Niente Chardonnay, not a dessert wine. Avoid; the alts above are the call. Sauternes Glass belongs on the steak course.
+
+  [Vin Santo|Tuxedo-Crusted Yellowfin Tuna]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  BEFORE: Vin Santo's Tuscan dried-fruit-and-honey sweetness overpowers the tuna's seared-rare flesh with sesame crust -- the plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a dessert wine. Avoid; steer the table to the alternatives. Save the Vin Santo for the steak course.
+  AFTER:  Vin Santo's Tuscan dried-fruit-and-honey sweetness flattens the tuna's seared-rare flesh with sesame crust -- sweet wine dulls the sear's clean char — savory main deserves a dry pour. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a dessert wine. Avoid; steer the table to the alternatives. Save the Vin Santo for the steak course.
+
+======= APERITIVO_BITTER x soup-salad (204 notes) =======
+
+  [Amaro Nonino|Broccoli Cheddar]  (Broccoli Cheddar -> soup-salad-cream)
+  BEFORE: Amaro Nonino's crisp orange-peel-grappa sweetness overpowers the broccoli cheddar's cheddar-and-broccoli cream -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Amaro Nonino for the steak course.
+  AFTER:  Amaro Nonino's crisp orange-peel-grappa sweetness fights the broccoli cheddar's cheddar-and-broccoli cream -- bitter herbs cut the bisque's round cream without lifting it. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Amaro Nonino for the steak course.
+
+  [Clam Chowder|Amaro Nonino]  (Clam Chowder -> soup-salad-cream)
+  BEFORE: Amaro Nonino's crisp orange-peel-grappa sweetness overpowers the chowder's creamy clam-and-potato base -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Jean-Pierre Grossot Chablis, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Hold the Amaro Nonino for the steak course.
+  AFTER:  Amaro Nonino's crisp orange-peel-grappa sweetness clashes with the chowder's creamy clam-and-potato base -- amaro bitterness on dairy cream reads metallic — no bridge from herbal sharp to soft fat. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Jean-Pierre Grossot Chablis, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Hold the Amaro Nonino for the steak course.
+
+  [Montenegro Amaro|Creamy Potato]  (Creamy Potato -> soup-salad-cream)
+  BEFORE: Montenegro Amaro's amaro-bitter register overpowers the potato soup's silky-bodied cream -- the plate deserves Far Niente Chardonnay, Keenan Chardonnay, or Jean-Pierre Grossot Chablis, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Montenegro Amaro for the steak course.
+  AFTER:  Montenegro Amaro's amaro-bitter register clashes with the potato soup's silky-bodied cream -- bitter aperitivo crowds the soup-salad course without complement. The plate deserves Far Niente Chardonnay, Keenan Chardonnay, or Jean-Pierre Grossot Chablis, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Montenegro Amaro for the steak course.
+
+  [Yellow Chartreuse|Vegetable Curry with Chickpeas]  (Vegetable Curry with Chickpeas -> soup-salad-broth)
+  BEFORE: Yellow Chartreuse's amaro-bitter register overpowers the curry's spiced chickpea-curry warmth -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a bitter aperitivo. Avoid; reach for any of those instead. Yellow Chartreuse belongs on the steak course.
+  AFTER:  Yellow Chartreuse's amaro-bitter register jars against the curry's spiced chickpea-curry warmth -- bitter botanicals on savory broth pull against the salt-and-spice frame without resolving. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a bitter aperitivo. Avoid; reach for any of those instead. Yellow Chartreuse belongs on the steak course.
+
+======= APERITIVO_BITTER x main (142 notes) =======
+
+  [Amaro Nonino|Chilean Seabass]  (Chilean Seabass -> main-fish-rich)
+  BEFORE: Amaro Nonino's crisp orange-peel-grappa sweetness overpowers the seabass' buttery seabass flesh -- the plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a bitter aperitivo. Avoid; offer the alts at the table — they fit. Amaro Nonino belongs on the steak course.
+  AFTER:  Amaro Nonino's crisp orange-peel-grappa sweetness jars against the seabass' buttery seabass flesh -- bitter herbs on oily fish read metallic — the rich flesh deserves a crisp white. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a bitter aperitivo. Avoid; offer the alts at the table — they fit. Amaro Nonino belongs on the steak course.
+
+  [Faroe Island Salmon|Mata Hari Absinthe]  (Faroe Island Salmon -> main-fish-rich)
+  BEFORE: Mata Hari Absinthe's bitter-herb aperitivo edge overpowers the salmon's rich oily flesh -- the plate deserves Cristom Mt Jefferson Cuvée, Lingua Franca Avni Pinot Noir, or Elk Cove Five Mountain, not a bitter aperitivo. Avoid; steer the table to the alternatives. Mata Hari Absinthe belongs on the steak course.
+  AFTER:  Mata Hari Absinthe's bitter-herb aperitivo edge clashes with the salmon's rich oily flesh -- bitter aperitivo is for before or after the meal — not on a main protein. The plate deserves Cristom Mt Jefferson Cuvée, Lingua Franca Avni Pinot Noir, or Elk Cove Five Mountain, not a bitter aperitivo. Avoid; steer the table to the alternatives. Mata Hari Absinthe belongs on the steak course.
+
+  [Rainbow Trout|Green Chartreuse]  (Rainbow Trout -> main-fish-delicate)
+  BEFORE: Green Chartreuse's bitter-herb aperitivo edge overpowers the trout's delicate flesh -- the plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a bitter aperitivo. Avoid; the alts above are the call. Hold the Green Chartreuse for the steak course.
+  AFTER:  Green Chartreuse's bitter-herb aperitivo edge clashes with the trout's delicate flesh -- bitter aperitivo is for before or after the meal — not on a main protein. The plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a bitter aperitivo. Avoid; the alts above are the call. Hold the Green Chartreuse for the steak course.
+
+  [Yellow Chartreuse|Tuxedo-Crusted Yellowfin Tuna]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  BEFORE: Yellow Chartreuse's aperitivo herb-and-bitter cut overpowers the tuna's seared-rare flesh with sesame crust -- the plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Yellow Chartreuse for the steak course.
+  AFTER:  Yellow Chartreuse's aperitivo herb-and-bitter cut clashes with the tuna's seared-rare flesh with sesame crust -- bitter botanicals fight the savory sear — bitter against char without resolution. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Save the Yellow Chartreuse for the steak course.
+
+======= APERITIVO_BITTER x side (132 notes) =======
+
+  [Amaro Nonino|Asparagus]  (Asparagus -> side-vegetable)
+  BEFORE: Amaro Nonino's crisp orange-peel-grappa sweetness overpowers the asparagus' green-vegetal edge -- the plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Amaro Nonino belongs on the steak course.
+  AFTER:  Amaro Nonino's crisp orange-peel-grappa sweetness doubles down on the asparagus' green-vegetal edge -- bitter herbs and a green vegetable side compound the same register — no contrast. The plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Amaro Nonino belongs on the steak course.
+
+  [Broccolini|Lucano Amaro]  (Broccolini -> side-vegetable)
+  BEFORE: Lucano Amaro's gentian-driven cut overpowers the broccolini's tender green stalks -- the plate deserves St Supéry Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a bitter aperitivo. Avoid; pick from the alternatives. Hold the Lucano Amaro for the steak course.
+  AFTER:  Lucano Amaro's gentian-driven cut clashes with the broccolini's tender green stalks -- bitter aperitivo on the supporting side reads as wrong register for the course. The plate deserves St Supéry Sauvignon Blanc, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a bitter aperitivo. Avoid; pick from the alternatives. Hold the Lucano Amaro for the steak course.
+
+  [Mata Hari Absinthe|Asparagus]  (Asparagus -> side-vegetable)
+  BEFORE: Mata Hari Absinthe's aperitivo herb-and-bitter cut overpowers the asparagus' green-vegetal edge -- the plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bitter aperitivo. Avoid; the alts above are the call. Mata Hari Absinthe belongs on the steak course.
+  AFTER:  Mata Hari Absinthe's aperitivo herb-and-bitter cut clashes with the asparagus' green-vegetal edge -- bitter aperitivo on the supporting side reads as wrong register for the course. The plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bitter aperitivo. Avoid; the alts above are the call. Mata Hari Absinthe belongs on the steak course.
+
+  [Yellow Chartreuse|Truffle Fries]  (Truffle Fries -> side-starch)
+  BEFORE: Yellow Chartreuse's gentian-driven cut overpowers the truffle fries' parmesan-and-truffle fry weight -- the plate deserves Maker's Mark, Pommery Cuvée Louise, or Belvedere Vodka, not a bitter aperitivo. Avoid; steer the table to the alternatives. Hold the Yellow Chartreuse for the steak course.
+  AFTER:  Yellow Chartreuse's gentian-driven cut clashes with the truffle fries' parmesan-and-truffle fry weight -- bitter botanicals on the truffle-fry register fight the warm-savory side. The plate deserves Maker's Mark, Pommery Cuvée Louise, or Belvedere Vodka, not a bitter aperitivo. Avoid; steer the table to the alternatives. Hold the Yellow Chartreuse for the steak course.

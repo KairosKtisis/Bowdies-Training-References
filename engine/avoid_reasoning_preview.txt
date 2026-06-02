@@ -1,0 +1,148 @@
+
+══════ BOURBON_BOLD × main  (cell has 2186 matching notes) ══════
+
+  [1792 Small Batch|Chilean Seabass]
+  BEFORE: 1792 Small Batch's caramel-spice character overpowers the seabass' buttery seabass flesh -- the plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a bourbon. Avoid; one of those is the move. Reserve the 1792 Small Batch for the steak course.
+  AFTER:  1792 Small Batch's caramel-spice character overwhelms the seabass' buttery seabass flesh -- bourbon depth belongs with red meat, not flaky fish. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a bourbon. Avoid; one of those is the move. Reserve the 1792 Small Batch for the steak course.
+
+  [Market Fish|Angel's Envy Cask Strength]
+  BEFORE: Angel's Envy Cask Strength's spice-and-caramel bourbon depth overpowers the market fish's clean white-fish flesh -- the plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a bourbon. Avoid; the better calls are above. Save the Angel's Envy Cask Strength for the steak course.
+  AFTER:  Angel's Envy Cask Strength's spice-and-caramel bourbon depth smothers the market fish's clean white-fish flesh -- the brown-spirit weight pulls focus off the delicate fish protein. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a bourbon. Avoid; the better calls are above. Save the Angel's Envy Cask Strength for the steak course.
+
+  [Woodinville Rye|Tuxedo-Crusted Yellowfin Tuna]
+  BEFORE: Woodinville Rye's rye-spice character overpowers the tuna's seared-rare flesh with sesame crust -- the plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a rye whiskey. Avoid; the alts above are the call. Hold the Woodinville Rye for the steak course.
+  AFTER:  Woodinville Rye's rye-spice character swallows the tuna's seared-rare flesh with sesame crust -- the sweet-spirit register fights the savory main without a bridge. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a rye whiskey. Avoid; the alts above are the call. Hold the Woodinville Rye for the steak course.
+
+══════ BOURBON_BOLD × starter  (cell has 398 matching notes) ══════
+
+  [1792 Small Batch|Seafood Tower]
+  BEFORE: 1792 Small Batch's caramel-spice character overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a bourbon. Avoid; the alts above are the call. 1792 Small Batch belongs on the steak course.
+  AFTER:  1792 Small Batch's caramel-spice character fights the seafood tower's chilled shellfish lineup -- bourbon depth is wrong for the table's first course — too heavy too early. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a bourbon. Avoid; the alts above are the call. 1792 Small Batch belongs on the steak course.
+
+  [Seafood Tower|Angel's Envy Triple Cask]
+  BEFORE: Angel's Envy Triple Cask's soft-oak bourbon body overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a bourbon. Avoid; route the table to a better-fit pour. Angel's Envy Triple Cask belongs on the steak course.
+  AFTER:  Angel's Envy Triple Cask's soft-oak bourbon body crowds out the seafood tower's chilled shellfish lineup -- the sweet-oak register fights the clean, briny opener. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a bourbon. Avoid; route the table to a better-fit pour. Angel's Envy Triple Cask belongs on the steak course.
+
+  [Woodinville Rye|Seafood Tower]
+  BEFORE: Woodinville Rye's rye-spice character overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a rye whiskey. Avoid; redirect the order — the alternatives carry it. Woodinville Rye belongs on the steak course.
+  AFTER:  Woodinville Rye's rye-spice character smothers the seafood tower's chilled shellfish lineup -- the brown-spirit warmth has no foil against the cold, clean starter. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a rye whiskey. Avoid; redirect the order — the alternatives carry it. Woodinville Rye belongs on the steak course.
+
+══════ BOURBON_BOLD × soup-salad  (cell has 18 matching notes) ══════
+
+  [Broccoli Cheddar|Kentucky Owl St. Patrick's]
+  BEFORE: Kentucky Owl St. Patrick's' Irish whiskey smoothness overpowers the broccoli cheddar's cheddar-and-broccoli cream -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not an Irish whiskey. Avoid; the alts above are the call. Pour the Kentucky Owl St. Patrick's on the steak course instead.
+  AFTER:  Kentucky Owl St. Patrick's' Irish whiskey smoothness flattens the broccoli cheddar's cheddar-and-broccoli cream -- brown-spirit weight reads heavy against a soup's clean base. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not an Irish whiskey. Avoid; the alts above are the call. Pour the Kentucky Owl St. Patrick's on the steak course instead.
+
+  [Kentucky Owl St. Patrick's|Gumbo]
+  BEFORE: Kentucky Owl St. Patrick's' Irish whiskey smoothness overpowers the gumbo's spiced creole stew -- the plate deserves Schloss Vollrads Riesling, Fattoria Le Pupille Saffredi, or Muga Reserva, not an Irish whiskey. Avoid; the listed alts pair where this does not. Kentucky Owl St. Patrick's belongs on the steak course.
+  AFTER:  Kentucky Owl St. Patrick's' Irish whiskey smoothness crowds the gumbo's spiced creole stew -- the bourbon has no acid to balance the broth or dressing. The plate deserves Schloss Vollrads Riesling, Fattoria Le Pupille Saffredi, or Muga Reserva, not an Irish whiskey. Avoid; the listed alts pair where this does not. Kentucky Owl St. Patrick's belongs on the steak course.
+
+  [Vegetable Curry with Chickpeas|Kentucky Owl St. Patrick's]
+  BEFORE: Kentucky Owl St. Patrick's' Irish whiskey smoothness overpowers the curry's spiced chickpea-curry warmth -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not an Irish whiskey. Avoid; the better calls are above. Hold the Kentucky Owl St. Patrick's for the steak course.
+  AFTER:  Kentucky Owl St. Patrick's' Irish whiskey smoothness flattens the curry's spiced chickpea-curry warmth -- brown-spirit weight reads heavy against a soup's clean base. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not an Irish whiskey. Avoid; the better calls are above. Hold the Kentucky Owl St. Patrick's for the steak course.
+
+══════ BOURBON_BOLD × side  (cell has 90 matching notes) ══════
+
+  [Angel's Envy Cask Strength|Asparagus]
+  BEFORE: Angel's Envy Cask Strength's spice-and-caramel bourbon depth overpowers the asparagus' green-vegetal edge -- the plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bourbon. Avoid; steer the table to the alternatives. Hold the Angel's Envy Cask Strength for the steak course.
+  AFTER:  Angel's Envy Cask Strength's spice-and-caramel bourbon depth doubles down on the asparagus' green-vegetal edge -- sweet-spirit oak meets dairy richness with no contrast. The plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a bourbon. Avoid; steer the table to the alternatives. Hold the Angel's Envy Cask Strength for the steak course.
+
+  [Honey Roasted Carrots|Booker's]
+  BEFORE: Booker's' cask-strength bourbon depth overpowers the honey carrots' honey-glazed carrot sweetness -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a bourbon. Avoid; one of those is the move. Booker's belongs on the steak course.
+  AFTER:  Booker's' cask-strength bourbon depth smothers the honey carrots' honey-glazed carrot sweetness -- the side reads flat under oak-and-vanilla density. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a bourbon. Avoid; one of those is the move. Booker's belongs on the steak course.
+
+  [Stagg Jr. Batch #15|Seasonal Vegetables]
+  BEFORE: Stagg Jr. Batch #15's soft-oak bourbon body overpowers the seasonal vegetables' seasonal garden plate -- the plate deserves St Supéry Sauvignon Blanc, not a bourbon. Avoid; pick from the alternatives. Stagg Jr. Batch #15 belongs on the steak course.
+  AFTER:  Stagg Jr. Batch #15's soft-oak bourbon body smothers the seasonal vegetables' seasonal garden plate -- the side reads flat under oak-and-vanilla density. The plate deserves St Supéry Sauvignon Blanc, not a bourbon. Avoid; pick from the alternatives. Stagg Jr. Batch #15 belongs on the steak course.
+
+══════ BOURBON_BOLD × dessert  (cell has 2 matching notes) ══════
+
+  [Cheesecake|George T. Stagg]
+  BEFORE: George T. Stagg's cask-strength BTAC bourbon power overpowers the cheesecake's dense tangy dairy custard -- the plate deserves Sauternes Glass, Vin Santo, or Disaronno, not a bourbon. Avoid; offer the alts at the table — they fit. Hold the George T. Stagg for the steak course.
+  AFTER:  George T. Stagg's cask-strength BTAC bourbon power clashes with the cheesecake's dense tangy dairy custard -- the sweet-oak edge doubles the dessert sweetness without contrast. The plate deserves Sauternes Glass, Vin Santo, or Disaronno, not a bourbon. Avoid; offer the alts at the table — they fit. Hold the George T. Stagg for the steak course.
+
+  [George T. Stagg|Cheesecake]
+  BEFORE: George T. Stagg's cask-strength BTAC bourbon power overpowers the cheesecake's dense tangy dairy custard -- the plate deserves Sauternes Glass, Vin Santo, or Disaronno, not a bourbon. Avoid; offer the alts at the table — they fit. Hold the George T. Stagg for the steak course.
+  AFTER:  George T. Stagg's cask-strength BTAC bourbon power clashes with the cheesecake's dense tangy dairy custard -- the sweet-oak edge doubles the dessert sweetness without contrast. The plate deserves Sauternes Glass, Vin Santo, or Disaronno, not a bourbon. Avoid; offer the alts at the table — they fit. Hold the George T. Stagg for the steak course.
+
+══════ BOURBON_BOLD × steak  (cell has 2 matching notes) ══════
+
+  [Bruichladdich|The Tomahawk]
+  BEFORE: Bruichladdich's progressive unpeated Islay overpowers the Tomahawk's theatrical bone-in marbling and smoky char -- the plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a scotch. Avoid; the alts above are the call. Bruichladdich belongs on another course.
+  AFTER:  Bruichladdich's progressive unpeated Islay sits awkwardly with the Tomahawk's theatrical bone-in marbling and smoky char -- the spirit is capable but the cut earns a more decisive call. The plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a scotch. Avoid; the alts above are the call. Bruichladdich belongs on another course.
+
+  [The Tomahawk|Bruichladdich]
+  BEFORE: Bruichladdich's progressive unpeated Islay overpowers the Tomahawk's theatrical bone-in marbling and smoky char -- the plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a scotch. Avoid; the alts above are the call. Bruichladdich belongs on another course.
+  AFTER:  Bruichladdich's progressive unpeated Islay falls short of the Tomahawk's theatrical bone-in marbling and smoky char -- this expression doesn't carry the cut's weight — a bigger bourbon or a Cab earns it. The plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a scotch. Avoid; the alts above are the call. Bruichladdich belongs on another course.
+
+══════ ELEGANT_RED × dessert  (cell has 1296 matching notes) ══════
+
+  [1881 Napa Valley|Beignets]
+  BEFORE: 1881 Napa Valley's deep dark-fruit and grippy tannin overpowers the beignets' warm sugar-dusted pastry -- the plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a big red. Avoid; offer the alts at the table — they fit. Save the 1881 Napa Valley for the steak course.
+  AFTER:  1881 Napa Valley's deep dark-fruit and grippy tannin clashes with the beignets' warm sugar-dusted pastry -- the dry-fruit register can't pivot to sweet pastry or custard. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a big red. Avoid; offer the alts at the table — they fit. Save the 1881 Napa Valley for the steak course.
+
+  [Domaine Tempier Bandol|Creme Brulee]
+  BEFORE: Domaine Tempier Bandol's deep dark-fruit and grippy tannin overpowers the brulee's burnt-sugar custard -- the plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a big red. Avoid; recommend one of the alternatives. Reserve the Domaine Tempier Bandol for the steak course.
+  AFTER:  Domaine Tempier Bandol's deep dark-fruit and grippy tannin fights the brulee's burnt-sugar custard -- red structure and dessert sweetness refuse each other — neither softens. The plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a big red. Avoid; recommend one of the alternatives. Reserve the Domaine Tempier Bandol for the steak course.
+
+  [Venge Silencieux|Peanut Butter Brownie]
+  BEFORE: Venge Silencieux's concentrated dark-fruit and tannin overpowers the PB brownie's peanut-butter-and-chocolate fudge -- the plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a big red. Avoid; pick from the alternatives. Venge Silencieux belongs on the steak course.
+  AFTER:  Venge Silencieux's concentrated dark-fruit and tannin jars against the PB brownie's peanut-butter-and-chocolate fudge -- savory tannin meets dessert sugar with no bridge between them. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a big red. Avoid; pick from the alternatives. Venge Silencieux belongs on the steak course.
+
+══════ ELEGANT_RED × main  (cell has 1000 matching notes) ══════
+
+  [1881 Napa Valley|Chilean Seabass]
+  BEFORE: 1881 Napa Valley's powerful blackcurrant body overpowers the seabass' buttery seabass flesh -- the plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a big red. Avoid; steer the table to the alternatives. 1881 Napa Valley belongs on the steak course.
+  AFTER:  1881 Napa Valley's powerful blackcurrant body clashes with the seabass' buttery seabass flesh -- tannin reads metallic against the fish's natural fats. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a big red. Avoid; steer the table to the alternatives. 1881 Napa Valley belongs on the steak course.
+
+  [Market Fish|Ghost Block Zinfandel]
+  BEFORE: Ghost Block Zinfandel's concentrated dark-fruit and tannin overpowers the market fish's clean white-fish flesh -- the plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a big red. Avoid; steer the table to the alternatives. Hold the Ghost Block Zinfandel for the steak course.
+  AFTER:  Ghost Block Zinfandel's concentrated dark-fruit and tannin fights the market fish's clean white-fish flesh -- the red's structure runs counter to the delicate flesh's register. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a big red. Avoid; steer the table to the alternatives. Hold the Ghost Block Zinfandel for the steak course.
+
+  [Venge Silencieux|Tuxedo-Crusted Yellowfin Tuna]
+  BEFORE: Venge Silencieux's concentrated dark-fruit and tannin overpowers the tuna's seared-rare flesh with sesame crust -- the plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a big red. Avoid; pick from the alternatives. Venge Silencieux belongs on the steak course.
+  AFTER:  Venge Silencieux's concentrated dark-fruit and tannin clashes with the tuna's seared-rare flesh with sesame crust -- tannin reads metallic against the fish's natural fats. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a big red. Avoid; pick from the alternatives. Venge Silencieux belongs on the steak course.
+
+══════ ELEGANT_RED × starter  (cell has 210 matching notes) ══════
+
+  [1881 Napa Valley|Seafood Tower]
+  BEFORE: 1881 Napa Valley's concentrated dark-fruit and tannin overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a big red. Avoid; reach for any of those instead. Pour the 1881 Napa Valley on the steak course instead.
+  AFTER:  1881 Napa Valley's concentrated dark-fruit and tannin fights the seafood tower's chilled shellfish lineup -- tannin and fresh dairy curdle texture-wise — the milky plate reads sour. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a big red. Avoid; reach for any of those instead. Pour the 1881 Napa Valley on the steak course instead.
+
+  [Seafood Tower|Château de Rouillac]
+  BEFORE: Château de Rouillac's Merlot-led Bordeaux blend with plush dark-fruit overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not an elegant red. Avoid; the listed alts pair where this does not. Château de Rouillac belongs on the steak course.
+  AFTER:  Château de Rouillac's Merlot-led Bordeaux blend with plush dark-fruit fights the seafood tower's chilled shellfish lineup -- tannin and fresh dairy curdle texture-wise — the milky plate reads sour. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not an elegant red. Avoid; the listed alts pair where this does not. Château de Rouillac belongs on the steak course.
+
+  [Venge Silencieux|Seafood Tower]
+  BEFORE: Venge Silencieux's firm cassis-and-cocoa tannin overpowers the seafood tower's chilled shellfish lineup -- the plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a big red. Avoid; redirect the order — the alternatives carry it. Venge Silencieux belongs on the steak course.
+  AFTER:  Venge Silencieux's firm cassis-and-cocoa tannin crowds out the seafood tower's chilled shellfish lineup -- the wine's weight is wrong for the table's first course. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a big red. Avoid; redirect the order — the alternatives carry it. Venge Silencieux belongs on the steak course.
+
+══════ ELEGANT_RED × soup-salad  (cell has 670 matching notes) ══════
+
+  [Austin Hope Cabernet Sauvignon|Broccoli Cheddar]
+  BEFORE: Austin Hope Cabernet Sauvignon's firm cassis-and-cocoa tannin overpowers the broccoli cheddar's cheddar-and-broccoli cream -- the plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a big red. Avoid; the better calls are above. Austin Hope Cabernet Sauvignon belongs on the steak course.
+  AFTER:  Austin Hope Cabernet Sauvignon's firm cassis-and-cocoa tannin flattens the broccoli cheddar's cheddar-and-broccoli cream -- the wine's structure sits on top of the dish instead of integrating. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a big red. Avoid; the better calls are above. Austin Hope Cabernet Sauvignon belongs on the steak course.
+
+  [Gundlach Bundschu Cabernet|Seasonal Soup]
+  BEFORE: Gundlach Bundschu Cabernet's powerful blackcurrant body overpowers the seasonal soup's house seasonal build -- the plate deserves Far Niente Chardonnay, not a big red. Avoid; reach for any of those instead. Hold the Gundlach Bundschu Cabernet for the steak course.
+  AFTER:  Gundlach Bundschu Cabernet's powerful blackcurrant body jars against the seasonal soup's house seasonal build -- the dry-fruit register fights raw greens or warm broth without resolving. The plate deserves Far Niente Chardonnay, not a big red. Avoid; reach for any of those instead. Hold the Gundlach Bundschu Cabernet for the steak course.
+
+  [Vegetable Curry with Chickpeas|Teeter Totter Cabernet Sauvignon]
+  BEFORE: Teeter Totter Cabernet Sauvignon's firm cassis-and-cocoa tannin overpowers the curry's spiced chickpea-curry warmth -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a big red. Avoid; steer the table to the alternatives. Pour the Teeter Totter Cabernet Sauvignon on the steak course instead.
+  AFTER:  Teeter Totter Cabernet Sauvignon's firm cassis-and-cocoa tannin flattens the curry's spiced chickpea-curry warmth -- the wine's structure sits on top of the dish instead of integrating. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a big red. Avoid; steer the table to the alternatives. Pour the Teeter Totter Cabernet Sauvignon on the steak course instead.
+
+══════ ELEGANT_RED × side  (cell has 372 matching notes) ══════
+
+  [Asparagus|Austin Hope Cabernet Sauvignon]
+  BEFORE: Austin Hope Cabernet Sauvignon's powerful blackcurrant body overpowers the asparagus' green-vegetal edge -- the plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a big red. Avoid; the listed alts pair where this does not. Austin Hope Cabernet Sauvignon belongs on the steak course.
+  AFTER:  Austin Hope Cabernet Sauvignon's powerful blackcurrant body doubles down on the asparagus' green-vegetal edge -- the wine's dark fruit and the side's richness meet without contrast. The plate deserves Domaine de Berthiers Pouilly-Fumé, Stoneleigh Sauvignon Blanc, or Joseph Mellot Sancerre, not a big red. Avoid; the listed alts pair where this does not. Austin Hope Cabernet Sauvignon belongs on the steak course.
+
+  [Honey Roasted Carrots|Heitz Martha's Vineyard]
+  BEFORE: Heitz Martha's Vineyard's deep dark-fruit and grippy tannin overpowers the honey carrots' honey-glazed carrot sweetness -- the plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a big red. Avoid; steer the table to the alternatives. Heitz Martha's Vineyard belongs on the steak course.
+  AFTER:  Heitz Martha's Vineyard's deep dark-fruit and grippy tannin crowds the honey carrots' honey-glazed carrot sweetness -- the side needs a crisper register to carry it cleanly. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Cristom Mt Jefferson Cuvée, not a big red. Avoid; steer the table to the alternatives. Heitz Martha's Vineyard belongs on the steak course.
+
+  [Teeter Totter Cabernet Sauvignon|Seasonal Vegetables]
+  BEFORE: Teeter Totter Cabernet Sauvignon's structured dark-fruit weight overpowers the seasonal vegetables' seasonal garden plate -- the plate deserves St Supéry Sauvignon Blanc, not a big red. Avoid; the alts above are the call. Hold the Teeter Totter Cabernet Sauvignon for the steak course.
+  AFTER:  Teeter Totter Cabernet Sauvignon's structured dark-fruit weight clashes with the seasonal vegetables' seasonal garden plate -- tannin on dairy or green vegetable goes bitter without bridge. The plate deserves St Supéry Sauvignon Blanc, not a big red. Avoid; the alts above are the call. Hold the Teeter Totter Cabernet Sauvignon for the steak course.
+
+══════ ELEGANT_RED × steak  (cell has 0 matching notes) ══════

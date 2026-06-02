@@ -1,0 +1,310 @@
+// engine/avoid_reasoning_pool.js  (v2 — archetype-aware, 2026-05-30)
+//
+// PHASE 2 (GAMEPLAN_v1) — per-pair reasoning for DxF AVOID notes.
+//
+// v2 structure: [drinkClass][foodCategory][archetype] = [{verb, why}]
+// Falls back to [foodCategory].DEFAULT when archetype unmapped.
+// Picker mixes archetype + DEFAULT pools, deterministic-md5 by pair key.
+//
+// Reference: GAMEPLAN_v1.md § Phase 2, food_archetypes.js
+//
+// Session 2b status: BOURBON_BOLD + ELEGANT_RED fully reseeded with
+// per-archetype entries. Other classes pending Session 2c.
+
+'use strict';
+
+const crypto = require('crypto');
+const { foodArchetypeFor } = require('./food_archetypes');
+
+const AVOID_REASONING_POOL = {
+  BOURBON_BOLD: {
+    'main': {
+      'main-fish-delicate': [
+        { verb: 'smothers', why: 'the brown-spirit weight pulls focus off the delicate fish protein' },
+        { verb: 'overwhelms', why: 'bourbon depth belongs with red meat, not flaky white fish' },
+        { verb: 'flattens', why: 'oak-and-vanilla density rolls over the gentle flesh without lifting it' },
+      ],
+      'main-fish-rich': [
+        { verb: 'clashes with', why: 'the oily flesh and the brown-spirit oak refuse to meet cleanly' },
+        { verb: 'smothers', why: 'sweet-spirit register doubles the natural fish-richness — no contrast' },
+        { verb: 'overwhelms', why: 'bourbon weight needs red meat, not the salmon\'s already-rich oils' },
+      ],
+      'main-fish-crusted': [
+        { verb: 'flattens', why: 'oak-and-vanilla density rolls over the seared crust without lifting it' },
+        { verb: 'swallows', why: 'the sweet-spirit register fights the savory sear without a bridge' },
+        { verb: 'clashes with', why: 'bourbon\'s sweet weight crowds the rare crust\'s clean char' },
+      ],
+      'main-poultry': [
+        { verb: 'overwhelms', why: 'the bourbon\'s register is too heavy for the chicken\'s mild frame' },
+        { verb: 'smothers', why: 'sweet-oak depth rolls over the herbed skin without complement' },
+      ],
+      DEFAULT: [
+        { verb: 'overwhelms', why: 'bourbon depth belongs with red meat, not a flaky main' },
+        { verb: 'swallows', why: 'the sweet-spirit register fights the savory main without a bridge' },
+      ],
+    },
+    'starter': {
+      'starter-shellfish': [
+        { verb: 'overshadows', why: 'the spirit weight crowds the delicate shellfish — no acid to clean the brine' },
+        { verb: 'drowns out', why: 'sweet-oak depth flattens the briny opener instead of lifting it' },
+        { verb: 'smothers', why: 'bourbon warmth has no foil against cold, clean shellfish' },
+      ],
+      'starter-dairy': [
+        { verb: 'crowds out', why: 'sweet-oak register curdles next to fresh dairy without acid to balance' },
+        { verb: 'clashes with', why: 'bourbon weight buries the milky cheese plate\'s delicate frame' },
+      ],
+      'starter-meat': [
+        { verb: 'underclubs', why: 'the bottle is capable but the rich meat starter deserves a more decisive call' },
+        { verb: 'falls short of', why: 'this expression doesn\'t carry the meat opener — a bigger bourbon or Cab earns it' },
+      ],
+      'starter-herb': [
+        { verb: 'overwhelms', why: 'sweet-oak depth rolls over the herb-bright opener' },
+        { verb: 'smothers', why: 'the bourbon weight buries the dish\'s garlic-herb lift' },
+      ],
+      DEFAULT: [
+        { verb: 'crowds out', why: 'bourbon depth is wrong for the table\'s opening course' },
+        { verb: 'fights', why: 'the spirit register reads heavy on a starter\'s lighter frame' },
+      ],
+    },
+    'soup-salad': {
+      'soup-salad-cream': [
+        { verb: 'doubles down on', why: 'sweet-oak meets dairy cream with no contrast — both register heavy' },
+        { verb: 'flattens', why: 'brown-spirit weight buries the soup\'s creamy base instead of carrying it' },
+      ],
+      'soup-salad-broth': [
+        { verb: 'crowds', why: 'the bourbon has no acid to balance the broth\'s savory base' },
+        { verb: 'clashes with', why: 'spirit warmth and the broth\'s salt-and-spice frame refuse each other' },
+      ],
+      'soup-salad-greens': [
+        { verb: 'overshadows', why: 'sweet-oak depth has no business on cold lettuce — no acid to bridge it' },
+        { verb: 'clashes with', why: 'the spirit reads bulky against the crisp salad frame' },
+      ],
+      DEFAULT: [
+        { verb: 'clashes with', why: 'the soup-salad course needs lift, not oak-and-vanilla depth' },
+      ],
+    },
+    'side': {
+      'side-cream': [
+        { verb: 'doubles down on', why: 'sweet-spirit oak meets dairy richness with no contrast between them' },
+        { verb: 'flattens', why: 'bourbon weight and the side\'s cream pull in the same direction without bridge' },
+      ],
+      'side-vegetable': [
+        { verb: 'overshadows', why: 'sweet-oak depth has nothing to bridge into green vegetable freshness' },
+        { verb: 'clashes with', why: 'the bourbon\'s register is wrong for a clean vegetable side — needs crisp white instead' },
+      ],
+      'side-glazed': [
+        { verb: 'doubles down on', why: 'sweet-oak and a sweet glaze double the sugar register with no contrast' },
+        { verb: 'overwhelms', why: 'bourbon weight buries the glaze\'s sweetness instead of carrying it' },
+      ],
+      'side-earthy': [
+        { verb: 'overshadows', why: 'the bourbon\'s sweet register fights the side\'s earthy umami without bridge' },
+      ],
+      'side-starch': [
+        { verb: 'crowds', why: 'the bourbon needs the cut, not the supporting starch plate' },
+      ],
+      DEFAULT: [
+        { verb: 'crowds', why: 'the spirit needs the cut, not the supporting side' },
+        { verb: 'smothers', why: 'the side reads small under oak-and-vanilla density' },
+      ],
+    },
+    'dessert': {
+      'dessert-chocolate': [
+        { verb: 'flattens', why: 'the bourbon\'s heat dulls the chocolate\'s lift instead of carrying it' },
+        { verb: 'clashes with', why: 'sweet-oak doubles the cocoa weight without lift' },
+      ],
+      'dessert-custard': [
+        { verb: 'clashes with', why: 'the sweet-oak edge doubles the custard\'s sweetness without contrast' },
+        { verb: 'fights', why: 'the spirit\'s spice register pulls against the custard\'s tang' },
+      ],
+      'dessert-cake-spice': [
+        { verb: 'overwhelms', why: 'the bourbon\'s cask weight buries the spice cake\'s delicate cinnamon frame' },
+      ],
+      'dessert-pastry': [
+        { verb: 'crowds', why: 'the bourbon weight has no foil against a warm pastry\'s sugar-and-fry sweetness' },
+      ],
+      DEFAULT: [
+        { verb: 'clashes with', why: 'the cask weight has no foil against a delicate dessert finish' },
+      ],
+    },
+    'steak': {
+      'steak-big': [
+        { verb: 'underclubs', why: 'the bourbon\'s register is right but this bottle reads short of the long-bone cut' },
+        { verb: 'falls short of', why: 'this expression doesn\'t carry 26+ ounces — a bigger bourbon or a Cab earns it' },
+      ],
+      'steak-medium': [
+        { verb: 'mis-pairs with', why: 'the bottle is capable but the cut earns a more decisive call' },
+      ],
+      'steak-lean': [
+        { verb: 'overwhelms', why: 'the bourbon\'s weight crowds the filet\'s lean buttery frame — needs a softer call' },
+      ],
+      DEFAULT: [
+        { verb: 'underclubs', why: 'the bottle\'s register lands at a lower tier than the cut deserves' },
+      ],
+    },
+  },
+
+  ELEGANT_RED: {
+    'dessert': {
+      'dessert-chocolate': [
+        { verb: 'fights', why: 'the dry red and the chocolate\'s sugar refuse each other — tannin reads bitter on the finish' },
+        { verb: 'clashes with', why: 'savory tannin sits awkwardly on cocoa weight without resolving' },
+      ],
+      'dessert-custard': [
+        { verb: 'jars against', why: 'tannin reads astringent next to dairy custard, the custard reads sour back' },
+        { verb: 'pulls against', why: 'the red\'s dry-fruit register has no bridge to dessert tang or sugar' },
+      ],
+      'dessert-cake-spice': [
+        { verb: 'clashes with', why: 'red structure flattens the spice cake\'s cinnamon-and-cream-cheese delicacy' },
+      ],
+      'dessert-pastry': [
+        { verb: 'fights', why: 'tannin can\'t pivot to warm pastry sugar — the pour reads dry, the dessert reads heavy' },
+      ],
+      DEFAULT: [
+        { verb: 'jars against', why: 'savory tannin meets dessert sugar with no bridge between them' },
+        { verb: 'flattens', why: 'the structured red has nothing to bridge into a dessert finish' },
+      ],
+    },
+    'main': {
+      'main-fish-delicate': [
+        { verb: 'clashes with', why: 'tannin reads metallic against the delicate fish — a crisp white cleans where red sits heavy' },
+        { verb: 'overwhelms', why: 'the red\'s structure is wrong for delicate flesh — built for red meat' },
+      ],
+      'main-fish-rich': [
+        { verb: 'jars against', why: 'tannin on oily fish goes bitter, where a Pinot at the right register would carry it' },
+        { verb: 'fights', why: 'the red\'s tannin and the salmon\'s rich oils refuse to integrate' },
+      ],
+      'main-fish-crusted': [
+        { verb: 'overshadows', why: 'dark-fruit weight crowds the seared sesame crust — needs a sparkling or crisp white for lift' },
+        { verb: 'clashes with', why: 'tannin against rare-seared crust reads astringent without a bridge' },
+      ],
+      'main-poultry': [
+        { verb: 'overshadows', why: 'the red wants red meat — the chicken\'s mild register can\'t hold its frame' },
+        { verb: 'overwhelms', why: 'the wine\'s dark-fruit weight crowds the herbed-skin chicken without complement' },
+      ],
+      DEFAULT: [
+        { verb: 'clashes with', why: 'tannin reads metallic against the fish\'s natural fats' },
+      ],
+    },
+    'starter': {
+      'starter-shellfish': [
+        { verb: 'overwhelms', why: 'tannin obliterates the delicate shellfish flavor — a crisp white or sparkling carries it cleanly' },
+        { verb: 'crowds out', why: 'the wine\'s weight has no business on cold shellfish — needs acid, not structure' },
+      ],
+      'starter-dairy': [
+        { verb: 'fights', why: 'tannin and fresh dairy curdle texture-wise — the milky plate reads sour' },
+        { verb: 'clashes with', why: 'red structure on burrata curdles the cream\'s clean delicacy' },
+      ],
+      'starter-meat': [
+        { verb: 'underclubs', why: 'the wine\'s register is right but this bottle reads short of the rich meat starter' },
+      ],
+      'starter-herb': [
+        { verb: 'overshadows', why: 'red structure flattens the herb-bright opener instead of carrying it' },
+      ],
+      DEFAULT: [
+        { verb: 'overshadows', why: 'the elegant red is built for the entrée, not the opener\'s lighter register' },
+      ],
+    },
+    'soup-salad': {
+      'soup-salad-cream': [
+        { verb: 'clashes with', why: 'red tannin on a cream-based course reads astringent — no acid to bridge dairy and structure' },
+        { verb: 'flattens', why: 'the wine\'s structure sits on top of the bisque\'s cream instead of integrating' },
+      ],
+      'soup-salad-broth': [
+        { verb: 'jars against', why: 'the dry-fruit register fights warm broth without resolving — needs crisp white or aperitivo' },
+      ],
+      'soup-salad-greens': [
+        { verb: 'overwhelms', why: 'tannin on cold lettuce reads bitter — the salad needs a crisp white, not red structure' },
+        { verb: 'clashes with', why: 'the red\'s weight is wrong for fresh greens — refuses to lift the plate' },
+      ],
+      DEFAULT: [
+        { verb: 'overwhelms', why: 'the red is built for protein weight, not a light soup or salad base' },
+      ],
+    },
+    'side': {
+      'side-cream': [
+        { verb: 'clashes with', why: 'tannin on dairy reads bitter where a crisp white would clean the richness' },
+        { verb: 'doubles down on', why: 'the wine\'s structure and the side\'s cream meet without contrast — both heavy' },
+      ],
+      'side-vegetable': [
+        { verb: 'overshadows', why: 'red weight crowds a green side without lifting it — needs crisp register, not tannin' },
+        { verb: 'clashes with', why: 'tannin on raw green vegetable reads astringent without payoff' },
+      ],
+      'side-glazed': [
+        { verb: 'fights', why: 'red tannin and the glaze\'s sugar pull against each other — sugar reads cloying, tannin bitter' },
+      ],
+      'side-earthy': [
+        { verb: 'overshadows', why: 'the wine\'s weight flattens the mushroom\'s earthy register instead of complementing' },
+      ],
+      'side-starch': [
+        { verb: 'overshadows', why: 'red weight crowds the truffle-fry register — needs a sparkling or whiskey-cocktail for contrast' },
+      ],
+      DEFAULT: [
+        { verb: 'crowds', why: 'the side needs a crisper register to carry it cleanly' },
+      ],
+    },
+    'steak': {
+      'steak-big': [
+        { verb: 'underclubs', why: 'the wine\'s register is right but this bottle reads short of the long-bone cut' },
+        { verb: 'falls short of', why: 'a Pinot can\'t carry the marbled char of a 26+ oz cut — a structured Cab or Bordeaux earns it' },
+      ],
+      'steak-medium': [
+        { verb: 'sits awkwardly with', why: 'the wine is capable but the cut earns a denser, more structured red' },
+      ],
+      'steak-lean': [
+        { verb: 'mis-pairs with', why: 'the bottle\'s weight lands at a lower tier than the filet deserves' },
+      ],
+      DEFAULT: [
+        { verb: 'underclubs', why: 'the bottle\'s register lands at a lower tier than the cut deserves' },
+      ],
+    },
+  },
+
+  // ═════════════════════════════════════════════════════════════════════
+  // SWEET_LIQUEUR (1,376 AVOID notes across 6 cells)
+  // Frangelico, Disaronno, Sambuca, Limoncello, Baileys, Patron XO Cafe,
+  // Pineau des Charentes, Fireball, etc.
+  // Core clash: sugar-driven liqueur is dessert-course energy. On savory
+  // courses it doubles richness, flattens delicacy, and confuses register.
+  // ═════════════════════════════════════════════════════════════════════
+  SWEET_LIQUEUR: {
+    'main': {
+      'main-fish-delicate': [
+        { verb: 'overwhelms', why: 'sugar on delicate fish is wrong direction — the plate needs acid, not sweetness' },
+        { verb: 'smothers', why: 'the liqueur\'s sweet register buries the gentle flesh\'s lift' },
+      ],
+      'main-fish-rich': [
+        { verb: 'doubles down on', why: 'the liqueur\'s sugar piles onto the fish\'s natural oils with no lift' },
+        { verb: 'clashes with', why: 'dessert-grade sugar refuses the rich-fish course — needs a crisp white instead' },
+      ],
+      'main-fish-crusted': [
+        { verb: 'fights', why: 'sweet liqueur jars against the savory sear — no bridge between dessert sugar and a seared main' },
+        { verb: 'flattens', why: 'sugar dulls the crust\'s clean char instead of carrying it' },
+      ],
+      'main-poultry': [
+        { verb: 'buries', why: 'sugar smothers the chicken\'s savory frame — wait for dessert' },
+      ],
+      DEFAULT: [
+        { verb: 'clashes with', why: 'a sweet liqueur is dessert-course energy — wrong register for any main protein' },
+      ],
+    },
+    'starter': {
+      'starter-shellfish': [
+        { verb: 'overwhelms', why: 'sweet liqueur on cold shellfish is wrong-course energy — too forward for a clean opener' },
+        { verb: 'smothers', why: 'sugar buries the delicate shellfish without any acid to balance' },
+      ],
+      'starter-dairy': [
+        { verb: 'doubles down on', why: 'sweet liqueur and fresh dairy compound the richness without contrast — heavy too early' },
+      ],
+      'starter-meat': [
+        { verb: 'flattens', why: 'sugar dulls the savory edge of a rich meat opener instead of complementing it' },
+      ],
+      'starter-herb': [
+        { verb: 'buries', why: 'sweet liqueur smothers the herb-bright opener instead of lifting it' },
+      ],
+      DEFAULT: [
+        { verb: 'clashes with', why: 'sweet liqueur is dessert energy — wrong place for the table\'s first course' },
+      ],
+    },
+    'soup-salad': {
+      'soup-salad-cream': [
+        { verb: 'doubles down on', why: 'sugar piled onto cream is dessert-course ener

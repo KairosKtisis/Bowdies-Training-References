@@ -40,7 +40,28 @@ Bowdie's prep methods (use these terms when writing notes):
 - **Salmon (Faroe Island)** — pan-finished. "Rich oily flesh" is the texture anchor.
 - **Chicken (Roast Half Chicken)** — roasted. "Herbed crisp skin" is the texture anchor. Preparation may vary seasonally.
 
-When in doubt about prep, do not invent details — leave it general or check with the kitchen.
+### Dessert ingredient canon
+
+Confirmed 2026-06-01 — apply to ALL editorial that describes desserts. Earlier corpus
+state had widespread raisin/walnut leaks in carrot-cake context (90 notes fixed in one
+sweep).
+
+- **Carrot Cake** — cream cheese frosting + cinnamon (+ allspice/warm-spice register).
+  **No raisins. No nuts. No walnuts. No pecans.** Acceptable descriptors: "cinnamon-spice",
+  "cake spice", "cream-cheese-and-cinnamon", "warm spice register", "allspice-and-cinnamon".
+- **Chocolate Brownie** — fudgy cocoa-and-chocolate weight. Walnut crunch is NOT a Bowdie's
+  brownie attribute; describe by cocoa weight + texture only.
+- **Peanut Butter Brownie** — peanut-butter-and-chocolate fudge. The peanut element IS
+  canonical here (it's in the name); contrast with the plain Brownie above.
+- **Cheesecake** — dense tangy dairy custard with graham-crust base.
+- **Crème Brûlée** — burnt-sugar custard with vanilla.
+- **Chocolate Cake** — layered chocolate body, ganache or buttercream layer (no nuts).
+- **Beignets** — warm sugar-dusted pastry, fried-dough register.
+- **Mocha Creme** — coffee-chocolate custard.
+
+When in doubt about prep or ingredients, do not invent details — leave it general or
+check with the kitchen. The `engine/fix_carrot_cake_canon.js` sweep is the template for
+correcting ingredient drift if it surfaces again.
 
 ## Engine taxonomy
 

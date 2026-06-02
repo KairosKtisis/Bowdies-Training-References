@@ -1,0 +1,231 @@
+
+=== COCKTAIL_BOLD x main (92 notes) ===
+
+  [Bowdie's Old Fashioned|Market Fish]  (Market Fish -> main-fish-delicate)
+  AFTER: Bowdie's Old Fashioned's aromatic spirit-driven cocktail body clashes with the market fish's clean white-fish flesh -- a whiskey-forward cocktail is built for the cut, not the fish or chicken course. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a spirit-forward cocktail. Avoid; the alts above are the call. Bowdie's Old Fashioned belongs on the steak course.
+
+  [Rainbow Trout|New York Sour]  (Rainbow Trout -> main-fish-delicate)
+  AFTER: New York Sour's manhattan-or-old-fashioned register clashes with the trout's delicate flesh -- a whiskey-forward cocktail is built for the cut, not the fish or chicken course. The plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a spirit-forward cocktail. Avoid; the alts above are the call. New York Sour belongs on the steak course.
+
+  [Vieux Carré|Tuxedo-Crusted Yellowfin Tuna]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Vieux Carré's spirit-forward cocktail register clashes with the tuna's seared-rare flesh with sesame crust -- a whiskey-forward cocktail is built for the cut, not the fish or chicken course. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a spirit-forward cocktail. Avoid; the alts above are the call. Pour the Vieux Carré on the steak course instead.
+
+=== COCKTAIL_BOLD x starter (32 notes) ===
+
+  [Bone Marrow|New York Sour]  (Bone Marrow -> starter-meat)
+  AFTER: New York Sour's bitters-and-spirit register underclubs the bone marrow's unctuous rendered-marrow richness -- the cocktail is capable but the meat starter could carry a bigger pour. The plate deserves Fernet Branca, Lagavulin 8, or George T. Stagg, not a spirit-forward cocktail. Avoid; reach for any of those instead. Hold the New York Sour for the steak course.
+
+  [Sazerac|Seafood Tower]  (Seafood Tower -> starter-shellfish)
+  AFTER: Sazerac's stirred whiskey-led build overwhelms the seafood tower's chilled shellfish lineup -- whiskey-cocktail weight is wrong for cold shellfish — the opener needs lift, not bitters. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a spirit-forward cocktail. Avoid; pick from the alternatives. Sazerac belongs on the steak course.
+
+  [Vieux Carré|Shrimp Cocktail]  (Shrimp Cocktail -> starter-shellfish)
+  AFTER: Vieux Carré's spirit-forward cocktail register overwhelms the shrimp cocktail's cool brine-and-citrus shellfish -- the cocktail's weight is forward for the table's first course. The plate deserves Bacardi Rum, Grey Goose Vodka, or Laurent Perrier Le Cuvée Brut, not a spirit-forward cocktail. Avoid; the better calls are above. Save the Vieux Carré for the steak course.
+
+=== TEQUILA_BOLD x starter (86 notes) ===
+
+  [Burrata|Clase Azul Anejo]  (Burrata -> starter-dairy)
+  AFTER: Clase Azul Anejo's barrel-aged tequila weight fights the burrata's fresh basil-tomato-cream delicacy -- agave and fresh dairy refuse each other texturally. The plate deserves Il Colle Prosecco Superiore, St Supéry Sauvignon Blanc, or Stoneleigh Sauvignon Blanc, not an añejo tequila. Avoid; one of those is the move. Clase Azul Anejo belongs on the steak course.
+
+  [Komos Anejo Reserva|Crab Cake]  (Crab Cake -> starter-shellfish)
+  AFTER: Komos Anejo Reserva's rested-agave body overwhelms the crab cake's delicate sweet crab in a crisp crust -- aged tequila is too forward for the opening course. The plate deserves Joseph Mellot Sancerre, Domaine de Berthiers Pouilly-Fumé, or Tanqueray Gin, not an añejo tequila. Avoid; redirect the order — the alternatives carry it. Komos Anejo Reserva belongs on the steak course.
+
+  [Tears of Llorona|Seared Scallops]  (Seared Scallops -> starter-shellfish)
+  AFTER: Tears of Llorona's barrel-aged tequila weight smothers the scallops' caramelized sear-and-sweet richness -- aged-agave register crowds the delicate shellfish frame. The plate deserves Jean-Pierre Grossot Chablis, Pierre Gimonnet Special Club Brut, or Joseph Mellot Sancerre, not an añejo tequila. Avoid; reach for any of those instead. Tears of Llorona belongs on the steak course.
+
+=== TEQUILA_BOLD x main (154 notes) ===
+
+  [Chilean Seabass|Clase Azul Anejo]  (Chilean Seabass -> main-fish-rich)
+  AFTER: Clase Azul Anejo's aged-agave character clashes with the seabass' buttery seabass flesh -- agave and oily fish refuse each other — the fish needs acid, not aged spirit. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not an añejo tequila. Avoid; recommend one of the alternatives. Save the Clase Azul Anejo for the steak course.
+
+  [Market Fish|Komos Extra Anejo]  (Market Fish -> main-fish-delicate)
+  AFTER: Komos Extra Anejo's rested-agave body clashes with the market fish's clean white-fish flesh -- aged tequila is wrong register for a main fish or poultry course. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not an añejo tequila. Avoid; offer the alts at the table — they fit. Hold the Komos Extra Anejo for the steak course.
+
+  [Tuxedo-Crusted Yellowfin Tuna|Rey Sol Anejo]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Rey Sol Anejo's barrel-aged tequila weight fights the tuna's seared-rare flesh with sesame crust -- the cask-aged agave register pulls against the savory sear. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not an añejo tequila. Avoid; pick from the alternatives. Pour the Rey Sol Anejo on the steak course instead.
+
+=== LIGHT_SPIRIT x dessert (160 notes) ===
+
+  [Avion Silver|Beignets]  (Beignets -> dessert-pastry)
+  AFTER: Avion Silver's unaged silver-spirit body falls short of the beignets' warm sugar-dusted pastry -- light spirit reads thin against dessert sweetness. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a light spirit. Avoid; redirect the order — the alternatives carry it. Save the Avion Silver for the steak course.
+
+  [Creme Brulee|Lalo Silver]  (Creme Brulee -> dessert-custard)
+  AFTER: Lalo Silver's blanco-tequila or blanco-tequila register falls short of the brulee's burnt-sugar custard -- light spirit reads thin against dessert sweetness. The plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a light spirit. Avoid; the listed alts pair where this does not. Hold the Lalo Silver for the steak course.
+
+  [Siete Leguas Blanco|Peanut Butter Brownie]  (Peanut Butter Brownie -> dessert-chocolate)
+  AFTER: Siete Leguas Blanco's blanco-tequila or blanco-tequila register falls short of the PB brownie's peanut-butter-and-chocolate fudge -- light spirit can't carry chocolate's weight — needs a richer pour like an aged rum or tawny. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a light spirit. Avoid; route the table to a better-fit pour. Save the Siete Leguas Blanco for the steak course.
+
+=== LIGHT_SPIRIT x steak (70 notes) ===
+
+  [Avion Silver|Cowboy Ribeye]  (Cowboy Ribeye -> steak-big)
+  AFTER: Avion Silver's blanco-tequila or blanco-tequila register underclubs the cowboy ribeye's marbled char-and-fat richness -- light spirit lands short of any prime cut. The plate deserves Silver Oak Cabernet Sauvignon, Macallan 18, or Caymus Cabernet Sauvignon, not a light spirit. Avoid; pick from the alternatives. Avion Silver belongs on another course.
+
+  [Filet Mignon|Bacardi Rum]  (Filet Mignon -> steak-lean)
+  AFTER: Bacardi Rum's crisp workhorse-clean character mis-pairs with the filet's lean buttery tenderness -- the spirit's register doesn't carry even the lean cut's structure. The plate deserves Yamazaki 18 Year, Cristom Mt Jefferson Cuvée, or Maker's Mark Cellar Aged, not a light spirit. Avoid; offer the alts at the table — they fit. Hold the Bacardi Rum for another course.
+
+  [The Tomahawk|Mount Gay Rum]  (The Tomahawk -> steak-big)
+  AFTER: Mount Gay Rum's Caribbean-rum register with bright sugarcane underclubs the Tomahawk's theatrical bone-in marbling and smoky char -- light spirit lands short of any prime cut. The plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a light spirit. Avoid; the listed alts pair where this does not. Mount Gay Rum belongs on another course.
+
+=== COCKTAIL_LIGHT x dessert (128 notes) ===
+
+  [Aviation|Beignets]  (Beignets -> dessert-pastry)
+  AFTER: Aviation's gin-or-tequila cocktail lift clashes with the beignets' warm sugar-dusted pastry -- light cocktail citrus is wrong direction for the dessert's richness. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a light cocktail. Avoid; the alts above are the call. Aviation belongs on the steak course.
+
+  [Creme Brulee|Aviation]  (Creme Brulee -> dessert-custard)
+  AFTER: Aviation's high-acid cocktail register clashes with the brulee's burnt-sugar custard -- light cocktail citrus is wrong direction for the dessert's richness. The plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a light cocktail. Avoid; route the table to a better-fit pour. Aviation belongs on the steak course.
+
+  [Peanut Butter Brownie|Paloma]  (Peanut Butter Brownie -> dessert-chocolate)
+  AFTER: Paloma's lemon-driven cocktail body fights the PB brownie's peanut-butter-and-chocolate fudge -- citrus-cocktail brightness pulls against chocolate weight — no bridge between sour-sweet and rich-sweet. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a light cocktail. Avoid; the alts above are the call. Hold the Paloma for the steak course.
+
+=== COCKTAIL_LIGHT x steak (54 notes) ===
+
+  [Aviation|Bone-In Filet]  (Bone-In Filet -> steak-medium)
+  AFTER: Aviation's gin-or-tequila cocktail lift underclubs the bone-in filet's bone-enhanced buttery tenderness -- light cocktail lands short of any prime cut. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a light cocktail. Avoid; route the table to a better-fit pour. Aviation belongs on another course.
+
+  [French 75|Bone-In Filet]  (Bone-In Filet -> steak-medium)
+  AFTER: French 75's gin-and-Champagne lift with citrus snap underclubs the bone-in filet's bone-enhanced buttery tenderness -- light cocktail lands short of any prime cut. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a light cocktail. Avoid; reach for any of those instead. French 75 belongs on another course.
+
+  [Vesper|Cowboy Ribeye]  (Cowboy Ribeye -> steak-big)
+  AFTER: Vesper's high-acid cocktail register underclubs the cowboy ribeye's marbled char-and-fat richness -- light cocktail lands short of any prime cut. The plate deserves Silver Oak Cabernet Sauvignon, Macallan 18, or Caymus Cabernet Sauvignon, not a light cocktail. Avoid; one of those is the move. Hold the Vesper for another course.
+
+=== WHITE_WINE x dessert (168 notes) ===
+
+  [Alexander Valley Chardonnay|Beignets]  (Beignets -> dessert-pastry)
+  AFTER: Alexander Valley Chardonnay's cool-climate white acidity clashes with the beignets' warm sugar-dusted pastry -- a dry white belongs with the main course, not the dessert close. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a white wine. Avoid; the listed alts pair where this does not. Hold the Alexander Valley Chardonnay for the steak course.
+
+  [Elk Cove Pinot Blanc|Chocolate Cake]  (Chocolate Cake -> dessert-chocolate)
+  AFTER: Elk Cove Pinot Blanc's mineral-bright white body clashes with the chocolate cake's layered chocolate body -- a dry white belongs with the main course, not the dessert close. The plate deserves Taylor Fladgate Vintage Bottle, Graham's 2017 Vintage Port, or Baileys Irish Cream, not a white wine. Avoid; offer the alts at the table — they fit. Reserve the Elk Cove Pinot Blanc for the steak course.
+
+  [Stoneleigh Sauvignon Blanc|Creme Brulee]  (Creme Brulee -> dessert-custard)
+  AFTER: Stoneleigh Sauvignon Blanc's crisp NZ Sauvignon Blanc clashes with the brulee's burnt-sugar custard -- dry-white acidity and dessert tang refuse each other without sweetness to bridge. The plate deserves Sauternes Glass, Vin Santo, or Ron Zacapa Rum, not a white wine. Avoid; reach for any of those instead. Hold the Stoneleigh Sauvignon Blanc for the steak course.
+
+=== WHITE_WINE x steak (62 notes) ===
+
+  [Alexander Valley Chardonnay|Bone-In Filet]  (Bone-In Filet -> steak-medium)
+  AFTER: Alexander Valley Chardonnay's acid-driven white register underclubs the bone-in filet's bone-enhanced buttery tenderness -- white wine reads thin against any prime cut. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a white wine. Avoid; steer the table to the alternatives. Hold the Alexander Valley Chardonnay for another course.
+
+  [Joseph Mellot Sancerre|Porterhouse]  (Porterhouse -> steak-big)
+  AFTER: Joseph Mellot Sancerre's classic Loire Sauvignon Blanc underclubs the porterhouse's dual strip-and-filet character -- white wine can't stand up to the marbled char — the cut earns a structured red or whiskey. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a white wine. Avoid; pick from the alternatives. Pour the Joseph Mellot Sancerre on another course instead.
+
+  [St Supéry Sauvignon Blanc|Porterhouse]  (Porterhouse -> steak-big)
+  AFTER: St Supéry Sauvignon Blanc's cool-climate white acidity underclubs the porterhouse's dual strip-and-filet character -- white wine reads thin against any prime cut. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a white wine. Avoid; the alts above are the call. Reserve the St Supéry Sauvignon Blanc for another course.
+
+=== SPARKLING x dessert (116 notes) ===
+
+  [Beignets|Paul Bara Grand Rosé Brut]  (Beignets -> dessert-pastry)
+  AFTER: Paul Bara Grand Rosé Brut's fine-bubble Champagne register clashes with the beignets' warm sugar-dusted pastry -- a dry sparkling belongs with the opener, not the dessert close. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a sparkling. Avoid; redirect the order — the alternatives carry it. Reserve the Paul Bara Grand Rosé Brut for the steak course.
+
+  [Mocha Creme|Laurent Perrier Brut Rosé]  (Mocha Creme -> dessert-chocolate)
+  AFTER: Laurent Perrier Brut Rosé's méthode-driven bubbles and toast clashes with the mocha creme's coffee-chocolate richness -- brut bubbles and chocolate weight refuse each other — needs sweetness, not crisp acid. The plate deserves Kahlua, Patron XO Cafe, or Frangelico, not a sparkling. Avoid; pick from the alternatives. Reserve the Laurent Perrier Brut Rosé for the steak course.
+
+  [Veuve Clicquot Brut|Peanut Butter Brownie]  (Peanut Butter Brownie -> dessert-chocolate)
+  AFTER: Veuve Clicquot Brut's classic yellow-label Champagne body clashes with the PB brownie's peanut-butter-and-chocolate fudge -- brut bubbles and chocolate weight refuse each other — needs sweetness, not crisp acid. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a sparkling. Avoid; redirect the order — the alternatives carry it. Veuve Clicquot Brut belongs on the steak course.
+
+=== SPARKLING x steak (48 notes) ===
+
+  [Bone-In Filet|Laurent Perrier Brut Rosé]  (Bone-In Filet -> steak-medium)
+  AFTER: Laurent Perrier Brut Rosé's bright sparkling effervescence underclubs the bone-in filet's bone-enhanced buttery tenderness -- sparkling sits short of the prime cut's weight. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a sparkling. Avoid; pick from the alternatives. Hold the Laurent Perrier Brut Rosé for another course.
+
+  [Paul Bara Grand Rosé Brut|Porterhouse]  (Porterhouse -> steak-big)
+  AFTER: Paul Bara Grand Rosé Brut's bright sparkling effervescence underclubs the porterhouse's dual strip-and-filet character -- sparkling reads light against the marbled char — the cut deserves a structured red. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a sparkling. Avoid; pick from the alternatives. Paul Bara Grand Rosé Brut belongs on another course.
+
+  [Veuve Clicquot Brut|Porterhouse]  (Porterhouse -> steak-big)
+  AFTER: Veuve Clicquot Brut's classic yellow-label Champagne body underclubs the porterhouse's dual strip-and-filet character -- sparkling sits short of the prime cut's weight. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a sparkling. Avoid; pick from the alternatives. Veuve Clicquot Brut belongs on another course.
+
+=== VODKA x dessert (160 notes) ===
+
+  [Beignets|Belvedere Vodka]  (Beignets -> dessert-pastry)
+  AFTER: Belvedere Vodka's silky vodka body falls short of the beignets' warm sugar-dusted pastry -- vodka brings no anchor — the dessert needs a flavor partner, not a clean spirit. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a vodka. Avoid; route the table to a better-fit pour. Save the Belvedere Vodka for the steak course.
+
+  [Grey Goose Vodka|Beignets]  (Beignets -> dessert-pastry)
+  AFTER: Grey Goose Vodka's crystalline neutrality falls short of the beignets' warm sugar-dusted pastry -- vodka brings no anchor — the dessert needs a flavor partner, not a clean spirit. The plate deserves Kahlua, Ron Zacapa Rum, or G.D. Vajra Moscato d'Asti, not a vodka. Avoid; lead with the alternatives instead. Hold the Grey Goose Vodka for the steak course.
+
+  [Wheatley Vodka|Peanut Butter Brownie]  (Peanut Butter Brownie -> dessert-chocolate)
+  AFTER: Wheatley Vodka's neutral vodka register falls short of the PB brownie's peanut-butter-and-chocolate fudge -- vodka brings no flavor to bridge the chocolate's weight — neutral but wrong for the close. The plate deserves Frangelico, Disaronno, or Graham's 20 Year Tawny, not a vodka. Avoid; reach for any of those instead. Save the Wheatley Vodka for the steak course.
+
+=== VODKA x steak (88 notes) ===
+
+  [Belvedere Vodka|Bone-In Filet]  (Bone-In Filet -> steak-medium)
+  AFTER: Belvedere Vodka's clean cold-distilled body mis-pairs with the bone-in filet's bone-enhanced buttery tenderness -- clean vodka reads thin against the cut's weight — needs a wine or whiskey. The plate deserves Knob Creek 15 Year, Opus One, or Jordan Cabernet Sauvignon, not a vodka. Avoid; steer the table to the alternatives. Belvedere Vodka belongs on another course.
+
+  [Hangar 1 Vodka|Porterhouse]  (Porterhouse -> steak-big)
+  AFTER: Hangar 1 Vodka's silky vodka body underclubs the porterhouse's dual strip-and-filet character -- vodka is too neutral to carry any prime cut. The plate deserves Domaine du Grand Tinel, Odette Cabernet Sauvignon, or Weller 12 Year, not a vodka. Avoid; the alts above are the call. Hold the Hangar 1 Vodka for another course.
+
+  [Wheatley Vodka|The Tomahawk]  (The Tomahawk -> steak-big)
+  AFTER: Wheatley Vodka's crystalline neutrality underclubs the Tomahawk's theatrical bone-in marbling and smoky char -- vodka is neutral by design — the marbled char deserves a pour with character. The plate deserves George T. Stagg, Corazon Stagg, or Opus One, not a vodka. Avoid; route the table to a better-fit pour. Reserve the Wheatley Vodka for another course.
+
+=== COGNAC x main (84 notes) ===
+
+  [Chilean Seabass|Christian Bros Brandy]  (Chilean Seabass -> main-fish-rich)
+  AFTER: Christian Bros Brandy's rancio-edged cognac weight clashes with the seabass' buttery seabass flesh -- cognac is post-meal energy — wrong register for a main protein. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a cognac. Avoid; reach for any of those instead. Christian Bros Brandy belongs on the steak course.
+
+  [Pierre Ferrand Cognac|Rainbow Trout]  (Rainbow Trout -> main-fish-delicate)
+  AFTER: Pierre Ferrand Cognac's artisan cognac with orange peel clashes with the trout's delicate flesh -- cognac is post-meal energy — wrong register for a main protein. The plate deserves Joseph Mellot Sancerre, Jean-Pierre Grossot Chablis, or Domaine de Berthiers Pouilly-Fumé, not a cognac. Avoid; offer the alts at the table — they fit. Hold the Pierre Ferrand Cognac for the steak course.
+
+  [Villon Cognac|Tuxedo-Crusted Yellowfin Tuna]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Villon Cognac's aged-grape brandy depth clashes with the tuna's seared-rare flesh with sesame crust -- cognac is post-meal energy — wrong register for a main protein. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a cognac. Avoid; the better calls are above. Save the Villon Cognac for the steak course.
+
+=== COGNAC x starter (24 notes) ===
+
+  [Christian Bros Brandy|Seafood Tower]  (Seafood Tower -> starter-shellfish)
+  AFTER: Christian Bros Brandy's aged-grape brandy depth overwhelms the seafood tower's chilled shellfish lineup -- cognac weight has no business on cold shellfish — needs sparkling or a crisp white. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a cognac. Avoid; the alts above are the call. Christian Bros Brandy belongs on the steak course.
+
+  [Seafood Tower|Hennessy Cognac]  (Seafood Tower -> starter-shellfish)
+  AFTER: Hennessy Cognac's classic dried-fruit-and-vanilla cognac clashes with the seafood tower's chilled shellfish lineup -- cognac is wrong-course energy for the table's opener. The plate deserves Laurent Perrier Le Cuvée Brut, Veuve Clicquot Brut, or Pierre Gimonnet Special Club Brut, not a cognac. Avoid; the alts above are the call. Hold the Hennessy Cognac for the steak course.
+
+  [Villon Cognac|Shrimp Cocktail]  (Shrimp Cocktail -> starter-shellfish)
+  AFTER: Villon Cognac's Limousin-oak cognac register overwhelms the shrimp cocktail's cool brine-and-citrus shellfish -- cognac weight has no business on cold shellfish — needs sparkling or a crisp white. The plate deserves Bacardi Rum, Grey Goose Vodka, or Laurent Perrier Le Cuvée Brut, not a cognac. Avoid; recommend one of the alternatives. Pour the Villon Cognac on the steak course instead.
+
+=== MEZCAL x soup-salad (54 notes) ===
+
+  [Broccoli Cheddar|Casamigos Mezcal]  (Broccoli Cheddar -> soup-salad-cream)
+  AFTER: Casamigos Mezcal's wood-fire mezcal body clashes with the broccoli cheddar's cheddar-and-broccoli cream -- mezcal smoke fights the soup's cream — smoke has no bridge into dairy delicacy. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not a mezcal. Avoid; the alts above are the call. Casamigos Mezcal belongs on the steak course.
+
+  [Creamy Potato|Casamigos Mezcal]  (Creamy Potato -> soup-salad-cream)
+  AFTER: Casamigos Mezcal's earthen-pit smoke profile clashes with the potato soup's silky-bodied cream -- mezcal smoke is wrong register for the soup-salad course. The plate deserves Far Niente Chardonnay, Keenan Chardonnay, or Jean-Pierre Grossot Chablis, not a mezcal. Avoid; pick from the alternatives. Casamigos Mezcal belongs on the steak course.
+
+  [Vegetable Curry with Chickpeas|Los Vecinos Mezcal]  (Vegetable Curry with Chickpeas -> soup-salad-broth)
+  AFTER: Los Vecinos Mezcal's smoky agave character clashes with the curry's spiced chickpea-curry warmth -- mezcal smoke is wrong register for the soup-salad course. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a mezcal. Avoid; the alts above are the call. Reserve the Los Vecinos Mezcal for the steak course.
+
+=== MEZCAL x main (42 notes) ===
+
+  [Casamigos Mezcal|Chilean Seabass]  (Chilean Seabass -> main-fish-rich)
+  AFTER: Casamigos Mezcal's espadín-and-smoke register clashes with the seabass' buttery seabass flesh -- mezcal smoke and the fish's natural oils refuse to meet cleanly. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a mezcal. Avoid; one of those is the move. Casamigos Mezcal belongs on the steak course.
+
+  [Los Vecinos Mezcal|Faroe Island Salmon]  (Faroe Island Salmon -> main-fish-rich)
+  AFTER: Los Vecinos Mezcal's earthen-pit smoke profile clashes with the salmon's rich oily flesh -- mezcal smoke and the fish's natural oils refuse to meet cleanly. The plate deserves Cristom Mt Jefferson Cuvée, Lingua Franca Avni Pinot Noir, or Elk Cove Five Mountain, not a mezcal. Avoid; reach for any of those instead. Los Vecinos Mezcal belongs on the steak course.
+
+  [Tuxedo-Crusted Yellowfin Tuna|Los Vecinos Mezcal]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Los Vecinos Mezcal's smoky agave character overwhelms the tuna's seared-rare flesh with sesame crust -- mezcal smoke is wrong register for the main fish course. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a mezcal. Avoid; pick from the alternatives. Save the Los Vecinos Mezcal for the steak course.
+
+=== HEAVY_SPIRIT x main (70 notes) ===
+
+  [Chilean Seabass|Doctor Bird Jamaica Rum]  (Chilean Seabass -> main-fish-rich)
+  AFTER: Doctor Bird Jamaica Rum's heavy aged-spirit weight overwhelms the seabass' buttery seabass flesh -- heavy spirit weight buries the main protein — needs a wine or lighter spirit. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not a heavy spirit. Avoid; pick from the alternatives. Doctor Bird Jamaica Rum belongs on the steak course.
+
+  [Market Fish|Ron Zacapa Rum]  (Market Fish -> main-fish-delicate)
+  AFTER: Ron Zacapa Rum's Solera-honey premium-sipping rum overwhelms the market fish's clean white-fish flesh -- heavy spirit weight buries the main protein — needs a wine or lighter spirit. The plate deserves Joseph Mellot Sancerre or Jean-Pierre Grossot Chablis, not a heavy spirit. Avoid; the alts above are the call. Ron Zacapa Rum belongs on the steak course.
+
+  [Tuxedo-Crusted Yellowfin Tuna|Ron Zacapa Rum]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Ron Zacapa Rum's Solera-honey premium-sipping rum overwhelms the tuna's seared-rare flesh with sesame crust -- heavy spirit weight buries the main protein — needs a wine or lighter spirit. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not a heavy spirit. Avoid; redirect the order — the alternatives carry it. Reserve the Ron Zacapa Rum for the steak course.
+
+=== COGNAC_LUXURY x soup-salad (26 notes) ===
+
+  [Broccoli Cheddar|Louis XIII Cognac]  (Broccoli Cheddar -> soup-salad-cream)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the broccoli cheddar's cheddar-and-broccoli cream -- an icon cognac on a soup-salad course is wrong moment — its register demands the close, not the open. The plate deserves Keenan Chardonnay, Far Niente Chardonnay, or Alexander Valley Chardonnay, not an icon cognac. Avoid; steer the table to the alternatives. Hold the Louis XIII Cognac for the steak course.
+
+  [Louis XIII Cognac|Loaded Potato]  (Loaded Potato -> soup-salad-cream)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the loaded potato's rich loaded-potato soup -- an icon cognac on a soup-salad course is wrong moment — its register demands the close, not the open. The plate deserves Far Niente Chardonnay, Keenan Chardonnay, or Lingua Franca Avni Pinot Noir, not an icon cognac. Avoid; pick from the alternatives. Louis XIII Cognac belongs on the steak course.
+
+  [Vegetable Curry with Chickpeas|Louis XIII Cognac]  (Vegetable Curry with Chickpeas -> soup-salad-broth)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the curry's spiced chickpea-curry warmth -- an icon cognac on a soup-salad course is wrong moment — its register demands the close, not the open. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not an icon cognac. Avoid; reach for any of those instead. Louis XIII Cognac belongs on the steak course.
+
+=== COGNAC_LUXURY x main (16 notes) ===
+
+  [Chilean Seabass|Louis XIII Cognac]  (Chilean Seabass -> main-fish-rich)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the seabass' buttery seabass flesh -- an icon cognac belongs at the end of the meal as a special-occasion pour — not the main course. The plate deserves Far Niente Chardonnay, Pommery Cuvée Louise, or Keenan Chardonnay, not an icon cognac. Avoid; pick from the alternatives. Louis XIII Cognac belongs on the steak course.
+
+  [Louis XIII Cognac|Swordfish]  (Swordfish -> main-fish-crusted)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the swordfish's meaty swordfish steak -- an icon cognac belongs at the end of the meal as a special-occasion pour — not the main course. The plate deserves Far Niente Chardonnay, Schloss Vollrads Riesling, or Keenan Chardonnay, not an icon cognac. Avoid; recommend one of the alternatives. Hold the Louis XIII Cognac for the steak course.
+
+  [Tuxedo-Crusted Yellowfin Tuna|Louis XIII Cognac]  (Tuxedo-Crusted Yellowfin Tuna -> main-fish-crusted)
+  AFTER: Louis XIII Cognac's luxury-icon cognac depth mis-pairs with the tuna's seared-rare flesh with sesame crust -- an icon cognac belongs at the end of the meal as a special-occasion pour — not the main course. The plate deserves Pommery Cuvée Louise, Jean-Pierre Grossot Chablis, or Elk Cove Pinot Blanc, not an icon cognac. Avoid; steer the table to the alternatives. Save the Louis XIII Cognac for the steak course.

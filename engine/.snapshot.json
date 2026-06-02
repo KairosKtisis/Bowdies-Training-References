@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T02:24:32.833Z",
+  "generatedAt": "2026-06-02T18:02:06.427Z",
   "anchorCount": 250,
   "anchors": [
     {
@@ -8,7 +8,7 @@
       "tier": "avoid",
       "foodClass": "CHICKEN_MAIN",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "0c8a8c8e8c568a26"
+      "hash": "13c41c949bd4fd52"
     },
     {
       "food": "Roast Half Chicken",
@@ -24,7 +24,7 @@
       "tier": "avoid",
       "foodClass": "CREAMY_SIDE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "f7d2f03a309aa4b4"
+      "hash": "6a4c02fb757f5fdc"
     },
     {
       "food": "Au Gratin Potatoes",
@@ -96,7 +96,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "68eba6ff38a82d6c"
+      "hash": "011ba7241a970d2c"
     },
     {
       "food": "Market Fish",
@@ -104,7 +104,7 @@
       "tier": "works",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "b1d8313984a3bfd6"
+      "hash": "9fa312cd386623f7"
     },
     {
       "food": "Chilean Seabass",
@@ -112,7 +112,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "4df6aec2a0fb955a"
+      "hash": "1930f96f875db04d"
     },
     {
       "food": "Chilean Seabass",
@@ -120,7 +120,7 @@
       "tier": "works",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "8a30dbc0041e9ea0"
+      "hash": "9cf5e80ad9ae9e50"
     },
     {
       "food": "Clam Chowder",
@@ -128,7 +128,7 @@
       "tier": "avoid",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "2833fb024d3dcb23"
+      "hash": "c16bf92f3908b0df"
     },
     {
       "food": "Shrimp Bisque",
@@ -184,7 +184,7 @@
       "tier": "works",
       "foodClass": "HEARTY_STARTER",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "d65649e39d2d65ad"
+      "hash": "35cabbcbe55c7093"
     },
     {
       "food": "Asparagus",
@@ -192,7 +192,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "573509008e69ed7d"
+      "hash": "d660e2e4955a940a"
     },
     {
       "food": "Asparagus",
@@ -200,7 +200,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "1f0fac111dc8b89a"
+      "hash": "7f598b724733b171"
     },
     {
       "food": "Broccoli Cheddar",
@@ -208,7 +208,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "95fe1663e3d54fc6"
+      "hash": "0d8caa940a849215"
     },
     {
       "food": "Broccoli Cheddar",
@@ -216,7 +216,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "6dc101bb4cc47f63"
+      "hash": "5d87e8641207d9e6"
     },
     {
       "food": "Burrata",
@@ -248,7 +248,7 @@
       "tier": "avoid",
       "foodClass": "RICH_SIDE",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "305cd7c727333c9e"
+      "hash": "a16797cb8d15fbeb"
     },
     {
       "food": "Mushrooms",
@@ -312,7 +312,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_BOLD",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "2cf65028d75005cf"
+      "hash": "8f959435022b1f93"
     },
     {
       "food": "Kansas City",
@@ -344,7 +344,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_LEAN",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "542b385be3575172"
+      "hash": "6a58dde2107e77a2"
     },
     {
       "food": "Bone-In Filet",
@@ -352,7 +352,7 @@
       "tier": "works",
       "foodClass": "STEAK_LEAN",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "fad9de7e39cff96b"
+      "hash": "bac9a0811659dbf5"
     },
     {
       "food": "Vegetable Curry with Chickpeas",
@@ -360,7 +360,7 @@
       "tier": "avoid",
       "foodClass": "VEG_MAIN",
       "drinkClass": "APERITIVO_BITTER",
-      "hash": "cd25aacd16935946"
+      "hash": "99330f16a22404f5"
     },
     {
       "food": "Vegetable Curry with Chickpeas",
@@ -400,7 +400,7 @@
       "tier": "works",
       "foodClass": "CHICKEN_MAIN",
       "drinkClass": "BIG_RED",
-      "hash": "ef059a7d8157a402"
+      "hash": "b4ca7366da924cf5"
     },
     {
       "food": "Lobster Mac",
@@ -440,7 +440,7 @@
       "tier": "avoid",
       "foodClass": "DESSERT_CHOCOLATE",
       "drinkClass": "BIG_RED",
-      "hash": "8678ff2301cb8b64"
+      "hash": "8ded4c873ed34025"
     },
     {
       "food": "Chocolate Brownie",
@@ -456,7 +456,7 @@
       "tier": "avoid",
       "foodClass": "DESSERT_LIGHT",
       "drinkClass": "BIG_RED",
-      "hash": "7be1dc9fc8994339"
+      "hash": "24ce79b8b56d9be8"
     },
     {
       "food": "Carrot Cake",
@@ -472,7 +472,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "BIG_RED",
-      "hash": "6c017c336500a0fe"
+      "hash": "0d138cf43548e61e"
     },
     {
       "food": "Chilean Seabass",
@@ -480,7 +480,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "BIG_RED",
-      "hash": "d809c78ad94f79c1"
+      "hash": "0dda8b35a720828b"
     },
     {
       "food": "Chilean Seabass",
@@ -496,7 +496,7 @@
       "tier": "avoid",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "BIG_RED",
-      "hash": "9608fa778e0a3feb"
+      "hash": "0f888cc1e26530c9"
     },
     {
       "food": "Gumbo",
@@ -560,7 +560,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "BIG_RED",
-      "hash": "3ff0d49a7e0e83a2"
+      "hash": "4c1d4f9bdaa9fc3a"
     },
     {
       "food": "Asparagus",
@@ -568,7 +568,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "BIG_RED",
-      "hash": "e0798cfd91438caa"
+      "hash": "6634f04d6d66439d"
     },
     {
       "food": "Broccoli Cheddar",
@@ -576,7 +576,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "BIG_RED",
-      "hash": "16e199651031d725"
+      "hash": "d931c584b038fccf"
     },
     {
       "food": "Broccoli Cheddar",
@@ -720,7 +720,7 @@
       "tier": "avoid",
       "foodClass": "VEG_MAIN",
       "drinkClass": "BIG_RED",
-      "hash": "eaabf2c0afc62de7"
+      "hash": "2e50f5b362fc8d56"
     },
     {
       "food": "Vegetable Curry with Chickpeas",
@@ -768,7 +768,7 @@
       "tier": "works",
       "foodClass": "CHICKEN_MAIN",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "19f3e5f8da2e704c"
+      "hash": "0680df20fda00ceb"
     },
     {
       "food": "Au Gratin Potatoes",
@@ -848,7 +848,7 @@
       "tier": "excellent",
       "foodClass": "DESSERT_LIGHT",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "de17d1eae04d4b8c"
+      "hash": "7dc8d27c3923ecca"
     },
     {
       "food": "Cheesecake",
@@ -872,7 +872,7 @@
       "tier": "works",
       "foodClass": "DESSERT_LIGHT",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "e20b197898a2f68e"
+      "hash": "63fe59fb7e0d7f24"
     },
     {
       "food": "Market Fish",
@@ -880,7 +880,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "a824474125d43e84"
+      "hash": "9b2872675ffbb969"
     },
     {
       "food": "Seared Scallops",
@@ -904,7 +904,7 @@
       "tier": "works",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "d712ba3632449147"
+      "hash": "b7702b78f749f06e"
     },
     {
       "food": "Chilean Seabass",
@@ -912,7 +912,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "13989be0169f8779"
+      "hash": "3efff9bf060da41f"
     },
     {
       "food": "Faroe Island Salmon",
@@ -936,7 +936,7 @@
       "tier": "works",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "a4873d36dbe37256"
+      "hash": "998ce78650f90701"
     },
     {
       "food": "Clam Chowder",
@@ -944,7 +944,7 @@
       "tier": "avoid",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "0afd7877307b0de0"
+      "hash": "0440af915fe1e8a9"
     },
     {
       "food": "Shrimp Bisque",
@@ -960,7 +960,7 @@
       "tier": "works",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "4d279f1080544506"
+      "hash": "5b8f2bc4052c7346"
     },
     {
       "food": "Bone Marrow",
@@ -1000,7 +1000,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "f5dd106aa1948056"
+      "hash": "62d18579b8b2f6c6"
     },
     {
       "food": "Asparagus",
@@ -1008,7 +1008,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "27a97323a0eeead4"
+      "hash": "7032af80fae7ba94"
     },
     {
       "food": "Broccoli Cheddar",
@@ -1016,7 +1016,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "1b99db1d3e1f1d78"
+      "hash": "9e2e108686699a8a"
     },
     {
       "food": "Broccoli Cheddar",
@@ -1024,7 +1024,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "79ac0d63e435f5b1"
+      "hash": "6dea1feb0f6f2558"
     },
     {
       "food": "Burrata",
@@ -1128,7 +1128,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_BOLD",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "4d2d8a6288efbede"
+      "hash": "dd4be7140a8d9063"
     },
     {
       "food": "Cowboy Ribeye",
@@ -1200,7 +1200,7 @@
       "tier": "avoid",
       "foodClass": "VEG_MAIN",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "73bf3a70ad1cd29f"
+      "hash": "f329d61713c637fb"
     },
     {
       "food": "Vegetable Curry with Chickpeas",
@@ -1208,7 +1208,7 @@
       "tier": "works",
       "foodClass": "VEG_MAIN",
       "drinkClass": "BOURBON_BOLD",
-      "hash": "56fc2d4b8725324c"
+      "hash": "8f1e9cdedec2c8d9"
     },
     {
       "food": "Roast Half Chicken",
@@ -1224,7 +1224,7 @@
       "tier": "works",
       "foodClass": "CHICKEN_MAIN",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "09af3bc489d0fe83"
+      "hash": "47c2ac797a167cfb"
     },
     {
       "food": "Au Gratin Potatoes",
@@ -1232,7 +1232,7 @@
       "tier": "avoid",
       "foodClass": "CREAMY_SIDE",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "5fddcd1f84270726"
+      "hash": "0dc0429e544e9d5a"
     },
     {
       "food": "Lobster Mac",
@@ -1256,7 +1256,7 @@
       "tier": "works",
       "foodClass": "CREAMY_SIDE",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "6082aa7cd7f421cb"
+      "hash": "9a9157330e0e07e6"
     },
     {
       "food": "Chocolate Brownie",
@@ -1336,7 +1336,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "09d37374fe518361"
+      "hash": "5ca987859d14e11b"
     },
     {
       "food": "Market Fish",
@@ -1384,7 +1384,7 @@
       "tier": "works",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "069a5d7fbfa046e2"
+      "hash": "fb5ea5dd61a703dd"
     },
     {
       "food": "Bone Marrow",
@@ -1392,7 +1392,7 @@
       "tier": "avoid",
       "foodClass": "HEARTY_STARTER",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "64f84dab848fdb4b"
+      "hash": "5729b64cfc0839cf"
     },
     {
       "food": "Bone Marrow",
@@ -1456,7 +1456,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "740afc7f43705cd1"
+      "hash": "4c651bb8239da395"
     },
     {
       "food": "Burrata",
@@ -1488,7 +1488,7 @@
       "tier": "avoid",
       "foodClass": "RICH_SIDE",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "3b50c8cb53363075"
+      "hash": "a9f6e33a1833f840"
     },
     {
       "food": "Mushrooms",
@@ -1520,7 +1520,7 @@
       "tier": "avoid",
       "foodClass": "SALAD",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "385d9f5e6588d3de"
+      "hash": "475656d6be8646ab"
     },
     {
       "food": "Grilled Caesar",
@@ -1552,7 +1552,7 @@
       "tier": "works",
       "foodClass": "SALAD",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "fbf6242853bb68fe"
+      "hash": "1a0231f928308faa"
     },
     {
       "food": "Cowboy Ribeye",
@@ -1560,7 +1560,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_BOLD",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "707c9a7df3f8be4e"
+      "hash": "5ac2f50b35d45581"
     },
     {
       "food": "Cowboy Ribeye",
@@ -1600,7 +1600,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_LEAN",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "702a5f2fcfbf9629"
+      "hash": "64e1e199bba39f4f"
     },
     {
       "food": "Bone-In Filet",
@@ -1640,7 +1640,7 @@
       "tier": "works",
       "foodClass": "VEG_MAIN",
       "drinkClass": "COCKTAIL_BOLD",
-      "hash": "300d2bfa320a02d5"
+      "hash": "99146fb2107e5029"
     },
     {
       "food": "Roast Half Chicken",
@@ -1680,7 +1680,7 @@
       "tier": "works",
       "foodClass": "CREAMY_SIDE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "2052dadbb31af49e"
+      "hash": "36d970ff86af2e13"
     },
     {
       "food": "Chocolate Brownie",
@@ -1688,7 +1688,7 @@
       "tier": "avoid",
       "foodClass": "DESSERT_CHOCOLATE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "11a31e9672ba25a9"
+      "hash": "d6d7067c4b9333cc"
     },
     {
       "food": "Chocolate Brownie",
@@ -1712,7 +1712,7 @@
       "tier": "works",
       "foodClass": "DESSERT_CHOCOLATE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "c5c90ce4a732be35"
+      "hash": "9895e30b61e33c93"
     },
     {
       "food": "Beignets",
@@ -1720,7 +1720,7 @@
       "tier": "avoid",
       "foodClass": "DESSERT_LIGHT",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "9ad03e1e899c8622"
+      "hash": "0271c5688a79ec25"
     },
     {
       "food": "Beignets",
@@ -1736,7 +1736,7 @@
       "tier": "works",
       "foodClass": "DESSERT_LIGHT",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "7534a2b34a5395f1"
+      "hash": "e52c447bb7d580dc"
     },
     {
       "food": "Market Fish",
@@ -1744,7 +1744,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_DELICATE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "b891b6f95797b266"
+      "hash": "23632c90bd10da8a"
     },
     {
       "food": "Seared Scallops",
@@ -1784,7 +1784,7 @@
       "tier": "avoid",
       "foodClass": "FISH_MAIN_RICH",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "cc33cab2b04b63ae"
+      "hash": "665e40e5e88d078b"
     },
     {
       "food": "Chilean Seabass",
@@ -1808,7 +1808,7 @@
       "tier": "avoid",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "c17a17a8c32fb759"
+      "hash": "4cfc1661ede8f8c5"
     },
     {
       "food": "Shrimp Bisque",
@@ -1832,7 +1832,7 @@
       "tier": "works",
       "foodClass": "HEARTY_SOUP",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "20080d5d4a56e47f"
+      "hash": "3d9dc0b578ce6316"
     },
     {
       "food": "Bone Marrow",
@@ -1880,7 +1880,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "5e7722e846651c0a"
+      "hash": "decdfb5fd1d1e843"
     },
     {
       "food": "Sauteed Garlic Spinach",
@@ -1896,7 +1896,7 @@
       "tier": "works",
       "foodClass": "LIGHT_SIDE",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "52d57d0f899edaf0"
+      "hash": "a16c1c7227a2caf2"
     },
     {
       "food": "Broccoli Cheddar",
@@ -1904,7 +1904,7 @@
       "tier": "avoid",
       "foodClass": "LIGHT_SOUP",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "082d6e4a89dddecb"
+      "hash": "a9065af7e6bdd072"
     },
     {
       "food": "Broccoli Cheddar",
@@ -1992,7 +1992,7 @@
       "tier": "avoid",
       "foodClass": "STEAK_BOLD",
       "drinkClass": "COCKTAIL_LIGHT",
-      "hash": "6f0a6f4d7b69df75"
+      "hash": "75d3d0b80ca64f5d"
     },
     {
       "food": "Cowboy Ribeye",

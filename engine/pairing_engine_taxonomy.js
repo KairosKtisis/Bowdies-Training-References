@@ -88,7 +88,8 @@ const CLASS_DRINKS = [
   'WHITE_WINE',        // still whites
   'GIN',               // all gins
   'VODKA',             // all vodkas
-  'LIGHT_SPIRIT',      // light rum, blanco/silver tequila
+  'RUM_LIGHT',         // light rum (Bacardi, Mount Gay, Captain Morgan, Malibu)
+  'TEQUILA_BLANCO',    // blanco/silver/plata/platinum tequila
   'HEAVY_SPIRIT',      // rare fallback for heavy non-classified spirits
   'COCKTAIL_BOLD',     // whiskey-forward cocktails
   'COCKTAIL_LIGHT',    // citrus / gin / tequila cocktails (light register)
@@ -171,17 +172,17 @@ const DRINK_CLASS_OVERRIDES = {
   'Trombo Cedano Reposado':    'TEQUILA_BOLD',
 
   // Blanco / silver / plata / platinum tequilas → LIGHT_SPIRIT
-  'Avion Silver':              'LIGHT_SPIRIT',
-  'Clase Azul Plata':          'LIGHT_SPIRIT',
-  'Corazon Blanco':            'LIGHT_SPIRIT',
-  'Don Fulano Blanco':         'LIGHT_SPIRIT',
-  'Don Julio Blanco':          'LIGHT_SPIRIT',
-  'G4 Blanco':                 'LIGHT_SPIRIT',
-  'Gran Patron Platinum':      'LIGHT_SPIRIT',
-  'Lalo Silver':               'LIGHT_SPIRIT',
-  'Mijenta Blanco':            'LIGHT_SPIRIT',
-  'Patron Silver':             'LIGHT_SPIRIT',
-  'Siete Leguas Blanco':       'LIGHT_SPIRIT',
+  'Avion Silver':              'TEQUILA_BLANCO',
+  'Clase Azul Plata':          'TEQUILA_BLANCO',
+  'Corazon Blanco':            'TEQUILA_BLANCO',
+  'Don Fulano Blanco':         'TEQUILA_BLANCO',
+  'Don Julio Blanco':          'TEQUILA_BLANCO',
+  'G4 Blanco':                 'TEQUILA_BLANCO',
+  'Gran Patron Platinum':      'TEQUILA_BLANCO',
+  'Lalo Silver':               'TEQUILA_BLANCO',
+  'Mijenta Blanco':            'TEQUILA_BLANCO',
+  'Patron Silver':             'TEQUILA_BLANCO',
+  'Siete Leguas Blanco':       'TEQUILA_BLANCO',
 
   // ── Cognac luxury-icon ─────────────────────────────────────────────────
   'Louis XIII Cognac':         'COGNAC_LUXURY',
@@ -340,7 +341,7 @@ const DRINK_CAT_DEFAULTS = {
   'canadian':        'BOURBON_BOLD',
   'singlemalt':      'BOURBON_BOLD',
   'nz-whisky':       'BOURBON_BOLD',
-  'rum':             'LIGHT_SPIRIT',  // most rums on the menu are light/mid; heavy rums get an override
+  'rum':             'RUM_LIGHT',     // most rums on the menu are light/mid; heavy rums get an override
   // 'spirit', 'cocktail', 'liqueur', 'wine-red' are intentionally NOT here —
   // they require name-based or weight-based disambiguation handled below.
 };

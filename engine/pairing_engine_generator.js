@@ -825,28 +825,3 @@ module.exports = {
   pickMinedVerdict,
   TEMPLATES, FOOD_CHARACTER, BRIDGE_PARTS, FOOD_FLAVORS,
 };
-A, charB, body, altsA, altsB, patternReading);
-
-  // v6: substitute templated verdict tail with mined editorial verdict
-  // when the corpus has 3+ entries for this archetype.tier slot.
-  if (tier !== 'avoid') {
-    const minedVerdict = pickMinedVerdict(archetype, tier, a, b);
-    if (minedVerdict) {
-      const tierLabel = tier.charAt(0).toUpperCase() + tier.slice(1);
-      rendered = rendered.replace(
-        new RegExp('\\b' + tierLabel + ';[^.]+(\\.\\s*$|\\.$)'),
-        tierLabel + '; ' + minedVerdict + '.'
-      );
-    }
-  }
-
-  return rendered;
-}
-
-module.exports = {
-  generate, archetypeFor, characterFor, canonicalize, bodyBridge,
-  alternativesFor, findChemistryClause, flavorsFor,
-  TEMPLATES, FOOD_CHARACTER, BRIDGE_PARTS, FOOD_FLAVORS,
-};
-S, FOOD_FLAVORS,
-};

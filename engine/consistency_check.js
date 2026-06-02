@@ -169,23 +169,3 @@ if (totalFails === 0) {
   console.log('[FAIL] consistency check failed — fix drift before regen.');
   process.exit(1);
 }
-corpusIssues.concat(checkCorpusBuckets(require('./corpus_mined_all_tiers').CORPUS_MINED || {}, 'corpus_mined_all_tiers')); } catch (e) {}
-try { corpusIssues = corpusIssues.concat(checkCorpusBuckets({ gold: require('./gold_corpus_supplement').GOLD_CORPUS_SUPPLEMENT || {} }, 'gold_corpus_supplement')); } catch (e) {}
-if (corpusIssues.length === 0) {
-  console.log('[PASS] Mined-corpus bucket validity          — all bucket keys reference known classes');
-} else {
-  console.log('[FAIL] Mined-corpus bucket validity          —', corpusIssues.length, 'invalid bucket keys:');
-  for (const i of corpusIssues.slice(0, 12)) console.log('         ', i);
-  if (corpusIssues.length > 12) console.log('          ... +' + (corpusIssues.length - 12) + ' more');
-  totalFails++;
-}
-
-console.log('');
-console.log('Drinks:', drinks.length, '   Foods:', foods.length, '   Failures:', totalFails);
-if (totalFails === 0) {
-  console.log('[OK] consistency check passed — mining and runtime agree.');
-  process.exit(0);
-} else {
-  console.log('[FAIL] consistency check failed — fix drift before regen.');
-  process.exit(1);
-}
