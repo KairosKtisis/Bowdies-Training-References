@@ -1886,14 +1886,6 @@ const VERDICT_PATTERNS = {
     "Gold standard; if a guest asks what to drink with {food}, the answer is {drink}.",
     "Gold standard; pour {drink} on {food}, that's the play.",
     "Gold standard; {drink} into {food} -- textbook.",
-    "Gold standard; the {hook} call that anchors {food}.",
-    "Gold standard; the headline pour for {food}, full stop.",
-    "Gold standard; {drink} with {food} -- the bottle the staff talks about.",
-    "Gold standard; {hook} on {food} -- the once-a-month-pour move.",
-    "Gold standard; {drink} on {food} -- a reverence-level pairing.",
-    "Gold standard; the {hook} match that earns a regular.",
-    "Gold standard; {drink} into {food} -- the bottle to save for the right guest.",
-    "Gold standard; {hook} into {food} -- the special-occasion call.",
   ],
   excellent: [
     "Excellent; {hook} on {food} -- the call servers pour without second-guessing.",
@@ -1904,13 +1896,6 @@ const VERDICT_PATTERNS = {
     "Excellent; {hook} when a guest asks what works on {food}.",
     "Excellent; {drink} sits in the pocket on {food}.",
     "Excellent; {hook} on {food} -- the kind of pour that earns a regular.",
-    "Excellent; {drink} reads as a confident headline match on {food}.",
-    "Excellent; the {hook} call that the table notices.",
-    "Excellent; {drink} frames {food} at full register.",
-    "Excellent; {hook} matches {food} with substance.",
-    "Excellent; reliable {hook} match across the table for {food}.",
-    "Excellent; {drink} on {food} -- a confident recommendation.",
-    "Excellent; the {hook} call lands cleanly.",
   ],
   strong: [
     "Strong; {hook} on {food} reads cleanly at the table.",
@@ -1920,14 +1905,6 @@ const VERDICT_PATTERNS = {
     "Strong; {drink} on {food} -- workhorse pairing, no surprises.",
     "Strong; the {hook} option when the gold call is spoken for.",
     "Strong; {hook} settles in alongside {food} without asking for attention.",
-    "Strong; a steady recommendation across the table for {food}.",
-    "Strong; the {hook} match carries without overshooting.",
-    "Strong; {drink} composes alongside {food} without strain.",
-    "Strong; the {hook} call holds at register.",
-    "Strong; {drink} and {food} read in alignment.",
-    "Strong; consistent recommendation worth pouring on {food}.",
-    "Strong; the {hook} pairing reads composed at the table.",
-    "Strong; {drink} on {food} -- a confident if not headline pour.",
   ],
   works: [
     "Works; the {hook} call sits at neutral register against {food}.",
@@ -1936,15 +1913,8 @@ const VERDICT_PATTERNS = {
     "Works; {drink} is fine on {food} -- fine, not memorable.",
     "Works; {hook} doesn't fight {food}, but doesn't lift it either.",
     "Works; {drink} pulls neither way against {food}.",
-    "Works; the {hook} backup when the strong calls are spoken for.",
+    "Works; the {hook} backup when the strong calls are weeded.",
     "Works; functional pour for {food} -- save the storytelling for another bottle.",
-    "Works; the match reads neutral at the table.",
-    "Works; {drink} composes alongside {food} without driving.",
-    "Works; the pairing holds without overshooting.",
-    "Works; a safe alongside, no friction.",
-    "Works; reliable companion, low risk.",
-    "Works; capable alongside without driving the table.",
-    "Works; composed but not a standout.",
   ],
   avoid: [
     // avoid is handled separately (needs alternatives)
@@ -1980,15 +1950,56 @@ const DC_TO_V9 = {
 let _editorialPhrases = null;
 function _loadEditorialPhrases() {
   if (_editorialPhrases !== null) return _editorialPhrases;
-  // Path B (2026-06-03): Mined corpus loaders disabled.
-  // They produced verdict templates with pair-specific references (Bowdie's
-  // bottle names baked in) that leaked into unrelated pair-notes. The engine
-  // now relies on hand-written VERDICT_PATTERNS only — class-broad, clean,
-  // and portable across menus.
-  _editorialPhrases = {};
-  // Path B: All three mined-corpus mergers removed. Engine uses VERDICT_PATTERNS
-  // exclusively for verdict generation — class-broad templates with no
-  // pair-specific contamination.
+  try {
+    _editorialPhrases = require(path.join(REPO_ROOT, 'editorial-phrases.js')).EDITORIAL_PHRASES;
+  } catch (e) {
+    _editorialPhrases = {};
+  }
+  // Merge mined gold corpus (keyed as 'dc|fc' using engine's class names directly)
+  try {
+    const gold = require('./gold_corpus_mined').GOLD_CORPUS_MINED || {};
+    if (!_editorialPhrases.verdict) _editorialPhrases.verdict = {};
+    if (!_editorialPhrases.verdict.gold) _editorialPhrases.verdict.gold = {};
+    for (const ck of Object.keys(gold)) {
+      const [dc, fc] = ck.split('|');
+      if (!_editorialPhrases.verdict.gold[dc]) _editorialPhrases.verdict.gold[dc] = {};
+      _editorialPhrases.verdict.gold[dc][fc] = gold[ck];
+    }
+  } catch (e) { /* gold corpus optional */ }
+  // Merge mined corpus for excellent/strong/works (4,770+ entries, 371 buckets)
+  try {
+    const all = require('./corpus_mined_all_tiers').CORPUS_MINED || {};
+    if (!_editorialPhrases.verdict) _editorialPhrases.verdict = {};
+    for (const tier of Object.keys(all)) {
+      if (!_editorialPhrases.verdict[tier]) _editorialPhrases.verdict[tier] = {};
+      for (const ck of Object.keys(all[tier])) {
+        const [dc, fc] = ck.split('|');
+        if (!_editorialPhrases.verdict[tier][dc]) _editorialPhrases.verdict[tier][dc] = {};
+        const existing = _editorialPhrases.verdict[tier][dc][fc] || [];
+        const seen = new Set(existing.map(e => e.template));
+        for (const e of all[tier][ck]) {
+          if (!seen.has(e.template)) { existing.push(e); seen.add(e.template); }
+        }
+        _editorialPhrases.verdict[tier][dc][fc] = existing;
+      }
+    }
+  } catch (e) { /* corpus optional */ }
+  // Merge hand-written gold supplements (sparse-bucket fallbacks)
+  try {
+    const supp = require('./gold_corpus_supplement').GOLD_CORPUS_SUPPLEMENT || {};
+    if (!_editorialPhrases.verdict) _editorialPhrases.verdict = {};
+    if (!_editorialPhrases.verdict.gold) _editorialPhrases.verdict.gold = {};
+    for (const ck of Object.keys(supp)) {
+      const [dc, fc] = ck.split('|');
+      if (!_editorialPhrases.verdict.gold[dc]) _editorialPhrases.verdict.gold[dc] = {};
+      const existing = _editorialPhrases.verdict.gold[dc][fc] || [];
+      const seen = new Set(existing.map(e => e.template));
+      for (const e of supp[ck]) {
+        if (!seen.has(e.template)) { existing.push(e); seen.add(e.template); }
+      }
+      _editorialPhrases.verdict.gold[dc][fc] = existing;
+    }
+  } catch (e) { /* supplement optional */ }
   return _editorialPhrases;
 }
 const REPO_ROOT_PATH = path.resolve(__dirname, '..');
