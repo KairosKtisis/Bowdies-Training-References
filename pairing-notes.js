@@ -51243,4 +51243,10 @@ const PAIRING_NOTES = {
   "Yellow Chartreuse|Vegetable Curry with Chickpeas": "Yellow Chartreuse's aperitivo body with bitter-and-orange register fights the curry's spiced chickpea-curry warmth -- aperitivo crowds the opening course without complement. The plate deserves Schloss Vollrads Riesling, Lingua Franca Avni Pinot Noir, or Le Garenne Rosé, not a bitter aperitivo. Avoid; the listed alts pair where this does not. Yellow Chartreuse belongs on the steak course.",
 };
 
-if (typeof module !== 'undefined') module.exports = { PAIRING_NOTES };
+function getPairingNote(itemName, pairingName) {
+  return PAIRING_NOTES[itemName + '|' + pairingName] || null;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PAIRING_NOTES, getPairingNote };
+}
