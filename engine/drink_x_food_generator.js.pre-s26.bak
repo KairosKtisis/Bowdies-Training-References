@@ -33,23 +33,16 @@ const crypto = require('crypto');
 const taxonomy = require('./pairing_engine_taxonomy');
 const fxfGen   = require('./pairing_engine_generator');
 
-// Phase 10 (Session 26-27): character variant pool with bottle > class > single fallback.
-// Bottle-level overrides class-level. Class falls back to single profile.character.
+// Phase 10 (Session 26): class-level character variant pool. Falls back to
+// profile.character (single string) when class missing or pool empty.
 let CLASS_CHARACTER_VARIANTS = {};
-let BOTTLE_CHARACTER_VARIANTS = {};
 try { CLASS_CHARACTER_VARIANTS = require('./character_variants_class').CLASS_CHARACTER_VARIANTS || {}; } catch (e) { /* optional */ }
-try { BOTTLE_CHARACTER_VARIANTS = require('./character_variants_bottle').BOTTLE_CHARACTER_VARIANTS || {}; } catch (e) { /* optional */ }
 function pickCharacterVariant(profile, dc, drink, food, salt) {
-  const drinkName = drink && drink.name ? drink.name : '';
-  // Bottle-specific override (highest priority, most accurate per bottle)
-  const bottleByName = BOTTLE_CHARACTER_VARIANTS[drinkName] || null;
-  // Bottle-attached pool (in case curated module also has it)
-  const bottlePool  = profile && Array.isArray(profile.characterVariants) ? profile.characterVariants : null;
-  // Class-level fallback (broader but textured)
-  const classPool   = dc && Array.isArray(CLASS_CHARACTER_VARIANTS[dc]) ? CLASS_CHARACTER_VARIANTS[dc] : null;
-  const pool = bottleByName || bottlePool || classPool;
+  const bottlePool = profile && Array.isArray(profile.characterVariants) ? profile.characterVariants : null;
+  const classPool  = dc && Array.isArray(CLASS_CHARACTER_VARIANTS[dc]) ? CLASS_CHARACTER_VARIANTS[dc] : null;
+  const pool = bottlePool || classPool;
   if (!pool || !pool.length) return profile && profile.character ? profile.character : '';
-  const sig = drinkName + '|' + (food && food.name ? food.name : '') + '|char|' + (salt || '');
+  const sig = (drink && drink.name ? drink.name : '') + '|' + (food && food.name ? food.name : '') + '|char|' + (salt || '');
   const h = crypto.createHash('md5').update(sig).digest();
   return pool[h.readUInt32BE(0) % pool.length];
 }
@@ -2345,7 +2338,11 @@ function generate(drink, food, tier, ctx) {
     let dcLabel = ({BIG_RED:'big red',ELEGANT_RED:'elegant red',BOURBON_BOLD:'bourbon',TEQUILA_BOLD:'añejo tequila',MEZCAL:'mezcal',COGNAC:'cognac',COGNAC_LUXURY:'icon cognac',SPARKLING:'sparkling',WHITE_WINE:'white wine',GIN:'gin',VODKA:'vodka',RUM_LIGHT:'light rum',TEQUILA_BLANCO:'blanco tequila',HEAVY_SPIRIT:'heavy spirit',COCKTAIL_BOLD:'spirit-forward cocktail',COCKTAIL_LIGHT:'light cocktail',SWEET_LIQUEUR:'digestif',APERITIVO_BITTER:'bitter aperitivo',SWEET_WINE:'dessert wine'})[dc] || 'pour';
     if (dc === 'BOURBON_BOLD' && profile.avoidLabel) dcLabel = profile.avoidLabel;
     const article = /^[aeiouAEIOU]/.test(dcLabel) ? 'an' : 'a';
-    // Phase 10 (Session 26): pick character variant per pair.
+    // Phase 10 (Session 26): pick a character variant per pair instead of
+    // using the single profile.character. Was "structured Cabernet with
+    // cassis-and-cedar depth" appearing identically across every BIG_RED
+    // AVOID note. Now uses bottle.characterVariants (when curated) or
+    // CLASS_CHARACTER_VARIANTS[dc] (the class-level fallback).
     const _avoidCharPick = pickCharacterVariant(profile, dc, drink, food, 'avoid');
     const avoidChar = stripLeadingPossessive(drink.name, _avoidCharPick || profile.character || '');
     // Determine "save for" target — avoid contradiction when food IS a steak
@@ -2428,34 +2425,4 @@ function pickAction(tier, drink, food) {
       'closes the meal with',
     ],
     excellent: [
-      'carries cleanly into', 'meets at register with', 'lifts', 'frames', 'elevates',
-      'anchors', 'matches at peak with', 'carries with confidence into',
-      'complements at register', 'drives into', 'lands cleanly on', 'wraps into',
-      'engages with', 'plays at register against', 'composes with',
-      'reads at peak against', 'finds the right register with',
-    ],
-    strong: [
-      'meets at register with', 'sits alongside', 'leans against', 'carries cleanly into',
-      'anchors with', 'composes with', 'stands with', 'matches the weight of',
-      'holds register with', 'frames', 'engages with', 'complements', 'lifts',
-      'carries', 'wraps into', 'reads with', 'rests beside', 'plays against',
-    ],
-    works: [
-      'finds neutral with', 'reads alongside', 'sits alongside', 'leans against',
-      'sits beside', 'stays alongside', 'holds with', 'plays cleanly against',
-      'settles next to', 'rests beside', 'anchors against', 'carries with',
-      'composes alongside', 'frames quietly', 'matches register with',
-      'wraps cleanly into', 'threads into', 'sits at register with', 'touches',
-    ],
-  })[tier] || ['sits alongside'];
-  const sig = drink.name + '|' + food.name + '|' + tier;
-  const h = crypto.createHash('md5').update(sig).digest();
-  return opts[h.readUInt8(0) % opts.length];
-}
-
-module.exports = {
-  generate, profileFor, buildBody, pickVerdict, pickAction,
-  drinkFlavorsFor, findChemistryClause, clauseFitsDrinkClass,
-  whiskeyVoiceSubclass, elegantRedVoiceSubclass,
-  BOTTLE_PROFILE, DRINK_CLASS_DEFAULT, VERDICT_PATTERNS, WHISKEY_VOICE_DEFAULTS, ELEGANT_RED_VOICE_DEFAULTS,
-};
+      'carr
