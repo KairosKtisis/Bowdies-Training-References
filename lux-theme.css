@@ -713,3 +713,28 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 
 /* Faroe Island Salmon: fillet sits high over the couscous — raise focal point */
 #grid-food .card[data-name="Faroe Island Salmon"] .lx-card-photo{ background-position:center 30% !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   PERF FIX — expanded-card freeze on mobile.
+   backdrop-filter:blur on a large expanded card sampling the fixed full-screen
+   scenery photo is extremely heavy on mobile Safari (same root cause as the
+   original 450-card crash). Remove it entirely — the translucent fill alone
+   still shows the photo softly behind the focused card, with zero GPU cost.
+   ════════════════════════════════════════════════════════════════════════ */
+.card.expanded{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   PERF FIX — tap-freeze (any card, cold / after filtering)
+   Cause: expanding a translucent card repaints it OVER the full-screen fixed
+   scenery image, forcing the main thread to re-rasterize that large image.
+   Scrolling masked it by promoting the image to a GPU layer; filtering undid
+   that. Fix: promote the fixed background layers to their OWN GPU layers
+   permanently. Safe now — the document no longer scrolls (inner-scroll model),
+   so the old toolbar-jitter cannot return. NOT applied to the 450 cards
+   (that would recreate the GPU-memory crash) — only the 2 fixed layers.
+   ════════════════════════════════════════════════════════════════════════ */
+#lx-scenery{
+  transform:translateZ(0) !important; -webkit-transform:translateZ(0) !important;
+  backface-visibility:hidden !important; -webkit-backface-visibility:hidden !important;
+}
+#main-content::before{ transform:translateZ(0); backface-visibility:hidden; }
