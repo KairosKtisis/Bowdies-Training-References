@@ -1,80 +1,44 @@
 /* Bowdie's — Liquid Glass enhancements (paired with lux-theme.css).
-   Hero-expand home transition, pre-staged scenery (no blink), glass reveal. */
+   Home screen slides off (app's native curtain) to reveal each page; we just
+   pre-stage that section's dark scenery photo. Admin uses the home image. */
 (function(){
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=3'};
+  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=4'};
   var POS={wine:'62% 12%'};
-  /* shared scrim for expander AND scenery so the swap is invisible */
-  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.45),rgba(11,9,7,.62) 50%,rgba(11,9,7,.82))";
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.90),rgba(11,9,7,.86) 50%,rgba(11,9,7,.96))";
+  var HERO="assets/hero-table.jpg";
 
   var scenery=document.createElement('div'); scenery.id='lx-scenery'; document.body.appendChild(scenery);
 
-  function setScenery(guide){
-    var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; }
-    scenery.style.backgroundImage=SCRIM+",url('"+img+"')";
-    scenery.style.backgroundPosition=(POS[guide]||'center');
-    scenery.style.opacity='1';                 /* instant — backdrop is ready before reveal */
-  }
-  function clearScenery(){ scenery.style.opacity='0'; }
-  function go(guide){ if(typeof selectSection==='function') selectSection(guide); }
-  function hideHome(){ var h=document.getElementById('home-screen'); if(h){ h.style.transition='none'; h.style.display='none'; } }
-  function reveal(){            /* fade the chrome + cards in over the static photo */
-    var mc=document.getElementById('main-content'); if(!mc) return;
-    mc.classList.remove('lx-enter'); void mc.offsetWidth; mc.classList.add('lx-enter');
-  }
-
-  function runExpand(btn,guide){
-    var img=IMG[guide];
-    setScenery(guide);                          /* pre-stage backdrop (hidden behind home) */
-    if(reduce||!img){ go(guide); hideHome(); reveal(); return; }
-    var r=btn.getBoundingClientRect();
-    var ex=document.createElement('div'); ex.className='lx-expander';
-    ex.style.backgroundImage=SCRIM+",url('"+img+"')";
-    ex.style.backgroundPosition=(POS[guide]||'center');
-    ex.style.top=r.top+'px'; ex.style.left=r.left+'px'; ex.style.width=r.width+'px'; ex.style.height=r.height+'px';
-    document.body.appendChild(ex);
-    ex.getBoundingClientRect();                  /* reflow */
-    requestAnimationFrame(function(){ ex.classList.add('grow'); });
-
-    var done=false;
-    function finish(){
-      if(done) return; done=true;
-      go(guide);                                 /* switch section under the cover */
-      hideHome();                                /* no slide-up = no unveil */
-      reveal();                                  /* chrome + cards glass-fade in */
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){
-        if(ex&&ex.parentNode) ex.parentNode.removeChild(ex);  /* lift onto the ready photo */
-      }); });
-    }
-    ex.addEventListener('transitionend',function(e){ if(e.propertyName==='height') finish(); });
-    setTimeout(finish, 760);
-  }
+  function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
+  function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
 
   function bind(){
+    /* Pre-stage the section backdrop, then let the app's selectSection run —
+       the home screen slides up to reveal the page over the photo. We do NOT
+       intercept the click (no expand, no preventDefault). */
     var host=document.getElementById('home-select')||document.body;
     host.addEventListener('click',function(e){
       var btn=e.target.closest&&e.target.closest('.home-btn');
       if(!btn||!MAP[btn.id]) return;
-      e.stopImmediatePropagation(); e.preventDefault();
-      runExpand(btn,MAP[btn.id]);
+      setScenery(MAP[btn.id]);
     },true);
-    /* Home button: let the app's curtain drop over the unchanged page —
-       do NOT clear the scenery (that caused the premature darkening). */
 
-    /* Menu admin opens over the current scenery photo (it hides main-content
-       itself). Guarantee a backdrop exists even when opened from Home. */
+    /* Admin always uses the HOME image; restore the section photo on close. */
     if(typeof window.openAdmin==='function' && !window.__lxAdminWrapped){
       window.__lxAdminWrapped=true;
-      var _oa=window.openAdmin;
+      var saved=null, _oa=window.openAdmin, _ca=window.closeAdmin;
       window.openAdmin=function(){
-        var rv=_oa.apply(this,arguments);
-        if(!scenery.style.backgroundImage || scenery.style.opacity==='0' || scenery.style.opacity===''){
-          scenery.style.backgroundImage=SCRIM+",url('assets/hero-table.jpg')";
-          scenery.style.backgroundPosition='center'; scenery.style.opacity='1';
-        }
-        return rv;
+        saved={img:scenery.style.backgroundImage,pos:scenery.style.backgroundPosition,op:scenery.style.opacity};
+        var rv=_oa.apply(this,arguments); applyScenery(HERO,'center'); return rv;
       };
+      if(typeof _ca==='function'){
+        window.closeAdmin=function(){
+          var rv=_ca.apply(this,arguments);
+          if(saved){ scenery.style.backgroundImage=saved.img; scenery.style.backgroundPosition=saved.pos||'center'; scenery.style.opacity=saved.op||'0'; saved=null; }
+          return rv;
+        };
+      }
     }
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else bind();
