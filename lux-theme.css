@@ -782,3 +782,16 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 
 /* drop the fixed candlelight glow inside the scroll container (repaint risk) */
 #main-content::before{ display:none !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   REVERT THE INNER-SCROLL CONTAINER  (root cause of the top-card tap freeze)
+   iOS Safari freezes an overflow-y:auto container at the top until a scroll
+   initializes it — that was the entire bug. Back to normal document scroll.
+   (Trade-off: the minor background jitter returns; handled separately, never
+   by re-introducing an inner scroller.)
+   ════════════════════════════════════════════════════════════════════════ */
+html,body{ height:auto !important; overflow:visible !important; overflow-x:hidden !important; }
+#main-content{ height:auto !important; min-height:0 !important; overflow:visible !important; -webkit-overflow-scrolling:auto !important; }
+#screen-admin{ height:auto !important; overflow:visible !important; }
+/* content-visibility no longer needed (document scroll); remove to avoid any anchoring quirks */
+#grid-food .card{ content-visibility:visible !important; contain-intrinsic-size:auto !important; }
