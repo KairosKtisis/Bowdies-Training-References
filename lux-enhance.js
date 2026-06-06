@@ -28,24 +28,19 @@
   function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
-  /* Lazy, spread-out load (no decode storm). Injection runs when the panel is
-     visible, so the observer sees real boxes and the first card loads reliably —
-     but only the few cards near the viewport load up front, keeping the main
-     thread free so the first tap never freezes. */
-  var _io=null;
+  /* Food photos as real <img decoding="async" loading="lazy">: the browser
+     decodes off the main thread and never re-decodes on repaint, so expanding a
+     card can't freeze. Native lazy-load = no custom observer/timing. Idempotent. */
   function injectFoodPhotos(){
     var grid=document.getElementById('grid-food'); if(!grid) return;
-    if(!_io && ('IntersectionObserver' in window)){
-      _io=new IntersectionObserver(function(es){
-        es.forEach(function(en){ if(en.isIntersecting){ var p=en.target; if(!p.style.backgroundImage) p.style.backgroundImage="url('"+p.dataset.img+"')"; _io.unobserve(p); } });
-      },{rootMargin:'600px'});
-    }
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
       if(card.querySelector('.lx-card-photo')) return;
       var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
-      var p=document.createElement('div'); p.className='lx-card-photo'; p.dataset.img=url;
-      card.insertBefore(p, card.firstChild); card.classList.add('lx-has-photo');
-      if(_io) _io.observe(p); else p.style.backgroundImage="url('"+url+"')";
+      var ph=document.createElement('div'); ph.className='lx-card-photo';
+      var img=document.createElement('img'); img.className='lx-card-img';
+      img.loading='lazy'; img.decoding='async'; img.alt=''; img.src=url;
+      ph.appendChild(img);
+      card.insertBefore(ph, card.firstChild); card.classList.add('lx-has-photo');
     });
   }
 
