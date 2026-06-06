@@ -504,3 +504,81 @@ html,body{ overscroll-behavior:none; }
 
 /* gentle card hover lift on pointer devices (desktop) */
 @media (hover:hover){ .card:not(.expanded):hover{ transform:translateY(-2px); } }
+
+/* ════════════════════════════════════════════════════════════════════════
+   LIQUID GLASS — depth, light response & tactility (perf-safe: no blur/masks
+   in bulk; only the one expanded card animates).
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* refined glass edge: bright top/left specular line + soft inner depth */
+.card{
+  box-shadow:
+    0 18px 44px -24px var(--lx-shadow),
+    inset 0 1px 0 rgba(255,244,222,.12),
+    inset 1px 0 0 rgba(255,244,222,.05),
+    inset 0 -22px 40px -34px rgba(0,0,0,.55) !important;
+}
+/* tactile one-finger press */
+.card:active{ transform:scale(.992); }
+
+/* a soft light-sweep glides across a card as it opens (only the expanded one) */
+.card::after{
+  content:'' !important; display:block !important; position:absolute; inset:0; z-index:4;
+  pointer-events:none; border-radius:inherit; opacity:0; transform:translateX(-120%);
+  background:linear-gradient(105deg,transparent 32%,rgba(255,246,226,.10) 47%,rgba(255,246,226,.17) 50%,rgba(255,246,226,.10) 53%,transparent 68%);
+}
+.card.expanded::after{ animation:lxSheen .95s var(--lx-ease) .05s 1; }
+@keyframes lxSheen{ 0%{transform:translateX(-120%);opacity:0} 22%{opacity:1} 100%{transform:translateX(120%);opacity:0} }
+
+/* the detail content unfolds (fade + rise) when a card opens */
+.card.expanded .card-detail{ animation:lxUnfold .5s var(--lx-ease) .04s both; }
+@keyframes lxUnfold{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+/* deeper, lit shadow on the focused card */
+.card.expanded{
+  box-shadow:0 34px 74px -28px rgba(0,0,0,.82),0 0 0 1px var(--lx-stroke-hi),inset 0 1px 0 rgba(255,246,226,.16) !important;
+}
+
+/* slow gold glint travelling along the header rule under the logo */
+.header::after{
+  background:linear-gradient(90deg,transparent,var(--gold-light),transparent) !important;
+  background-size:200% 100% !important; animation:lxGlint 7s linear infinite;
+}
+@keyframes lxGlint{ to{ background-position:-200% 0; } }
+
+/* tier dots in Set the Stage get a soft matching glow */
+.pb-tier-label .tier-pip,.cmp-tier-row .tier-pip{ filter:drop-shadow(0 0 5px currentColor); }
+
+/* search field: gentle inner glass highlight + warmer focus bloom */
+.search-input{ box-shadow:inset 0 1px 0 rgba(255,246,226,.07) !important; }
+.search-input:focus{ box-shadow:0 0 0 4px rgba(233,201,106,.12),0 14px 40px -16px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,246,226,.10) !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   AUTHENTIC LIQUID GLASS (iOS 26 research) — "lensing" edge light + gel touch.
+   Apple's rule: glass belongs to the floating CONTROL layer, not content.
+   So: controls get the lens treatment; content cards stay clean & legible;
+   the distracting sheen sweep is removed.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* kill the sheen sweep (read as a bug / "motion for motion's sake") */
+.card::after{ display:none !important; animation:none !important; }
+
+/* LENSING — light concentrates as a bright hairline along the top edge of each
+   floating control, with a soft shade beneath, suggesting curved glass. */
+.search-input,.filter-btn,#top-bar-return,.pb-recent-chip,.pb-back-btn,.home-btn{
+  box-shadow:inset 0 1px 0 rgba(255,248,232,.16), inset 0 -2px 6px -4px rgba(0,0,0,.45) !important;
+}
+.filter-btn.active{
+  box-shadow:inset 0 0 0 1px var(--acc,var(--gold)), inset 0 1px 0 rgba(255,248,232,.26), 0 5px 18px -9px var(--acc,var(--gold)) !important;
+}
+.search-input:focus{
+  box-shadow:0 0 0 4px rgba(233,201,106,.12), inset 0 1px 0 rgba(255,248,232,.20), 0 14px 40px -16px rgba(0,0,0,.7) !important;
+}
+
+/* FLUIDITY — the material responds instantly to touch: spring + brief light-up */
+.filter-btn:active,#top-bar-return:active,.pb-recent-chip:active{ transform:scale(.93); filter:brightness(1.14); }
+.home-btn:active{ transform:scale(.975); filter:brightness(1.10); }
+
+/* CONTENT cards: clean legible glass edge (no shine), per Apple's content rule */
+.card{ box-shadow:0 18px 44px -24px var(--lx-shadow), inset 0 1px 0 rgba(255,246,226,.10), inset 0 -20px 38px -34px rgba(0,0,0,.5) !important; }
+.card.expanded{ box-shadow:0 34px 74px -28px rgba(0,0,0,.82), 0 0 0 1px var(--lx-stroke-hi), inset 0 1px 0 rgba(255,246,226,.16) !important; }
