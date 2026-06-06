@@ -749,3 +749,18 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 #grid-food .card[data-name="Market Fish"] .lx-card-img{ object-position:center 40%; }
 #grid-food .card[data-name="Roast Half Chicken"] .lx-card-img{ object-position:center 30%; }
 #grid-food .card[data-name="Faroe Island Salmon"] .lx-card-img{ object-position:center 30%; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   PHOTOS-IN-DETAIL — image lives inside the expanded card, not on the list.
+   Removes any photo from the collapsed/scrolling card and from the expand
+   repaint path entirely. (Old .lx-card-photo header rules are now unused.)
+   ════════════════════════════════════════════════════════════════════════ */
+.lx-card-photo{ display:none !important; }   /* retire the header treatment */
+.lx-detail-photo{
+  display:block; width:100%; height:210px; object-fit:cover; object-position:center;
+  border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 4px;
+}
+#grid-food .card[data-name="Shrimp Cocktail"] .lx-detail-photo{ object-position:center 60%; }
+#grid-food .card[data-name="Market Fish"] .lx-detail-photo{ object-position:center 45%; }
+#grid-food .card[data-name="Roast Half Chicken"] .lx-detail-photo{ object-position:center 35%; }
+#grid-food .card[data-name="Faroe Island Salmon"] .lx-detail-photo{ object-position:center 35%; }
