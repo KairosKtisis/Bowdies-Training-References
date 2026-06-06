@@ -90,7 +90,7 @@ body::after{
 #home-spirits::before{ background-image:url('assets/tile-spirits.jpg'); }
 #home-wine::before{ background-image:url('assets/tile-wine.jpg'); background-position:62% 12%; }
 #home-prime::before{ background-image:url('assets/tile-prime.jpg'); }
-#home-wheel::before{ background-image:url('assets/tile-stage.jpg?v=2'); }
+#home-wheel::before{ background-image:url('assets/tile-stage.jpg?v=3'); }
 .home-return{ color:var(--gold) !important; }
 
 /* ════════ FORCE HOME-ONLY NAVIGATION ════════ */
@@ -252,7 +252,7 @@ body::after{
 #home-spirits{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-spirits.jpg') !important; }
 #home-wine{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-wine.jpg') !important;background-position:62% 12% !important; }
 #home-prime{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-prime.jpg') !important; }
-#home-wheel{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-stage.jpg?v=2') !important; }
+#home-wheel{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-stage.jpg?v=3') !important; }
 
 /* ════════ DESKTOP / LAPTOP ADAPTATION ════════
    The original app was a fixed phone-width column. Let it breathe on larger
@@ -399,7 +399,7 @@ body::after{
 #home-spirits::before{ background-image:url('assets/tile-spirits.jpg') !important; }
 #home-wine::before{ background-image:url('assets/tile-wine.jpg') !important; background-position:62% 12% !important; }
 #home-prime::before{ background-image:url('assets/tile-prime.jpg') !important; }
-#home-wheel::before{ background-image:url('assets/tile-stage.jpg?v=2') !important; }
+#home-wheel::before{ background-image:url('assets/tile-stage.jpg?v=3') !important; }
 
 /* the expanding cover starts blurred (matching the tile) and sharpens as it grows */
 .lx-expander{
@@ -421,3 +421,52 @@ body::after{
 .home-btn::before{ filter:blur(2px) brightness(.56) !important; }
 .home-btn:hover::before{ filter:blur(1px) brightness(.66) !important; }
 .lx-expander{ filter:blur(2px); }
+
+/* ════════ MENU ADMIN — match the dark-glass cards ════════ */
+#screen-admin{ background:linear-gradient(180deg,rgba(13,10,7,0.94),rgba(9,7,5,0.96)) !important; }
+.admin-stats,.admin-search,.admin-empty{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;border-radius:14px !important;
+}
+.admin-group{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;border-radius:16px !important;
+  padding:12px 16px 4px !important;
+}
+.admin-group-label{ border-bottom-color:var(--lx-stroke) !important; }
+
+/* ════════ NAME-INPUT SCREEN — translucent text boxes ════════ */
+.modal-input{
+  background:linear-gradient(160deg,rgba(22,16,11,0.44),rgba(12,9,6,0.34)) !important;
+  border:1px solid var(--lx-stroke) !important;
+}
+
+/* admin sits over the section scenery (same photo), not its own dark panel */
+#screen-admin{ background:transparent !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   HOME BUTTONS — revert to translucent glass rectangles (stacked, rounded).
+   Photo no longer lives on the buttons; tapping still expands the section
+   photo via lux-enhance. Hero shows faintly through the translucent glass.
+   ════════════════════════════════════════════════════════════════════════ */
+#home-select{ display:flex !important; flex-direction:column !important; gap:14px !important; max-width:340px !important; }
+.home-btn{
+  position:relative !important; isolation:isolate; overflow:hidden;
+  min-height:0 !important; width:100% !important; padding:21px 24px !important;
+  display:flex !important; align-items:center !important; justify-content:center !important;
+  border-radius:16px !important; border:1px solid var(--lx-stroke) !important;
+  color:var(--text-primary) !important; text-shadow:none !important;
+  font-family:'Josefin Sans',sans-serif !important; font-size:13px !important;
+  letter-spacing:.3em !important; text-transform:uppercase !important; font-weight:400 !important;
+  transition:transform .35s var(--lx-spring),border-color .3s,background .3s,color .3s !important;
+}
+.home-btn::before,.home-btn::after{ display:none !important; content:none !important; }
+#home-spirits,#home-wine,#home-prime,#home-wheel{ background:linear-gradient(160deg,rgba(22,16,11,0.50),rgba(11,8,5,0.40)) !important; }
+.home-btn:hover{ border-color:var(--gold) !important; color:var(--gold-light) !important; background:linear-gradient(160deg,rgba(30,22,14,0.56),rgba(15,11,7,0.46)) !important; }
+.home-btn:active{ transform:scale(.97) !important; }
+
+/* ════════ STRONGER ANTI-JITTER for the mobile background ════════ */
+#lx-scenery{
+  height:104lvh !important; top:-2lvh !important;
+  transform:translateZ(0) !important; -webkit-transform:translateZ(0) !important;
+  will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+}
+html,body{ overscroll-behavior:none; }

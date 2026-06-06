@@ -2,7 +2,7 @@
    Hero-expand home transition, pre-staged scenery (no blink), glass reveal. */
 (function(){
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=2'};
+  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=3'};
   var POS={wine:'62% 12%'};
   /* shared scrim for expander AND scenery so the swap is invisible */
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.45),rgba(11,9,7,.62) 50%,rgba(11,9,7,.82))";
@@ -61,6 +61,21 @@
     },true);
     /* Home button: let the app's curtain drop over the unchanged page —
        do NOT clear the scenery (that caused the premature darkening). */
+
+    /* Menu admin opens over the current scenery photo (it hides main-content
+       itself). Guarantee a backdrop exists even when opened from Home. */
+    if(typeof window.openAdmin==='function' && !window.__lxAdminWrapped){
+      window.__lxAdminWrapped=true;
+      var _oa=window.openAdmin;
+      window.openAdmin=function(){
+        var rv=_oa.apply(this,arguments);
+        if(!scenery.style.backgroundImage || scenery.style.opacity==='0' || scenery.style.opacity===''){
+          scenery.style.backgroundImage=SCRIM+",url('assets/hero-table.jpg')";
+          scenery.style.backgroundPosition='center'; scenery.style.opacity='1';
+        }
+        return rv;
+      };
+    }
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else bind();
 })();
