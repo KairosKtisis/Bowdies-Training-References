@@ -656,3 +656,21 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
   background:linear-gradient(180deg,rgba(10,8,6,.90) 0%,rgba(10,8,6,.58) 52%,rgba(10,8,6,0) 100%) !important;
   border-bottom:none !important; backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   PRIME & PLATE — photo header on food cards (injected by lux-enhance.js).
+   Full-bleed image strip that fades into the card glass. Cards keep padding.
+   ════════════════════════════════════════════════════════════════════════ */
+.lx-card-photo{
+  display:block; margin:-26px -24px 15px; height:174px; position:relative;
+  background-color:#15120d; background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+.lx-card-photo::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(10,9,7,0) 38%,rgba(16,14,11,.55) 74%,rgba(23,21,18,.97) 100%);
+}
+.card.lx-has-photo{ overflow:hidden; }
+
+/* Prime & Plate: tags are for search only — hide them visually (kept in DOM
+   so main.js search/allergen matching still reads them). */
+#grid-food .tag-row{ display:none !important; }
