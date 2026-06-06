@@ -28,19 +28,20 @@
   function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
-  /* Photos live INSIDE the card detail now (visible only when a card is opened).
-     The collapsed list is pure text; the detail's <img> sits in a display:none
-     container, so it doesn't load/decode until you tap — keeping the expand fast. */
+  /* Visible photo header on each food card (tapping it opens the card, since it
+     is part of the card). <img decoding=async loading=lazy>. content-visibility
+     (CSS) keeps off-screen cards from rendering so expanding never reflows the
+     whole list. */
   function injectFoodPhotos(){
     var grid=document.getElementById('grid-food'); if(!grid) return;
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
+      if(card.querySelector('.lx-card-photo')) return;
       var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
-      var detail=card.querySelector('.card-detail'); if(!detail) return;
-      if(detail.querySelector('.lx-detail-photo')) return;
-      var img=document.createElement('img'); img.className='lx-detail-photo';
+      var ph=document.createElement('div'); ph.className='lx-card-photo';
+      var img=document.createElement('img'); img.className='lx-card-img';
       img.loading='lazy'; img.decoding='async'; img.alt=''; img.src=url;
-      detail.insertBefore(img, detail.firstChild);
-      card.classList.add('lx-has-photo');
+      ph.appendChild(img);
+      card.insertBefore(ph, card.firstChild); card.classList.add('lx-has-photo');
     });
   }
 
