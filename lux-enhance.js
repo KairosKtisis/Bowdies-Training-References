@@ -1,6 +1,6 @@
 /* Bowdie's — Liquid Glass enhancements (paired with lux-theme.css).
-   Home screen slides off (app's native curtain) to reveal each page; we just
-   pre-stage that section's dark scenery photo. Admin uses the home image. */
+   Home slides off to reveal each page; we pre-stage that section's dark scenery.
+   Admin uses the home image. Inner-scroll model: reset the container on nav. */
 (function(){
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
   var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=4'};
@@ -12,17 +12,24 @@
 
   function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
   function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
+  function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
   function bind(){
-    /* Pre-stage the section backdrop, then let the app's selectSection run —
-       the home screen slides up to reveal the page over the photo. We do NOT
-       intercept the click (no expand, no preventDefault). */
+    /* Pre-stage section backdrop; the app's selectSection slides the home off. */
     var host=document.getElementById('home-select')||document.body;
     host.addEventListener('click',function(e){
       var btn=e.target.closest&&e.target.closest('.home-btn');
       if(!btn||!MAP[btn.id]) return;
       setScenery(MAP[btn.id]);
     },true);
+
+    /* The document no longer scrolls (anti-jitter) — reset the inner scroll
+       container whenever a section is entered, since window.scrollTo is a no-op. */
+    if(typeof window.selectSection==='function' && !window.__lxScrollWrapped){
+      window.__lxScrollWrapped=true;
+      var _ss=window.selectSection;
+      window.selectSection=function(){ var r=_ss.apply(this,arguments); resetScroll(); return r; };
+    }
 
     /* Admin always uses the HOME image; restore the section photo on close. */
     if(typeof window.openAdmin==='function' && !window.__lxAdminWrapped){
