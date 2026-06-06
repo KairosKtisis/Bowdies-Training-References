@@ -477,3 +477,30 @@ html,body{ overscroll-behavior:none; }
   width:100vw !important; height:100vh !important; height:100lvh !important;
   transform:none !important; -webkit-transform:none !important; will-change:auto !important;
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   POLISH PASS — warmer/lighter glass (cards felt too dark), crisper edges,
+   small legibility refinements. Single source: redefine --lx-glass so every
+   glass surface (cards, pairing tiers, search results, admin, compare) lifts.
+   ════════════════════════════════════════════════════════════════════════ */
+:root{ --lx-glass:linear-gradient(160deg,rgba(30,22,14,0.60),rgba(17,12,8,0.48)); }
+
+.card{
+  background:var(--lx-glass) !important;
+  box-shadow:0 16px 40px -22px var(--lx-shadow),inset 0 1px 0 rgba(255,240,210,.10) !important;
+}
+.card.expanded{ background:linear-gradient(160deg,rgba(36,27,17,0.84),rgba(20,14,9,0.74)) !important; }
+.pb-tier-section,#pb-search-results,.search-results,.cmp-verdict-card,
+.admin-stats,.admin-search,.admin-empty,.admin-group{ background:var(--lx-glass) !important; }
+
+/* filters: still dark, but warmed so they read as glass rather than black */
+.filter-btn,.filter-btn.active{ background:linear-gradient(160deg,rgba(22,16,10,0.58),rgba(12,9,5,0.46)) !important; }
+
+/* tags a touch more present (gold-tinted instead of near-invisible) */
+.tag{ background:rgba(233,201,106,.06) !important; border-color:rgba(233,201,106,.20) !important; }
+
+/* search tip + muted copy slightly more legible over the dark backdrop */
+.search-tip{ color:var(--text-muted) !important; }
+
+/* gentle card hover lift on pointer devices (desktop) */
+@media (hover:hover){ .card:not(.expanded):hover{ transform:translateY(-2px); } }
