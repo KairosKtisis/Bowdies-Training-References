@@ -2,7 +2,7 @@
    URL switches:  ?anim=off  kills all animations/transitions
                   ?lx=off    disables the entire lux theme layer            */
 (function(){
-  var BUILD='BUILD 2', q=location.search||'';
+  var BUILD='BUILD 3', q=location.search||'';
   if(q.indexOf('lx=off')>-1){
     document.querySelectorAll('link[href*="lux-theme"]').forEach(function(l){ l.parentNode.removeChild(l); });
     var sc=document.getElementById('lx-scenery'); if(sc&&sc.parentNode) sc.parentNode.removeChild(sc);
@@ -31,6 +31,11 @@
   }
   (document.body||document.documentElement).appendChild(box);
   log(BUILD+' ARMED '+(q||'(no switches)'));
+
+  var rsz=0;
+  window.addEventListener('resize',function(){
+    rsz++; log('RESIZE #'+rsz+'  '+window.innerWidth+'x'+window.innerHeight);
+  });
 
   var lastTouch=0;
   ['pointerdown','touchstart','touchend','touchcancel','pointerup','pointercancel'].forEach(function(ev){
