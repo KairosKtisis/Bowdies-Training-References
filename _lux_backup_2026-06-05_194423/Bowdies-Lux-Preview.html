@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0907">
+<title>Bowdie's · Liquid Glass Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   BOWDIE'S — LIQUID GLASS  v2  ·  warm candlelit glass + brand photography
+   ════════════════════════════════════════════════════════════════════ */
+:root{
+  --bg-0:#0B0907; --bg-1:#100D0A; --bg-2:#15110C;
+  --gold:#C9A84C; --gold-hi:#F0D785; --gold-lo:#8A6B2A; --gold-ember:#E8A24C;
+  --ink:#F3ECDC; --ink-soft:#C9BFA9; --ink-mute:#8E836E; --ink-faint:#5A5246;
+  --glass-fill:rgba(38,31,23,0.46); --glass-fill-2:rgba(50,41,30,0.60);
+  --glass-stroke:rgba(233,201,106,0.16); --glass-stroke-hi:rgba(243,215,133,0.46);
+  --glass-shadow:rgba(0,0,0,0.55);
+  --cat-whiskey:#D98A4E; --cat-gin:#7FC6A6; --cat-steak:#D9774E; --cat-sea:#E0A9A0; --cat-side:#C9B36A;
+  --spring:cubic-bezier(.34,1.56,.64,1); --ease:cubic-bezier(.22,1,.36,1); --ease-soft:cubic-bezier(.4,0,.2,1);
+  --maxw:480px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{background:var(--bg-0);-webkit-text-size-adjust:100%;}
+body{background:var(--bg-0);color:var(--ink);font-family:'Cormorant Garamond',serif;
+  min-height:100vh;min-height:100dvh;overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased;}
+
+/* ambient candlelight (also the graceful backdrop when photos aren't loaded) */
+.ambient{position:fixed;inset:-20%;z-index:0;pointer-events:none;overflow:hidden;}
+.ambient span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;mix-blend-mode:screen;}
+.ambient .b1{width:54vw;height:54vw;left:-8vw;top:-6vh;background:radial-gradient(circle,#7a521f,transparent 70%);animation:d1 26s var(--ease-soft) infinite;}
+.ambient .b2{width:46vw;height:46vw;right:-10vw;top:20vh;background:radial-gradient(circle,#5e3a16,transparent 70%);animation:d2 32s var(--ease-soft) infinite;}
+.ambient .b3{width:62vw;height:62vw;left:6vw;bottom:-18vh;background:radial-gradient(circle,#8a6a2a,transparent 72%);animation:d3 38s var(--ease-soft) infinite;}
+@keyframes d1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}}
+@keyframes d2{0%,100%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-7vw,9vh) scale(.9)}}
+@keyframes d3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5vw,-7vh) scale(1.12)}}
+body::after{content:'';position:fixed;inset:0;z-index:60;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% 0%,transparent 58%,rgba(0,0,0,.34) 100%);}
+
+.molten{background:linear-gradient(100deg,var(--gold-lo),var(--gold) 28%,var(--gold-hi) 50%,var(--gold) 72%,var(--gold-lo));
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite;}
+@keyframes sheen{to{background-position:220% center}}
+
+/* ════════ HOME ════════ */
+#home{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:calc(env(safe-area-inset-top) + 40px) 26px calc(env(safe-area-inset-bottom) + 40px);
+  transition:transform .7s var(--ease),opacity .5s var(--ease),filter .6s var(--ease);overflow-y:auto;}
+#home.gone{transform:translateY(-8%) scale(.98);opacity:0;filter:blur(8px);pointer-events:none;}
+/* cinematic hero photo (falls back to deep gradient if asset missing) */
+.hero-bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(120% 80% at 50% -10%,#241a10,#0B0907 70%);}
+.hero-bg::after{content:'';position:absolute;inset:0;background-image:url('assets/hero-table.jpg');
+  background-size:cover;background-position:center;opacity:.12;animation:heroIn 2.4s var(--ease) forwards;transform:scale(1.08);}
+.hero-bg .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.93) 0%,rgba(11,9,7,.86) 38%,rgba(11,9,7,.97) 80%,rgba(11,9,7,1) 100%);}
+@keyframes heroIn{from{opacity:0;transform:scale(1.16)}to{opacity:.12;transform:scale(1.08)}}
+
+.home-eyebrow{font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);opacity:0;text-align:center;margin-bottom:18px;animation:rise .9s var(--ease) .15s forwards;}
+.home-logo{text-align:center;line-height:1;}
+.home-wordmark{display:block;font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:clamp(46px,15vw,78px);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink);filter:drop-shadow(0 6px 26px rgba(0,0,0,.75));}
+.home-wordmark .ch{display:inline-block;opacity:0;transform:translateY(40px) rotateX(-40deg);transform-origin:bottom;animation:charIn .85s var(--spring) forwards;}
+.home-script{display:block;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(22px,6.5vw,33px);
+  letter-spacing:.04em;margin-top:6px;opacity:0;animation:rise 1s var(--ease) .7s forwards;}
+.home-rule{width:0;height:1px;margin:22px auto 8px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:ruleGrow 1.1s var(--ease) .9s forwards;}
+@keyframes ruleGrow{to{width:150px}}
+.home-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink-soft);letter-spacing:.04em;text-align:center;opacity:0;animation:rise 1s var(--ease) 1s forwards;}
+
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:var(--maxw);margin-top:34px;}
+.tile{position:relative;border-radius:22px;overflow:hidden;min-height:168px;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+  border:1px solid var(--glass-stroke);box-shadow:0 22px 50px -22px var(--glass-shadow);
+  opacity:0;transform:translateY(34px) scale(.96);animation:tileIn .9s var(--spring) forwards;
+  transition:transform .5s var(--spring),box-shadow .5s var(--ease),border-color .4s;}
+.tile:nth-child(1){animation-delay:1.12s}.tile:nth-child(2){animation-delay:1.20s}
+.tile:nth-child(3){animation-delay:1.28s}.tile:nth-child(4){animation-delay:1.36s}
+.tile-photo{position:absolute;inset:0;background-position:center;background-size:cover;background-image:linear-gradient(155deg,#2c2114,#140f0a);}
+.tile-photo::after{content:'';position:absolute;inset:0;background-position:center;background-size:cover;background-image:var(--img);transition:transform .8s var(--ease);}
+.tile[data-go="wine"] .tile-photo::after{background-position:62% 12%;}
+.tile:active{transform:scale(.96);border-color:var(--glass-stroke-hi);}
+.tile:active .tile-photo::after{transform:scale(1.06);}
+.tile-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.05) 0%,rgba(11,9,7,.35) 55%,rgba(11,9,7,.88) 100%);}
+.tile-kicker{position:relative;font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:5px;text-shadow:0 1px 8px rgba(0,0,0,.8);}
+.tile-name{position:relative;font-family:'Playfair Display',serif;font-size:23px;font-weight:600;color:#fff;line-height:1.04;text-shadow:0 2px 14px rgba(0,0,0,.85);}
+.tile-arrow{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  color:var(--ink);font-size:14px;background:rgba(20,16,12,.42);border:1px solid var(--glass-stroke-hi);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .4s var(--spring);}
+.tile:active .tile-arrow{transform:translateX(3px);}
+@keyframes charIn{to{opacity:1;transform:none}}@keyframes rise{to{opacity:1;transform:none}}@keyframes tileIn{to{opacity:1;transform:none}}
+
+/* ════════ APP SHELL ════════ */
+#app{position:relative;z-index:10;max-width:var(--maxw);margin:0 auto;
+  padding:0 16px calc(env(safe-area-inset-bottom) + 40px);
+  opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease) .12s,transform .6s var(--ease) .12s;}
+#app.live{opacity:1;transform:none;}
+
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+  margin:0 -16px;padding:calc(env(safe-area-inset-top) + 12px) 18px 11px;
+  background:linear-gradient(180deg,rgba(11,9,7,.9),rgba(11,9,7,.45) 72%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+.tb-logo{display:flex;flex-direction:column;line-height:1;}
+.tb-mark{font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);}
+.tb-sec{font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--gold);margin-top:2px;letter-spacing:.03em;}
+.tb-home{font-family:'Josefin Sans',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  background:rgba(255,240,210,.05);border:1px solid var(--glass-stroke);padding:9px 14px;border-radius:30px;cursor:pointer;transition:.3s var(--ease);}
+.tb-home:active{transform:scale(.94);color:var(--gold);}
+
+.searchwrap{margin-top:14px;position:relative;}
+.search{width:100%;border-radius:18px;padding:15px 18px 15px 44px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);
+  background:linear-gradient(160deg,var(--glass-fill-2),var(--glass-fill));border:1px solid var(--glass-stroke);outline:none;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:.4s var(--ease);}
+.search::placeholder{color:var(--ink-faint);font-style:italic;}
+.search:focus{border-color:var(--glass-stroke-hi);box-shadow:0 0 0 4px rgba(233,201,106,.10),0 14px 40px -16px rgba(0,0,0,.7);}
+.search-ic{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--gold);opacity:.7;font-size:15px;pointer-events:none;}
+
+.filters{display:flex;gap:8px;overflow-x:auto;margin:12px -16px 0;padding:2px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.filters::-webkit-scrollbar{display:none;}
+.fbtn{flex:0 0 auto;font-family:'Josefin Sans',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);
+  padding:9px 15px;border-radius:24px;cursor:pointer;white-space:nowrap;background:rgba(255,240,210,.04);border:1px solid var(--glass-stroke);
+  transition:transform .35s var(--spring),color .3s,background .3s,border-color .3s,letter-spacing .35s var(--ease),box-shadow .3s;}
+.fbtn:active{transform:scale(.92);}
+.fbtn.active{color:var(--gold-hi);font-weight:600;letter-spacing:.2em;border-color:var(--gold);background:rgba(201,168,76,.14);box-shadow:0 0 0 1px rgba(201,168,76,.28),0 6px 18px -8px rgba(233,162,76,.4);}
+
+/* ════════ CARDS (shared) ════════ */
+.grid{margin-top:16px;display:flex;flex-direction:column;gap:14px;}
+.card{position:relative;border-radius:20px;cursor:pointer;overflow:hidden;
+  background:linear-gradient(160deg,var(--glass-fill-2),var(--glass-fill));border:1px solid var(--glass-stroke);
+  box-shadow:0 16px 40px -22px var(--glass-shadow),inset 0 1px 0 rgba(255,240,210,.07);
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+  transition:transform .55s var(--spring),box-shadow .5s var(--ease),border-color .5s,opacity .5s;
+  opacity:0;transform:translateY(26px);}
+.card.revealed{opacity:1;transform:none;}
+.card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;
+  background:linear-gradient(135deg,var(--glass-stroke-hi),transparent 42%);
+  -webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;opacity:.6;}
+.card.expanded{transform:scale(1.012);border-color:var(--glass-stroke-hi);
+  box-shadow:0 32px 72px -28px rgba(0,0,0,.82),0 0 0 1px var(--glass-stroke-hi),inset 0 1px 0 rgba(255,240,210,.12);}
+.card.dimmed{opacity:.4;transform:scale(.985);filter:saturate(.7);}
+
+/* photo header (Prime & Plate, cocktails) */
+.card-photo{position:relative;height:184px;overflow:hidden;background:linear-gradient(150deg,#2a1f13,#150f0a);}
+.card-photo::after{content:'';position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center;
+  transition:transform 1s var(--ease);}
+.card.expanded .card-photo::after{transform:scale(1.05);}
+.card-photo .pscrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.1) 40%,rgba(20,16,11,.65) 78%,rgba(30,25,19,.95) 100%);}
+.card-photo .photo-cat{position:absolute;top:13px;left:15px;font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold-hi);text-shadow:0 1px 8px rgba(0,0,0,.9);padding:5px 11px;border-radius:20px;
+  background:rgba(20,16,12,.4);border:1px solid var(--glass-stroke-hi);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.card-photo .photo-name{position:absolute;left:16px;right:16px;bottom:13px;font-family:'Playfair Display',serif;font-size:25px;font-weight:600;
+  color:#fff;line-height:1.05;text-shadow:0 2px 16px rgba(0,0,0,.9);}
+.card-body{padding:16px 18px 17px;}
+.card-body.tight{padding-top:13px;}
+
+/* text-only card (spirits/bottles) */
+.card .accent{position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:3px;background:var(--acc,var(--gold));
+  opacity:0;z-index:4;transition:opacity .5s var(--ease);box-shadow:0 0 14px var(--acc,var(--gold));}
+.card.expanded .accent{opacity:.9;}
+.c-cat{font-family:'Josefin Sans',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc,var(--gold));margin-bottom:6px;font-weight:500;}
+.c-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--ink);line-height:1.12;}
+.c-sub{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--ink-mute);margin-top:3px;}
+.c-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.tag{font-family:'Josefin Sans',sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  padding:5px 10px;border-radius:20px;background:rgba(255,240,210,.05);border:1px solid var(--glass-stroke);}
+.c-hint{font-family:'Josefin Sans',sans-serif;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.75;
+  margin-top:13px;display:flex;align-items:center;gap:7px;transition:opacity .3s,height .3s,margin .3s;}
+.c-hint .chev{transition:transform .5s var(--spring);}
+.card.expanded .c-hint{opacity:0;height:0;margin-top:0;overflow:hidden;}
+
+.c-detail{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .45s var(--ease),margin .5s var(--ease);}
+.card.expanded .c-detail{max-height:3200px;opacity:1;margin-top:15px;}
+.c-detail .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease);}
+.card.expanded .c-detail .reveal{opacity:1;transform:none;}
+.card.expanded .c-detail .reveal:nth-child(1){transition-delay:.08s}.card.expanded .c-detail .reveal:nth-child(2){transition-delay:.14s}
+.card.expanded .c-detail .reveal:nth-child(3){transition-delay:.20s}.card.expanded .c-detail .reveal:nth-child(4){transition-delay:.26s}
+.card.expanded .c-detail .reveal:nth-child(5){transition-delay:.32s}.card.expanded .c-detail .reveal:nth-child(6){transition-delay:.38s}
+
+.s-label{font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);opacity:.8;margin:15px 0 5px;}
+.s-label:first-child{margin-top:0;}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink-soft);line-height:1.55;}
+.s-val.notes{font-size:16.5px;color:var(--ink);line-height:1.6;}
+.s-val.price{color:var(--gold-hi);font-size:16px;font-weight:600;}
+.hr{height:1px;background:linear-gradient(90deg,var(--glass-stroke),transparent);margin:15px 0 0;}
+.ing{list-style:none;margin-top:2px;}
+.ing li{display:flex;gap:10px;font-family:'Cormorant Garamond',serif;font-size:15.5px;color:var(--ink-soft);padding:3px 0;}
+.ing .amt{color:var(--gold);min-width:54px;font-variant-numeric:tabular-nums;}
+.steps{list-style:none;counter-reset:s;margin-top:2px;}
+.steps li{counter-increment:s;position:relative;padding:5px 0 5px 30px;font-family:'Cormorant Garamond',serif;font-size:15.5px;color:var(--ink-soft);line-height:1.5;}
+.steps li::before{content:counter(s);position:absolute;left:0;top:4px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Josefin Sans',sans-serif;font-size:10px;color:var(--gold);background:rgba(233,201,106,.08);border:1px solid var(--glass-stroke);}
+.garnish{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:var(--ink-mute);margin-top:12px;}
+.garnish b{color:var(--ink-soft);font-style:normal;font-weight:600;}
+.empty{text-align:center;color:var(--ink-faint);font-style:italic;font-size:16px;padding:54px 20px;font-family:'Cormorant Garamond',serif;}
+
+/* section intro line */
+.sec-intro{margin:18px 4px 2px;}
+.sec-intro .k{font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.85;}
+.sec-intro .t{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--ink-soft);margin-top:4px;}
+
+.soon{margin-top:30px;text-align:center;padding:46px 26px;border-radius:22px;
+  background:linear-gradient(160deg,var(--glass-fill-2),var(--glass-fill));border:1px solid var(--glass-stroke);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+.soon .k{font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);}
+.soon .t{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:var(--ink);margin-top:10px;}
+.soon .d{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink-mute);margin-top:10px;line-height:1.55;}
+
+/* ════════ BOTTOM TAB BAR ════════ */
+.tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 14px);z-index:35;
+  display:flex;gap:2px;padding:6px;border-radius:30px;width:min(440px,calc(100% - 28px));
+  background:linear-gradient(160deg,rgba(30,24,17,.82),rgba(18,14,10,.78));border:1px solid var(--glass-stroke);
+  box-shadow:0 18px 44px -16px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,240,210,.08);
+  backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  opacity:0;transform:translate(-50%,20px);transition:opacity .5s var(--ease) .3s,transform .5s var(--spring) .3s;pointer-events:none;}
+.tabbar.live{opacity:1;transform:translate(-50%,0);pointer-events:auto;}
+.tbtn{flex:1;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px 6px;
+  cursor:pointer;border-radius:24px;color:var(--ink-mute);transition:color .35s var(--ease);}
+.tbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.4;transition:transform .4s var(--spring);}
+.tbtn span{font-family:'Josefin Sans',sans-serif;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;}
+.tbtn.active{color:var(--gold-hi);}
+.tbtn.active svg{transform:translateY(-1px) scale(1.08);}
+.tabpill{position:absolute;z-index:1;top:6px;height:calc(100% - 12px);border-radius:24px;
+  background:linear-gradient(160deg,rgba(233,201,106,.16),rgba(233,162,76,.08));border:1px solid var(--glass-stroke-hi);
+  box-shadow:inset 0 1px 0 rgba(255,240,210,.15);transition:left .5s var(--spring),width .5s var(--spring);}
+
+.ribbon{position:fixed;z-index:70;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top) + 8px);
+  font-family:'Josefin Sans',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+  padding:6px 13px;border-radius:30px;display:flex;align-items:center;gap:7px;background:rgba(20,16,12,.66);
+  border:1px solid var(--glass-stroke);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .5s 1.8s;}
+.ribbon.show{opacity:1;}
+.ribbon .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;transition-duration:.12s!important;}
+  .ambient span,.hero-bg::after{animation:none;}.card{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+<div class="ribbon" id="ribbon"><span class="dot"></span> Liquid Glass · Preview v2</div>
+
+<!-- ════ HOME ════ -->
+<section id="home">
+  <div class="hero-bg"><div class="scrim"></div></div>
+  <div class="home-eyebrow">East Grand Rapids, Michigan</div>
+  <div class="home-logo">
+    <span class="home-wordmark" id="wm">Bowdie's</span>
+    <span class="home-script molten">Chophouse</span>
+  </div>
+  <div class="home-rule"></div>
+  <p class="home-sub">Staff Training Reference</p>
+
+  <div class="home-grid">
+    <div class="tile" data-go="cocktails">
+      <div class="tile-photo" style="--img:url('assets/tile-spirits.jpg')"></div><div class="tile-scrim"></div>
+      <span class="tile-arrow">→</span><span class="tile-kicker">The Bar</span><span class="tile-name">Spirits</span>
+    </div>
+    <div class="tile" data-go="wine">
+      <div class="tile-photo" style="--img:url('assets/tile-wine.jpg')"></div><div class="tile-scrim"></div>
+      <span class="tile-arrow">→</span><span class="tile-kicker">The Cellar</span><span class="tile-name">Wine</span>
+    </div>
+    <div class="tile" data-go="food">
+      <div class="tile-photo" style="--img:url('assets/tile-prime.jpg')"></div><div class="tile-scrim"></div>
+      <span class="tile-arrow">→</span><span class="tile-kicker">The Kitchen</span><span class="tile-name">Prime &amp; Plate</span>
+    </div>
+    <div class="tile" data-go="stage">
+      <div class="tile-photo" style="--img:url('assets/tile-stage.jpg')"></div><div class="tile-scrim"></div>
+      <span class="tile-arrow">→</span><span class="tile-kicker">Pairings</span><span class="tile-name">Set the Stage</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ APP ════ -->
+<main id="app">
+  <div class="topbar">
+    <div class="tb-logo"><span class="tb-mark">Bowdie's</span><span class="tb-sec" id="tbsec">Spirits</span></div>
+    <button class="tb-home" id="goHome">Home</button>
+  </div>
+
+  <div class="searchwrap"><span class="search-ic">⌕</span><input class="search" id="search" type="text" placeholder="Search cocktails, spirits, or ingredients…"></div>
+
+  <!-- SPIRITS filters -->
+  <div class="filters" id="filtersSpirits">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="cocktail">Cocktails</button>
+    <button class="fbtn" data-f="whiskey">Whiskey</button>
+    <button class="fbtn" data-f="bourbon">Bourbon</button>
+    <button class="fbtn" data-f="singlemalt">Single Malt</button>
+  </div>
+  <!-- FOOD filters -->
+  <div class="filters" id="filtersFood" style="display:none">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="start">To Start</button>
+    <button class="fbtn" data-f="steak">Prime</button>
+    <button class="fbtn" data-f="main">Mains</button>
+    <button class="fbtn" data-f="side">Sharing</button>
+  </div>
+
+  <!-- ════ SPIRITS GRID ════ -->
+  <div class="grid" id="gridSpirits">
+
+    <article class="card" data-cat="cocktail" data-acc="var(--cat-whiskey)" data-name="Bowdie's Old Fashioned" data-text="house buffalo trace cherry orange bitters spirit forward citrus stirred">
+      <span class="accent"></span>
+      <div class="card-body">
+        <div class="c-cat">Cocktail · Whiskey</div>
+        <div class="c-name">Bowdie's Old Fashioned</div>
+        <div class="c-sub">Small Rocks Glass · Muddle + Stir</div>
+        <div class="c-tags"><span class="tag">Spirit Forward</span><span class="tag">Citrus</span><span class="tag">Stirred</span></div>
+        <div class="c-hint"><span class="chev">▾</span> Build</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val notes">The house take on a classic — Buffalo Trace muddled with rum-soaked cherries, orange, and bitters over a large cube. Familiar enough to be safe, distinct enough to be memorable.</div></div>
+          <div class="reveal"><div class="s-label">Staff Note</div><div class="s-val">Buffalo Trace brings vanilla and caramel; the rum-infused cherries set it apart. The brûléed orange adds faint smoke on the nose. Lead with this for spirit-forward but approachable.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Ingredients</div>
+            <ul class="ing"><li><span class="amt">2 oz</span> Buffalo Trace</li><li><span class="amt">1 tsp</span> Sugar</li><li><span class="amt">3</span> Rum-infused Cherries</li><li><span class="amt">1</span> Orange Slice</li><li><span class="amt">3 dash</span> Angostura Bitters</li></ul></div>
+          <div class="reveal"><div class="s-label">Method</div>
+            <ol class="steps"><li>Muddle orange, sugar, cherries, and bitters in the glass</li><li>Add 2 oz Buffalo Trace</li><li>Add a large cube and stir</li></ol>
+            <div class="garnish">Garnish: <b>Brûléed Orange</b></div></div>
+          <div class="reveal"><div class="s-label">Pairs With</div><div class="s-val">Kansas City · Bone Marrow · Prime Tartare</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="cocktail" data-acc="var(--cat-whiskey)" data-name="The Manhattan" data-text="rye sweet vermouth bitters spirit forward stirred classic">
+      <span class="accent"></span>
+      <div class="card-body">
+        <div class="c-cat">Cocktail · Whiskey</div>
+        <div class="c-name">The Manhattan</div>
+        <div class="c-sub">Large Rocks Glass · Stir</div>
+        <div class="c-tags"><span class="tag">Spirit Forward</span><span class="tag">Stirred</span></div>
+        <div class="c-hint"><span class="chev">▾</span> Build</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val notes">The benchmark whiskey cocktail — rye, sweet vermouth, and bitters, stirred silky and served with a brandied cherry. Timeless and confident.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Ingredients</div>
+            <ul class="ing"><li><span class="amt">2 oz</span> Rye Whiskey</li><li><span class="amt">1 oz</span> Sweet Vermouth</li><li><span class="amt">2 dash</span> Angostura Bitters</li></ul></div>
+          <div class="reveal"><div class="s-label">Method</div>
+            <ol class="steps"><li>Add all to a mixing glass with ice</li><li>Stir until well chilled</li><li>Strain over a large cube</li></ol>
+            <div class="garnish">Garnish: <b>Brandied Cherry</b></div></div>
+          <div class="reveal"><div class="s-label">Pairs With</div><div class="s-val">Filet Mignon · Kansas City · Bone Marrow</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="whiskey bourbon" data-acc="var(--cat-whiskey)" data-name="1792 Small Batch" data-text="bourbon smooth sweet barton kentucky caramel spice">
+      <span class="accent"></span>
+      <div class="card-body">
+        <div class="c-cat">Bourbon</div>
+        <div class="c-name">1792 Small Batch</div>
+        <div class="c-sub">Bourbon · Barton 1792 Distillery, Kentucky</div>
+        <div class="c-tags"><span class="tag">Smooth</span><span class="tag">Sweet</span><span class="tag">Caramel-Spice</span></div>
+        <div class="c-hint"><span class="chev">▾</span> Tasting Notes</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">Origin</div><div class="s-val">Barton 1792 Distillery, Kentucky</div></div>
+          <div class="reveal"><div class="s-label">Price</div><div class="s-val price">$13</div></div>
+          <div class="reveal"><div class="s-label">Tasting Notes</div><div class="s-val notes">A high-rye small batch — caramel and baking spice up front, a touch of pepper, and a smooth, confident finish. A reliable, easy recommendation.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Kansas City · Bone Marrow · Mushrooms</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="whiskey bourbon" data-acc="var(--cat-whiskey)" data-name="Ironfish Bourbon in Mezcal Casks" data-text="bourbon unique smoky mezcal finish michigan local agave">
+      <span class="accent"></span>
+      <div class="card-body">
+        <div class="c-cat">Bourbon · Michigan</div>
+        <div class="c-name">Ironfish Bourbon in Mezcal Casks</div>
+        <div class="c-sub">Bourbon · Ironfish Distillery, Michigan</div>
+        <div class="c-tags"><span class="tag">Unique</span><span class="tag">Smoky</span><span class="tag">Mezcal Finish</span></div>
+        <div class="c-hint"><span class="chev">▾</span> Tasting Notes</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">Origin</div><div class="s-val">Ironfish Distillery, Michigan</div></div>
+          <div class="reveal"><div class="s-label">Price</div><div class="s-val price">$16</div></div>
+          <div class="reveal"><div class="s-label">Tasting Notes</div><div class="s-val notes">A local Michigan bourbon finished in mezcal casks — subtle smoke and agave layered over classic bourbon sweetness. Worth recommending to curious guests.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Kansas City · Bone Marrow · Mushrooms</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="whiskey singlemalt" data-acc="var(--cat-gin)" data-name="Jack Daniel's 12 Year" data-text="single malt smooth rich 12 year tennessee aged">
+      <span class="accent"></span>
+      <div class="card-body">
+        <div class="c-cat">Single Malt</div>
+        <div class="c-name">Jack Daniel's 12 Year</div>
+        <div class="c-sub">Single Malt · Lynchburg, Tennessee</div>
+        <div class="c-tags"><span class="tag">Smooth</span><span class="tag">Rich</span><span class="tag">12 Yr</span></div>
+        <div class="c-hint"><span class="chev">▾</span> Tasting Notes</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">Price</div><div class="s-val price">$24</div></div>
+          <div class="reveal"><div class="s-label">Tasting Notes</div><div class="s-val notes">A rare aged expression — twelve years of charcoal mellowing and barrel aging give a noticeably richer, more complex character than the standard Black Label.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Faroe Island Salmon · Mushrooms · Filet Mignon</div></div>
+        </div>
+      </div>
+    </article>
+    <div class="empty" id="emptySpirits" style="display:none">No matches — try another term.</div>
+  </div>
+
+  <!-- ════ PRIME & PLATE GRID (photo cards) ════ -->
+  <div class="grid" id="gridFood" style="display:none">
+
+    <article class="card" data-cat="steak" data-name="Tomahawk" data-text="steak ribeye 36oz long bone showpiece flame grilled prime">
+      <div class="card-photo" style="--img:url('assets/dish-tomahawk.jpg')"><div class="pscrim"></div><span class="photo-cat">Prime · 36 oz</span><span class="photo-name">Tomahawk</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Long-Bone Ribeye</span><span class="tag">Flame-Grilled</span><span class="tag">For Sharing</span></div>
+        <div class="c-hint"><span class="chev">▾</span> The Cut</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Cut</div><div class="s-val notes">A 36 oz long-bone ribeye — the showpiece of the room. Flame-grilled, rested, and oven-finished for a deep char over a rich, marbled cap. Built to be carved and shared.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">The table's centerpiece. When a party wants a moment, this is it — bring it whole, carve it tableside. Pairs to a big Napa Cab or a bold bourbon.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Caymus Cabernet · Truffle Fries · Bowdie's Old Fashioned</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="steak" data-name="Cowboy Ribeye" data-text="steak ribeye 26oz bone in blue cheese butter flame grilled prime">
+      <div class="card-photo" style="--img:url('assets/dish-cowboy-ribeye.jpg')"><div class="pscrim"></div><span class="photo-cat">Prime · 26 oz</span><span class="photo-name">Cowboy Ribeye</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Bone-In Ribeye</span><span class="tag">Blue-Cheese Butter</span><span class="tag">Flame-Grilled</span></div>
+        <div class="c-hint"><span class="chev">▾</span> The Cut</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Cut</div><div class="s-val notes">A 26 oz bone-in ribeye, flame-grilled and finished with a melting cap of blue-cheese butter. Marbled, bold, and unapologetically rich.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">For the guest who wants flavor over leanness. The blue-cheese butter is the signature — mention it. A Cab or a Manhattan stands up to the fat.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Silver Oak Cabernet · Au Gratin Potatoes · The Manhattan</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="start" data-name="Bone Marrow" data-text="starter bone marrow grilled bread umami fat chives">
+      <div class="card-photo" style="--img:url('assets/dish-bone-marrow.jpg')"><div class="pscrim"></div><span class="photo-cat">To Start</span><span class="photo-name">Bone Marrow</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Roasted Marrow</span><span class="tag">Grilled Bread</span><span class="tag">Umami</span></div>
+        <div class="c-hint"><span class="chev">▾</span> The Plate</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Plate</div><div class="s-val notes">Split beef bones roasted until the marrow turns silky and rich, finished with sea salt and chives, served with grilled bread to spread it on.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">A bold, savory opener for the adventurous table. The umami fat begs for a spirit-forward whiskey cocktail or a big red.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Vieux Carré · Caymus Cabernet · Bowdie's Old Fashioned</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="start" data-name="Prime Tartare" data-text="starter prime tartare raw beef grilled bread microgreens">
+      <div class="card-photo" style="--img:url('assets/dish-tartare.jpg')"><div class="pscrim"></div><span class="photo-cat">To Start</span><span class="photo-name">Prime Tartare</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Hand-Cut Prime</span><span class="tag">Grilled Bread</span><span class="tag">Delicate</span></div>
+        <div class="c-hint"><span class="chev">▾</span> The Plate</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Plate</div><div class="s-val notes">Hand-cut prime beef, seasoned and bound, crowned with microgreens and served with grilled bread and flaked salt. Clean, delicate, and precise.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">The refined opener. For guests who know what they like — keep the pairing bright and high-toned so it doesn't bury the beef.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Laurent Perrier Brut · Sancerre · Bowdie's Old Fashioned</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="start" data-name="Shrimp Cocktail" data-text="starter shrimp prawns cocktail sauce seafood chilled">
+      <div class="card-photo" style="--img:url('assets/dish-shrimp.jpg')"><div class="pscrim"></div><span class="photo-cat">To Start</span><span class="photo-name">Shrimp Cocktail</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Chilled Prawns</span><span class="tag">Two Sauces</span><span class="tag">Light</span></div>
+        <div class="c-hint"><span class="chev">&#9662;</span> The Plate</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Plate</div><div class="s-val notes">Chilled jumbo prawns over a duo of bright sauces &mdash; a classic cocktail and a fresh herb pur&eacute;e. Clean, cold, and a crowd-pleasing start.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">The safe, light opener for any table. Crisp whites and sparkling sing here; avoid anything heavy or oaky.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Stoneleigh Sauvignon Blanc &middot; Prosecco &middot; Cucumber Gimlet</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="side" data-name="Lobster Mac" data-text="side main lobster tail mac cheese pasta rich shareable">
+      <div class="card-photo" style="--img:url('assets/dish-lobster-mac.jpg')"><div class="pscrim"></div><span class="photo-cat">For Sharing</span><span class="photo-name">Lobster Mac</span></div>
+      <div class="card-body tight">
+        <div class="c-tags"><span class="tag">Butter-Poached Tail</span><span class="tag">Three-Cheese</span><span class="tag">Rich</span></div>
+        <div class="c-hint"><span class="chev">&#9662;</span> The Plate</div>
+        <div class="c-detail">
+          <div class="reveal"><div class="s-label">The Plate</div><div class="s-val notes">A creamy three-cheese mac crowned with a butter-poached lobster tail and chives. Indulgent, shareable, and a guest favorite alongside any steak.</div></div>
+          <div class="reveal"><div class="s-label">Sell It</div><div class="s-val">The upsell that always lands. Suggest it for the table to share with a Cab or a buttery Chardonnay.</div></div>
+          <div class="reveal"><div class="hr"></div><div class="s-label">Pairs With</div><div class="s-val">Far Niente Chardonnay &middot; Filet Mignon &middot; Caymus Cabernet</div></div>
+        </div>
+      </div>
+    </article>
+    <div class="empty" id="emptyFood" style="display:none">No matches &mdash; try another term.</div>
+  </div>
+
+  <!-- placeholder for wine + stage -->
+  <div class="soon" id="soon" style="display:none">
+    <div class="k">In the full build</div>
+    <div class="t" id="soonName">Wine</div>
+    <div class="d">This view inherits the same liquid-glass system &mdash; photography, cards, motion, and search &mdash; once you sign off on the direction. Spirits and Prime &amp; Plate are the live flagships.</div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var home=document.getElementById('home'),app=document.getElementById('app'),tabbar=document.getElementById('tabbar');
+
+  var wm=document.getElementById('wm'),t=wm.textContent;wm.textContent='';
+  t.split('').forEach(function(c,i){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(0.35+i*0.06)+'s';wm.appendChild(s);});
+  setTimeout(function(){document.getElementById('ribbon').classList.add('show');},100);
+
+  var tabs=Array.from(document.querySelectorAll('.tbtn'));
+  var pill=document.getElementById('tabpill');
+  var views={
+    cocktails:{label:'Spirits'},food:{label:'Prime & Plate'},wine:{label:'Wine'},stage:{label:'Set the Stage'}
+  };
+  var current='cocktails';
+
+  function enter(tab){
+    home.classList.add('gone');setTimeout(function(){home.style.display='none';},700);
+    app.classList.add('live');if(tabbar)tabbar.classList.add('live');
+    setTab(tab||'cocktails');
+  }
+  document.querySelectorAll('.tile').forEach(function(t){t.addEventListener('click',function(){enter(t.dataset.go);});});
+  document.getElementById('goHome').addEventListener('click',function(){
+    home.style.display='flex';requestAnimationFrame(function(){home.classList.remove('gone');});
+    app.classList.remove('live');if(tabbar)tabbar.classList.remove('live');
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  });
+
+  function movePill(el){pill.style.left=el.offsetLeft+'px';pill.style.width=el.offsetWidth+'px';}
+  function setTab(name){
+    current=name;
+    tabs.forEach(function(b){b.classList.toggle('active',b.dataset.tab===name);});
+    var el=tabs.find(function(b){return b.dataset.tab===name;});if(el)movePill(el);
+    document.getElementById('tbsec').textContent=views[name].label;
+    var live=(name==='cocktails'||name==='food');
+    document.getElementById('gridSpirits').style.display=name==='cocktails'?'flex':'none';
+    document.getElementById('filtersSpirits').style.display=name==='cocktails'?'flex':'none';
+    document.getElementById('gridFood').style.display=name==='food'?'flex':'none';
+    document.getElementById('filtersFood').style.display=name==='food'?'flex':'none';
+    document.getElementById('soon').style.display=live?'none':'block';
+    if(!live)document.getElementById('soonName').textContent=views[name].label;
+    document.getElementById('search').value='';
+    resetFilters();applyFilter();
+    window.scrollTo({top:0,behavior:'auto'});
+    if(live)revealCards();
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){setTab(b.dataset.tab);});});
+  window.addEventListener('resize',function(){var a=document.querySelector('.tbtn.active');if(a)movePill(a);});
+
+  var activeF='all';
+  function resetFilters(){activeF='all';document.querySelectorAll('.fbtn').forEach(function(x){x.classList.toggle('active',x.dataset.f==='all');});}
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var bar=b.closest('.filters');bar.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');activeF=b.dataset.f;applyFilter();
+    });
+  });
+
+  document.getElementById('search').addEventListener('input',applyFilter);
+
+  function currentGrid(){return current==='food'?document.getElementById('gridFood'):document.getElementById('gridSpirits');}
+  function applyFilter(){
+    if(current!=='cocktails'&&current!=='food')return;
+    var grid=currentGrid();var q=document.getElementById('search').value.toLowerCase().trim();
+    var cards=Array.from(grid.querySelectorAll('.card'));var vis=0;
+    cards.forEach(function(c){
+      var cat=c.dataset.cat||'',name=(c.dataset.name||'').toLowerCase(),text=(c.dataset.text||'')+' '+name;
+      var okF=activeF==='all'||cat.split(' ').indexOf(activeF)!==-1;
+      var okQ=!q||text.indexOf(q)!==-1;var show=okF&&okQ;
+      c.style.display=show?'block':'none';if(show)vis++;
+    });
+    var emptyId=current==='food'?'emptyFood':'emptySpirits';
+    document.getElementById(emptyId).style.display=vis?'none':'block';
+    revealCards();
+  }
+
+  document.querySelectorAll('.grid').forEach(function(grid){
+    grid.addEventListener('click',function(e){
+      var card=e.target.closest('.card');if(!card)return;
+      var open=card.classList.contains('expanded');
+      grid.querySelectorAll('.card').forEach(function(c){c.classList.remove('expanded','dimmed');});
+      if(!open){
+        card.classList.add('expanded');
+        grid.querySelectorAll('.card').forEach(function(c){if(c!==card&&c.style.display!=='none')c.classList.add('dimmed');});
+        if(!reduce)setTimeout(function(){card.scrollIntoView({block:'nearest',behavior:'smooth'});},120);
+      }
+    });
+  });
+
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('revealed');io.unobserve(en.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -6% 0px'}):null;
+  function revealCards(){
+    var grid=currentGrid();
+    grid.querySelectorAll('.card,.sec-intro').forEach(function(c,i){
+      if(c.style.display==='none'){return;}
+      if(reduce||!io){c.classList.add('revealed');return;}
+      if(!c.classList.contains('revealed')){c.style.transitionDelay=(Math.min(i,8)*0.045)+'s';io.observe(c);}
+    });
+  }
+
+  requestAnimationFrame(function(){requestAnimationFrame(function(){var a=document.querySelector('.tbtn.active');if(a)movePill(a);});});
+})();
+</script>
+</body>
+</html>

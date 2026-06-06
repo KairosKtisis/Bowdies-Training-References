@@ -1,0 +1,356 @@
+/* ════════════════════════════════════════════════════════════════════════
+   BOWDIE'S — LIQUID GLASS THEME  (production override · loads after styles.css
+   + set-the-stage.css)  ·  warm candlelit glass + brand photography
+   Reverts cleanly: remove the <link> to this file, or restore the backup.
+   Preserves every JS hook and the existing per-category color coding.
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* deepen + warm the base (cards keep their --cat-* colors untouched) */
+  --charcoal:#0B0907;
+  --surface:#100D0A;
+  --surface-2:#15110C;
+  --surface-3:#1B160F;
+  --border:rgba(233,201,106,0.16);
+  --text-primary:#F3ECDC;
+  --text-muted:#9A8F79;
+  --text-dim:#5A5246;
+  --gold:#C9A84C; --gold-light:#F0D785; --gold-dim:#8A6B2A;
+
+  /* glass material */
+  --lx-glass:linear-gradient(160deg,rgba(50,41,30,0.60),rgba(38,31,23,0.46));
+  --lx-stroke:rgba(233,201,106,0.16);
+  --lx-stroke-hi:rgba(243,215,133,0.46);
+  --lx-shadow:rgba(0,0,0,0.55);
+  --lx-spring:cubic-bezier(.34,1.56,.64,1);
+  --lx-ease:cubic-bezier(.22,1,.36,1);
+}
+
+html,body{background:var(--charcoal);}
+body{ -webkit-font-smoothing:antialiased; }
+
+/* kill the legacy raster grain (renders blocky on phones); soft vignette instead */
+body::before{ opacity:0 !important; }
+body::after{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% 0%,transparent 60%,rgba(0,0,0,.34) 100%);
+}
+
+/* ambient candlelight pools (behind everything) */
+.lx-ambient{position:fixed;inset:-20%;z-index:0;pointer-events:none;overflow:hidden;}
+.lx-ambient i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;mix-blend-mode:screen;display:block;}
+.lx-ambient .a{width:54vw;height:54vw;left:-8vw;top:-6vh;background:radial-gradient(circle,#7a521f,transparent 70%);animation:lxA 26s var(--lx-ease) infinite;}
+.lx-ambient .b{width:48vw;height:48vw;right:-10vw;top:22vh;background:radial-gradient(circle,#5e3a16,transparent 70%);animation:lxB 32s var(--lx-ease) infinite;}
+.lx-ambient .c{width:60vw;height:60vw;left:6vw;bottom:-18vh;background:radial-gradient(circle,#8a6a2a,transparent 72%);animation:lxC 38s var(--lx-ease) infinite;}
+@keyframes lxA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}}
+@keyframes lxB{0%,100%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-7vw,9vh) scale(.9)}}
+@keyframes lxC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5vw,-7vh) scale(1.12)}}
+
+/* ════════ HOME ════════ */
+#home-screen{ background:var(--charcoal); }
+/* cinematic, heavily-scrimmed hero photo behind the logo + tiles */
+#home-screen::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(11,9,7,.93) 0%,rgba(11,9,7,.86) 38%,rgba(11,9,7,.97) 80%,rgba(11,9,7,1) 100%),
+    url('assets/hero-table.jpg');
+  background-size:cover,cover;background-position:center,center;
+}
+#home-screen > *{ position:relative; z-index:1; }
+.home-eyebrow,.home-script{ color:var(--gold); }
+.home-wordmark{ filter:drop-shadow(0 6px 26px rgba(0,0,0,.8)); }
+
+/* 4 image tiles (Apple-TV language) */
+#home-select{
+  display:grid !important;grid-template-columns:1fr 1fr;gap:12px;
+  width:100%;max-width:460px;margin:30px auto 0;
+}
+.home-btn{
+  position:relative;overflow:hidden;min-height:158px;border-radius:22px !important;
+  display:flex !important;align-items:flex-end;justify-content:flex-start;text-align:left;
+  padding:16px !important;border:1px solid var(--lx-stroke) !important;background:#15110c !important;
+  color:#fff !important;font-family:'Playfair Display',serif !important;font-weight:600 !important;
+  font-size:22px !important;letter-spacing:.01em !important;text-transform:none !important;
+  box-shadow:0 22px 50px -22px var(--lx-shadow);
+  transition:transform .5s var(--lx-spring),box-shadow .4s var(--lx-ease),border-color .4s;
+}
+.home-btn::before{ /* photo */
+  content:'';position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;
+  transition:transform .8s var(--lx-ease);
+}
+.home-btn::after{ /* scrim */
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,9,7,.05) 0%,rgba(11,9,7,.35) 52%,rgba(11,9,7,.9) 100%);
+}
+.home-btn > *{ position:relative; z-index:2; }
+.home-btn{ text-shadow:0 2px 14px rgba(0,0,0,.85); }
+.home-btn:hover{ transform:translateY(-2px); border-color:var(--lx-stroke-hi) !important; }
+.home-btn:active{ transform:scale(.97); }
+.home-btn:hover::before{ transform:scale(1.06); }
+#home-spirits::before{ background-image:url('assets/tile-spirits.jpg'); }
+#home-wine::before{ background-image:url('assets/tile-wine.jpg'); background-position:62% 12%; }
+#home-prime::before{ background-image:url('assets/tile-prime.jpg'); }
+#home-wheel::before{ background-image:url('assets/tile-stage.jpg'); }
+.home-return{ color:var(--gold) !important; }
+
+/* ════════ FORCE HOME-ONLY NAVIGATION ════════ */
+.guide-tabs{ display:none !important; }
+
+/* ════════ TOP BAR + HEADER ════════ */
+#top-bar{
+  background:linear-gradient(180deg,rgba(11,9,7,.9),rgba(11,9,7,.45) 72%,transparent) !important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:none !important;
+}
+#top-bar-return{
+  font-family:'Josefin Sans',sans-serif;letter-spacing:.12em;color:var(--text-primary);
+  background:rgba(255,240,210,.05);border:1px solid var(--lx-stroke);padding:9px 14px;border-radius:30px;
+  transition:.3s var(--lx-ease);
+}
+#top-bar-return:active{ transform:scale(.94); color:var(--gold); }
+.top-bar-section{ color:var(--gold); font-style:italic; }
+.header::after{ background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+
+/* warm depth behind sections (override inline charcoal) */
+#main-content{ background:radial-gradient(120% 80% at 50% -8%,#1a130c,#0B0907 60%) !important; }
+
+/* ════════ STICKY NAV · SEARCH ════════ */
+.sticky-nav{
+  background:linear-gradient(180deg,rgba(11,9,7,.92),rgba(11,9,7,.6) 70%,rgba(11,9,7,.2)) !important;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:none !important;
+}
+.search-input{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;
+  border-radius:16px !important;padding:14px 16px 14px 16px !important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:border-color .35s var(--lx-ease),box-shadow .35s var(--lx-ease) !important;
+}
+.search-input:focus{
+  border-color:var(--lx-stroke-hi) !important;
+  box-shadow:0 0 0 4px rgba(233,201,106,.10),0 14px 40px -16px rgba(0,0,0,.7) !important;
+}
+.search-tip{ color:var(--text-dim); border-top:none !important; }
+
+/* ════════ FILTERS — glass pills + eccentric category-colored active ════════ */
+.filter-btn{
+  border-radius:24px !important;border:1px solid var(--lx-stroke) !important;
+  background:rgba(255,240,210,.04) !important;color:var(--text-muted) !important;
+  transition:transform .35s var(--lx-spring),color .3s,background .3s,border-color .3s,letter-spacing .35s var(--lx-ease),box-shadow .3s !important;
+}
+.filter-btn:active{ transform:scale(.93); }
+.filter-btn.active{
+  color:var(--acc,var(--gold)) !important;
+  border-color:var(--acc,var(--gold)) !important;
+  background:rgba(255,240,210,.07) !important;
+  letter-spacing:.3em !important;font-weight:600 !important;
+  box-shadow:inset 0 0 0 1px var(--acc,var(--gold)),0 6px 18px -10px var(--acc,var(--gold)) !important;
+}
+/* category accents — primary filters (match the card colors exactly) */
+.filter-btn[data-filter="whiskey"],.filter-btn[data-filter="scotch"]{ --acc:var(--cat-whiskey); }
+.filter-btn[data-filter="tequila"]{ --acc:var(--cat-tequila); }
+.filter-btn[data-filter="gin"]{ --acc:var(--cat-gin); }
+.filter-btn[data-filter="vodka"]{ --acc:var(--cat-vodka); }
+.filter-btn[data-filter="liqueur"]{ --acc:var(--cat-offmenu); }
+.filter-btn[data-filter="rum"]{ --acc:#C58A5A; }
+.filter-btn[data-filter="port"]{ --acc:var(--cat-cab); }
+.filter-btn[data-filter="bubbles"]{ --acc:var(--cat-bubbles); }
+.filter-btn[data-filter="whites"]{ --acc:var(--cat-whites); }
+.filter-btn[data-filter="glass"]{ --acc:var(--cat-glass); }
+.filter-btn[data-filter="pinot"]{ --acc:var(--cat-pinot); }
+.filter-btn[data-filter="cab"]{ --acc:var(--cat-cab); }
+.filter-btn[data-filter="old"]{ --acc:var(--cat-old); }
+.filter-btn[data-filter="blends"]{ --acc:var(--cat-blends); }
+/* sub-filters inherit their family color from the bar (e.g. amaro -> purple) */
+#subfilters-whiskey,#subfilters-scotch{ --acc:var(--cat-whiskey); }
+#subfilters-tequila{ --acc:var(--cat-tequila); }
+#subfilters-gin{ --acc:var(--cat-gin); }
+#subfilters-vodka{ --acc:var(--cat-vodka); }
+#subfilters-liqueur{ --acc:var(--cat-offmenu); }
+#subfilters-port{ --acc:var(--cat-cab); }
+#subfilters-rum{ --acc:#C58A5A; }
+
+/* ════════ CARDS — liquid glass ════════ */
+.grid{ background:transparent !important;border-top:none !important;gap:12px !important;padding:14px 12px 48px !important; }
+.card{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;
+  border-radius:18px !important;overflow:hidden;
+  backdrop-filter:blur(15px) saturate(140%);-webkit-backdrop-filter:blur(15px) saturate(140%);
+  box-shadow:0 16px 40px -22px var(--lx-shadow),inset 0 1px 0 rgba(255,240,210,.06) !important;
+  transition:transform .5s var(--lx-spring),box-shadow .45s var(--lx-ease),border-color .4s,opacity .4s !important;
+}
+.card::after{ /* specular rim */
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(135deg,var(--lx-stroke-hi),transparent 42%);
+  -webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);
+  -webkit-mask-composite:xor;mask-composite:exclude;padding:1px;opacity:.55;
+}
+.card:hover{ border-color:var(--lx-stroke-hi) !important; }
+.card.expanded{
+  transform:scale(1.01);border-color:var(--lx-stroke-hi) !important;
+  box-shadow:0 30px 70px -28px rgba(0,0,0,.82),0 0 0 1px var(--lx-stroke-hi),inset 0 1px 0 rgba(255,240,210,.1) !important;
+}
+.card-name{ font-family:'Playfair Display',serif !important;font-weight:600 !important;letter-spacing:.01em; }
+.card-category{ font-family:'Josefin Sans',sans-serif !important;letter-spacing:.24em !important; } /* keeps its --cat color */
+.expand-hint{ color:var(--gold) !important;letter-spacing:.18em; }
+.tag{
+  background:rgba(255,240,210,.05) !important;border:1px solid var(--lx-stroke) !important;
+  border-radius:20px !important;color:var(--text-primary) !important;letter-spacing:.1em;
+}
+.section-label{ color:var(--gold) !important;letter-spacing:.22em; }
+.ingredient-list .amt,.amt{ color:var(--gold) !important; }
+.vintage-badge,.price-badge{
+  background:rgba(255,240,210,.05) !important;border:1px solid var(--lx-stroke) !important;border-radius:20px !important;
+}
+.price-badge{ color:var(--gold-light) !important; }
+
+/* ════════ SET THE STAGE — pairing browser ════════ */
+#pb-search-results,.search-results{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;border-radius:16px !important;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+}
+.search-result-item{ border-color:rgba(233,201,106,.1) !important; }
+.pb-recent-chip{
+  background:rgba(255,240,210,.05) !important;border:1px solid var(--lx-stroke) !important;border-radius:24px !important;color:var(--text-primary) !important;
+}
+.pb-profile-tag{ background:rgba(255,240,210,.05) !important;border:1px solid var(--lx-stroke) !important;border-radius:20px !important; }
+.pb-tier-section{
+  background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;border-radius:16px !important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;
+  transition:border-color .4s var(--lx-ease),box-shadow .4s var(--lx-ease) !important;
+}
+.pb-tier-section.open{ border-color:var(--lx-stroke-hi) !important;box-shadow:0 20px 50px -26px var(--lx-shadow) !important; }
+.pb-rec-item,.pb-avoid-item{
+  background:rgba(255,240,210,.03) !important;border:1px solid var(--lx-stroke) !important;border-radius:14px !important;
+  transition:transform .3s var(--lx-spring),background .3s,border-color .3s !important;
+}
+.pb-rec-item:active,.pb-avoid-item:active{ transform:scale(.985); }
+.pb-rec-item.expanded,.pb-avoid-item.expanded{ border-color:var(--lx-stroke-hi) !important;background:rgba(255,240,210,.06) !important; }
+.pb-rec-explain,.pb-avoid-explain{ background:rgba(11,9,7,.5) !important;border-radius:14px !important; }
+.pb-cluster-note,.pb-oos-banner{ border-radius:14px !important; }
+
+/* compare cards */
+.cmp-verdict-card{ background:var(--lx-glass) !important;border:1px solid var(--lx-stroke) !important;border-radius:16px !important; }
+
+/* ════════ MOTION ════════ */
+.guide-panel.active{ animation:lxPanel .5s var(--lx-ease); }
+@keyframes lxPanel{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;}
+  .lx-ambient i{animation:none;}
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   FIX PASS — robust home-tile photos + desktop adaptation
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Home tiles: photo lives on the element background so the label always sits
+   on top. (Earlier pseudo-element approach could be stacked over by the scrim.) */
+.home-btn::before,.home-btn::after{ display:none !important; }
+#home-spirits,#home-wine,#home-prime,#home-wheel{
+  background-color:#15110c !important;background-size:cover !important;
+  background-repeat:no-repeat !important;background-position:center !important;
+}
+#home-spirits{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-spirits.jpg') !important; }
+#home-wine{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-wine.jpg') !important;background-position:62% 12% !important; }
+#home-prime{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-prime.jpg') !important; }
+#home-wheel{ background-image:linear-gradient(180deg,rgba(11,9,7,.10),rgba(11,9,7,.32) 46%,rgba(11,9,7,.92)),url('assets/tile-stage.jpg') !important; }
+
+/* ════════ DESKTOP / LAPTOP ADAPTATION ════════
+   The original app was a fixed phone-width column. Let it breathe on larger
+   screens: widen the capped wrappers, cap the grid in a comfortable measure. */
+@media (min-width:880px){
+  .global-search-wrap{ max-width:760px !important; }
+  .filter-bar{ max-width:1000px !important; }
+  .sub-filter-bar{ max-width:1000px !important; }
+  .grid{ max-width:1240px !important; margin-left:auto !important; margin-right:auto !important; }
+  #home-select{ max-width:720px !important; }
+  .home-btn{ min-height:200px; }
+  /* Set the Stage + admin + flows: widen from the 600px phone cap */
+  #screen-pairings,#screen-compare,#screen-sessions,#screen-selection,
+  #screen-firsttimer,#screen-overview,#screen-table,#screen-admin,
+  #panel-stage .screen{ max-width:860px !important; }
+}
+@media (min-width:1280px){
+  .grid{ grid-template-columns:repeat(auto-fill,minmax(360px,1fr)) !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   HERO-EXPAND TRANSITION + SECTION SCENERY  (paired with lux-enhance.js)
+   ════════════════════════════════════════════════════════════════════════ */
+/* section content now floats over the scenery photo */
+#main-content{ background:transparent !important; }
+/* persistent dim photo backdrop for the active section */
+#lx-scenery{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  opacity:0;transition:opacity .7s var(--lx-ease);
+}
+/* the tile that grows to fill the screen on click */
+.lx-expander{
+  position:fixed;z-index:1200;overflow:hidden;border-radius:22px;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  box-shadow:0 40px 90px -24px rgba(0,0,0,.85);
+  transition:top .62s var(--lx-ease),left .62s var(--lx-ease),width .62s var(--lx-ease),
+             height .62s var(--lx-ease),border-radius .62s var(--lx-ease),opacity .45s var(--lx-ease);
+  will-change:top,left,width,height;
+}
+.lx-expander.grow{ top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;height:100dvh !important;border-radius:0 !important; }
+.lx-expander.fade{ opacity:0; }
+@media (prefers-reduced-motion:reduce){ .lx-expander{ transition:opacity .2s; } }
+
+/* ════════════════════════════════════════════════════════════════════════
+   SCENERY LAYERING FIX — keep the section photo visible behind translucent cards
+   ════════════════════════════════════════════════════════════════════════ */
+/* deterministic stack: scenery (0) sits behind the section content (1) */
+#lx-scenery{ z-index:0 !important; }
+#main-content{ position:relative !important; z-index:1 !important; background:transparent !important; }
+.guide-panel,.header{ background:transparent !important; }
+.header{ border-bottom:none !important; }
+
+/* darker, frosted-translucent cards so the photo behind shows through */
+:root{ --lx-glass:linear-gradient(160deg,rgba(18,14,10,0.60),rgba(10,8,5,0.48)); }
+.card{
+  background:var(--lx-glass) !important;
+  backdrop-filter:blur(18px) saturate(135%) !important;-webkit-backdrop-filter:blur(18px) saturate(135%) !important;
+}
+.card.expanded{ background:linear-gradient(160deg,rgba(20,15,11,0.78),rgba(12,9,6,0.66)) !important; }
+/* pairing-browser tiers match the same frosted treatment over the bartender scenery */
+.pb-tier-section{ background:var(--lx-glass) !important;backdrop-filter:blur(16px) saturate(135%) !important;-webkit-backdrop-filter:blur(16px) saturate(135%) !important; }
+
+/* ════════ NAV / SEARCH / FILTERS — remove solid fills, go frosted ════════ */
+.sticky-nav{
+  background:linear-gradient(180deg,rgba(13,10,7,.58),rgba(13,10,7,.24)) !important;
+  backdrop-filter:blur(20px) saturate(140%) !important;-webkit-backdrop-filter:blur(20px) saturate(140%) !important;
+  border-bottom:1px solid var(--lx-stroke) !important;
+}
+.filter-bar,.sub-filter-bar{ background:transparent !important;border-top:none !important; }
+.search-input{ background:linear-gradient(160deg,rgba(28,22,15,0.5),rgba(18,14,9,0.4)) !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   ENTRANCE POLISH — no blink, glass reveal, no nav blur-rectangle
+   ════════════════════════════════════════════════════════════════════════ */
+/* backdrop must be instant (pre-staged before the cover lifts) */
+#lx-scenery{ transition:none !important; }
+
+/* remove the big frosted rectangle around search/filters/tip — soft fade only,
+   no backdrop blur. The search pill + filter pills keep their own glass. */
+.sticky-nav{
+  background:linear-gradient(180deg,rgba(11,9,7,.52),rgba(11,9,7,0)) !important;
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+  border-bottom:none !important;
+}
+
+/* chrome + cards fade in over the static photo (photo itself never animates) */
+@keyframes lxRise{ from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+#main-content.lx-enter .header{ animation:lxRise .5s var(--lx-ease) .02s both !important; }
+#main-content.lx-enter .sticky-nav{ animation:lxRise .5s var(--lx-ease) .10s both !important; }
+#main-content.lx-enter .guide-panel.active{ animation:lxRise .55s var(--lx-ease) .16s both !important; }
+
+/* ════════ DARKER FILTERS + CARDS ════════ */
+.filter-btn{ background:linear-gradient(160deg,rgba(12,9,6,0.62),rgba(7,5,3,0.5)) !important; }
+:root{ --lx-glass:linear-gradient(160deg,rgba(11,8,5,0.74),rgba(5,4,2,0.62)); }
+.card{ background:var(--lx-glass) !important; }
+.card.expanded{ background:linear-gradient(160deg,rgba(14,10,7,0.86),rgba(8,6,4,0.74)) !important; }
+.pb-tier-section{ background:var(--lx-glass) !important; }
+
+/* keep the selected filter just as dark — only the accent border/text/glow change */
+.filter-btn.active{ background:linear-gradient(160deg,rgba(12,9,6,0.62),rgba(7,5,3,0.5)) !important; }
