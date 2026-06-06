@@ -674,3 +674,6 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 /* Prime & Plate: tags are for search only — hide them visually (kept in DOM
    so main.js search/allergen matching still reads them). */
 #grid-food .tag-row{ display:none !important; }
+
+/* Shrimp Cocktail: portrait shot — drop the focal point onto the shrimp */
+#grid-food .card[data-name="Shrimp Cocktail"] .lx-card-photo{ background-position:center 66% !important; }

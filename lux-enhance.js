@@ -6,7 +6,6 @@
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.90),rgba(11,9,7,.86) 50%,rgba(11,9,7,.96))";
   var HERO="assets/hero-table.jpg";
 
-  /* Prime & Plate dish → photo (exact data-name match). Lazy-loaded. */
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg","Escargot":"assets/dish-escargot.jpg",
     "Seared Scallops":"assets/dish-scallops.jpg","Crab Cake":"assets/dish-crab-cake.jpg",
@@ -19,7 +18,9 @@
     "Cowboy Ribeye":"assets/dish-cowboy-ribeye.jpg","Lobster Mac":"assets/dish-lobster-mac.jpg",
     "Brussels and Belly":"assets/dish-brussels.jpg","Au Gratin Potatoes":"assets/dish-au-gratin.jpg",
     "Mushrooms":"assets/dish-mushrooms.jpg","Truffle Fries":"assets/dish-truffle-fries.jpg",
-    "Creme Brulee":"assets/dish-creme-brulee.jpg","Peanut Butter Brownie":"assets/dish-pb-brownie.jpg","Beignets":"assets/dish-beignets.jpg","Carrot Cake":"assets/dish-carrot-cake.jpg","Faroe Island Salmon":"assets/dish-salmon.jpg","Roast Half Chicken":"assets/dish-chicken.jpg"
+    "Creme Brulee":"assets/dish-creme-brulee.jpg","Peanut Butter Brownie":"assets/dish-pb-brownie.jpg",
+    "Beignets":"assets/dish-beignets.jpg","Carrot Cake":"assets/dish-carrot-cake.jpg",
+    "Faroe Island Salmon":"assets/dish-salmon.jpg?v=2","Roast Half Chicken":"assets/dish-chicken.jpg","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg","Cheesecake":"assets/dish-cheesecake.jpg","Market Fish":"assets/dish-market-fish.jpg","Seasonal Soup":"assets/dish-seasonal-soup.jpg","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg","Sauteed Garlic Spinach":"assets/dish-spinach.jpg","Creamed Spinach":"assets/dish-spinach.jpg"
   };
 
   var scenery=document.createElement('div'); scenery.id='lx-scenery'; document.body.appendChild(scenery);
@@ -27,19 +28,30 @@
   function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
+  var _io=null;
+  function loadVisible(grid){
+    grid.querySelectorAll('.lx-card-photo').forEach(function(p){
+      if(p.style.backgroundImage) return;
+      var r=p.getBoundingClientRect();
+      if(r.top < (window.innerHeight+600) && r.bottom > -600) p.style.backgroundImage="url('"+p.dataset.img+"')";
+    });
+  }
+  /* Inject only once the panel is visible, so the observer/layout see real boxes. */
   function injectFoodPhotos(){
     var grid=document.getElementById('grid-food'); if(!grid) return;
-    var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
-      es.forEach(function(en){ if(en.isIntersecting){ var p=en.target; p.style.backgroundImage="url('"+p.dataset.img+"')"; io.unobserve(p); } });
-    },{rootMargin:'400px'}):null;
+    if(!_io && ('IntersectionObserver' in window)){
+      _io=new IntersectionObserver(function(es){
+        es.forEach(function(en){ if(en.isIntersecting){ var p=en.target; if(!p.style.backgroundImage) p.style.backgroundImage="url('"+p.dataset.img+"')"; _io.unobserve(p); } });
+      },{rootMargin:'500px'});
+    }
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
       var url=FOOD[card.getAttribute('data-name')];
       if(!url || card.querySelector('.lx-card-photo')) return;
       var p=document.createElement('div'); p.className='lx-card-photo'; p.dataset.img=url;
-      if(io){ io.observe(p); } else { p.style.backgroundImage="url('"+url+"')"; }
-      card.insertBefore(p, card.firstChild);
-      card.classList.add('lx-has-photo');
+      card.insertBefore(p, card.firstChild); card.classList.add('lx-has-photo');
+      if(_io) _io.observe(p); else p.style.backgroundImage="url('"+url+"')";
     });
+    requestAnimationFrame(function(){ loadVisible(grid); });  /* force-load whatever's already on screen */
   }
 
   function bind(){
@@ -50,12 +62,14 @@
       setScenery(MAP[btn.id]);
     },true);
 
-    injectFoodPhotos();
-
     if(typeof window.selectSection==='function' && !window.__lxScrollWrapped){
       window.__lxScrollWrapped=true;
       var _ss=window.selectSection;
-      window.selectSection=function(){ var r=_ss.apply(this,arguments); resetScroll(); return r; };
+      window.selectSection=function(guide){
+        var r=_ss.apply(this,arguments); resetScroll();
+        if(guide==='food'){ injectFoodPhotos(); requestAnimationFrame(injectFoodPhotos); }
+        return r;
+      };
     }
     if(typeof window.openAdmin==='function' && !window.__lxAdminWrapped){
       window.__lxAdminWrapped=true;
