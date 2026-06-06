@@ -2,7 +2,7 @@
    Hero-expand home transition, pre-staged scenery (no blink), glass reveal. */
 (function(){
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg'};
+  var IMG={cocktails:'assets/tile-spirits.jpg',wine:'assets/tile-wine.jpg',food:'assets/tile-prime.jpg',stage:'assets/tile-stage.jpg?v=2'};
   var POS={wine:'62% 12%'};
   /* shared scrim for expander AND scenery so the swap is invisible */
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.45),rgba(11,9,7,.62) 50%,rgba(11,9,7,.82))";
