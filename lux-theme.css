@@ -677,3 +677,39 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 
 /* Shrimp Cocktail: portrait shot — drop the focal point onto the shrimp */
 #grid-food .card[data-name="Shrimp Cocktail"] .lx-card-photo{ background-position:center 66% !important; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   AUDIT PASS — color contrast, text legibility & candlelight lighting
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* 1) Brighten the category hues that read too dark on the dark glass (these
+   feed card labels AND the matching filters, so legibility lifts everywhere). */
+:root{
+  --cat-cab:#C46E81;     /* was #8A4A5A — near-invisible maroon on dark */
+  --cat-blends:#88AA98;  /* lift the sage */
+  --cat-offmenu:#B690DA; /* lift the amaro purple */
+  --cat-old:#C39A72;     /* warm tan, a touch brighter */
+}
+
+/* 2) Slightly lift muted/dim text so subs, kitchen notes & tips read cleanly */
+:root{ --text-muted:#A99D85; --text-dim:#6C6251; }
+
+/* 3) Candlelight: a soft warm glow from the top of each section (behind the
+   cards, above the dark scenery) — gives the flat-dark pages real lighting. */
+#main-content::before{
+  content:''; position:fixed; top:0; left:0; right:0; height:46vh; z-index:-1; pointer-events:none;
+  background:radial-gradient(120% 100% at 50% -12%, rgba(233,170,92,.11), rgba(233,170,92,.035) 46%, transparent 72%);
+}
+
+/* 4) A hairline of light under the floating header for definition over content */
+#top-bar{ box-shadow:0 1px 0 rgba(255,244,222,.05) !important; }
+
+/* 5) Card titles get a hair more luminance for hierarchy */
+.card-name{ color:#F6EFDE !important; }
+
+/* Market Fish & Roast Half Chicken: subject sits high in frame — raise focal point */
+#grid-food .card[data-name="Market Fish"] .lx-card-photo{ background-position:center 40% !important; }
+#grid-food .card[data-name="Roast Half Chicken"] .lx-card-photo{ background-position:center 30% !important; }
+
+/* Faroe Island Salmon: fillet sits high over the couscous — raise focal point */
+#grid-food .card[data-name="Faroe Island Salmon"] .lx-card-photo{ background-position:center 30% !important; }

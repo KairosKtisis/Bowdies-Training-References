@@ -20,7 +20,7 @@
     "Mushrooms":"assets/dish-mushrooms.jpg","Truffle Fries":"assets/dish-truffle-fries.jpg",
     "Creme Brulee":"assets/dish-creme-brulee.jpg","Peanut Butter Brownie":"assets/dish-pb-brownie.jpg",
     "Beignets":"assets/dish-beignets.jpg","Carrot Cake":"assets/dish-carrot-cake.jpg",
-    "Faroe Island Salmon":"assets/dish-salmon.jpg?v=2","Roast Half Chicken":"assets/dish-chicken.jpg","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg","Cheesecake":"assets/dish-cheesecake.jpg","Market Fish":"assets/dish-market-fish.jpg","Seasonal Soup":"assets/dish-seasonal-soup.jpg","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg","Sauteed Garlic Spinach":"assets/dish-spinach.jpg","Creamed Spinach":"assets/dish-spinach.jpg"
+    "Faroe Island Salmon":"assets/dish-salmon.jpg?v=3","Roast Half Chicken":"assets/dish-chicken.jpg","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg","Cheesecake":"assets/dish-cheesecake.jpg","Market Fish":"assets/dish-market-fish.jpg","Seasonal Soup":"assets/dish-seasonal-soup.jpg?v=2","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?v=2","Creamed Spinach":"assets/dish-creamed-spinach.jpg"
   };
 
   var scenery=document.createElement('div'); scenery.id='lx-scenery'; document.body.appendChild(scenery);
@@ -28,30 +28,18 @@
   function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
-  var _io=null;
-  function loadVisible(grid){
-    grid.querySelectorAll('.lx-card-photo').forEach(function(p){
-      if(p.style.backgroundImage) return;
-      var r=p.getBoundingClientRect();
-      if(r.top < (window.innerHeight+600) && r.bottom > -600) p.style.backgroundImage="url('"+p.dataset.img+"')";
-    });
-  }
-  /* Inject only once the panel is visible, so the observer/layout see real boxes. */
+  /* Eager, bulletproof: when Prime & Plate is opened, set every food photo
+     immediately (only ~3MB, only loads on entering the section). No observer /
+     scroll timing, so the first card can never load half-broken. Idempotent. */
   function injectFoodPhotos(){
     var grid=document.getElementById('grid-food'); if(!grid) return;
-    if(!_io && ('IntersectionObserver' in window)){
-      _io=new IntersectionObserver(function(es){
-        es.forEach(function(en){ if(en.isIntersecting){ var p=en.target; if(!p.style.backgroundImage) p.style.backgroundImage="url('"+p.dataset.img+"')"; _io.unobserve(p); } });
-      },{rootMargin:'500px'});
-    }
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
-      var url=FOOD[card.getAttribute('data-name')];
-      if(!url || card.querySelector('.lx-card-photo')) return;
-      var p=document.createElement('div'); p.className='lx-card-photo'; p.dataset.img=url;
+      if(card.querySelector('.lx-card-photo')) return;
+      var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
+      var p=document.createElement('div'); p.className='lx-card-photo';
+      p.style.backgroundImage="url('"+url+"')";
       card.insertBefore(p, card.firstChild); card.classList.add('lx-has-photo');
-      if(_io) _io.observe(p); else p.style.backgroundImage="url('"+url+"')";
     });
-    requestAnimationFrame(function(){ loadVisible(grid); });  /* force-load whatever's already on screen */
   }
 
   function bind(){
