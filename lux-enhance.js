@@ -1,5 +1,6 @@
 /* Bowdie's — Liquid Glass enhancements (paired with lux-theme.css). */
 (function(){
+  if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
   var IMG={cocktails:'assets/tile-spirits.jpg?b=2',wine:'assets/tile-wine.jpg?b=2',food:'assets/tile-prime.jpg?b=2',stage:'assets/tile-stage.jpg?b=2'};
   var POS={wine:'62% 12%'};
