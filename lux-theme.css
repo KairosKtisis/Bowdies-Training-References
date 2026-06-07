@@ -24,9 +24,12 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(130% 100% at 50% 0%,transparent 60%,rgba(0,0,0,.34) 100%); }
 
 /* ── SCENERY (section backdrop, set by lux-enhance) ── */
+/* sticky pin instead of fixed: the compositor tracks sticky against scroll,
+   so Safari's toolbar animation can no longer drag the backdrop around */
+#lx-scenery-hold{ position:sticky; top:0; height:0; z-index:0; pointer-events:none; }
 #lx-scenery{
-  position:fixed; top:0; left:0; width:100vw; height:100vh; height:100lvh;
-  z-index:0; pointer-events:none;
+  position:absolute; top:0; left:0; width:100vw; height:100vh; height:100lvh;
+  pointer-events:none;
   background-size:cover; background-position:center; background-repeat:no-repeat;
   opacity:0; transform:translateZ(0); backface-visibility:hidden;
 }
@@ -64,7 +67,7 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 #top-bar{
   background:linear-gradient(180deg,rgba(10,8,6,.90) 0%,rgba(10,8,6,.58) 52%,rgba(10,8,6,0) 100%) !important;
   border-bottom:none !important; box-shadow:0 1px 0 rgba(255,244,222,.05);
-  padding:14px 16px 16px 20px !important;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) calc(env(safe-area-inset-right,0px) + 16px) 16px calc(env(safe-area-inset-left,0px) + 20px) !important;
 }
 .top-bar-section{ color:var(--gold); font-style:italic; }
 #top-bar-return{
@@ -167,16 +170,13 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 
 /* ── PRIME & PLATE ── */
 #grid-food .tag-row{ display:none !important; }            /* tags = search-only */
-.lx-card-photo{ display:block; position:relative; margin:-26px -24px 14px; height:172px;
-  overflow:hidden; background:#15120d; }
-.lx-card-photo::after{ content:''; position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(10,9,7,0) 38%,rgba(16,14,11,.55) 74%,rgba(23,21,18,.97) 100%); }
-.lx-card-img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center;
-  transition:opacity .25s ease; }   /* NO translateZ: per-image GPU layers throttle iOS */
-#grid-food .card[data-name="Shrimp Cocktail"] .lx-card-img{ object-position:center 66%; }
-#grid-food .card[data-name="Market Fish"] .lx-card-img{ object-position:center 40%; }
-#grid-food .card[data-name="Roast Half Chicken"] .lx-card-img{ object-position:center 30%; }
-#grid-food .card[data-name="Faroe Island Salmon"] .lx-card-img{ object-position:center 30%; }
+/* photo lives inside the card detail — rendered only while a card is open */
+.lx-detail-photo{ display:block; width:100%; height:210px; object-fit:cover; object-position:center;
+  border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 14px; }
+#grid-food .card[data-name="Shrimp Cocktail"] .lx-detail-photo{ object-position:center 60%; }
+#grid-food .card[data-name="Market Fish"] .lx-detail-photo{ object-position:center 45%; }
+#grid-food .card[data-name="Roast Half Chicken"] .lx-detail-photo{ object-position:center 35%; }
+#grid-food .card[data-name="Faroe Island Salmon"] .lx-detail-photo{ object-position:center 35%; }
 
 /* ── SET THE STAGE ── */
 .pb-tier-section{ background:var(--lx-glass) !important; border:1px solid var(--lx-stroke) !important;

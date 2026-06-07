@@ -24,7 +24,10 @@
     "Faroe Island Salmon":"assets/dish-salmon.jpg?b=3","Roast Half Chicken":"assets/dish-chicken.jpg?b=3","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg?b=3","Cheesecake":"assets/dish-cheesecake.jpg?b=3","Market Fish":"assets/dish-market-fish.jpg?b=3","Seasonal Soup":"assets/dish-seasonal-soup.jpg?b=3","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg?b=3","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?b=3","Creamed Spinach":"assets/dish-creamed-spinach.jpg?b=3"
   };
 
-  var scenery=document.createElement('div'); scenery.id='lx-scenery'; document.body.appendChild(scenery);
+  var holder=document.createElement('div'); holder.id='lx-scenery-hold';
+  var scenery=document.createElement('div'); scenery.id='lx-scenery';
+  holder.appendChild(scenery);
+  document.body.insertBefore(holder, document.body.firstChild);
   function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
   var NO_SCENERY=location.search.indexOf('scenery=off')>-1;
   var NO_PHOTOS=location.search.indexOf('photos=off')>-1;
@@ -33,40 +36,20 @@
     var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
-  /* VIRTUALIZED photos — constant memory at ANY library size.
-     Only images near the viewport keep a decoded buffer; far-away images drop
-     their src (memory freed) and reload from HTTP cache as they approach.
-     This is the architecture that scales to hundreds of Spirits photos. */
-  var _vio=null;
-  function virtualize(img){
-    if(!_vio && ('IntersectionObserver' in window)){
-      _vio=new IntersectionObserver(function(es){
-        es.forEach(function(en){
-          var im=en.target;
-          if(en.isIntersecting){
-            if(!im.getAttribute('src')){ im.src=im.dataset.src; }
-          }else if(im.getAttribute('src')){
-            im.removeAttribute('src'); im.style.opacity='0';
-          }
-        });
-      },{rootMargin:'500px 0px 500px 0px'});
-    }
-    if(_vio) _vio.observe(img); else img.src=img.dataset.src;
-  }
+  /* Photos live INSIDE each card's detail — rendered only while that card is
+     open. The bisection proved this device throttles when the full list
+     renders photos; one image at a time can never trip it. */
   function injectFoodPhotos(){
     if(NO_PHOTOS) return;
     var grid=document.getElementById('grid-food'); if(!grid) return;
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
-      if(card.querySelector('.lx-card-photo')) return;
       var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
-      var ph=document.createElement('div'); ph.className='lx-card-photo';
-      var img=document.createElement('img'); img.className='lx-card-img';
-      img.decoding='async'; img.alt=''; img.dataset.src=url;
-      img.style.opacity='0';
-      img.onload=function(){ img.style.opacity='1'; };
-      ph.appendChild(img);
-      card.insertBefore(ph, card.firstChild); card.classList.add('lx-has-photo');
-      virtualize(img);
+      var detail=card.querySelector('.card-detail'); if(!detail) return;
+      if(detail.querySelector('.lx-detail-photo')) return;
+      var img=document.createElement('img'); img.className='lx-detail-photo';
+      img.loading='lazy'; img.decoding='async'; img.alt=''; img.src=url;
+      detail.insertBefore(img, detail.firstChild);
+      card.classList.add('lx-has-photo');
     });
   }
 
