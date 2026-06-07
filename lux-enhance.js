@@ -2,9 +2,9 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=3',stage:'assets/tile-stage.jpg?b=3'};
+  var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=4',stage:'assets/tile-stage.jpg?b=4'};
   var POS={wine:'62% 12%'};
-  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.90),rgba(11,9,7,.86) 50%,rgba(11,9,7,.96))";
+  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.84),rgba(11,9,7,.79) 50%,rgba(11,9,7,.92))";
   var HERO="assets/hero-table.jpg?b=3";
 
   var FOOD={
@@ -34,6 +34,26 @@
   function setScenery(guide){
     if(NO_SCENERY){ scenery.style.opacity='0'; return; }
     var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
+  /* The reveal must never beat the backdrop: wait for the photo to decode
+     (1.5s safety cap), and warm all backdrops while still on the home screen. */
+  var _ready={};
+  function ensureScenery(guide,cb){
+    var url=IMG[guide];
+    if(!url||_ready[url]){ cb(); return; }
+    var im=new Image(), done=false;
+    function fin(){ if(done) return; done=true; _ready[url]=true; cb(); }
+    im.onload=function(){ if(im.decode) im.decode().then(fin,fin); else fin(); };
+    im.onerror=fin;
+    im.src=url;
+    setTimeout(fin,1500);
+  }
+  window.addEventListener('load',function(){
+    setTimeout(function(){
+      Object.keys(IMG).forEach(function(k){ var i=new Image(); i.onload=(function(u){return function(){_ready[u]=true;};})(IMG[k]); i.src=IMG[k]; });
+      var hh=new Image(); hh.src=HERO;
+    },400);
+  });
+
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
   /* Photos live INSIDE each card's detail — rendered only while that card is
@@ -84,14 +104,17 @@
       window.__lxScrollWrapped=true;
       var _ss=window.selectSection;
       window.selectSection=function(guide){
+        var self=this,args=arguments;
+        var go=function(){
+          var r=_ss.apply(self,args); resetScroll();
+          if(guide==='food'){ injectFoodPhotos(); requestAnimationFrame(injectFoodPhotos); }
+          return r;
+        };
         if(guide==='stage' && typeof PAIRING_MAP==='undefined'){
-          var self=this,args=arguments;
-          loadPairingData(function(){ _ss.apply(self,args); resetScroll(); });
+          loadPairingData(function(){ ensureScenery(guide,go); });
           return;
         }
-        var r=_ss.apply(this,arguments); resetScroll();
-        if(guide==='food'){ injectFoodPhotos(); requestAnimationFrame(injectFoodPhotos); }
-        return r;
+        ensureScenery(guide,go);
       };
     }
     if(typeof window.openAdmin==='function' && !window.__lxAdminWrapped){
