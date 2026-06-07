@@ -2,8 +2,8 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg?b=4',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=5',stage:'assets/tile-stage.jpg?b=5'};
-  var POS={wine:'62% 12%'};
+  var IMG={cocktails:'assets/tile-spirits.jpg?b=4',wine:'assets/tile-wine.jpg?b=4',food:'assets/tile-prime.jpg?b=5',stage:'assets/tile-stage.jpg?b=5'};
+  var POS={};   /* old locker shot needed an offset; the pour reads centered */
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))";
   var HERO="assets/hero-table.jpg?b=6";
 

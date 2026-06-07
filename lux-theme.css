@@ -41,7 +41,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.90) 0%,rgba(11,9,7,.82) 38%,rgba(11,9,7,.95) 80%,rgba(11,9,7,1) 100%),url('assets/hero-table.jpg?b=6');
+  background:linear-gradient(180deg,rgba(11,9,7,.975) 0%,rgba(11,9,7,.95) 38%,rgba(11,9,7,.99) 80%,rgba(11,9,7,1) 100%),url('assets/hero-table.jpg?b=6');
   background-size:cover,cover;background-position:center,center; }
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow,.home-script{ color:var(--gold); }
