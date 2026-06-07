@@ -24,12 +24,10 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(130% 100% at 50% 0%,transparent 60%,rgba(0,0,0,.34) 100%); }
 
 /* ── SCENERY (section backdrop, set by lux-enhance) ── */
-/* sticky pin instead of fixed: the compositor tracks sticky against scroll,
-   so Safari's toolbar animation can no longer drag the backdrop around */
-#lx-scenery-hold{ position:sticky; top:0; height:0; z-index:0; pointer-events:none; }
+#lx-scenery-hold{ position:static; height:0; }
 #lx-scenery{
-  position:absolute; top:0; left:0; width:100vw; height:100vh; height:100lvh;
-  pointer-events:none;
+  position:fixed; top:0; left:0; width:100vw; height:100vh; height:100lvh;
+  z-index:0; pointer-events:none;
   background-size:cover; background-position:center; background-repeat:no-repeat;
   opacity:0; transform:translateZ(0); backface-visibility:hidden;
 }
@@ -65,7 +63,8 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 
 /* ── TOP BAR ── */
 #top-bar{
-  background:linear-gradient(180deg,rgba(10,8,6,.90) 0%,rgba(10,8,6,.58) 52%,rgba(10,8,6,0) 100%) !important;
+  background:linear-gradient(180deg,rgba(10,8,6,.97) 0%,rgba(10,8,6,.82) 40%,rgba(10,8,6,0) 100%) !important;
+  margin:0 !important;
   border-bottom:none !important; box-shadow:0 1px 0 rgba(255,244,222,.05);
   padding:calc(env(safe-area-inset-top,0px) + 12px) calc(env(safe-area-inset-right,0px) + 16px) 16px calc(env(safe-area-inset-left,0px) + 20px) !important;
 }

@@ -28,6 +28,16 @@
   var scenery=document.createElement('div'); scenery.id='lx-scenery';
   holder.appendChild(scenery);
   document.body.insertBefore(holder, document.body.firstChild);
+  /* counter Safari's toolbar viewport shift: translate the backdrop by the
+     visual viewport's own offset so it stays glued to the screen (user's idea) */
+  if(window.visualViewport){
+    (function(){
+      var vv=window.visualViewport;
+      var pin=function(){ scenery.style.transform='translate3d(0,'+(vv.offsetTop||0)+'px,0)'; };
+      vv.addEventListener('resize',pin); vv.addEventListener('scroll',pin); pin();
+    })();
+  }
+
   function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
   var NO_SCENERY=location.search.indexOf('scenery=off')>-1;
   var NO_PHOTOS=location.search.indexOf('photos=off')>-1;
