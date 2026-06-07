@@ -70,6 +70,25 @@
     });
   }
 
+  /* The 17.5MB pairing dataset no longer loads at boot — it loads on demand
+     the first time Set the Stage or Menu Admin needs it. Keeps the JS heap
+     small so decoded photos never push the page over Safari's memory ceiling. */
+  var _dataCbs=null;
+  function loadPairingData(cb){
+    if(typeof PAIRING_NOTES!=='undefined'){ cb(); return; }
+    if(_dataCbs){ _dataCbs.push(cb); return; }
+    _dataCbs=[cb];
+    function inject(src,next){ var s=document.createElement('script'); s.src=src; s.onload=next; s.onerror=next; document.body.appendChild(s); }
+    inject('pairing-map-v2.js?v=100',function(){
+      try{ if(typeof applyOosOverlay==='function') applyOosOverlay(); }catch(e){}
+      try{ if(typeof applyOosOverlayToHomeCards==='function') applyOosOverlayToHomeCards(); }catch(e){}
+      inject('pairing-notes.js?v=108',function(){
+        var cbs=_dataCbs; _dataCbs=null;
+        cbs.forEach(function(fn){ try{ fn(); }catch(e){} });
+      });
+    });
+  }
+
   function bind(){
     var host=document.getElementById('home-select')||document.body;
     host.addEventListener('click',function(e){
@@ -82,6 +101,11 @@
       window.__lxScrollWrapped=true;
       var _ss=window.selectSection;
       window.selectSection=function(guide){
+        if(guide==='stage' && typeof PAIRING_MAP==='undefined'){
+          var self=this,args=arguments;
+          loadPairingData(function(){ _ss.apply(self,args); resetScroll(); });
+          return;
+        }
         var r=_ss.apply(this,arguments); resetScroll();
         if(guide==='food'){ injectFoodPhotos(); requestAnimationFrame(injectFoodPhotos); }
         return r;
@@ -92,6 +116,11 @@
       var saved=null, _oa=window.openAdmin, _ca=window.closeAdmin;
       window.openAdmin=function(){
         saved={img:scenery.style.backgroundImage,pos:scenery.style.backgroundPosition,op:scenery.style.opacity};
+        if(typeof PAIRING_MAP==='undefined'){
+          var self=this,args=arguments;
+          loadPairingData(function(){ _oa.apply(self,args); applyScenery(HERO,'center'); });
+          return;
+        }
         var rv=_oa.apply(this,arguments); applyScenery(HERO,'center'); return rv;
       };
       if(typeof _ca==='function'){
