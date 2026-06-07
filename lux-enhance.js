@@ -12,7 +12,7 @@
     food:SCRIM,
     stage:"linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))"
   };
-  var HERO="assets/hero-table.jpg?b=8";
+  var HERO="assets/hero-table.jpg?b=9";
 
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",

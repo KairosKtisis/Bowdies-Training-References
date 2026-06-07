@@ -41,8 +41,8 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=8');
-  background-size:cover,cover;background-position:center,center 68%; }   /* favor fire + tables over the TV */
+  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=9');
+  background-size:cover,cover;background-position:center,30% 42%; }   /* keep the sign in frame */
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow{ display:none !important; }                 /* location line retired */
 .home-script{ color:var(--gold); }
@@ -222,7 +222,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .admin-group-label{ border-bottom-color:var(--lx-stroke) !important; }
 
 /* ── SETUP GATE ── */
-#setup-gate{ background:linear-gradient(180deg,rgba(11,9,7,.50),rgba(11,9,7,.84)),url('assets/setup-exterior.jpg?b=4') !important;
+#setup-gate{ background:linear-gradient(180deg,rgba(11,9,7,.50),rgba(11,9,7,.84)),url('assets/setup-exterior.jpg?b=5') !important;
   background-size:cover !important; background-position:center !important; background-repeat:no-repeat !important; }
 @media (min-width:880px){
   #setup-gate{ background-color:#0B0907 !important; background-size:cover,contain !important; }
@@ -399,11 +399,15 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 }
 
 /* ── FROSTED CONTROL LAYER — the top bar becomes real glass ── */
-#top-bar{
-  background:linear-gradient(180deg,rgba(13,11,9,.74),rgba(13,11,9,.58)) !important;
-  -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
-  box-shadow:inset 0 1px 0 rgba(255,248,232,.07), 0 1px 0 rgba(233,201,106,.13),
-    0 12px 30px -22px rgba(0,0,0,.8) !important;
+/* frosted bar is desktop-only: on iOS, live blur over a 300-card scroll layer
+   pushes this device over its memory ceiling (the spirits crash) */
+@media (min-width:880px){
+  #top-bar{
+    background:linear-gradient(180deg,rgba(13,11,9,.74),rgba(13,11,9,.58)) !important;
+    -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
+    box-shadow:inset 0 1px 0 rgba(255,248,232,.07), 0 1px 0 rgba(233,201,106,.13),
+      0 12px 30px -22px rgba(0,0,0,.8) !important;
+  }
 }
 
 /* ── FOUR-EDGE LENSING — light wraps every glass surface ── */
@@ -513,13 +517,4 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 }
 .pb-rec-explain,.pb-avoid-explain{ background:rgba(6,5,4,.78) !important; }
 
-/* 4 ── staggered entrance, capped at the first eight cards */
-.guide-panel.active .card:nth-child(-n+8){ animation:lxUnfold .42s var(--lx-ease) both; }
-.guide-panel.active .card:nth-child(1){ animation-delay:.02s; }
-.guide-panel.active .card:nth-child(2){ animation-delay:.06s; }
-.guide-panel.active .card:nth-child(3){ animation-delay:.10s; }
-.guide-panel.active .card:nth-child(4){ animation-delay:.14s; }
-.guide-panel.active .card:nth-child(5){ animation-delay:.18s; }
-.guide-panel.active .card:nth-child(6){ animation-delay:.22s; }
-.guide-panel.active .card:nth-child(7){ animation-delay:.26s; }
-.guide-panel.active .card:nth-child(8){ animation-delay:.30s; }
+
