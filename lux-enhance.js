@@ -26,7 +26,11 @@
 
   var scenery=document.createElement('div'); scenery.id='lx-scenery'; document.body.appendChild(scenery);
   function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
-  function setScenery(guide){ var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
+  var NO_SCENERY=location.search.indexOf('scenery=off')>-1;
+  var NO_PHOTOS=location.search.indexOf('photos=off')>-1;
+  function setScenery(guide){
+    if(NO_SCENERY){ scenery.style.opacity='0'; return; }
+    var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
   /* VIRTUALIZED photos — constant memory at ANY library size.
@@ -50,6 +54,7 @@
     if(_vio) _vio.observe(img); else img.src=img.dataset.src;
   }
   function injectFoodPhotos(){
+    if(NO_PHOTOS) return;
     var grid=document.getElementById('grid-food'); if(!grid) return;
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
       if(card.querySelector('.lx-card-photo')) return;
