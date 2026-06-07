@@ -172,7 +172,7 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 .lx-card-photo::after{ content:''; position:absolute; inset:0;
   background:linear-gradient(180deg,rgba(10,9,7,0) 38%,rgba(16,14,11,.55) 74%,rgba(23,21,18,.97) 100%); }
 .lx-card-img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center;
-  transform:translateZ(0); transition:opacity .25s ease; }
+  transition:opacity .25s ease; }   /* NO translateZ: per-image GPU layers throttle iOS */
 #grid-food .card[data-name="Shrimp Cocktail"] .lx-card-img{ object-position:center 66%; }
 #grid-food .card[data-name="Market Fish"] .lx-card-img{ object-position:center 40%; }
 #grid-food .card[data-name="Roast Half Chicken"] .lx-card-img{ object-position:center 30%; }

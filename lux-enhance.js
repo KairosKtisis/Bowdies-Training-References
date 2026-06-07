@@ -49,7 +49,7 @@
             im.removeAttribute('src'); im.style.opacity='0';
           }
         });
-      },{rootMargin:'900px 0px 900px 0px'});
+      },{rootMargin:'500px 0px 500px 0px'});
     }
     if(_vio) _vio.observe(img); else img.src=img.dataset.src;
   }
