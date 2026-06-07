@@ -2,8 +2,8 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  /* Only Set the Stage keeps a photo backdrop — every other page runs solid. */
-  var IMG={stage:'assets/tile-stage.jpg?b=5'};
+  /* No photo backdrops anywhere — the whole app runs on solid warm charcoal. */
+  var IMG={};
   var POS={};   /* old locker shot needed an offset; the pour reads centered */
   /* per-page scrims: spirits/wine run brightest, prime sits mid, stage stays moody */
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.62),rgba(11,9,7,.52) 50%,rgba(11,9,7,.80))";
@@ -133,7 +133,31 @@
      Set the Stage and Admin are instant by the time anyone reaches them. */
   setTimeout(function(){ loadPairingData(function(){}); },300);
 
+  /* Cocktail details read build-first: Ingredients + Method up top, then
+     Sell It, Staff Notes, Pairs With. Reordered once at boot, keyed off the
+     section labels so cards missing a block are handled gracefully. */
+  function reorderCocktailDetails(){
+    var grid=document.getElementById('grid-cocktails');
+    if(!grid||grid.__lxReordered) return;
+    grid.__lxReordered=true;
+    grid.querySelectorAll('.card-detail').forEach(function(det){
+      var blocks=[],cur=null;
+      Array.prototype.slice.call(det.children).forEach(function(el){
+        if(el.classList.contains('section-label')){
+          cur={label:el.textContent.trim().toLowerCase(),nodes:[el]}; blocks.push(cur);
+        } else if(cur){ cur.nodes.push(el); }
+        else{ blocks.push({label:'_lead',nodes:[el]}); }
+      });
+      var want=['ingredients','method','sell it','staff notes','pairs with'];
+      var sorted=blocks.filter(function(b){ return b.label==='_lead'; });
+      want.forEach(function(k){ blocks.forEach(function(b){ if(b.label===k) sorted.push(b); }); });
+      blocks.forEach(function(b){ if(b.label!=='_lead'&&want.indexOf(b.label)===-1) sorted.push(b); });
+      sorted.forEach(function(b){ b.nodes.forEach(function(n){ det.appendChild(n); }); });
+    });
+  }
+
   function bind(){
+    reorderCocktailDetails();
     var host=document.getElementById('home-select')||document.body;
     host.addEventListener('click',function(e){
       var btn=e.target.closest&&e.target.closest('.home-btn');
