@@ -40,9 +40,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
-/* home runs solid — a faint warm radial keeps it from reading flat */
-#home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(110% 70% at 50% 8%,rgba(88,80,66,.30),transparent 62%); }
+#home-screen::before{ content:none !important; }           /* radial glow removed — home matches every other page */
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow{ display:none !important; }                 /* location line retired */
 .home-script{ color:var(--gold); }
@@ -183,6 +181,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
   border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 14px; }
 @media (min-width:880px){ .lx-detail-photo{ height:210px; } }
 #grid-food .card[data-name="Shrimp Cocktail"] .lx-detail-photo{ object-position:center 60%; }
+#grid-food .card[data-name="Au Gratin Potatoes"] .lx-detail-photo{ object-position:center 26%; }
 #grid-food .card[data-name="Roast Half Chicken"] .lx-detail-photo{ object-position:center 35%; }
 #grid-food .card[data-name="Faroe Island Salmon"] .lx-detail-photo{ object-position:center 35%; }
 
@@ -236,13 +235,10 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .guide-panel.active{ animation:lxPanel .5s var(--lx-ease); }
 @keyframes lxPanel{ from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
-/* ── SCROLL MODEL: inner scroller ──
-   The document itself never scrolls; #main-content does. Safari's toolbar
-   therefore never animates -> the fixed backdrop is perfectly still and the
-   full-bleed header owns the top edge. (Desktop wheel handled separately.) */
-html,body{ height:100% !important; overflow:hidden !important; overscroll-behavior:none !important; }
-#main-content{ height:100dvh !important; overflow-y:auto !important; -webkit-overflow-scrolling:touch !important; }
-#screen-admin{ height:100dvh !important; overflow-y:auto !important; -webkit-overflow-scrolling:touch !important; }
+/* ── SCROLL MODEL: normal document scroll ──
+   The inner-scroller existed to keep photo backdrops still while Safari's
+   toolbar animated. With solid backgrounds there is nothing to hold still —
+   the document scrolls natively again (and desktop mouse wheel just works). */
 
 /* ── DESKTOP ── */
 @media (min-width:880px){
@@ -390,12 +386,12 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 ::selection{ background:rgba(201,168,76,.32); color:#FFF8E8; }
 :focus-visible{ outline:2px solid var(--lx-stroke-hi); outline-offset:2px; }
 @media (min-width:880px){
-  #main-content::-webkit-scrollbar,#screen-admin::-webkit-scrollbar{ width:10px; }
-  #main-content::-webkit-scrollbar-track,#screen-admin::-webkit-scrollbar-track{ background:transparent; }
-  #main-content::-webkit-scrollbar-thumb,#screen-admin::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:transparent; }
+  ::-webkit-scrollbar-thumb{
     background:rgba(233,201,106,.20); border-radius:8px;
     border:3px solid transparent; background-clip:content-box; }
-  #main-content::-webkit-scrollbar-thumb:hover{ background-color:rgba(233,201,106,.36); }
+  ::-webkit-scrollbar-thumb:hover{ background-color:rgba(233,201,106,.36); }
 }
 
 /* ── FROSTED CONTROL LAYER — the top bar becomes real glass ── */
@@ -517,4 +513,6 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
 }
 .pb-rec-explain,.pb-avoid-explain{ background:rgba(22,21,18,.72) !important; }
 
-
+/* home buttons: one shade deeper than the shared button glass (and this rule
+   sits after the lens unifier, which is what actually paints .home-btn) */
+.home-btn{ background:linear-gradient(160deg,rgba(34,32,28,0.58),rgba(23,21,18,0.46)) !important; }

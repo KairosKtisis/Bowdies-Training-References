@@ -75,23 +75,13 @@
     warm(urls,0);
   },150);
 
-  function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
-
-  /* iOS scrolls the DOCUMENT to reveal the keyboard even with overflow:hidden,
-     and leaves it displaced after the keyboard closes — header pushed off-screen,
-     content sliding past the fixed backdrop. Whenever focus leaves an input or
-     the visual viewport snaps back, put the document itself back to 0. The inner
-     #main-content scroller is untouched, so the user keeps their place. */
-  function unshift(){
-    var ae=document.activeElement;
-    if(ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;   /* keyboard still up */
-    if(window.scrollY||document.documentElement.scrollTop||document.body.scrollTop){
-      window.scrollTo(0,0);
-      document.documentElement.scrollTop=0; document.body.scrollTop=0;
-    }
+  function resetScroll(){
+    window.scrollTo(0,0); document.documentElement.scrollTop=0; document.body.scrollTop=0;
+    var mc=document.getElementById('main-content'); if(mc) mc.scrollTop=0;
   }
-  document.addEventListener('focusout',function(){ setTimeout(unshift,80); });
-  if(window.visualViewport) visualViewport.addEventListener('resize',function(){ setTimeout(unshift,80); });
+
+  /* keyboard scroll-displacement workaround removed — the document scrolls
+     normally now, so Safari manages its own scroll state. */
 
   /* Photos live INSIDE each card's detail — rendered only while that card is
      open. The bisection proved this device throttles when the full list
