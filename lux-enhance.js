@@ -2,7 +2,8 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg?b=6',wine:'assets/tile-wine.jpg?b=5',food:'assets/tile-prime.jpg?b=6',stage:'assets/tile-stage.jpg?b=5'};
+  /* Only Set the Stage keeps a photo backdrop — every other page runs solid. */
+  var IMG={stage:'assets/tile-stage.jpg?b=5'};
   var POS={};   /* old locker shot needed an offset; the pour reads centered */
   /* per-page scrims: spirits/wine run brightest, prime sits mid, stage stays moody */
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.62),rgba(11,9,7,.52) 50%,rgba(11,9,7,.80))";
@@ -12,7 +13,7 @@
     food:SCRIM,
     stage:"linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))"
   };
-  var HERO="assets/hero-table.jpg?b=9";
+  var HERO=null;   /* home + admin are solid now */
 
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",
@@ -68,7 +69,7 @@
     im.src=list[i];
   }
   setTimeout(function(){
-    var urls=[HERO];
+    var urls=[];
     Object.keys(IMG).forEach(function(k){ urls.push(IMG[k]); });
     Object.keys(FOOD).forEach(function(k){ urls.push(FOOD[k]); });
     warm(urls,0);
@@ -164,10 +165,10 @@
         saved={img:scenery.style.backgroundImage,pos:scenery.style.backgroundPosition,op:scenery.style.opacity};
         if(typeof PAIRING_MAP==='undefined'){
           var self=this,args=arguments;
-          loadPairingData(function(){ _oa.apply(self,args); applyScenery(HERO,'center'); });
+          loadPairingData(function(){ _oa.apply(self,args); scenery.style.opacity='0'; });
           return;
         }
-        var rv=_oa.apply(this,arguments); applyScenery(HERO,'center'); return rv;
+        var rv=_oa.apply(this,arguments); scenery.style.opacity='0'; return rv;
       };
       if(typeof _ca==='function'){
         window.closeAdmin=function(){

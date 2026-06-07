@@ -40,9 +40,9 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
+/* home runs solid — a faint warm radial keeps it from reading flat */
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=9');
-  background-size:cover,cover;background-position:center,30% 42%; }   /* keep the sign in frame */
+  background:radial-gradient(110% 70% at 50% 8%,rgba(46,36,22,.42),transparent 62%); }
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow{ display:none !important; }                 /* location line retired */
 .home-script{ color:var(--gold); }
@@ -222,7 +222,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .admin-group-label{ border-bottom-color:var(--lx-stroke) !important; }
 
 /* ── SETUP GATE ── */
-#setup-gate{ background:linear-gradient(180deg,rgba(11,9,7,.50),rgba(11,9,7,.84)),url('assets/setup-exterior.jpg?b=5') !important;
+#setup-gate{ background:linear-gradient(180deg,rgba(11,9,7,.50),rgba(11,9,7,.84)),url('assets/setup-exterior.jpg?b=6') !important;
   background-size:cover !important; background-position:center !important; background-repeat:no-repeat !important; }
 @media (min-width:880px){
   #setup-gate{ background-color:#0B0907 !important; background-size:cover,contain !important; }
