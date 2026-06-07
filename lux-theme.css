@@ -41,10 +41,13 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=7');
-  background-size:cover,cover;background-position:center,center; }
+  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=8');
+  background-size:cover,cover;background-position:center,center 68%; }   /* favor fire + tables over the TV */
 #home-screen > *{ position:relative; z-index:1; }
-.home-eyebrow,.home-script{ color:var(--gold); }
+.home-eyebrow{ display:none !important; }                 /* location line retired */
+.home-script{ color:var(--gold); }
+.home-sub{ font-weight:600 !important; color:var(--text-primary) !important;
+  text-shadow:0 1px 10px rgba(0,0,0,.7); }
 .home-wordmark{ filter:drop-shadow(0 6px 26px rgba(0,0,0,.8)); }
 .home-select{ display:flex !important; flex-direction:column !important; gap:14px !important;
   width:100%; max-width:340px !important; }
@@ -360,3 +363,163 @@ html,body{ height:100% !important; overflow:hidden !important; overscroll-behavi
   background:linear-gradient(160deg,rgba(35,29,18,0.66),rgba(20,16,9,0.54)) !important;
   box-shadow:inset 0 0 0 1px var(--gold-dim), inset 0 1px 0 rgba(255,248,232,.22), 0 6px 20px -10px var(--gold-dim) !important;
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   EVOLUTION PASS (v66) — from re-skin to system.
+   1. Tokens: one radius scale, one button glass, one lens, three elevations
+   2. Frosted control layer (top bar) — THE liquid-glass signature
+   3. Four-edge lensing on every glass surface
+   4. Previously unthemed: sub-filters, toast, OOS banner, no-results, overlay
+   5. Platform craft: tap highlight, selection, focus ring, scrollbar
+   Blur stays on singletons only: top bar, expanded card, profile menu,
+   modal panel+overlay, toast. Never on the 485-card list.
+   ════════════════════════════════════════════════════════════════════════ */
+:root{
+  --r-s:12px; --r-m:16px; --r-l:20px; --r-pill:24px;
+  --glass-btn:linear-gradient(160deg,rgba(21,19,16,0.58),rgba(11,10,8,0.46));
+  --lens:inset 0 1px 0 rgba(255,248,232,.17), inset 1px 0 0 rgba(255,248,232,.05),
+         inset -1px 0 0 rgba(255,248,232,.04), inset 0 -1px 0 rgba(0,0,0,.38),
+         inset 0 -2px 6px -4px rgba(0,0,0,.45);
+  --elev-1:0 2px 10px rgba(0,0,0,.40);
+  --elev-2:0 14px 34px -18px rgba(0,0,0,.65);
+  --elev-3:0 34px 80px -30px rgba(0,0,0,.85);
+}
+
+/* ── PLATFORM CRAFT ── */
+*{ -webkit-tap-highlight-color:transparent; }
+::selection{ background:rgba(201,168,76,.32); color:#FFF8E8; }
+:focus-visible{ outline:2px solid var(--lx-stroke-hi); outline-offset:2px; }
+@media (min-width:880px){
+  #main-content::-webkit-scrollbar,#screen-admin::-webkit-scrollbar{ width:10px; }
+  #main-content::-webkit-scrollbar-track,#screen-admin::-webkit-scrollbar-track{ background:transparent; }
+  #main-content::-webkit-scrollbar-thumb,#screen-admin::-webkit-scrollbar-thumb{
+    background:rgba(233,201,106,.20); border-radius:8px;
+    border:3px solid transparent; background-clip:content-box; }
+  #main-content::-webkit-scrollbar-thumb:hover{ background-color:rgba(233,201,106,.36); }
+}
+
+/* ── FROSTED CONTROL LAYER — the top bar becomes real glass ── */
+#top-bar{
+  background:linear-gradient(180deg,rgba(13,11,9,.74),rgba(13,11,9,.58)) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:inset 0 1px 0 rgba(255,248,232,.07), 0 1px 0 rgba(233,201,106,.13),
+    0 12px 30px -22px rgba(0,0,0,.8) !important;
+}
+
+/* ── FOUR-EDGE LENSING — light wraps every glass surface ── */
+.home-btn,.filter-btn,.sub-filter-btn,.search-input,#top-bar-return,.top-bar-profile,
+.cmp-actions button,.btn-secondary,.pb-back-btn,.pb-recent-chip,.pb-rec-explain-nav,
+.mode-choice-cancel,.ss-btn,.ft-depth-btn,.ft-nav button,.ft-option,
+.modal-btn,.modal-option,.top-bar-profile-menu-btn,.pb-mode-btn{
+  background:var(--glass-btn) !important;
+  box-shadow:var(--lens) !important;
+}
+.card{
+  box-shadow:var(--elev-1), 0 20px 46px -24px rgba(0,0,0,.70),
+    inset 0 1px 0 rgba(255,246,226,.12), inset 1px 0 0 rgba(255,246,226,.04),
+    inset -1px 0 0 rgba(255,246,226,.03), inset 0 -20px 38px -34px rgba(0,0,0,.5) !important;
+}
+.card:active{ border-color:var(--lx-stroke-hi) !important; }
+.cmp-verdict-card,.cmp-note,.pb-tier-section,.pb-hint,.pb-empty,.pb-cluster-note,
+.ss-current-card,.ss-saved-card,.ss-empty-saved,.admin-stats,.admin-group{
+  box-shadow:inset 0 1px 0 rgba(255,248,232,.11), inset 1px 0 0 rgba(255,248,232,.04),
+    inset 0 -1px 0 rgba(0,0,0,.32), var(--elev-2) !important;
+}
+.lx-detail-photo{ box-shadow:var(--elev-2); }
+
+/* ── RADIUS DISCIPLINE ── */
+.home-btn,.search-input,.cmp-actions button,.btn-secondary,.ft-option,.ft-nav button,
+.cmp-note,.pb-hint,.pb-empty,.cmp-verdict-card,.pb-tier-section,.ss-current-card,.ss-saved-card{ border-radius:var(--r-m) !important; }
+.card,.pb-mode-btn,#top-bar-profile-menu{ border-radius:var(--r-l) !important; }
+.filter-btn,.sub-filter-btn,.pb-recent-chip,.tag,.vintage-badge,.price-badge,.pb-profile-tag{ border-radius:var(--r-pill) !important; }
+.modal-btn,.modal-option,.modal-input,.top-bar-profile-menu-btn,.pb-rec-item,.pb-avoid-item,.lx-detail-photo{ border-radius:var(--r-s) !important; }
+.mode-modal-panel,.modal-sheet{ border-radius:var(--r-l) !important; }
+
+/* ── SUB-FILTERS — finally part of the family ── */
+.sub-filter-btn{
+  border:1px solid var(--lx-stroke) !important; color:var(--text-muted) !important;
+  transition:transform .35s var(--lx-spring),color .3s,border-color .3s !important;
+}
+.sub-filter-btn:active{ transform:scale(.93); filter:brightness(1.14); }
+.sub-filter-btn.active{
+  color:var(--acc,var(--gold)) !important; border-color:var(--acc,var(--gold)) !important;
+  box-shadow:inset 0 0 0 1px var(--acc,var(--gold)), var(--lens) !important;
+}
+
+/* ── MICROCAPS RHYTHM — one voice for every gold label ── */
+.section-heading,.pb-section-label,.ss-section-label,.cmp-input-label,.modal-label,
+.pb-modes-label,.section-label{
+  color:var(--gold) !important; letter-spacing:.3em !important;
+}
+#panel-stage .section-heading,.pb-section-label,.ss-section-label{
+  border-bottom-color:rgba(233,201,106,.18) !important;
+}
+
+/* ── PREVIOUSLY UNTHEMED ── */
+#add-toast{
+  border-radius:var(--r-m) !important; border:1px solid var(--lx-stroke) !important;
+  background:var(--lx-glass) !important;
+  -webkit-backdrop-filter:blur(10px) saturate(130%); backdrop-filter:blur(10px) saturate(130%);
+  box-shadow:var(--elev-2), inset 0 1px 0 rgba(255,248,232,.14) !important;
+  color:var(--text-primary) !important;
+}
+.pb-oos-banner{
+  border-radius:var(--r-s) !important; border:1px solid rgba(196,110,73,.4) !important;
+  background:linear-gradient(160deg,rgba(46,26,18,0.72),rgba(24,14,10,0.62)) !important;
+  box-shadow:inset 0 1px 0 rgba(255,220,200,.10) !important;
+}
+.no-results{
+  background:var(--lx-glass) !important; border:1px solid var(--lx-stroke) !important;
+  border-radius:var(--r-m) !important; padding:22px !important;
+  box-shadow:inset 0 1px 0 rgba(255,248,232,.10) !important;
+}
+.modal-overlay{
+  background:rgba(8,6,4,.52) !important;
+  -webkit-backdrop-filter:blur(10px) saturate(115%); backdrop-filter:blur(10px) saturate(115%);
+}
+.ft-progress-pip{ border-radius:2px !important; }
+.ft-progress-pip.active{ box-shadow:0 0 8px rgba(201,168,76,.8); }
+
+/* ── STATE RE-ASSERTIONS (must outrank the unifier above) ── */
+.filter-btn.active,.sub-filter-btn.active{
+  box-shadow:inset 0 0 0 1px var(--acc,var(--gold)), inset 0 1px 0 rgba(255,248,232,.26),
+    0 5px 18px -9px var(--acc,var(--gold)) !important;
+}
+.ft-option.selected{
+  background:linear-gradient(160deg,rgba(35,29,18,0.66),rgba(20,16,9,0.54)) !important;
+  box-shadow:inset 0 0 0 1px var(--gold-dim), inset 0 1px 0 rgba(255,248,232,.22),
+    0 6px 20px -10px var(--gold-dim) !important;
+}
+.search-input:focus{ box-shadow:0 0 0 4px rgba(233,201,106,.12), var(--lens) !important; }
+.mode-modal-panel,.modal-sheet{
+  background:linear-gradient(160deg,rgba(26,23,19,0.97),rgba(13,12,10,0.95)) !important;
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   STRUCTURE PASS (v67)
+   1. Expansion now darkens — content never fights the backdrop
+   2. Home: stacked list -> 2x2 cinematic tile grid with room kickers
+   3. Filters: wrapped blob -> one-line snap-scroll rail (native-app feel)
+   4. Staggered card entrance on section open (first 8 only — perf-safe)
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* 1 ── expansion darkens */
+.card.expanded{
+  background:linear-gradient(160deg,rgba(14,12,10,0.94),rgba(8,7,6,0.90)) !important;
+}
+.pb-rec-item.expanded,.pb-avoid-item.expanded{
+  background:rgba(8,7,6,.74) !important;
+}
+.pb-rec-explain,.pb-avoid-explain{ background:rgba(6,5,4,.78) !important; }
+
+/* 4 ── staggered entrance, capped at the first eight cards */
+.guide-panel.active .card:nth-child(-n+8){ animation:lxUnfold .42s var(--lx-ease) both; }
+.guide-panel.active .card:nth-child(1){ animation-delay:.02s; }
+.guide-panel.active .card:nth-child(2){ animation-delay:.06s; }
+.guide-panel.active .card:nth-child(3){ animation-delay:.10s; }
+.guide-panel.active .card:nth-child(4){ animation-delay:.14s; }
+.guide-panel.active .card:nth-child(5){ animation-delay:.18s; }
+.guide-panel.active .card:nth-child(6){ animation-delay:.22s; }
+.guide-panel.active .card:nth-child(7){ animation-delay:.26s; }
+.guide-panel.active .card:nth-child(8){ animation-delay:.30s; }
