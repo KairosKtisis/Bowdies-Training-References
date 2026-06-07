@@ -23,6 +23,8 @@ body::before{ opacity:0 !important; }                      /* kill legacy grain 
 body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(130% 100% at 50% 0%,transparent 60%,rgba(0,0,0,.34) 100%); }
 
+footer,.footer{ display:none !important; }                /* footers deleted */
+
 /* ── SCENERY (section backdrop, set by lux-enhance) ── */
 #lx-scenery-hold{ position:static; height:0; }
 #lx-scenery{
