@@ -4,7 +4,7 @@
 // pattern detection. v6 (2026-04-27) replaces single-reading flavorPattern
 // with a 4-6 variant pool per pattern kind. Same pair always returns the same
 // reading (deterministic via crypto hash) but the corpus distributes across
-// all variants -- breaks up the recycled phrases that hit 100+ occurrences
+// all variants — breaks up the recycled phrases that hit 100+ occurrences
 // each ("savory gives way to sweet, the close lands cleanly", etc.).
 
 'use strict';
@@ -404,7 +404,7 @@ const PATTERN_VARIANTS = {
   "cream-doubling": [
     "both cream-forward, the meal goes heavy on the table",
     "cream stacked on cream, the plate reads dense across the meal",
-    "two cream-rounded courses share the meal -- the weight piles on",
+    "two cream-rounded courses share the meal — the weight piles on",
     "both lean into dairy, the table loses contrast",
     "the meal doubles the cream, neither course gets to play off the other"
   ],

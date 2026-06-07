@@ -34,11 +34,11 @@ const SIGS = [
   /workhorse pairing/,
   /keeps pace with/,
   /that's the play/,
-  /-- textbook\./,
+  /(?:--|—) textbook\./,
   /the answer is /,
   /pour it and step back/,
   /if a guest asks what to drink with/,
-  /is fine on .+ -- fine, not memorable/,
+  /is fine on .+ (?:--|—) fine, not memorable/,
   /doesn't fight .+, but doesn't lift it either/,
   /pulls neither way against/,
   /backup when the strong calls/,
@@ -47,7 +47,7 @@ const SIGS = [
   /without asking for attention/,
   /is the answer, full stop/,
   /when a guest asks what works/,
-  /-- the kind of pour that earns a regular/,
+  /(?:--|—) the kind of pour that earns a regular/,
   /carries .+ without overshooting/,
 
   // === Recycled body skeletons (2026-05-06 audit additions) ===

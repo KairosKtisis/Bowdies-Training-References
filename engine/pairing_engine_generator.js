@@ -1,6 +1,6 @@
 // engine/pairing_engine_generator.js (v6 — profile + corpus wired)
 //
-// Templated pair-note generator -- food x food only.
+// Templated pair-note generator — food x food only.
 //
 // v6 (2026-04-27): added the food profile layer (food_profiles_curated.js)
 // and the mined editorial corpus (food_corpus_mined.js). The generator now:
@@ -386,233 +386,233 @@ function alternativesFor(food, pairingMap, n, opts) {
 // ── TEMPLATES ──────────────────────────────────────────────────────────────
 const TEMPLATES = {
   'STEAK_SIDE.gold':[
-    "* {A} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Gold standard; the side-on-steak pairing the menu was built around.",
-    "* {aCap} with {b} -- {aPos} {charA} frames {bPos} {charB}. Gold standard; the side that defines the steak course."
+    "{A} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Gold standard; the side-on-steak pairing the menu was built around.",
+    "{aCap} with {b} — {aPos} {charA} frames {bPos} {charB}. Gold standard; the side that defines the steak course."
   ],
   'STEAK_SIDE.excellent':[
-    "{A} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the headline side pairing for {a}.",
-    "{aCap} into {b} -- {aPos} {charA} meets {bPos} {charB}. Excellent; reliable headline side for the steak course.",
-    "{A} with {b} -- {body}. Excellent; the side that completes the steak plate.",
-    "{aCap} alongside {b} -- {aPos} {charA} frames {bPos} {charB}. Excellent; the side-on-steak call lands at full register."
+    "{A} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the headline side pairing for {a}.",
+    "{aCap} into {b} — {aPos} {charA} meets {bPos} {charB}. Excellent; reliable headline side for the steak course.",
+    "{A} with {b} — {body}. Excellent; the side that completes the steak plate.",
+    "{aCap} alongside {b} — {aPos} {charA} frames {bPos} {charB}. Excellent; the side-on-steak call lands at full register."
   ],
   'STEAK_SIDE.strong':[
-    "{A} alongside {b} -- {body}. Strong; reliable side-on-steak match.",
-    "{aCap} with {b} -- {aPos} {charA} meets {bPos} {charB} cleanly. Strong; the side carries its register against the cut.",
-    "{A} into {b} -- {body}. Strong; the side composes cleanly with the cut.",
-    "{aCap} and {b} on the plate -- {body}. Strong; the side holds the steak's weight without competing."
+    "{A} alongside {b} — {body}. Strong; reliable side-on-steak match.",
+    "{aCap} with {b} — {aPos} {charA} meets {bPos} {charB} cleanly. Strong; the side carries its register against the cut.",
+    "{A} into {b} — {body}. Strong; the side composes cleanly with the cut.",
+    "{aCap} and {b} on the plate — {body}. Strong; the side holds the steak's weight without competing."
   ],
   'STEAK_SIDE.works':[
-    "{A} with {b} -- {patternReading}. Works; the side carries cleanly with the cut.",
-    "{aCap} into {b} -- {patternReading}. Works; safe alongside, but not the headline pick.",
-    "{A} alongside {b} -- {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; the side reads as a measured plate companion.",
-    "{aCap} with {b} -- {patternReading}. Works; the side sits without pulling focus."
+    "{A} with {b} — {patternReading}. Works; the side carries cleanly with the cut.",
+    "{aCap} into {b} — {patternReading}. Works; safe alongside, but not the headline pick.",
+    "{A} alongside {b} — {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; the side reads as a measured plate companion.",
+    "{aCap} with {b} — {patternReading}. Works; the side sits without pulling focus."
   ],
   'STEAK_SIDE.avoid':[
     "{aPosCap} {charA} overshadows {bPos} {charB}. Avoid; the cut overshadows the side. Pair {b} with a lighter cut, and pour {altsA} for {a}."
   ],
   'COURSE_TO_DESSERT.gold':[
-    "* After {a}, {b} -- {aPos} {charA} gives way to {bPos} {charB}. Gold standard; the textbook close to a steak meal.",
-    "* {aCap} into {b} -- {body}. Gold standard; the dessert that defines the close after {a}."
+    "* After {a}, {b} — {aPos} {charA} gives way to {bPos} {charB}. Gold standard; the textbook close to a steak meal.",
+    "{aCap} into {b} — {body}. Gold standard; the dessert that defines the close after {a}."
   ],
   'COURSE_TO_DESSERT.excellent':[
-    "After {a}, {b} -- {body}. Excellent; classic steak-house transition into {b}.",
-    "{aCap} closes with {b} -- {body}. Excellent; the dessert picks up where the cut leaves off.",
-    "{aCap} closes with {b} -- {body}. Excellent; the meal resolves into the dessert at full register.",
-    "After {a}, {b} -- {aPos} {charA} resolves into {bPos} {charB}. Excellent; reliable headline close for the steak course."
+    "After {a}, {b} — {body}. Excellent; classic steak-house transition into {b}.",
+    "{aCap} closes with {b} — {body}. Excellent; the dessert picks up where the cut leaves off.",
+    "{aCap} closes with {b} — {body}. Excellent; the meal resolves into the dessert at full register.",
+    "After {a}, {b} — {aPos} {charA} resolves into {bPos} {charB}. Excellent; reliable headline close for the steak course."
   ],
   'COURSE_TO_DESSERT.strong':[
-    "After {a}, {b} -- {body}. Strong; reliable steak-house finish.",
-    "{aCap} closes with {b} -- {body}. Strong; the dessert carries the close at full register.",
-    "{aCap} closes with {b} -- {body}. Strong; the close composes without strain.",
-    "After {a}, {b} -- {aPos} {charA} settles into {bPos} {charB}. Strong; the dessert lands without competing with the cut."
+    "After {a}, {b} — {body}. Strong; reliable steak-house finish.",
+    "{aCap} closes with {b} — {body}. Strong; the dessert carries the close at full register.",
+    "{aCap} closes with {b} — {body}. Strong; the close composes without strain.",
+    "After {a}, {b} — {aPos} {charA} settles into {bPos} {charB}. Strong; the dessert lands without competing with the cut."
   ],
   'COURSE_TO_DESSERT.works':[
-    "After {a}, {b} -- {patternReading}. Works; a measured close to the meal.",
-    "{aCap} closes with {b} -- {patternReading}. Works; the close holds without strain.",
-    "{aCap} closes with {b} -- {aPos} {charA} resolves into {bPos} {charB}: {patternReading}. Works; the dessert lands cleanly.",
-    "After {a}, {b} -- {patternReading}. Works; the dessert closes the meal without crowding."
+    "After {a}, {b} — {patternReading}. Works; a measured close to the meal.",
+    "{aCap} closes with {b} — {patternReading}. Works; the close holds without strain.",
+    "{aCap} closes with {b} — {aPos} {charA} resolves into {bPos} {charB}: {patternReading}. Works; the dessert lands cleanly.",
+    "After {a}, {b} — {patternReading}. Works; the dessert closes the meal without crowding."
   ],
   'COURSE_TO_DESSERT.avoid':[
-    "{aPosCap} {charA} doesn't resolve into {bPos} {charB}. Avoid; the close clashes with the meal. After {a}, reach for a lighter dessert -- pour {altsA} alongside {a} and route {b} to a different night."
+    "{aPosCap} {charA} doesn't resolve into {bPos} {charB}. Avoid; the close clashes with the meal. After {a}, reach for a lighter dessert — pour {altsA} alongside {a} and route {b} to a different night."
   ],
   'STEAK_STARTER.gold':[
-    "* {A} preceded by {b} -- {bPos} {charB} sets up {aPos} {charA} cleanly. Gold standard; the starter that primes the cut."
+    "{A} preceded by {b} — {bPos} {charB} sets up {aPos} {charA} cleanly. Gold standard; the starter that primes the cut."
   ],
   'STEAK_STARTER.excellent':[
-    "{A} preceded by {b} -- {body}. Excellent; the starter sets up the cut at full register.",
-    "{aCap} after {b} -- {bPos} {charB} primes the palate for {aPos} {charA}. Excellent; reliable opener for the steak course."
+    "{A} preceded by {b} — {body}. Excellent; the starter sets up the cut at full register.",
+    "{aCap} after {b} — {bPos} {charB} primes the palate for {aPos} {charA}. Excellent; reliable opener for the steak course."
   ],
   'STEAK_STARTER.strong':[
-    "{A} preceded by {b} -- {body}. Strong; reliable opener for the steak course.",
-    "{aCap} after {b} -- {body}. Strong; the starter composes cleanly before the cut."
+    "{A} preceded by {b} — {body}. Strong; reliable opener for the steak course.",
+    "{aCap} after {b} — {body}. Strong; the starter composes cleanly before the cut."
   ],
   'STEAK_STARTER.works':[
-    "{A} preceded by {b} -- {patternReading}. Works; the call holds, the starter primes the cut without strain.",
-    "{aCap} after {b} -- {bPos} {charB} sets up {aPos} {charA}: {patternReading}. Works; the starter composes before the cut.",
-    "{A} after {b} -- {patternReading}. Works; the opener sits cleanly before the steak.",
-    "{aCap} preceded by {b} -- {patternReading}. Works; safe opener, the meal builds without crowding the cut."
+    "{A} preceded by {b} — {patternReading}. Works; the call holds, the starter primes the cut without strain.",
+    "{aCap} after {b} — {bPos} {charB} sets up {aPos} {charA}: {patternReading}. Works; the starter composes before the cut.",
+    "{A} after {b} — {patternReading}. Works; the opener sits cleanly before the steak.",
+    "{aCap} preceded by {b} — {patternReading}. Works; safe opener, the meal builds without crowding the cut."
   ],
   'STEAK_STARTER.avoid':[
-    "{aPosCap} {charA} obliterates {bPos} {charB}. Avoid; the cut is too bold for the delicate starter. Stand {b} on its own course -- pair {b} with {altsB} -- and pour {altsA} for {a}.",
+    "{aPosCap} {charA} obliterates {bPos} {charB}. Avoid; the cut is too bold for the delicate starter. Stand {b} on its own course — pair {b} with {altsB} — and pour {altsA} for {a}.",
     "{aPosCap} {charA} overwhelms {bPos} {charB}. Avoid; the courses can't share a meal cleanly. Pair {b} with {altsB} on a different visit; pour {altsA} alongside {a}."
   ],
   'STEAK_SOUP_SALAD.gold':[
-    "* {A} preceded by {b} -- {bPos} {charB} primes the table for {aPos} {charA}. Gold standard; the opener that defines the steak course."
+    "{A} preceded by {b} — {bPos} {charB} primes the table for {aPos} {charA}. Gold standard; the opener that defines the steak course."
   ],
   'STEAK_SOUP_SALAD.excellent':[
-    "{A} preceded by {b} -- {body}. Excellent; the soup-or-salad frames the steak course cleanly.",
-    "{aCap} after {b} -- {bPos} {charB} sets the table for {aPos} {charA}. Excellent; the headline opener for the cut.",
-    "{A} preceded by {b} -- {aPos} {charA} resolves into {bPos} {charB}. Excellent; the opener that primes the cut at full register.",
-    "{aCap} after {b} -- {body}. Excellent; the soup-or-salad call before the cut lands cleanly."
+    "{A} preceded by {b} — {body}. Excellent; the soup-or-salad frames the steak course cleanly.",
+    "{aCap} after {b} — {bPos} {charB} sets the table for {aPos} {charA}. Excellent; the headline opener for the cut.",
+    "{A} preceded by {b} — {aPos} {charA} resolves into {bPos} {charB}. Excellent; the opener that primes the cut at full register.",
+    "{aCap} after {b} — {body}. Excellent; the soup-or-salad call before the cut lands cleanly."
   ],
   'STEAK_SOUP_SALAD.strong':[
-    "{A} into {b} -- {body}. Strong; reliable opener for the cut.",
-    "{aCap} preceded by {b} -- {body}. Strong; the opener composes cleanly before the cut.",
-    "{A} after {b} -- {bPos} {charB} primes the palate for {aPos} {charA}. Strong; the soup-or-salad sets the table without crowding the cut.",
-    "{aCap} with {b} alongside -- {body}. Strong; the opener carries its register against the cut."
+    "{A} into {b} — {body}. Strong; reliable opener for the cut.",
+    "{aCap} preceded by {b} — {body}. Strong; the opener composes cleanly before the cut.",
+    "{A} after {b} — {bPos} {charB} primes the palate for {aPos} {charA}. Strong; the soup-or-salad sets the table without crowding the cut.",
+    "{aCap} with {b} alongside — {body}. Strong; the opener carries its register against the cut."
   ],
   'STEAK_SOUP_SALAD.works':[
-    "{A} preceded by {b} -- {patternReading}. Works; the opener primes the cut without strain.",
-    "{A} with {b} alongside -- {patternReading}. Works; the soup-or-salad call holds, the meal builds cleanly.",
-    "{aCap} after {b} -- {bPos} {charB} sets the table for {aPos} {charA}: {patternReading}. Works; the opener carries before the cut.",
-    "{A} into {b} -- {patternReading}. Works; safe opener, the meal builds without crowding."
+    "{A} preceded by {b} — {patternReading}. Works; the opener primes the cut without strain.",
+    "{A} with {b} alongside — {patternReading}. Works; the soup-or-salad call holds, the meal builds cleanly.",
+    "{aCap} after {b} — {bPos} {charB} sets the table for {aPos} {charA}: {patternReading}. Works; the opener carries before the cut.",
+    "{A} into {b} — {patternReading}. Works; safe opener, the meal builds without crowding."
   ],
   'STEAK_SOUP_SALAD.avoid':[
     "{aPosCap} {charA} crowds out {bPos} {charB}. Avoid; the courses don't compose together. Pair {b} with {altsB}; pour {altsA} for {a}."
   ],
   'MAIN_SIDE.gold':[
-    "* {A} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Gold standard; the side that defines the {a} plate."
+    "{A} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Gold standard; the side that defines the {a} plate."
   ],
   'MAIN_SIDE.excellent':[
-    "{A} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the headline side pairing for {a}.",
-    "{aCap} into {b} -- {aPos} {charA} meets {bPos} {charB}. Excellent; reliable headline side for the {a}.",
-    "{A} with {b} -- {body}. Excellent; the side that completes the {a} plate.",
-    "{aCap} alongside {b} -- {aPos} {charA} frames {bPos} {charB}. Excellent; the side-on-{a} call lands at full register."
+    "{A} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the headline side pairing for {a}.",
+    "{aCap} into {b} — {aPos} {charA} meets {bPos} {charB}. Excellent; reliable headline side for the {a}.",
+    "{A} with {b} — {body}. Excellent; the side that completes the {a} plate.",
+    "{aCap} alongside {b} — {aPos} {charA} frames {bPos} {charB}. Excellent; the side-on-{a} call lands at full register."
   ],
   'MAIN_SIDE.strong':[
-    "{A} with {b} -- {body}. Strong; reliable side for the {a}.",
-    "{aCap} alongside {b} -- {aPos} {charA} meets {bPos} {charB} cleanly. Strong; the side carries its register against the main.",
-    "{A} into {b} -- {body}. Strong; the side composes cleanly with the main.",
-    "{aCap} and {b} on the plate -- {body}. Strong; the side holds the {a}'s weight without competing."
+    "{A} with {b} — {body}. Strong; reliable side for the {a}.",
+    "{aCap} alongside {b} — {aPos} {charA} meets {bPos} {charB} cleanly. Strong; the side carries its register against the main.",
+    "{A} into {b} — {body}. Strong; the side composes cleanly with the main.",
+    "{aCap} and {b} on the plate — {body}. Strong; the side holds the {a}'s weight without competing."
   ],
   'MAIN_SIDE.works':[
-    "{A} alongside {b} -- {patternReading}. Works; the side carries cleanly with the {a}.",
-    "{aCap} into {b} -- {patternReading}. Works; safe alongside, but not the headline pick.",
-    "{A} with {b} -- {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; the side reads as a measured plate companion.",
-    "{aCap} alongside {b} -- {patternReading}. Works; the side sits without pulling focus."
+    "{A} alongside {b} — {patternReading}. Works; the side carries cleanly with the {a}.",
+    "{aCap} into {b} — {patternReading}. Works; safe alongside, but not the headline pick.",
+    "{A} with {b} — {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; the side reads as a measured plate companion.",
+    "{aCap} alongside {b} — {patternReading}. Works; the side sits without pulling focus."
   ],
   'MAIN_SIDE.avoid':[
     "{aPosCap} {charA} overwhelms {bPos} {charB}. Avoid; the side can't hold its register against the main. Pair {b} with {altsB}; pour {altsA} for {a}."
   ],
   'STEAK_MAIN.works':[
-    "{A} alongside {b} -- two protein courses on one table. Works; the meal carries the cut and the main cleanly.",
-    "{aCap} with {b} -- the steak and the main share the meal. Works; both proteins land without crowding."
+    "{A} alongside {b} — two protein courses on one table. Works; the meal carries the cut and the main cleanly.",
+    "{aCap} with {b} — the steak and the main share the meal. Works; both proteins land without crowding."
   ],
   'STEAK_MAIN.avoid':[
-    "{aPosCap} {charA} clashes with {bPos} {charB}. Avoid; the two protein courses pull in different directions. Order one or the other -- pour {altsA} for {a}, or {altsB} for {b}."
+    "{aPosCap} {charA} clashes with {bPos} {charB}. Avoid; the two protein courses pull in different directions. Order one or the other — pour {altsA} for {a}, or {altsB} for {b}."
   ],
   'STEAK_PAIR.works':[
-    "{A} and {b} together -- two cuts on the same table. Works; the two steaks share the meal at full register.",
-    "{aCap} alongside {b} -- {body}. Works; both cuts land cleanly when the table splits."
+    "{A} and {b} together — two cuts on the same table. Works; the two steaks share the meal at full register.",
+    "{aCap} alongside {b} — {body}. Works; both cuts land cleanly when the table splits."
   ],
   'STEAK_PAIR.avoid':[
-    "{A} and {b} overlap on the steak course -- {body}. Avoid; pick one cut or the other. Pair {a} with {altsA}, or {b} with {altsB}."
+    "{A} and {b} overlap on the steak course — {body}. Avoid; pick one cut or the other. Pair {a} with {altsA}, or {b} with {altsB}."
   ],
   'MAIN_PAIR.works':[
-    "{A} and {b} together -- two mains on the same table. Works; both proteins land cleanly when the table splits.",
-    "{aCap} alongside {b} -- {body}. Works; the two mains share the meal without crowding."
+    "{A} and {b} together — two mains on the same table. Works; both proteins land cleanly when the table splits.",
+    "{aCap} alongside {b} — {body}. Works; the two mains share the meal without crowding."
   ],
   'MAIN_PAIR.avoid':[
-    "{A} and {b} overlap on the main course -- {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
+    "{A} and {b} overlap on the main course — {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
   ],
   'MAIN_STARTER.gold':[
-    "* {A} preceded by {b} -- {bPos} {charB} primes the palate for {aPos} {charA}. Gold standard; the starter that sets the {a} up."
+    "{A} preceded by {b} — {bPos} {charB} primes the palate for {aPos} {charA}. Gold standard; the starter that sets the {a} up."
   ],
   'MAIN_STARTER.excellent':[
-    "{A} preceded by {b} -- {body}. Excellent; the starter sets up the {a} at full register.",
-    "{aCap} after {b} -- {bPos} {charB} primes the palate for {aPos} {charA}. Excellent; reliable headline opener for the {a}.",
-    "{A} with {b} as the lead-in -- {body}. Excellent; the starter that carries into the {a} cleanly.",
-    "{aCap} preceded by {b} -- {body}. Excellent; the opener that frames the {a} at full register."
+    "{A} preceded by {b} — {body}. Excellent; the starter sets up the {a} at full register.",
+    "{aCap} after {b} — {bPos} {charB} primes the palate for {aPos} {charA}. Excellent; reliable headline opener for the {a}.",
+    "{A} with {b} as the lead-in — {body}. Excellent; the starter that carries into the {a} cleanly.",
+    "{aCap} preceded by {b} — {body}. Excellent; the opener that frames the {a} at full register."
   ],
   'MAIN_STARTER.strong':[
-    "{A} preceded by {b} -- {body}. Strong; reliable opener for the main.",
-    "{aCap} after {b} -- {body}. Strong; the starter composes cleanly before the main.",
-    "{A} with {b} as the lead-in -- {body}. Strong; the starter sets the table for the {a}.",
-    "{aCap} and {b} across courses -- {body}. Strong; the opener carries its register before the main."
+    "{A} preceded by {b} — {body}. Strong; reliable opener for the main.",
+    "{aCap} after {b} — {body}. Strong; the starter composes cleanly before the main.",
+    "{A} with {b} as the lead-in — {body}. Strong; the starter sets the table for the {a}.",
+    "{aCap} and {b} across courses — {body}. Strong; the opener carries its register before the main."
   ],
   'MAIN_STARTER.works':[
-    "{A} preceded by {b} -- {body}. Works; the call holds, neither soars nor fights.",
-    "{aCap} after {b} -- {body}. Works; the starter sits without crowding the main.",
-    "{A} with {b} as the lead-in -- {body}. Works; the opener composes at neutral register.",
-    "{aCap} preceded by {b} -- {body}. Works; safe opener, but not the headline pick."
+    "{A} preceded by {b} — {body}. Works; the call holds, neither soars nor fights.",
+    "{aCap} after {b} — {body}. Works; the starter sits without crowding the main.",
+    "{A} with {b} as the lead-in — {body}. Works; the opener composes at neutral register.",
+    "{aCap} preceded by {b} — {body}. Works; safe opener, but not the headline pick."
   ],
   'MAIN_STARTER.avoid':[
     "{aPosCap} {charA} obliterates {bPos} {charB}. Avoid; the main is too bold for the delicate starter. Pair {b} with {altsB}; pour {altsA} for {a}.",
     "{aPosCap} {charA} overwhelms {bPos} {charB}. Avoid; the courses can't share a meal cleanly. Pair {b} with {altsB} on a different visit; pour {altsA} alongside {a}."
   ],
   'MAIN_SOUP_SALAD.gold':[
-    "* {A} preceded by {b} -- {bPos} {charB} primes the table for {aPos} {charA}. Gold standard; the opener that defines the {a} course."
+    "{A} preceded by {b} — {bPos} {charB} primes the table for {aPos} {charA}. Gold standard; the opener that defines the {a} course."
   ],
   'MAIN_SOUP_SALAD.excellent':[
-    "{A} preceded by {b} -- {body}. Excellent; the soup-or-salad frames the {a} course cleanly.",
-    "{aCap} after {b} -- {bPos} {charB} sets the table for {aPos} {charA}. Excellent; the headline opener for the main.",
-    "{A} with {b} alongside -- {body}. Excellent; the opener that primes the {a} at full register.",
-    "{aCap} preceded by {b} -- {body}. Excellent; the soup-or-salad call before the main lands cleanly."
+    "{A} preceded by {b} — {body}. Excellent; the soup-or-salad frames the {a} course cleanly.",
+    "{aCap} after {b} — {bPos} {charB} sets the table for {aPos} {charA}. Excellent; the headline opener for the main.",
+    "{A} with {b} alongside — {body}. Excellent; the opener that primes the {a} at full register.",
+    "{aCap} preceded by {b} — {body}. Excellent; the soup-or-salad call before the main lands cleanly."
   ],
   'MAIN_SOUP_SALAD.strong':[
-    "{A} into {b} -- {body}. Strong; reliable opener for the main.",
-    "{aCap} preceded by {b} -- {body}. Strong; the opener composes cleanly before the main.",
-    "{A} after {b} -- {bPos} {charB} primes the palate for {aPos} {charA}. Strong; the soup-or-salad sets the table for the {a}.",
-    "{aCap} with {b} alongside -- {body}. Strong; the opener carries its register against the main."
+    "{A} into {b} — {body}. Strong; reliable opener for the main.",
+    "{aCap} preceded by {b} — {body}. Strong; the opener composes cleanly before the main.",
+    "{A} after {b} — {bPos} {charB} primes the palate for {aPos} {charA}. Strong; the soup-or-salad sets the table for the {a}.",
+    "{aCap} with {b} alongside — {body}. Strong; the opener carries its register against the main."
   ],
   'MAIN_SOUP_SALAD.works':[
-    "{A} preceded by {b} -- {body}. Works; the call holds at neutral register.",
-    "{A} with {b} alongside -- {body}. Works; the side-salad call holds before the main.",
-    "{aCap} after {b} -- {body}. Works; the opener sits without competing.",
-    "{A} into {b} -- {body}. Works; safe opener, but not the headline pick."
+    "{A} preceded by {b} — {body}. Works; the call holds at neutral register.",
+    "{A} with {b} alongside — {body}. Works; the side-salad call holds before the main.",
+    "{aCap} after {b} — {body}. Works; the opener sits without competing.",
+    "{A} into {b} — {body}. Works; safe opener, but not the headline pick."
   ],
   'MAIN_SOUP_SALAD.avoid':[
     "{aPosCap} {charA} crowds out {bPos} {charB}. Avoid; the courses don't compose together. Pair {b} with {altsB}; pour {altsA} for {a}."
   ],
   'STARTER_SOUP_SALAD.excellent':[
-    "{A} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the opening courses compose at full register.",
-    "{aCap} with {b} -- {body}. Excellent; the headline opener pair for the meal.",
-    "{A} and {b} together -- the table opens with two strong courses. Excellent; the openers frame the meal cleanly."
+    "{A} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the opening courses compose at full register.",
+    "{aCap} with {b} — {body}. Excellent; the headline opener pair for the meal.",
+    "{A} and {b} together — the table opens with two strong courses. Excellent; the openers frame the meal cleanly."
   ],
   'STARTER_SOUP_SALAD.strong':[
-    "{A} alongside {b} -- {body}. Strong; the openers compose cleanly together.",
-    "{aCap} with {b} -- {aPos} {charA} meets {bPos} {charB}. Strong; the opening courses share the table at full register.",
-    "{A} and {b} together -- {body}. Strong; both openers earn their place on the meal."
+    "{A} alongside {b} — {body}. Strong; the openers compose cleanly together.",
+    "{aCap} with {b} — {aPos} {charA} meets {bPos} {charB}. Strong; the opening courses share the table at full register.",
+    "{A} and {b} together — {body}. Strong; both openers earn their place on the meal."
   ],
   'STARTER_SOUP_SALAD.works':[
-    "{A} alongside {b} -- {patternReading}. Works; the openers share the table cleanly, sequence or share.",
-    "{aCap} with {b} -- {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; both opening courses earn their place.",
-    "{A} and {b} together -- {patternReading}. Works; the table opens with both, no clash either way.",
-    "{aCap} preceded by {b} -- {patternReading}. Works; safe opening pair, the meal builds without strain."
+    "{A} alongside {b} — {patternReading}. Works; the openers share the table cleanly, sequence or share.",
+    "{aCap} with {b} — {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; both opening courses earn their place.",
+    "{A} and {b} together — {patternReading}. Works; the table opens with both, no clash either way.",
+    "{aCap} preceded by {b} — {patternReading}. Works; safe opening pair, the meal builds without strain."
   ],
   'STARTER_SOUP_SALAD.avoid':[
     "{aPosCap} {charA} clashes with {bPos} {charB}. Avoid; the opening courses don't compose together. Pair {a} with {altsA}; pair {b} with {altsB}."
   ],
   'STARTER_SIDE.excellent':[
-    "{aCap} opens the meal, {b} with the entree -- {aPos} {charA} sets up cleanly for {bPos} {charB}. Excellent; the starter primes the table at full register before the side lands.",
-    "{A} early, {b} on the steak plate -- {body}. Excellent; both items earn their place on a thoughtful build."
+    "{aCap} opens the meal, {b} with the entree — {aPos} {charA} sets up cleanly for {bPos} {charB}. Excellent; the starter primes the table at full register before the side lands.",
+    "{A} early, {b} on the steak plate — {body}. Excellent; both items earn their place on a thoughtful build."
   ],
   'STARTER_SIDE.strong':[
-    "{aCap} opens the meal, {b} with the entree -- {body}. Strong; both items hold their weight on the build.",
-    "{A} early, {b} later with the main -- {aPos} {charA} primes the table for {bPos} {charB}. Strong; the starter sets the table before the side lands.",
-    "{aCap} and {b} on different courses -- the starter opens, the side rides with the entree. Strong; the meal builds cleanly."
+    "{aCap} opens the meal, {b} with the entree — {body}. Strong; both items hold their weight on the build.",
+    "{A} early, {b} later with the main — {aPos} {charA} primes the table for {bPos} {charB}. Strong; the starter sets the table before the side lands.",
+    "{aCap} and {b} on different courses — the starter opens, the side rides with the entree. Strong; the meal builds cleanly."
   ],
   'STARTER_SIDE.works':[
-    "{aCap} and {b} -- {patternReading}. Works; sequence them or share the table, no concern either way.",
-    "{A} alongside {b} -- {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; no conflict, the meal builds.",
-    "{aCap} and {b} -- {patternReading}. Works; the call holds whether the table sequences them or shares.",
-    "{A} and {b} -- {patternReading}. Works; both items hold their register, no clash."
+    "{aCap} and {b} — {patternReading}. Works; sequence them or share the table, no concern either way.",
+    "{A} alongside {b} — {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; no conflict, the meal builds.",
+    "{aCap} and {b} — {patternReading}. Works; the call holds whether the table sequences them or shares.",
+    "{A} and {b} — {patternReading}. Works; both items hold their register, no clash."
   ],
   'STARTER_SIDE.avoid':[
     "{aPosCap} {charA} overwhelms {bPos} {charB}. Avoid; the courses can't share register. Pair {b} with {altsB}; pair {a} with {altsA}."
   ],
   'STARTER_TO_DESSERT.excellent':[
-    "{aCap} opens the meal, {b} closes -- the bookends compose at full register. Excellent; the meal arc lands cleanly from open to close.",
+    "{aCap} opens the meal, {b} closes — the bookends compose at full register. Excellent; the meal arc lands cleanly from open to close.",
     "{A} as the opener, {b} for the close. Excellent; both bookends earn their place on the meal."
   ],
   'STARTER_TO_DESSERT.strong':[
@@ -621,37 +621,37 @@ const TEMPLATES = {
     "{aCap} as the opener, {b} as the close. Strong; the bookends carry the meal cleanly."
   ],
   'STARTER_TO_DESSERT.works':[
-    "{aCap} and {b} -- {aPos} {charA} bookends {bPos} {charB}: {patternReading}. Works; no conflict across the meal, either as opener-close or together.",
-    "{A} and {b} -- {patternReading}. Works; sequence them as opener and close or share the table, no clash.",
-    "{aCap} alongside {b} -- {patternReading}. Works; both bookends earn their place, the meal arc holds.",
-    "{A} and {b} -- {patternReading}. Works; sequence or together, the meal carries cleanly."
+    "{aCap} and {b} — {aPos} {charA} bookends {bPos} {charB}: {patternReading}. Works; no conflict across the meal, either as opener-close or together.",
+    "{A} and {b} — {patternReading}. Works; sequence them as opener and close or share the table, no clash.",
+    "{aCap} alongside {b} — {patternReading}. Works; both bookends earn their place, the meal arc holds.",
+    "{A} and {b} — {patternReading}. Works; sequence or together, the meal carries cleanly."
   ],
   'STARTER_TO_DESSERT.avoid':[
     "{aPosCap} {charA} doesn't carry into {bPos} {charB}. Avoid; the meal's bookends don't compose. Pair {a} with {altsA}; pair {b} with {altsB}."
   ],
   'STARTER_PAIR.works':[
-    "{A} and {b} together -- two openers on the same table. Works; the table opens with both courses cleanly.",
-    "{aCap} alongside {b} -- {body}. Works; the split-starter call composes without crowding."
+    "{A} and {b} together — two openers on the same table. Works; the table opens with both courses cleanly.",
+    "{aCap} alongside {b} — {body}. Works; the split-starter call composes without crowding."
   ],
   'STARTER_PAIR.avoid':[
-    "{A} and {b} overlap on the opening course -- {body}. Avoid; pick one starter or the other. Pair {a} with {altsA}, or {b} with {altsB}."
+    "{A} and {b} overlap on the opening course — {body}. Avoid; pick one starter or the other. Pair {a} with {altsA}, or {b} with {altsB}."
   ],
   'SOUP_SALAD_PAIR.works':[
-    "{A} and {b} together -- soup-and-salad open the meal. Works; both courses share the opening without crowding.",
-    "{aCap} alongside {b} -- {body}. Works; the opening pair holds at table register."
+    "{A} and {b} together — soup-and-salad open the meal. Works; both courses share the opening without crowding.",
+    "{aCap} alongside {b} — {body}. Works; the opening pair holds at table register."
   ],
   'SOUP_SALAD_PAIR.avoid':[
-    "{A} and {b} overlap on the opening course -- {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
+    "{A} and {b} overlap on the opening course — {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
   ],
   'SOUP_SALAD_SIDE.strong':[
-    "{aCap} opens the meal, {b} with the entree -- {aPos} {charA} sets up cleanly for {bPos} {charB}. Strong; the build reads thoughtful across the courses.",
-    "{A} early, {b} on the steak plate -- {body}. Strong; both items earn their weight when the table builds the full meal."
+    "{aCap} opens the meal, {b} with the entree — {aPos} {charA} sets up cleanly for {bPos} {charB}. Strong; the build reads thoughtful across the courses.",
+    "{A} early, {b} on the steak plate — {body}. Strong; both items earn their weight when the table builds the full meal."
   ],
   'SOUP_SALAD_SIDE.works':[
-    "{aCap} and {b} -- {patternReading}. Works; sequence them or share the table, the call holds either way.",
-    "{aCap} alongside {b} -- {patternReading}. Works; the table can build them in order or together.",
-    "{A} and {b} -- {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; no conflict however the table orders them.",
-    "{aCap} and {b} on the same meal -- {patternReading}. Works; sequence or share, the build holds."
+    "{aCap} and {b} — {patternReading}. Works; sequence them or share the table, the call holds either way.",
+    "{aCap} alongside {b} — {patternReading}. Works; the table can build them in order or together.",
+    "{A} and {b} — {aPos} {charA} meets {bPos} {charB}: {patternReading}. Works; no conflict however the table orders them.",
+    "{aCap} and {b} on the same meal — {patternReading}. Works; sequence or share, the build holds."
   ],
   'SOUP_SALAD_SIDE.avoid':[
     "{aPosCap} {charA} clashes with {bPos} {charB}. Avoid; the opener and the side can't share register. Pair {b} with {altsB}; pair {a} with {altsA}."
@@ -661,10 +661,10 @@ const TEMPLATES = {
     "{A} as the opener, {b} as the close. Strong; the bookends earn their place across the courses."
   ],
   'SOUP_SALAD_TO_DESSERT.works':[
-    "{aCap} and {b} -- {aPos} {charA} bookends {bPos} {charB}: {patternReading}. Works; no conflict across the meal, either as opener-close or together.",
-    "{A} and {b} -- {patternReading}. Works; sequence them as opener and close or share the table, no clash.",
-    "{aCap} alongside {b} -- {patternReading}. Works; both bookends earn their place, the meal arc holds.",
-    "{A} and {b} -- {patternReading}. Works; either timing holds, the table builds either way."
+    "{aCap} and {b} — {aPos} {charA} bookends {bPos} {charB}: {patternReading}. Works; no conflict across the meal, either as opener-close or together.",
+    "{A} and {b} — {patternReading}. Works; sequence them as opener and close or share the table, no clash.",
+    "{aCap} alongside {b} — {patternReading}. Works; both bookends earn their place, the meal arc holds.",
+    "{A} and {b} — {patternReading}. Works; either timing holds, the table builds either way."
   ],
   'SOUP_SALAD_TO_DESSERT.avoid':[
     "{aPosCap} {charA} doesn't carry into {bPos} {charB}. Avoid; the meal's bookends don't compose. Pair {a} with {altsA}; pair {b} with {altsB}."
@@ -674,61 +674,61 @@ const TEMPLATES = {
     "{A} on the entree plate, {b} for the close. Strong; the meal transitions cleanly from side to dessert."
   ],
   'SIDE_TO_DESSERT.works':[
-    "{aCap} and {b} -- {aPos} {charA} hands off cleanly to {bPos} {charB}: {patternReading}. Works; sequence them or share the table, no clash.",
-    "{A} and {b} -- {patternReading}. Works; clean transition or together if the table wants.",
-    "{aCap} alongside {b} -- {patternReading}. Works; the contrast holds, neither course overshadows the other.",
-    "{A} and {b} -- {patternReading}. Works; the meal closes cleanly from the side."
+    "{aCap} and {b} — {aPos} {charA} hands off cleanly to {bPos} {charB}: {patternReading}. Works; sequence them or share the table, no clash.",
+    "{A} and {b} — {patternReading}. Works; clean transition or together if the table wants.",
+    "{aCap} alongside {b} — {patternReading}. Works; the contrast holds, neither course overshadows the other.",
+    "{A} and {b} — {patternReading}. Works; the meal closes cleanly from the side."
   ],
   'SIDE_TO_DESSERT.avoid':[
     "{aPosCap} {charA} doesn't carry into {bPos} {charB}. Avoid; the side and the close don't compose. Pair {a} with {altsA}; pair {b} with {altsB}."
   ],
   'SIDE_PAIR.strong':[
-    "{A} and {b} together -- {body}. Strong; the two sides hold the plate at full register.",
-    "{aCap} alongside {b} -- {aPos} {charA} composes against {bPos} {charB}. Strong; both sides earn their place on the meal."
+    "{A} and {b} together — {body}. Strong; the two sides hold the plate at full register.",
+    "{aCap} alongside {b} — {aPos} {charA} composes against {bPos} {charB}. Strong; both sides earn their place on the meal."
   ],
   'SIDE_PAIR.works':[
-    "{A} and {b} together -- {body}. Works; the two sides share the meal without competing.",
-    "{aCap} alongside {b} -- {body}. Works; both sides hold at neutral register.",
-    "{A} with {b} on the plate -- {body}. Works; the call composes without crowding.",
-    "{aCap} and {b} across the plate -- {body}. Works; safe call when the table doubles up on sides."
+    "{A} and {b} together — {body}. Works; the two sides share the meal without competing.",
+    "{aCap} alongside {b} — {body}. Works; both sides hold at neutral register.",
+    "{A} with {b} on the plate — {body}. Works; the call composes without crowding.",
+    "{aCap} and {b} across the plate — {body}. Works; safe call when the table doubles up on sides."
   ],
   'SIDE_PAIR.avoid':[
-    "{A} and {b} together overlap -- {body}. Avoid; pick one side or the other."
+    "{A} and {b} together overlap — {body}. Avoid; pick one side or the other."
   ],
   'DESSERT_PAIR.excellent':[
-    "{A} and {b} together -- {body}. Excellent; the close lands at full register when the table splits desserts.",
-    "{aCap} alongside {b} -- {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the dessert pair frames the close cleanly."
+    "{A} and {b} together — {body}. Excellent; the close lands at full register when the table splits desserts.",
+    "{aCap} alongside {b} — {aPos} {charA} carries cleanly into {bPos} {charB}. Excellent; the dessert pair frames the close cleanly."
   ],
   'DESSERT_PAIR.strong':[
-    "{A} and {b} together -- {body}. Strong; both desserts hold the close at full register.",
-    "{aCap} alongside {b} -- {body}. Strong; the dessert split composes cleanly."
+    "{A} and {b} together — {body}. Strong; both desserts hold the close at full register.",
+    "{aCap} alongside {b} — {body}. Strong; the dessert split composes cleanly."
   ],
   'DESSERT_PAIR.works':[
-    "{A} and {b} together -- {body}. Works; the two desserts share the close without crowding.",
-    "{aCap} alongside {b} -- {body}. Works; the dessert split holds at neutral register."
+    "{A} and {b} together — {body}. Works; the two desserts share the close without crowding.",
+    "{aCap} alongside {b} — {body}. Works; the dessert split holds at neutral register."
   ],
   'DESSERT_PAIR.avoid':[
-    "{A} and {b} together overlap on the close -- {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
+    "{A} and {b} together overlap on the close — {body}. Avoid; pick one or the other. Pair {a} with {altsA}, or {b} with {altsB}."
   ],
   'GENERIC_FOOD_PAIR.gold':[
-    "* {A} with {b} -- {body}. Gold standard; the pairing that defines the meal."
+    "{A} with {b} — {body}. Gold standard; the pairing that defines the meal."
   ],
   'GENERIC_FOOD_PAIR.excellent':[
-    "{A} with {b} -- {body}. Excellent; the headline call."
+    "{A} with {b} — {body}. Excellent; the headline call."
   ],
   'GENERIC_FOOD_PAIR.strong':[
-    "{A} with {b} -- {body}. Strong; reliable match across the courses."
+    "{A} with {b} — {body}. Strong; reliable match across the courses."
   ],
   'GENERIC_FOOD_PAIR.works':[
-    "{A} with {b} -- {body}. Works; the call holds at neutral register."
+    "{A} with {b} — {body}. Works; the call holds at neutral register."
   ],
   'GENERIC_FOOD_PAIR.avoid':[
     "{aPosCap} {charA} clashes with {bPos} {charB}. Avoid; the courses don't share register. Pair {a} with {altsA}; pair {b} with {altsB}."
   ],
   'DUPLICATION.avoid':[
-    "{aCap} and {b} -- both {dupLabel}-forward, the table doubles up on {dupLabel}. Avoid; pick one or the other. Pair {a} with {altsA}; pair {b} with {altsB}.",
-    "{aCap} and {b} -- {dupLabel}-on-{dupLabel}, the meal goes redundant. Avoid; the table reads heavy without payoff. Suggest {altsA} for {a}, or {altsB} for {b}.",
-    "{aCap} alongside {b} -- both bring {dupLabel} as the headline. Avoid; one is enough. Pair {a} with {altsA}; pair {b} with {altsB}.",
+    "{aCap} and {b} — both {dupLabel}-forward, the table doubles up on {dupLabel}. Avoid; pick one or the other. Pair {a} with {altsA}; pair {b} with {altsB}.",
+    "{aCap} and {b} — {dupLabel}-on-{dupLabel}, the meal goes redundant. Avoid; the table reads heavy without payoff. Suggest {altsA} for {a}, or {altsB} for {b}.",
+    "{aCap} alongside {b} — both bring {dupLabel} as the headline. Avoid; one is enough. Pair {a} with {altsA}; pair {b} with {altsB}.",
     "{aCap} and {b} share {dupLabel} as the primary character. Avoid; the meal doubles down without contrast. Route {a} with {altsA} or {b} with {altsB} instead."
   ],
 };

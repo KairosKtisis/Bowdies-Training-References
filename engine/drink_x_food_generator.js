@@ -1880,36 +1880,36 @@ function buildBody(drink, food, tier, ctx) {
 const VERDICT_PATTERNS = {
   gold: [
     "Gold standard; the {hook} that defines {food}.",
-    "Gold standard; {drink} on {food} -- the call you don't second-guess.",
+    "Gold standard; {drink} on {food} — the call you don't second-guess.",
     "Gold standard; for {food}, {drink} is the answer, full stop.",
-    "Gold standard; {hook} on {food} -- pour it and step back.",
+    "Gold standard; {hook} on {food} — pour it and step back.",
     "Gold standard; if a guest asks what to drink with {food}, the answer is {drink}.",
     "Gold standard; pour {drink} on {food}, that's the play.",
-    "Gold standard; {drink} into {food} -- textbook.",
+    "Gold standard; {drink} into {food} — textbook.",
     "Gold standard; the {hook} call that anchors {food}.",
     "Gold standard; the headline pour for {food}, full stop.",
-    "Gold standard; {drink} with {food} -- the bottle the staff talks about.",
-    "Gold standard; {hook} on {food} -- the once-a-month-pour move.",
-    "Gold standard; {drink} on {food} -- a reverence-level pairing.",
+    "Gold standard; {drink} with {food} — the bottle the staff talks about.",
+    "Gold standard; {hook} on {food} — the once-a-month-pour move.",
+    "Gold standard; {drink} on {food} — a reverence-level pairing.",
     "Gold standard; the {hook} match that earns a regular.",
-    "Gold standard; {drink} into {food} -- the bottle to save for the right guest.",
-    "Gold standard; {hook} into {food} -- the special-occasion call.",
+    "Gold standard; {drink} into {food} — the bottle to save for the right guest.",
+    "Gold standard; {hook} into {food} — the special-occasion call.",
   ],
   excellent: [
-    "Excellent; {hook} on {food} -- the call servers pour without second-guessing.",
+    "Excellent; {hook} on {food} — the call servers pour without second-guessing.",
     "Excellent; the {hook} pour for {food}.",
-    "Peak {hook} for {food} -- {drink} elegance meets the plate.",
+    "Peak {hook} for {food} — {drink} elegance meets the plate.",
     "Excellent; {hook} carries {food} without overshooting.",
     "Excellent; {drink} dials in cleanly on {food}.",
     "Excellent; {hook} when a guest asks what works on {food}.",
     "Excellent; {drink} sits in the pocket on {food}.",
-    "Excellent; {hook} on {food} -- the kind of pour that earns a regular.",
+    "Excellent; {hook} on {food} — the kind of pour that earns a regular.",
     "Excellent; {drink} reads as a confident headline match on {food}.",
     "Excellent; the {hook} call that the table notices.",
     "Excellent; {drink} frames {food} at full register.",
     "Excellent; {hook} matches {food} with substance.",
     "Excellent; reliable {hook} match across the table for {food}.",
-    "Excellent; {drink} on {food} -- a confident recommendation.",
+    "Excellent; {drink} on {food} — a confident recommendation.",
     "Excellent; the {hook} call lands cleanly.",
   ],
   strong: [
@@ -1917,7 +1917,7 @@ const VERDICT_PATTERNS = {
     "Strong; reliable {hook} for {food}.",
     "Strong; {drink} earns its place next to {food}.",
     "Strong; {hook} keeps pace with {food}.",
-    "Strong; {drink} on {food} -- workhorse pairing, no surprises.",
+    "Strong; {drink} on {food} — workhorse pairing, no surprises.",
     "Strong; the {hook} option when the gold call is spoken for.",
     "Strong; {hook} settles in alongside {food} without asking for attention.",
     "Strong; a steady recommendation across the table for {food}.",
@@ -1927,17 +1927,17 @@ const VERDICT_PATTERNS = {
     "Strong; {drink} and {food} read in alignment.",
     "Strong; consistent recommendation worth pouring on {food}.",
     "Strong; the {hook} pairing reads composed at the table.",
-    "Strong; {drink} on {food} -- a confident if not headline pour.",
+    "Strong; {drink} on {food} — a confident if not headline pour.",
   ],
   works: [
     "Works; the {hook} call sits at neutral register against {food}.",
     "Works; capable {hook} for {food}, but not the headline pour.",
     "Works; the {hook} pairing holds without pulling focus.",
-    "Works; {drink} is fine on {food} -- fine, not memorable.",
+    "Works; {drink} is fine on {food} — fine, not memorable.",
     "Works; {hook} doesn't fight {food}, but doesn't lift it either.",
     "Works; {drink} pulls neither way against {food}.",
     "Works; the {hook} backup when the strong calls are spoken for.",
-    "Works; functional pour for {food} -- save the storytelling for another bottle.",
+    "Works; functional pour for {food} — save the storytelling for another bottle.",
     "Works; the match reads neutral at the table.",
     "Works; {drink} composes alongside {food} without driving.",
     "Works; the pairing holds without overshooting.",
@@ -1974,7 +1974,7 @@ const DC_TO_V9 = {
   GIN: 'GIN',  VODKA: 'VODKA',
   COGNAC: 'COGNAC',  COGNAC_LUXURY: 'COGNAC_LUXURY',
   RUM_LIGHT: 'RUM_LIGHT',  TEQUILA_BLANCO: 'TEQUILA_BLANCO',  HEAVY_SPIRIT: 'HEAVY_SPIRIT',
-  // Wines and other classes have no specific v9 verdict bucket -- fall through to DEFAULT
+  // Wines and other classes have no specific v9 verdict bucket — fall through to DEFAULT
 };
 
 let _editorialPhrases = null;
@@ -2321,14 +2321,14 @@ function _editorialVerdict(tier, drink, food, profile) {
 // MID bottles use only the base pool.
 const VERDICT_PATTERNS_PREMIUM = {
   gold: [
-    "Gold standard; {drink} on {food} -- the call you save for the regulars.",
-    "Gold standard; {drink} on {food} -- the bottle the staff talks about.",
+    "Gold standard; {drink} on {food} — the call you save for the regulars.",
+    "Gold standard; {drink} on {food} — the bottle the staff talks about.",
     "Gold standard; for {food}, this is the special-occasion call.",
-    "Gold standard; {drink} into {food} -- the once-a-month-pour move.",
+    "Gold standard; {drink} into {food} — the once-a-month-pour move.",
   ],
   excellent: [
-    "Excellent; {drink} on {food} -- the upsell move when the table looks ready.",
-    "Excellent; {hook} on {food} -- step up from the everyday call.",
+    "Excellent; {drink} on {food} — the upsell move when the table looks ready.",
+    "Excellent; {hook} on {food} — step up from the everyday call.",
   ],
   strong: [],
   works: [],
@@ -2337,15 +2337,15 @@ const VERDICT_PATTERNS_BTG = {
   gold: [],
   excellent: [
     "Excellent; the workhorse {hook} for {food}.",
-    "Excellent; {drink} on {food} -- the table's first pour.",
+    "Excellent; {drink} on {food} — the table's first pour.",
   ],
   strong: [
     "Strong; reliable BTG {hook} for {food}.",
-    "Strong; {drink} on {food} -- the everyday call.",
+    "Strong; {drink} on {food} — the everyday call.",
     "Strong; pour {drink} on {food} when the table just wants something solid.",
   ],
   works: [
-    "Works; {drink} for {food} -- the value-pour fit.",
+    "Works; {drink} for {food} — the value-pour fit.",
     "Works; everyday {hook} doesn't fight {food}.",
   ],
 };
@@ -2444,8 +2444,8 @@ function generate(drink, food, tier, ctx) {
     const reasoning = pickAvoidReasoning ? pickAvoidReasoning(dc, food, sig) : null;
     const verb = reasoning ? reasoning.verb : 'overpowers';
     const reasoningSegment = reasoning
-      ? ' -- ' + reasoning.why + '. The plate deserves '
-      : ' -- the plate deserves ';
+      ? ' — ' + reasoning.why + '. The plate deserves '
+      : ' — the plate deserves ';
     return drinkPossessive(drink.name) + ' ' + avoidChar + ' ' + verb + ' ' + foodPossessive(food) + ' ' + foodCharacter(food) + reasoningSegment + altsList + ', not ' + article + ' ' + dcLabel + '. ' + closer + ' ' + saveClause;
   }
 
@@ -2463,7 +2463,7 @@ function generate(drink, food, tier, ctx) {
 
   let setup;
   if (profile.tastingNotes && tier !== 'works') {
-    setup = drink.name + ' -- ' + profile.tastingNotes.join(', ') + '. ' + body.charAt(0).toUpperCase() + body.slice(1) + '. ' + verdict;
+    setup = drink.name + ' — ' + profile.tastingNotes.join(', ') + '. ' + body.charAt(0).toUpperCase() + body.slice(1) + '. ' + verdict;
   } else {
     // Phase 10: same variant pick for non-AVOID tiers
     const _naCharPick = pickCharacterVariant(profile, taxonomy.drinkClassFor(drink), drink, food, tier);

@@ -515,3 +515,10 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* home buttons: one shade deeper than the shared button glass (and this rule
    sits after the lens unifier, which is what actually paints .home-btn) */
 .home-btn{ background:linear-gradient(160deg,rgba(34,32,28,0.58),rgba(23,21,18,0.46)) !important; }
+
+/* rec/avoid rows became bordered bubbles — give the lists bubble spacing
+   (base design was a divided list: gap 0 + hairline row borders) */
+.pb-rec-list{ gap:8px !important; }
+.pb-rec-row{ border-bottom:none !important; }
+.pb-avoid-list{ gap:8px !important; }
+.pb-rec-explain.open,.pb-avoid-explain.open{ margin-top:4px; }
