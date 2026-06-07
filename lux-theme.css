@@ -37,7 +37,7 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.87) 0%,rgba(11,9,7,.78) 38%,rgba(11,9,7,.93) 80%,rgba(11,9,7,.99) 100%),url('assets/hero-table.jpg?b=4');
+  background:linear-gradient(180deg,rgba(11,9,7,.87) 0%,rgba(11,9,7,.78) 38%,rgba(11,9,7,.93) 80%,rgba(11,9,7,.99) 100%),url('assets/hero-table.jpg?b=5');
   background-size:cover,cover;background-position:center,center; }
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow,.home-script{ color:var(--gold); }

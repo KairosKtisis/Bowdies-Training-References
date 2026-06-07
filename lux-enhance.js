@@ -2,10 +2,10 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=4',stage:'assets/tile-stage.jpg?b=4'};
+  var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=4',stage:'assets/tile-stage.jpg?b=5'};
   var POS={wine:'62% 12%'};
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.84),rgba(11,9,7,.79) 50%,rgba(11,9,7,.92))";
-  var HERO="assets/hero-table.jpg?b=4";
+  var HERO="assets/hero-table.jpg?b=5";
 
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",
@@ -35,7 +35,7 @@
     if(NO_SCENERY){ scenery.style.opacity='0'; return; }
     var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
   /* The reveal must never beat the backdrop: wait for the photo to decode
-     (1.5s safety cap), and warm all backdrops while still on the home screen. */
+     (1.5s safety cap). */
   var _ready={};
   function ensureScenery(guide,cb){
     var url=IMG[guide];
@@ -47,12 +47,25 @@
     im.src=url;
     setTimeout(fin,1500);
   }
-  window.addEventListener('load',function(){
-    setTimeout(function(){
-      Object.keys(IMG).forEach(function(k){ var i=new Image(); i.onload=(function(u){return function(){_ready[u]=true;};})(IMG[k]); i.src=IMG[k]; });
-      var hh=new Image(); hh.src=HERO;
-    },400);
-  });
+  /* Warm caches starting immediately at boot — hero + backdrops first
+     (sequential, so the critical images finish fastest), then every dish
+     photo trickles in. Download-only: nothing renders until a card opens,
+     so decoded-image memory stays flat. */
+  function warm(list,i){
+    if(i>=list.length) return;
+    var im=new Image(), stepped=false;
+    function next(ok){ if(stepped) return; stepped=true; if(ok)_ready[list[i]]=true; warm(list,i+1); }
+    im.onload=function(){ next(true); };
+    im.onerror=function(){ next(false); };
+    setTimeout(function(){ next(false); },6000);   /* a stalled fetch never blocks the chain */
+    im.src=list[i];
+  }
+  setTimeout(function(){
+    var urls=[HERO];
+    Object.keys(IMG).forEach(function(k){ urls.push(IMG[k]); });
+    Object.keys(FOOD).forEach(function(k){ urls.push(FOOD[k]); });
+    warm(urls,0);
+  },150);
 
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
 
