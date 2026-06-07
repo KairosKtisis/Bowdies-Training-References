@@ -5,7 +5,7 @@
   var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=4',stage:'assets/tile-stage.jpg?b=4'};
   var POS={wine:'62% 12%'};
   var SCRIM="linear-gradient(180deg,rgba(11,9,7,.84),rgba(11,9,7,.79) 50%,rgba(11,9,7,.92))";
-  var HERO="assets/hero-table.jpg?b=3";
+  var HERO="assets/hero-table.jpg?b=4";
 
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",
