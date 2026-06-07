@@ -2,10 +2,10 @@
 (function(){
   if(location.search.indexOf('lx=off')>-1) return;   /* diagnostic kill switch */
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
-  var IMG={cocktails:'assets/tile-spirits.jpg?b=3',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=4',stage:'assets/tile-stage.jpg?b=5'};
+  var IMG={cocktails:'assets/tile-spirits.jpg?b=4',wine:'assets/tile-wine.jpg?b=3',food:'assets/tile-prime.jpg?b=5',stage:'assets/tile-stage.jpg?b=5'};
   var POS={wine:'62% 12%'};
-  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.84),rgba(11,9,7,.79) 50%,rgba(11,9,7,.92))";
-  var HERO="assets/hero-table.jpg?b=5";
+  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))";
+  var HERO="assets/hero-table.jpg?b=6";
 
   var FOOD={
     "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",

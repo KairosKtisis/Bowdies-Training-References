@@ -18,7 +18,9 @@
   --lx-spring:cubic-bezier(.34,1.56,.64,1); --lx-ease:cubic-bezier(.22,1,.36,1);
 }
 
-body{ -webkit-font-smoothing:antialiased; }
+html{ background:#0B0907 !important; }                     /* Safari samples this for the
+                                                              strip under its toolbar */
+body{ -webkit-font-smoothing:antialiased; background:#0B0907 !important; }
 body::before{ opacity:0 !important; }                      /* kill legacy grain */
 body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(130% 100% at 50% 0%,transparent 60%,rgba(0,0,0,.34) 100%); }
@@ -39,7 +41,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.87) 0%,rgba(11,9,7,.78) 38%,rgba(11,9,7,.93) 80%,rgba(11,9,7,.99) 100%),url('assets/hero-table.jpg?b=5');
+  background:linear-gradient(180deg,rgba(11,9,7,.90) 0%,rgba(11,9,7,.82) 38%,rgba(11,9,7,.95) 80%,rgba(11,9,7,1) 100%),url('assets/hero-table.jpg?b=6');
   background-size:cover,cover;background-position:center,center; }
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow,.home-script{ color:var(--gold); }
