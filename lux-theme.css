@@ -168,7 +168,8 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 .price-badge{ color:var(--gold-light) !important; }
 
 /* ── PRIME & PLATE ── */
-#grid-food .tag-row{ display:none !important; }            /* tags = search-only */
+/* food tags visible again — capped at four per card (rest stay searchable) */
+#grid-food .tag-row .tag:nth-child(n+5){ display:none !important; }
 /* photo lives inside the card detail — rendered only while a card is open */
 .lx-detail-photo{ display:block; width:100%; height:210px; object-fit:cover; object-position:center;
   border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 14px; }
@@ -223,6 +224,14 @@ body::after{ content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
 /* ── PANEL ENTRY ── */
 .guide-panel.active{ animation:lxPanel .5s var(--lx-ease); }
 @keyframes lxPanel{ from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+
+/* ── SCROLL MODEL: inner scroller ──
+   The document itself never scrolls; #main-content does. Safari's toolbar
+   therefore never animates -> the fixed backdrop is perfectly still and the
+   full-bleed header owns the top edge. (Desktop wheel handled separately.) */
+html,body{ height:100% !important; overflow:hidden !important; overscroll-behavior:none !important; }
+#main-content{ height:100dvh !important; overflow-y:auto !important; -webkit-overflow-scrolling:touch !important; }
+#screen-admin{ height:100dvh !important; overflow-y:auto !important; -webkit-overflow-scrolling:touch !important; }
 
 /* ── DESKTOP ── */
 @media (min-width:880px){

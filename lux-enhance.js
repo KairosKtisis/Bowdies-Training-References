@@ -21,23 +21,13 @@
     "Mushrooms":"assets/dish-mushrooms.jpg?b=3","Truffle Fries":"assets/dish-truffle-fries.jpg?b=3",
     "Creme Brulee":"assets/dish-creme-brulee.jpg?b=3","Peanut Butter Brownie":"assets/dish-pb-brownie.jpg?b=3",
     "Beignets":"assets/dish-beignets.jpg?b=3","Carrot Cake":"assets/dish-carrot-cake.jpg?b=3",
-    "Faroe Island Salmon":"assets/dish-salmon.jpg?b=3","Roast Half Chicken":"assets/dish-chicken.jpg?b=3","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg?b=3","Cheesecake":"assets/dish-cheesecake.jpg?b=3","Market Fish":"assets/dish-market-fish.jpg?b=3","Seasonal Soup":"assets/dish-seasonal-soup.jpg?b=3","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg?b=3","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?b=3","Creamed Spinach":"assets/dish-creamed-spinach.jpg?b=3"
+    "Faroe Island Salmon":"assets/dish-salmon.jpg?b=3","Roast Half Chicken":"assets/dish-chicken.jpg?b=3","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg?b=3","Cheesecake":"assets/dish-cheesecake.jpg?b=3","Market Fish":"assets/dish-market-fish.jpg?b=3","Seasonal Soup":"assets/dish-seasonal-soup.jpg?b=3","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg?b=3","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?b=4","Creamed Spinach":"assets/dish-creamed-spinach.jpg?b=3"
   };
 
   var holder=document.createElement('div'); holder.id='lx-scenery-hold';
   var scenery=document.createElement('div'); scenery.id='lx-scenery';
   holder.appendChild(scenery);
   document.body.insertBefore(holder, document.body.firstChild);
-  /* counter Safari's toolbar viewport shift: translate the backdrop by the
-     visual viewport's own offset so it stays glued to the screen (user's idea) */
-  if(window.visualViewport){
-    (function(){
-      var vv=window.visualViewport;
-      var pin=function(){ scenery.style.transform='translate3d(0,'+(vv.offsetTop||0)+'px,0)'; };
-      vv.addEventListener('resize',pin); vv.addEventListener('scroll',pin); pin();
-    })();
-  }
-
   function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
   var NO_SCENERY=location.search.indexOf('scenery=off')>-1;
   var NO_PHOTOS=location.search.indexOf('photos=off')>-1;
