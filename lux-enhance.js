@@ -4,7 +4,14 @@
   var MAP={'home-spirits':'cocktails','home-wine':'wine','home-prime':'food','home-wheel':'stage'};
   var IMG={cocktails:'assets/tile-spirits.jpg?b=4',wine:'assets/tile-wine.jpg?b=4',food:'assets/tile-prime.jpg?b=5',stage:'assets/tile-stage.jpg?b=5'};
   var POS={};   /* old locker shot needed an offset; the pour reads centered */
-  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))";
+  /* per-page scrims: spirits/wine run brightest, prime sits mid, stage stays moody */
+  var SCRIM="linear-gradient(180deg,rgba(11,9,7,.62),rgba(11,9,7,.52) 50%,rgba(11,9,7,.80))";
+  var SCRIMS={
+    cocktails:"linear-gradient(180deg,rgba(11,9,7,.44),rgba(11,9,7,.34) 50%,rgba(11,9,7,.64))",
+    wine:"linear-gradient(180deg,rgba(11,9,7,.44),rgba(11,9,7,.34) 50%,rgba(11,9,7,.64))",
+    food:SCRIM,
+    stage:"linear-gradient(180deg,rgba(11,9,7,.87),rgba(11,9,7,.82) 50%,rgba(11,9,7,.94))"
+  };
   var HERO="assets/hero-table.jpg?b=6";
 
   var FOOD={
@@ -28,12 +35,12 @@
   var scenery=document.createElement('div'); scenery.id='lx-scenery';
   holder.appendChild(scenery);
   document.body.insertBefore(holder, document.body.firstChild);
-  function applyScenery(url,pos){ scenery.style.backgroundImage=SCRIM+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
+  function applyScenery(url,pos,scrim){ scenery.style.backgroundImage=(scrim||SCRIM)+",url('"+url+"')"; scenery.style.backgroundPosition=(pos||'center'); scenery.style.opacity='1'; }
   var NO_SCENERY=location.search.indexOf('scenery=off')>-1;
   var NO_PHOTOS=location.search.indexOf('photos=off')>-1;
   function setScenery(guide){
     if(NO_SCENERY){ scenery.style.opacity='0'; return; }
-    var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide]); }
+    var img=IMG[guide]; if(!img){ scenery.style.opacity='0'; return; } applyScenery(img,POS[guide],SCRIMS[guide]); }
   /* The reveal must never beat the backdrop: wait for the photo to decode
      (1.5s safety cap). */
   var _ready={};
@@ -68,6 +75,22 @@
   },150);
 
   function resetScroll(){ var mc=document.getElementById('main-content'); if(mc){ mc.scrollTop=0; requestAnimationFrame(function(){ mc.scrollTop=0; }); } }
+
+  /* iOS scrolls the DOCUMENT to reveal the keyboard even with overflow:hidden,
+     and leaves it displaced after the keyboard closes — header pushed off-screen,
+     content sliding past the fixed backdrop. Whenever focus leaves an input or
+     the visual viewport snaps back, put the document itself back to 0. The inner
+     #main-content scroller is untouched, so the user keeps their place. */
+  function unshift(){
+    var ae=document.activeElement;
+    if(ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;   /* keyboard still up */
+    if(window.scrollY||document.documentElement.scrollTop||document.body.scrollTop){
+      window.scrollTo(0,0);
+      document.documentElement.scrollTop=0; document.body.scrollTop=0;
+    }
+  }
+  document.addEventListener('focusout',function(){ setTimeout(unshift,80); });
+  if(window.visualViewport) visualViewport.addEventListener('resize',function(){ setTimeout(unshift,80); });
 
   /* Photos live INSIDE each card's detail — rendered only while that card is
      open. The bisection proved this device throttles when the full list
@@ -104,6 +127,10 @@
       });
     });
   }
+
+  /* Notes load with the page again — async injection right after boot, so
+     Set the Stage and Admin are instant by the time anyone reaches them. */
+  setTimeout(function(){ loadPairingData(function(){}); },300);
 
   function bind(){
     var host=document.getElementById('home-select')||document.body;
