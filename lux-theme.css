@@ -41,7 +41,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* ── HOME ── */
 #home-screen{ background:var(--charcoal); }
 #home-screen::before{ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=6');
+  background:linear-gradient(180deg,rgba(11,9,7,.78) 0%,rgba(11,9,7,.66) 38%,rgba(11,9,7,.88) 80%,rgba(11,9,7,.97) 100%),url('assets/hero-table.jpg?b=7');
   background-size:cover,cover;background-position:center,center; }
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow,.home-script{ color:var(--gold); }
@@ -180,7 +180,6 @@ footer,.footer{ display:none !important; }                /* footers deleted */
   border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 14px; }
 @media (min-width:880px){ .lx-detail-photo{ height:210px; } }
 #grid-food .card[data-name="Shrimp Cocktail"] .lx-detail-photo{ object-position:center 60%; }
-#grid-food .card[data-name="Market Fish"] .lx-detail-photo{ object-position:center 45%; }
 #grid-food .card[data-name="Roast Half Chicken"] .lx-detail-photo{ object-position:center 35%; }
 #grid-food .card[data-name="Faroe Island Salmon"] .lx-detail-photo{ object-position:center 35%; }
 
