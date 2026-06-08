@@ -171,7 +171,13 @@ footer,.footer{ display:none !important; }                /* footers deleted */
   /* background consolidated from the v67 structure pass ("expansion darkens")
      — previously defined twice; this is now the single source of truth */
   background:linear-gradient(160deg,rgba(27,25,22,0.91),rgba(20,18,16,0.86)) !important;
-  backdrop-filter:blur(5px) saturate(125%); -webkit-backdrop-filter:blur(5px) saturate(125%);
+  /* backdrop blur removed 2026-06-08 — it spawned a GPU compositing layer on
+     every card open. On iOS that constant pressure plus the food card's decoded
+     photo crashed the WebContent process ("A problem repeatedly occurred")
+     after tapping through several Prime & Plate cards. The expanded background
+     is 86–91% opaque, so the blur behind it was effectively invisible anyway —
+     removing it costs nothing visually and kills the crash vector. Same reason
+     the top-bar frost was already made desktop-only. */
   border-color:var(--lx-stroke-hi) !important;
   box-shadow:0 34px 74px -28px rgba(0,0,0,.85), 0 0 0 1px var(--lx-stroke-hi),
     inset 0 1px 0 rgba(255,246,226,.16) !important;
