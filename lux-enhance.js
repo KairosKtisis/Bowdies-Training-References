@@ -16,7 +16,7 @@
   var HERO=null;   /* home + admin are solid now */
 
   var FOOD={
-    "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=3",
+    "Shrimp Cocktail":"assets/dish-shrimp-cocktail.jpg?b=3","Escargot":"assets/dish-escargot.jpg?b=4",
     "Seared Scallops":"assets/dish-scallops.jpg?b=3","Crab Cake":"assets/dish-crab-cake.jpg?b=3",
     "Burrata":"assets/dish-burrata.jpg?b=3","Prime Tartare":"assets/dish-tartare.jpg?b=3",
     "Bone Marrow":"assets/dish-bone-marrow.jpg?b=3","Seafood Tower":"assets/dish-seafood-tower.jpg?b=3",
@@ -25,11 +25,11 @@
     "Bone-In Filet":"assets/dish-bone-in-filet.jpg?b=3","The Tomahawk":"assets/dish-tomahawk.jpg?b=3",
     "Porterhouse":"assets/dish-porterhouse.jpg?b=3","Filet Mignon":"assets/dish-filet.jpg?b=3",
     "Cowboy Ribeye":"assets/dish-cowboy-ribeye.jpg?b=3","Lobster Mac":"assets/dish-lobster-mac.jpg?b=3",
-    "Brussels and Belly":"assets/dish-brussels.jpg?b=3","Au Gratin Potatoes":"assets/dish-au-gratin.jpg?b=3",
+    "Brussels and Belly":"assets/dish-brussels.jpg?b=4","Au Gratin Potatoes":"assets/dish-au-gratin.jpg?b=4",
     "Mushrooms":"assets/dish-mushrooms.jpg?b=3","Truffle Fries":"assets/dish-truffle-fries.jpg?b=3",
     "Creme Brulee":"assets/dish-creme-brulee.jpg?b=3","Peanut Butter Brownie":"assets/dish-pb-brownie.jpg?b=3",
     "Beignets":"assets/dish-beignets.jpg?b=3","Carrot Cake":"assets/dish-carrot-cake.jpg?b=3",
-    "Faroe Island Salmon":"assets/dish-salmon.jpg?b=3","Roast Half Chicken":"assets/dish-chicken.jpg?b=3","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg?b=3","Cheesecake":"assets/dish-cheesecake.jpg?b=3","Market Fish":"assets/dish-market-fish.jpg?b=4","Seasonal Soup":"assets/dish-seasonal-soup.jpg?b=3","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg?b=3","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?b=4","Creamed Spinach":"assets/dish-creamed-spinach.jpg?b=3"
+    "Faroe Island Salmon":"assets/dish-salmon.jpg?b=3","Roast Half Chicken":"assets/dish-chicken.jpg?b=3","Seasonal Vegetables":"assets/dish-seasonal-veg.jpg?b=4","Cheesecake":"assets/dish-cheesecake.jpg?b=3","Market Fish":"assets/dish-market-fish.jpg?b=4","Seasonal Soup":"assets/dish-seasonal-soup.jpg?b=4","Chocolate Brownie":"assets/dish-chocolate-brownie.jpg?b=3","Sauteed Garlic Spinach":"assets/dish-spinach.jpg?b=4","Creamed Spinach":"assets/dish-creamed-spinach.jpg?b=3"
   };
 
   var holder=document.createElement('div'); holder.id='lx-scenery-hold';
@@ -83,20 +83,42 @@
   /* keyboard scroll-displacement workaround removed — the document scrolls
      normally now, so Safari manages its own scroll state. */
 
-  /* Photos live INSIDE each card's detail — rendered only while that card is
-     open. The bisection proved this device throttles when the full list
-     renders photos; one image at a time can never trip it. */
-  function injectFoodPhotos(){
+  /* Photos live INSIDE each card's detail and are mounted ONLY while that card
+     is open. The instant a card collapses we drop its <img> and clear its src,
+     releasing the decoded bitmap. This is what keeps decoded-image memory flat:
+     no matter how many Prime & Plate cards you tap through, at most one food
+     photo is decoded at a time.
+
+     History / the bug this fixes (2026-06-08): an earlier version pre-mounted an
+     <img> into ALL ~36 food cards on section entry and never released them —
+     contradicting this very comment. Tapping through cards back-to-back decoded
+     more and more bitmaps that were never freed, until iOS Safari crossed its
+     per-tab memory ceiling, killed the tab and auto-reloaded — the dark-screen,
+     "there's been an issue", bounce-to-home crash. Mount-on-open / release-on-
+     close restores the intended one-image-at-a-time behavior. */
+  function mountCardPhoto(card){
+    var detail=card.querySelector('.card-detail'); if(!detail) return;
+    if(detail.querySelector('.lx-detail-photo')) return;        // already mounted
+    var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
+    var img=document.createElement('img'); img.className='lx-detail-photo';
+    img.decoding='async'; img.alt=''; img.src=url;
+    detail.insertBefore(img, detail.firstChild);
+    card.classList.add('lx-has-photo');
+  }
+  function unmountCardPhoto(card){
+    var img=card.querySelector('.lx-detail-photo'); if(!img) return;
+    img.removeAttribute('src');     // release the decoded bitmap before detaching
+    img.remove();
+    card.classList.remove('lx-has-photo');
+  }
+  /* Reconcile every food card's photo with its open/closed state. Cheap — one
+     querySelectorAll over ~36 cards, only mutating the card whose state changed. */
+  function syncFoodPhotos(){
     if(NO_PHOTOS) return;
     var grid=document.getElementById('grid-food'); if(!grid) return;
     grid.querySelectorAll('.card[data-name]').forEach(function(card){
-      var url=FOOD[card.getAttribute('data-name')]; if(!url) return;
-      var detail=card.querySelector('.card-detail'); if(!detail) return;
-      if(detail.querySelector('.lx-detail-photo')) return;
-      var img=document.createElement('img'); img.className='lx-detail-photo';
-      img.loading='lazy'; img.decoding='async'; img.alt=''; img.src=url;
-      detail.insertBefore(img, detail.firstChild);
-      card.classList.add('lx-has-photo');
+      if(card.classList.contains('expanded')) mountCardPhoto(card);
+      else unmountCardPhoto(card);
     });
   }
 
@@ -158,6 +180,18 @@
       setScenery(MAP[btn.id]);
     },true);
 
+    /* Keep food-card photos in sync with open/closed state. This document-level
+       listener is registered after main.js's per-card expand and click-off
+       handlers, so by the time it runs `.expanded` is already settled — we just
+       mount the open card's photo and release every other card's. Bounds decoded
+       image memory to one photo, which is the fix for the tap-through crash. */
+    if(!window.__lxFoodPhotoSync){
+      window.__lxFoodPhotoSync=true;
+      document.addEventListener('click',function(){
+        if(document.getElementById('grid-food')) syncFoodPhotos();
+      });
+    }
+
     if(typeof window.selectSection==='function' && !window.__lxScrollWrapped){
       window.__lxScrollWrapped=true;
       var _ss=window.selectSection;
@@ -165,7 +199,9 @@
         var self=this,args=arguments;
         var go=function(){
           var r=_ss.apply(self,args); resetScroll();
-          if(guide==='food'){ injectFoodPhotos(); requestAnimationFrame(injectFoodPhotos); }
+          /* Entering food: nothing is expanded yet, so this just clears any
+             stray photo. Per-card mounting happens on tap via the click sync. */
+          if(guide==='food'){ syncFoodPhotos(); }
           return r;
         };
         if(guide==='stage' && typeof PAIRING_MAP==='undefined'){

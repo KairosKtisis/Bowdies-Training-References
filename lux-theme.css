@@ -197,7 +197,10 @@ footer,.footer{ display:none !important; }                /* footers deleted */
   border-radius:12px; border:1px solid var(--lx-stroke); margin:0 0 14px; }
 @media (min-width:880px){ .lx-detail-photo{ height:210px; } }
 #grid-food .card[data-name="Shrimp Cocktail"] .lx-detail-photo{ object-position:center 60%; }
-#grid-food .card[data-name="Au Gratin Potatoes"] .lx-detail-photo{ object-position:center 26%; }
+/* Au Gratin (new photo 2026-06-08): the plate sits low in frame, so push the
+   crop window down to 65% — that fully shows the gratin and makes it the focus
+   at both the wide mobile card ratio and the taller desktop one. */
+#grid-food .card[data-name="Au Gratin Potatoes"] .lx-detail-photo{ object-position:center 65%; }
 #grid-food .card[data-name="Roast Half Chicken"] .lx-detail-photo{ object-position:center 35%; }
 #grid-food .card[data-name="Faroe Island Salmon"] .lx-detail-photo{ object-position:center 35%; }
 
