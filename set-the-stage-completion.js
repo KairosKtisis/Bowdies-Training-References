@@ -59,13 +59,13 @@ function renderFTRecs() {
   let html = '';
   CAT_ORDER.forEach(cat => {
     if (!groups[cat]) return;
-    html += '<div class="rec-group"><div class="rec-group-label">' + getCategoryForDisplay(cat) + '</div>';
+    html += '<div class="rec-group"><div class="rec-group-label">' + escapeHtml(getCategoryForDisplay(cat)) + '</div>';
     groups[cat].forEach(rec => {
       const tier = rec.overlapScore >= maxScore*0.75 ? 'excellent'
                  : rec.overlapScore >= maxScore*0.4  ? 'strong' : 'works';
       html += '<div class="rec-item"><div class="tier-pip ' + tier + '"></div>'
-            + '<div class="rec-info"><div class="rec-name">' + rec.name + '</div>'
-            + (rec.price ? '<div class="rec-meta">' + rec.price + '</div>' : '')
+            + '<div class="rec-info"><div class="rec-name">' + escapeHtml(rec.name) + '</div>'
+            + (rec.price ? '<div class="rec-meta">' + escapeHtml(rec.price) + '</div>' : '')
             + '</div><div class="tier-badge ' + tier + '">' + tier + '</div></div>';
     });
     html += '</div>';
@@ -82,10 +82,18 @@ function renderFTRecs() {
 // IS configured, we merge specials, apply the OOS overlay, and open the
 // pairing browser. No gate UI runs on this page anymore.
 
-function bootStage() {
-  // Merge any pre-existing specials (from the old sts_v6 state blob) into
-  // PAIRING_MAP so pairing recommendations account for them. This is a
-  // one-way read — we don't write back to sts_v6 from this page anymore.
+// Merge any pre-existing specials (from the old sts_v6 state blob) into
+// PAIRING_MAP so pairing recommendations account for them. One-way read —
+// we don't write back to sts_v6. Exposed as a global because PAIRING_MAP is
+// lazy-injected ~300ms after boot (lux-enhance.js): at DOMContentLoaded the
+// map doesn't exist yet, so the loader calls this again once it lands.
+// Idempotent — the `special` flag check skips already-merged entries, and the
+// guard flag prevents a redundant second pass.
+let __stsSpecialsMerged = false;
+function stsMergeSpecials() {
+  if (__stsSpecialsMerged) return;
+  if (typeof PAIRING_MAP === 'undefined') return; // data not injected yet
+  __stsSpecialsMerged = true;
   try {
     const raw = localStorage.getItem('sts_v6');
     if (raw) {
@@ -104,6 +112,10 @@ function bootStage() {
       });
     }
   } catch (e) {}
+}
+
+function bootStage() {
+  stsMergeSpecials();
 
   // Device identity is hydrated for downstream consumers. We used to also
   // redirect unconfigured devices to index.html — that made sense when Set

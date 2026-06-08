@@ -82,7 +82,10 @@ function loadOosOverlay() {
 }
 
 function persistOosOverlay(overlay) {
-  try { localStorage.setItem(OOS_KEY, JSON.stringify(overlay)); } catch (e) {}
+  // Returns false when the write fails (storage full / disabled) so callers
+  // can tell the user instead of silently dropping the change.
+  try { localStorage.setItem(OOS_KEY, JSON.stringify(overlay)); return true; }
+  catch (e) { return false; }
 }
 
 // Mutate PAIRING_MAP if it's present on this page. On index.html this is a
@@ -149,11 +152,14 @@ function toggleOos(name) {
     updatedAt: Date.now(),
     updatedBy: currentUser ? { id: currentUser.id, name: currentUser.name } : null
   };
-  persistOosOverlay(nextOverlay);
+  const saved = persistOosOverlay(nextOverlay);
   applyOosOverlay();
   applyOosOverlayToHomeCards();
   const filterInput = document.getElementById('admin-search-input');
   if (filterInput) renderAdminScreen(filterInput.value);
+  // applyOosOverlay reads back from localStorage \u2014 if the write failed, the
+  // toggle did NOT take effect. Say so instead of toasting success.
+  if (!saved) { showToast('Couldn\u2019t save \u2014 device storage is full or blocked.'); return; }
   showToast(set.has(name) ? name + ' \u2014 86\u2019d' : name + ' \u2014 back on');
 }
 

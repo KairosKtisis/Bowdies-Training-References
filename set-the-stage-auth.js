@@ -20,12 +20,12 @@ const AUTH_PROFILE_KEY = 'sts_device_profile_v2';   // { name, role, createdAt }
 const AUTH_MIN_CODE    = 6;
 const AUTH_CODE_SALT   = 'bowdies-sts-device';
 
-// SHA-256 of `${AUTH_CODE_SALT}:rapid72396`.
+// SHA-256 of `${AUTH_CODE_SALT}:testonly22`.
 // To rotate: pick a new code (>= AUTH_MIN_CODE chars), regenerate the hash with:
 //   node -e "const c=require('crypto');console.log(c.createHash('sha256').update('bowdies-sts-device:NEWCODE').digest('hex'))"
 // then paste the result here. Devices already configured stay logged in;
 // only re-promotion to management requires the new code.
-const AUTH_MGMT_HASH   = '50f6067ad2ae1be4fa3fe5fe487df8e5689e41dbcf95d3f1898128945a4a62ef';
+const AUTH_MGMT_HASH   = '07d30aaf6fb27da093856258025e5e6732d47a4dd8dcaa7a27d0e47bd983e15d';
 
 const ROLE_STAFF       = 'staff';
 const ROLE_MANAGEMENT  = 'management';

@@ -163,6 +163,9 @@ function pbHome() {
 }
 
 function pbShowSearch() {
+  // Kill any in-flight search debounce — a callback firing after this point
+  // would re-open the dropdown over the fresh home view.
+  clearTimeout(pbState.searchDebounce);
   document.getElementById('pb-search-view').style.display = 'block';
   document.getElementById('pb-detail-view').style.display = 'none';
   // Post-unification (May 2026) the search input lives in the global sticky
@@ -198,6 +201,7 @@ function handlePbSearch(val) {
   clearTimeout(pbState.searchDebounce);
   pbState.searchDebounce = setTimeout(() => {
     const results = document.getElementById('pb-search-results');
+    if (!results) return;
     if (!val || val.trim().length < 1) { results.classList.remove('visible'); return; }
     const q = val.toLowerCase();
     // Surface anything we can resolve to a renderable pairing card — top-level
@@ -223,10 +227,10 @@ function handlePbSearch(val) {
       const div = document.createElement('div');
       div.className = 'search-result-item' + (oos ? ' oos' : '');
       div.innerHTML = '<span class="press-fill"></span><span class="result-name">'
-        + item.name + '</span>'
+        + escapeHtml(item.name) + '</span>'
         + (oos ? '<span class="result-86">86</span>' : '')
         + '<span class="result-cat">'
-        + getCategoryForDisplay(item.category) + '</span>';
+        + escapeHtml(getCategoryForDisplay(item.category)) + '</span>';
       div.onclick = () => pbNavigate(item.name);
       results.appendChild(div);
     });
@@ -241,6 +245,9 @@ function handlePbSearch(val) {
 // detail view can flag that the pairings aren't bottle-specific. This is what
 // surfaces the ~295 cluster members that otherwise have no pairing card.
 function pbResolveEntry(name) {
+  // Pairing data is lazy-injected ~300ms after boot (lux-enhance.js). If a
+  // lookup races that window, resolve to nothing instead of throwing.
+  if (typeof PAIRING_MAP === 'undefined') return null;
   const top = PAIRING_MAP.find(e => e.name === name);
   if (top) return { entry: top, viaCluster: null };
   const cluster = PAIRING_MAP.find(e => e.spiritCluster && Array.isArray(e.members) && e.members.includes(name));
@@ -256,6 +263,9 @@ function pbNavigate(name) {
   }
   pbState.current = name;
   pbRememberRecent(name);
+  // Kill any pending search debounce — if the user picked a result within the
+  // 80ms window, the stale callback would re-open the dropdown over the detail.
+  clearTimeout(pbState.searchDebounce);
   // Close the search dropdown and clear the input — once an item is loaded
   // the user is in the detail view, the dropdown is no longer relevant.
   // (Was sticking open before; users had to tap elsewhere to dismiss.)
@@ -563,6 +573,8 @@ const cmpState = { a: null, b: null, debA: null, debB: null };
 const CMP_TIERS = ['gold', 'excellent', 'strong', 'works', 'avoid'];
 
 function startCompareStandalone() {
+  clearTimeout(cmpState.debA);
+  clearTimeout(cmpState.debB);
   cmpState.a = null;
   cmpState.b = null;
   ['a','b'].forEach(side => {
@@ -582,6 +594,7 @@ function handleCmpSearch(side, val) {
   clearTimeout(cmpState[debKey]);
   cmpState[debKey] = setTimeout(() => {
     const results = document.getElementById('cmp-results-' + side);
+    if (!results) return;
     if (!val || val.trim().length < 1) { results.classList.remove('visible'); return; }
     const q = val.toLowerCase();
     const seen = new Set();
@@ -601,10 +614,10 @@ function handleCmpSearch(side, val) {
       const div = document.createElement('div');
       div.className = 'search-result-item' + (oos ? ' oos' : '');
       div.innerHTML = '<span class="press-fill"></span><span class="result-name">'
-        + item.name + '</span>'
+        + escapeHtml(item.name) + '</span>'
         + (oos ? '<span class="result-86">86</span>' : '')
         + '<span class="result-cat">'
-        + getCategoryForDisplay(item.category) + '</span>';
+        + escapeHtml(getCategoryForDisplay(item.category)) + '</span>';
       div.onclick = () => pbCompareSelect(side, item.name);
       results.appendChild(div);
     });
@@ -613,6 +626,9 @@ function handleCmpSearch(side, val) {
 }
 
 function pbCompareSelect(side, name) {
+  // Cancel this side's pending search debounce so a stale callback can't
+  // re-open the result dropdown after a selection has been made.
+  clearTimeout(cmpState[side === 'a' ? 'debA' : 'debB']);
   cmpState[side] = name;
   const input = document.getElementById('cmp-input-' + side);
   const results = document.getElementById('cmp-results-' + side);

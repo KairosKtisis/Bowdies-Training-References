@@ -919,7 +919,7 @@ const wineGrid = document.getElementById('grid-wine');
 const wineNoResults = document.getElementById('no-wine');
 const wineCategories = ['bubbles', 'whites', 'glass', 'pinot', 'cab', 'old', 'blends'];
 
-wineCategories.forEach(cat => {
+if (wineGrid) wineCategories.forEach(cat => {
   const cards = Array.from(wineGrid.querySelectorAll(`.card[data-category="${cat}"]`));
   cards.sort((a, b) => priceToNum(winePrices[a.dataset.name]) - priceToNum(winePrices[b.dataset.name]));
   cards.forEach(card => wineGrid.insertBefore(card, wineNoResults));

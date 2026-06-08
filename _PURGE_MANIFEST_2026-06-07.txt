@@ -1,0 +1,153 @@
+# Backup / clutter purge manifest — generated 2026-06-07
+# Nothing in this list is loaded by the app or any engine script.
+# Review and delete at will. Sizes in MB.
+
+== SECTION 1: pairing-notes backups (LEFT IN PLACE per 2026-06-07 directive — largest share) ==
+    14.2  pairing-notes.js.pre-apply-avoid-2026-05-30_18-51-41.bak
+    14.2  pairing-notes.js.pre-apply-avoid-2026-05-30_18-53-42.bak
+    15.1  pairing-notes.js.pre-apply-avoid-2026-05-31_01-50-56.bak
+    14.2  pairing-notes.js.pre-avoid-reasoning.bak
+    13.5  pairing-notes.js.pre-bacardi-fix.bak
+    15.1  pairing-notes.js.pre-backfill.bak
+    13.9  pairing-notes.js.pre-break-recycled.bak
+    15.1  pairing-notes.js.pre-carrot-cake-20260602_055315.bak
+    14.5  pairing-notes.js.pre-class-char-fix.bak
+    13.8  pairing-notes.js.pre-cleanup.bak
+    13.5  pairing-notes.js.pre-dessert-backfill.bak
+    15.1  pairing-notes.js.pre-engine-v4-regen.bak
+    13.5  pairing-notes.js.pre-entree-side-backfill.bak
+    13.6  pairing-notes.js.pre-food-pairing-backfill.bak
+    14.2  pairing-notes.js.pre-fullregen.bak
+    15.1  pairing-notes.js.pre-fxf-editorial-2026-05-30_20-00-06.bak
+    13.5  pairing-notes.js.pre-fxf-rewrite.bak
+    15.1  pairing-notes.js.pre-fxf-s10-20260530_201122.bak
+    15.1  pairing-notes.js.pre-fxf-s11-20260531_011920.bak
+    15.1  pairing-notes.js.pre-fxf-s9-20260530_200315.bak
+    14.0  pairing-notes.js.pre-gold-seed.bak
+    14.0  pairing-notes.js.pre-hygiene-fix.bak
+     7.4  pairing-notes.js.pre-leak-fix.bak
+    14.0  pairing-notes.js.pre-main-dessert-backfill.bak
+    14.0  pairing-notes.js.pre-mirror-sync.bak
+    13.5  pairing-notes.js.pre-parker-saffredi-fix.bak
+    15.6  pairing-notes.js.pre-pathB.bak
+    14.2  pairing-notes.js.pre-phase3-20260530_184222.bak
+    15.1  pairing-notes.js.pre-phase5-20260531_014950.bak
+    15.1  pairing-notes.js.pre-phase7-20260602_060946.bak
+    15.6  pairing-notes.js.pre-regen-dxf.bak
+    15.1  pairing-notes.js.pre-regen-fxf.bak
+    13.8  pairing-notes.js.pre-remaining-food-backfill.bak
+    13.9  pairing-notes.js.pre-remoulade-fix.bak
+    15.6  pairing-notes.js.pre-round3.bak
+    15.1  pairing-notes.js.pre-s12-regen-20260531_013319.bak
+    15.1  pairing-notes.js.pre-s14-20260601_174906.bak
+    15.1  pairing-notes.js.pre-s15-20260601_180637.bak
+    15.1  pairing-notes.js.pre-s16-20260601_181636.bak
+    15.1  pairing-notes.js.pre-s19-20260602_170519.bak
+    15.1  pairing-notes.js.pre-s20-20260602_171335.bak
+    15.1  pairing-notes.js.pre-s21-20260602_171939.bak
+    15.1  pairing-notes.js.pre-s22-20260602_172531.bak
+    15.1  pairing-notes.js.pre-s23-regen-20260602_173044.bak
+    15.1  pairing-notes.js.pre-s24-regen.bak
+    15.1  pairing-notes.js.pre-s25-regen.bak
+    15.1  pairing-notes.js.pre-s26-avoid-regen.bak
+    15.4  pairing-notes.js.pre-s27-bottle-regen.bak
+    15.5  pairing-notes.js.pre-s27-bourbon-fix.bak
+    15.5  pairing-notes.js.pre-s27-final-fix.bak
+    15.5  pairing-notes.js.pre-s27-final.bak
+    15.5  pairing-notes.js.pre-s27-subtype-fix.bak
+    15.5  pairing-notes.js.pre-s28-deepened.bak
+    15.6  pairing-notes.js.pre-s29-full-regen.bak
+    15.6  pairing-notes.js.pre-s29-leak-fix.bak
+    15.6  pairing-notes.js.pre-s29-multiverdict.bak
+    13.4  pairing-notes.js.pre-seared-fix.bak
+    14.0  pairing-notes.js.pre-steak-dessert-backfill.bak
+    13.5  pairing-notes.js.pre-steak-side-backfill.bak
+    13.9  pairing-notes.js.pre-verdict-fix.bak
+    13.9  pairing-notes.js.pre-weight-sweep-2026-05-06.bak
+    10.1  pairing-notes.js.tmp.regen.14
+     0.8  pairing-notes.js.tmp.regen.7
+    13.9  pairing-notes.pre-grilled.bak.js
+    12.9  pairing-notes.pre-regen.bak.js
+
+== SECTION 2: other root backups (safe to delete) ==
+     0.0  chemistry-claims.js.pre-agave-fix.bak
+     0.0  chemistry-claims.js.pre-mine.bak
+     0.6  editorial-phrases.js.pre-remoulade-fix.bak
+     0.6  editorial-phrases.js.pre-scrub.bak
+     1.4  pairing-map-v2.js.pre-caymus-fix.bak
+     1.4  pairing-map-v2.js.pre-dessert-entree-backfill.bak
+     1.4  pairing-map-v2.js.pre-dupe-avoid-bump.bak
+     1.4  pairing-map-v2.js.pre-entree-side-backfill.bak
+     1.4  pairing-map-v2.js.pre-faroe-dupe-fix.bak
+     1.4  pairing-map-v2.js.pre-food-pairing-backfill.bak
+     1.4  pairing-map-v2.js.pre-gold-seed.bak
+     1.4  pairing-map-v2.js.pre-overlap-fix-v3.bak
+     1.4  pairing-map-v2.js.pre-remaining-food-backfill.bak
+     1.4  pairing-map-v2.js.pre-steak-side-backfill.bak
+     1.4  pairing-map-v2.js.pre-tier-bump.bak
+     1.4  pairing-map-v2.js.pre-tier-fix-v1.bak
+     1.4  pairing-map-v2.js.pre-tier-fix-v2.bak
+     1.4  pairing-map-v2.js.pre-tier-fix-v3.bak
+     1.4  pairing-map-v2.js.pre-tier-fix-v4.bak
+     1.4  pairing-map-v2.js.pre-tier-fix-v5.bak
+     1.5  pairing-map-v2.pre-prune.bak.js
+
+== SECTION 3: stray files (safe to delete) ==
+     0.1  batch6c1_diff_sample.md
+     0.1  batch6c2_diff_sample.md
+     0.0  batch6c3_diff_sample.md
+     0.1  batch6c4_diff_sample.md
+     0.0  batch6d_diff_sample.md
+     0.0  batch7_diff_sample.md
+     0.5  sedFNk1NB
+
+== SECTION 4: engine/ bak+tmp (safe to delete) ==
+     0.0  engine/AUDIT_100_PAIRS.tmp
+     0.0  engine/AUDIT_100_PAIRS_FINAL.tmp
+     0.0  engine/audit_steak_side_coverage.js.pre-repair.bak
+     0.0  engine/AUDIT_v22_vs_v9.tmp
+     0.0  engine/AUDIT_v23_vs_v9.tmp
+     0.0  engine/avoid_reasoning_pool.broken.bak
+     0.0  engine/avoid_reasoning_pool.js.checkpoint
+     0.1  engine/avoid_reasoning_pool.js.pre-phase5.bak
+     0.1  engine/avoid_reasoning_pool.js.pre-s28.bak
+     0.0  engine/avoid_reasoning_pool.v1.bak
+     0.0  engine/bottle_profiles_curated.js.pre-s19.bak
+     0.0  engine/bottle_profiles_curated.js.pre-s20.bak
+     0.0  engine/bottle_profiles_curated.js.pre-s21.bak
+     0.0  engine/bottle_profiles_curated.js.pre-s22.bak
+     0.0  engine/competitor_refs.js.pre-disable.bak
+     0.0  engine/consistency_check.js.pre-repair.bak
+     0.7  engine/corpus_mined_all_tiers.js.pre-scrub.bak
+     0.1  engine/drink_x_food_generator.js.pre-avoid-reasoning.bak
+     0.1  engine/drink_x_food_generator.js.pre-pathB.bak
+     0.1  engine/drink_x_food_generator.js.pre-phase3-20260530_184222.bak
+     0.1  engine/drink_x_food_generator.js.pre-phase5.bak
+     0.1  engine/drink_x_food_generator.js.pre-phase7.bak
+     0.1  engine/drink_x_food_generator.js.pre-repair.bak
+     0.1  engine/drink_x_food_generator.js.pre-s24.bak
+     0.1  engine/drink_x_food_generator.js.pre-s25.bak
+     0.1  engine/drink_x_food_generator.js.pre-s26.bak
+     0.1  engine/drink_x_food_generator.js.tracebak
+     0.1  engine/drink_x_food_generator.tmp
+     0.0  engine/engine_snapshot_test.js.pre-hygiene-fix.bak
+     0.0  engine/food_corpus_mined.js.pre-phase6-close.bak
+     0.0  engine/food_corpus_mined.js.pre-s12.bak
+     0.0  engine/mine_bottle_profiles.tmp
+     0.1  engine/pairing_engine_generator.js.pre-hygiene-fix.bak
+     0.1  engine/pairing_engine_generator.js.pre-repair.bak
+     0.0  engine/pairing_engine_generator.tmp
+     0.0  engine/pairing_engine_taxonomy.js.pre-phase5.bak
+     0.0  engine/prune_drink_x_drink_in_map.tmp
+     0.0  engine/regenerate_food_x_food.js.pre-hygiene-fix.bak
+     0.0  engine/regenerate_templated_notes.tmp
+     0.0  engine/regen_debug.tmp
+     0.0  engine/rewrite_food_x_food_notes.tmp
+
+== SECTION 5: folders (review then delete) ==
+2	archive
+2	_lux_backup_2026-06-05_194423
+
+== TOTALS ==
+Section 1 (kept): 925 MB / 65 files
+Sections 2-5 (deletable now): 26 MB / 28 files

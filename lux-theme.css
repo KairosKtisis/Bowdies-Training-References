@@ -168,7 +168,9 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .card,.card:hover,.card:active,.card.expanded{ transform:none !important; }
 @media (hover:hover){ .card:hover{ border-color:var(--lx-stroke-hi) !important; } }
 .card.expanded{
-  background:linear-gradient(160deg,rgba(40,38,34,0.60),rgba(27,25,22,0.50)) !important;
+  /* background consolidated from the v67 structure pass ("expansion darkens")
+     — previously defined twice; this is now the single source of truth */
+  background:linear-gradient(160deg,rgba(27,25,22,0.91),rgba(20,18,16,0.86)) !important;
   backdrop-filter:blur(5px) saturate(125%); -webkit-backdrop-filter:blur(5px) saturate(125%);
   border-color:var(--lx-stroke-hi) !important;
   box-shadow:0 34px 74px -28px rgba(0,0,0,.85), 0 0 0 1px var(--lx-stroke-hi),
@@ -510,10 +512,8 @@ footer,.footer{ display:none !important; }                /* footers deleted */
    4. Staggered card entrance on section open (first 8 only — perf-safe)
    ════════════════════════════════════════════════════════════════════════ */
 
-/* 1 ── expansion darkens */
-.card.expanded{
-  background:linear-gradient(160deg,rgba(27,25,22,0.91),rgba(20,18,16,0.86)) !important;
-}
+/* 1 ── expansion darkens (.card.expanded background folded into the v42
+   block above — one definition, no silent override) */
 .pb-rec-item.expanded,.pb-avoid-item.expanded{
   background:rgba(26,24,21,.72) !important;
 }
