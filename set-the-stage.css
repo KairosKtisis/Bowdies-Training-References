@@ -127,20 +127,25 @@ footer{text-align:center;padding:40px;background:var(--surface)}footer p{font-fa
 }
 #panel-stage .pb-tier-section .pb-rec-list,
 #panel-stage .pb-tier-section .pb-avoid-list {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
-  margin-top: 0;
+  /* Closed state. No max-height TRANSITION: animating max-height between 0 and a
+     tall ceiling was the source of the open/close lag — on close, collapsing
+     from a 30000px ceiling meant the real content (a few hundred px) stayed
+     fully visible for part of the timeline before max-height fell far enough to
+     shrink it, so the section appeared to hang. Toggling instantly (like the
+     cards everywhere else in the reference, which just flip display) removes
+     that delay entirely. */
+  max-height: 0; overflow: hidden; margin-top: 0;
 }
 #panel-stage .pb-tier-section.open .pb-rec-list,
 #panel-stage .pb-tier-section.open .pb-avoid-list {
-  /* Filet's Excellent list has 220+ items; the previous 4000px ceiling clipped
-     the tail (Quilt, RAEN, etc. fell off the bottom). 30000px comfortably fits
-     the worst-case tier. The transition runs against this ceiling rather than
-     the actual height, so the open animation finishes early — fine here, since
-     the perceived behavior is "section opens". */
-  max-height: 30000px;
+  /* `none` (not a pixel ceiling) so the list snaps to its true height — no
+     animating against 30000px, and no tail-clipping on huge tiers like Filet's
+     220-item Excellent list. A quick opacity fade matches the card fadeIn. */
+  max-height: none;
   margin-top: 4px;
+  animation: stsTierReveal 0.18s ease both;
 }
+@keyframes stsTierReveal { from { opacity: 0; } to { opacity: 1; } }
 
 /* The avoid section retains the warning treatment but uses
    the same accordion mechanic as the other tiers. */
