@@ -66,15 +66,26 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 /* home-only navigation */
 .guide-tabs{ display:none !important; }
 
-/* ── TOP BAR ── */
+/* ── TOP BAR — demoted from fixed chrome to in-flow content. The bar is
+   static and fully transparent: the logo sits in its usual spot on load,
+   then scrolls away with the page. Only the Home button stays pinned
+   (position:fixed below — same coordinates it always rendered at). ── */
 #top-bar{
-  background:linear-gradient(180deg,rgba(24,23,20,.97) 0%,rgba(24,23,20,.82) 40%,rgba(24,23,20,0) 100%) !important;
+  position:static !important;
+  background:none !important;
+  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
   margin:0 !important;
   border-bottom:none !important; box-shadow:none !important;   /* no separator line */
   padding:calc(env(safe-area-inset-top,0px) + 12px) calc(env(safe-area-inset-right,0px) + 16px) 16px calc(env(safe-area-inset-left,0px) + 20px) !important;
 }
 .top-bar-section{ color:var(--gold); font-style:italic; }
 #top-bar-return{
+  /* pinned independently — mirrors .admin-topbar-btn, which was built to
+     float "exactly like the Home button" at these same coordinates */
+  position:fixed;
+  top:calc(env(safe-area-inset-top,0px) + 12px);
+  right:calc(env(safe-area-inset-right,0px) + 16px);
+  z-index:450;
   font-family:'Josefin Sans',sans-serif; letter-spacing:.12em; color:var(--text-primary);
   background:rgba(255,240,210,.05); border:1px solid var(--lx-stroke);
   padding:9px 14px; border-radius:30px; transition:.3s var(--lx-ease);
@@ -82,9 +93,12 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 }
 #top-bar-return:active{ transform:scale(.93); filter:brightness(1.14); }
 
-/* ── STICKY NAV / SEARCH / FILTERS ── */
-.sticky-nav{ background:linear-gradient(180deg,rgba(24,23,20,.52),rgba(24,23,20,0)) !important;
-  border-bottom:none !important; }
+/* ── STICKY NAV / SEARCH / FILTERS ──
+   Gradient wash removed (2026-06-07): over the solid charcoal it rendered as
+   horizontal bands through the search / filter / tip block — worst at the
+   hard edge where the top-bar fade ended and this one restarted at 52%.
+   Flat transparent = smooth. */
+.sticky-nav{ background:transparent !important; border-bottom:none !important; }
 .filter-bar,.sub-filter-bar{ background:transparent !important; border-top:none !important; }
 .search-input{
   background:linear-gradient(160deg,rgba(38,36,32,0.50),rgba(27,25,22,0.40)) !important;
@@ -394,16 +408,9 @@ footer,.footer{ display:none !important; }                /* footers deleted */
   ::-webkit-scrollbar-thumb:hover{ background-color:rgba(233,201,106,.36); }
 }
 
-/* ── FROSTED CONTROL LAYER — the top bar becomes real glass ── */
-/* frosted bar is desktop-only: on iOS, live blur over a 300-card scroll layer
-   pushes this device over its memory ceiling (the spirits crash) */
-@media (min-width:880px){
-  #top-bar{
-    background:linear-gradient(180deg,rgba(13,11,9,.74),rgba(13,11,9,.58)) !important;
-    -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%);
-    box-shadow:inset 0 1px 0 rgba(255,248,232,.07), 0 12px 30px -22px rgba(0,0,0,.8) !important;
-  }
-}
+/* ── FROSTED CONTROL LAYER — retired (2026-06-07). The top bar is no longer
+   fixed chrome: it carries no background, no blur, no shadow. The logo
+   scrolls away with content; only the Home button stays pinned. ── */
 
 /* ── FOUR-EDGE LENSING — light wraps every glass surface ── */
 .home-btn,.filter-btn,.sub-filter-btn,.search-input,#top-bar-return,.top-bar-profile,
@@ -522,3 +529,20 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .pb-rec-row{ border-bottom:none !important; }
 .pb-avoid-list{ gap:8px !important; }
 .pb-rec-explain.open,.pb-avoid-explain.open{ margin-top:4px; }
+
+/* ── ADMIN HEADER — Back floats exactly like the Home button, no chrome ── */
+.admin-topbar{ margin:0 !important; padding:0 !important; border:none !important; background:none !important; }
+.admin-topbar-btn{
+  position:fixed !important;
+  top:calc(env(safe-area-inset-top,0px) + 12px); right:calc(env(safe-area-inset-right,0px) + 16px);
+  z-index:450;
+  font-family:'Josefin Sans',sans-serif !important; font-size:9px !important;
+  letter-spacing:.12em !important; text-transform:uppercase !important;
+  color:var(--text-primary) !important;
+  background:rgba(255,240,210,.05) !important; border:1px solid var(--lx-stroke) !important;
+  padding:9px 14px !important; border-radius:30px !important;
+  box-shadow:inset 0 1px 0 rgba(255,248,232,.16), inset 0 -2px 6px -4px rgba(0,0,0,.45) !important;
+  transition:.3s var(--lx-ease) !important;
+}
+.admin-topbar-btn:active{ transform:scale(.93); filter:brightness(1.14); }
+#screen-admin{ padding-top:calc(env(safe-area-inset-top,0px) + 24px) !important; }
