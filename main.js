@@ -693,6 +693,14 @@ function switchGuide(guide) {
 }
 
 function selectSection(guide) {
+  // Collapse any card left expanded from a prior visit. Beyond the obvious
+  // state-leak (you'd re-enter to a section with a random card already open),
+  // an expanded card's full detail makes the already-long Spirits/Wine page
+  // taller — and re-entry animates the fixed full-screen home overlay over
+  // that content. On iOS, compositing an extra-tall page during that transition
+  // is what tips it past the memory ceiling ("the spirits crash"). Starting
+  // every entry collapsed keeps the page short and the transition cheap.
+  document.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
   // Reset scroll. Without this, if the user scrolled deep into a previous
   // section and came back via Home, the new section opens scrolled to the
   // same Y as the prior one — and on mobile that locks the user in a
@@ -778,6 +786,11 @@ function selectSection(guide) {
 }
 
 function returnHome() {
+  // Collapse any open card BEFORE the home overlay slides over the section.
+  // Leaving a Spirits/Wine card expanded keeps the page extra-tall, and
+  // compositing that tall page under the animating fixed overlay is the iOS
+  // crash trigger. Collapsing first makes the page short for the transition.
+  document.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
   // Same reason as selectSection — clear scroll so the home screen renders
   // at the viewport top instead of wherever the user left off in the
   // previous section.
