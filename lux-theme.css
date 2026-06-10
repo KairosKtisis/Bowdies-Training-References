@@ -44,9 +44,12 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow{ display:none !important; }                 /* location line retired */
 .home-script{ color:var(--gold); }
-.home-sub{ font-weight:600 !important; color:var(--text-primary) !important;
-  text-shadow:0 1px 10px rgba(0,0,0,.7); }
-.home-wordmark{ filter:drop-shadow(0 6px 26px rgba(0,0,0,.8)); }
+.home-sub{ font-weight:600 !important; color:var(--text-primary) !important; }
+/* drop-shadow / text-shadow removed 2026-06-08 — these lifted the logo off the
+   old home background imagery. Home is flat charcoal now, so a near-black soft
+   shadow just pooled behind the wordmark as a faint darker "cell" around the
+   logo. The light wordmark has ample contrast on charcoal without it. */
+.home-wordmark{ filter:none; }
 .home-select{ display:flex !important; flex-direction:column !important; gap:14px !important;
   width:100%; max-width:340px !important; }
 .home-btn{
