@@ -2481,7 +2481,7 @@ const ENRICHED_PROFILES = {
       "abv": null,
       "distillery": null
     },
-    "signature": "Gin, cognac, Lillet, lemon, and an absinthe-rinsed glass",
+    "signature": "Gin, Cointreau, Lillet, lemon, and an absinthe-rinsed glass",
     "rawTags": [
       "gin",
       "citrus",
@@ -2523,7 +2523,7 @@ const ENRICHED_PROFILES = {
       "abv": null,
       "distillery": null
     },
-    "signature": "Aviation gin, Luxardo maraschino, crème de violette, and ginger syrup",
+    "signature": "Aviation gin, Luxardo maraschino, lemon, crème de violette, and ginger syrup",
     "rawTags": [
       "gin",
       "floral",
@@ -13744,7 +13744,7 @@ const ENRICHED_PROFILES = {
       "abv": null,
       "distillery": null
     },
-    "signature": "The cognac used in our Vieux Carré and Corpse Reviver",
+    "signature": "The cognac used in our Vieux Carré",
     "rawTags": [
       "cognac",
       "Pierre-Ferrand",

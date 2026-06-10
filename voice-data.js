@@ -200,20 +200,20 @@ const VOICE_DATA = {
       "Citrus",
       "Shaken"
     ],
-    "sellIt": "Gin, cognac, Lillet, lemon, and an absinthe-rinsed glass. A pre-Prohibition classic that earns its name — equal parts elegant and reviving.",
-    "staffNotes": "The balance here is precise — Warner's gin, Pierre Ferrand cognac, and Lillet in equal measure with just enough lemon to lift it. The absinthe rinse is the ghost in the background, adding anise on the nose without touching the palate. A cocktail for guests who appreciate craft and history.",
+    "sellIt": "Gin, Cointreau, Lillet, lemon, and an absinthe-rinsed glass. A pre-Prohibition classic that earns its name — equal parts elegant and reviving.",
+    "staffNotes": "The balance here is precise — Warner's gin, Cointreau, and Lillet in equal measure with just enough lemon to lift it. The absinthe rinse is the ghost in the background, adding anise on the nose without touching the palate. A cocktail for guests who appreciate craft and history.",
     "pairsWith": "Seared Scallops, Escargot, Prime Tartare",
-    "ingredients": "1 oz Warner's Gin; 1 oz Lillet; 1 oz Pierre Ferrand Cognac; ½ oz Lemon Juice; ¼ oz Absinthe (rinse)",
-    "method": "Combine gin, Lillet, cognac, and lemon in shaker with ice / Shake well / Rinse Martini Glass with ¼ oz Absinthe — discard excess / Strain shaker into rinsed Martini Glass",
+    "ingredients": "1 oz Warner's Gin; 1 oz Lillet; 1 oz Cointreau; ½ oz Lemon Juice; ¼ oz Absinthe (rinse)",
+    "method": "Combine gin, Lillet, Cointreau, and lemon in shaker with ice / Shake well / Rinse Martini Glass with ¼ oz Absinthe — discard excess / Strain shaker into rinsed Martini Glass",
     "origin": "",
     "varietal": "",
     "vintage": "",
     "region": "",
     "raw": {
-      "Sell It": "Gin, cognac, Lillet, lemon, and an absinthe-rinsed glass. A pre-Prohibition classic that earns its name — equal parts elegant and reviving.",
-      "Staff Notes": "The balance here is precise — Warner's gin, Pierre Ferrand cognac, and Lillet in equal measure with just enough lemon to lift it. The absinthe rinse is the ghost in the background, adding anise on the nose without touching the palate. A cocktail for guests who appreciate craft and history.",
-      "Ingredients": "1 oz Warner's Gin; 1 oz Lillet; 1 oz Pierre Ferrand Cognac; ½ oz Lemon Juice; ¼ oz Absinthe (rinse)",
-      "Method": "Combine gin, Lillet, cognac, and lemon in shaker with ice / Shake well / Rinse Martini Glass with ¼ oz Absinthe — discard excess / Strain shaker into rinsed Martini Glass",
+      "Sell It": "Gin, Cointreau, Lillet, lemon, and an absinthe-rinsed glass. A pre-Prohibition classic that earns its name — equal parts elegant and reviving.",
+      "Staff Notes": "The balance here is precise — Warner's gin, Cointreau, and Lillet in equal measure with just enough lemon to lift it. The absinthe rinse is the ghost in the background, adding anise on the nose without touching the palate. A cocktail for guests who appreciate craft and history.",
+      "Ingredients": "1 oz Warner's Gin; 1 oz Lillet; 1 oz Cointreau; ½ oz Lemon Juice; ¼ oz Absinthe (rinse)",
+      "Method": "Combine gin, Lillet, Cointreau, and lemon in shaker with ice / Shake well / Rinse Martini Glass with ¼ oz Absinthe — discard excess / Strain shaker into rinsed Martini Glass",
       "Pairs With": "Seared Scallops, Escargot, Prime Tartare"
     }
   },
@@ -227,19 +227,19 @@ const VOICE_DATA = {
       "Floral",
       "Shaken"
     ],
-    "sellIt": "Aviation gin, Luxardo maraschino, crème de violette, and ginger syrup — floral, slightly sweet, and a beautiful pale purple in the glass.",
+    "sellIt": "Aviation gin, Luxardo maraschino, lemon, crème de violette, and ginger syrup — floral, slightly sweet, and a beautiful pale purple in the glass.",
     "staffNotes": "The violette is what makes an Aviation an Aviation — just enough to give it its signature color and a delicate floral note. Luxardo maraschino adds a cherry-almond sweetness that Aviation gin's botanical profile plays well against. Sell it to guests who want something visually striking and lighter on the palate.",
     "pairsWith": "Faroe Island Salmon, Crab Cake, Seared Scallops",
-    "ingredients": "2 oz Aviation Gin; 1 oz Luxardo Maraschino; ¼ oz Crème De Violette; ½ oz Ginger Syrup",
+    "ingredients": "2 oz Aviation Gin; 1 oz Luxardo Maraschino; ¾ oz Lemon Juice; ¼ oz Crème De Violette; ½ oz Ginger Syrup",
     "method": "Combine all in shaker with ice / Shake well / Strain into Martini Glass | Garnish: Lemon Twist",
     "origin": "",
     "varietal": "",
     "vintage": "",
     "region": "",
     "raw": {
-      "Sell It": "Aviation gin, Luxardo maraschino, crème de violette, and ginger syrup — floral, slightly sweet, and a beautiful pale purple in the glass.",
+      "Sell It": "Aviation gin, Luxardo maraschino, lemon, crème de violette, and ginger syrup — floral, slightly sweet, and a beautiful pale purple in the glass.",
       "Staff Notes": "The violette is what makes an Aviation an Aviation — just enough to give it its signature color and a delicate floral note. Luxardo maraschino adds a cherry-almond sweetness that Aviation gin's botanical profile plays well against. Sell it to guests who want something visually striking and lighter on the palate.",
-      "Ingredients": "2 oz Aviation Gin; 1 oz Luxardo Maraschino; ¼ oz Crème De Violette; ½ oz Ginger Syrup",
+      "Ingredients": "2 oz Aviation Gin; 1 oz Luxardo Maraschino; ¾ oz Lemon Juice; ¼ oz Crème De Violette; ½ oz Ginger Syrup",
       "Method": "Combine all in shaker with ice / Shake well / Strain into Martini Glass | Garnish: Lemon Twist",
       "Pairs With": "Faroe Island Salmon, Crab Cake, Seared Scallops"
     }
@@ -5160,7 +5160,7 @@ const VOICE_DATA = {
       "Complex",
       "Herbal"
     ],
-    "sellIt": "The cognac used in our Vieux Carré and Corpse Reviver — chosen deliberately for its complexity. Dried apricot, spice, and an earthy, almost herbal depth that most VS cognacs lack. At $18, it's the best value cognac on the list and punches significantly above its price. Worth mentioning to guests who want to explore cognac beyond the standard names.",
+    "sellIt": "The cognac used in our Vieux Carré — chosen deliberately for its complexity. Dried apricot, spice, and an earthy, almost herbal depth that most VS cognacs lack. At $18, it's the best value cognac on the list and punches significantly above its price. Worth mentioning to guests who want to explore cognac beyond the standard names.",
     "staffNotes": "",
     "pairsWith": "Filet Mignon, Bone Marrow, Mushrooms",
     "ingredients": "",
@@ -5172,7 +5172,7 @@ const VOICE_DATA = {
     "raw": {
       "Origin": "Maison Ferrand, Cognac, France",
       "Price": "$18",
-      "Tasting Notes": "The cognac used in our Vieux Carré and Corpse Reviver — chosen deliberately for its complexity. Dried apricot, spice, and an earthy, almost herbal depth that most VS cognacs lack. At $18, it's the best value cognac on the list and punches significantly above its price. Worth mentioning to guests who want to explore cognac beyond the standard names.",
+      "Tasting Notes": "The cognac used in our Vieux Carré — chosen deliberately for its complexity. Dried apricot, spice, and an earthy, almost herbal depth that most VS cognacs lack. At $18, it's the best value cognac on the list and punches significantly above its price. Worth mentioning to guests who want to explore cognac beyond the standard names.",
       "Pairs With": "Filet Mignon, Bone Marrow, Mushrooms"
     }
   },
