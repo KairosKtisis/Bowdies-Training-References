@@ -12,6 +12,9 @@
   --text-primary:#F3ECDC; --text-muted:#A99D85; --text-dim:#6C6251;
   --gold:#C9A84C; --gold-light:#F0D785; --gold-dim:#8A6B2A;
   --cat-cab:#C46E81; --cat-blends:#88AA98; --cat-offmenu:#B690DA; --cat-old:#C39A72;
+  --cat-rum:#C58A5A;   /* rum's terracotta/molasses accent — was a one-off hex on the
+                          filter button while cards drifted to vodka-blue / whiskey-orange;
+                          now one token drives button + cards (2026-06-11) */
   --lx-glass:linear-gradient(160deg,rgba(35,33,29,0.84),rgba(24,22,19,0.76));
   --lx-stroke:rgba(233,201,106,0.16); --lx-stroke-hi:rgba(243,215,133,0.46);
   --lx-shadow:rgba(0,0,0,0.55);
@@ -133,7 +136,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 .filter-btn[data-filter="gin"]{ --acc:var(--cat-gin); }
 .filter-btn[data-filter="vodka"]{ --acc:var(--cat-vodka); }
 .filter-btn[data-filter="liqueur"]{ --acc:var(--cat-offmenu); }
-.filter-btn[data-filter="rum"]{ --acc:#C58A5A; }
+.filter-btn[data-filter="rum"]{ --acc:var(--cat-rum); }
 .filter-btn[data-filter="port"]{ --acc:var(--cat-cab); }
 .filter-btn[data-filter="bubbles"]{ --acc:var(--cat-bubbles); }
 .filter-btn[data-filter="whites"]{ --acc:var(--cat-whites); }
@@ -155,7 +158,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 #subfilters-vodka{ --acc:var(--cat-vodka); }
 #subfilters-liqueur{ --acc:var(--cat-offmenu); }
 #subfilters-port{ --acc:var(--cat-cab); }
-#subfilters-rum{ --acc:#C58A5A; }
+#subfilters-rum{ --acc:var(--cat-rum); }
 
 /* ── CARDS ── */
 .grid{ background:transparent !important; border-top:none !important;
