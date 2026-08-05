@@ -47,7 +47,7 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 #home-screen > *{ position:relative; z-index:1; }
 .home-eyebrow{ display:none !important; }                 /* location line retired */
 .home-script{ color:var(--gold); }
-.home-sub{ font-weight:600 !important; color:var(--text-primary) !important; }
+.home-sub{ font-weight:400 !important; color:var(--text-muted) !important; }
 /* drop-shadow / text-shadow removed 2026-06-08 — these lifted the logo off the
    old home background imagery. Home is flat charcoal now, so a near-black soft
    shadow just pooled behind the wordmark as a faint darker "cell" around the
@@ -561,3 +561,11 @@ footer,.footer{ display:none !important; }                /* footers deleted */
 }
 .admin-topbar-btn:active{ transform:scale(.93); filter:brightness(1.14); }
 #screen-admin{ padding-top:calc(env(safe-area-inset-top,0px) + 24px) !important; }
+
+/* -- Official Bowdie's logo (image lockups replace text wordmarks, 2026-07-21) --
+   Brand PNGs (cream + gold on transparent), sized to match the retired
+   Josefin/Playfair text wordmarks so surrounding layout is untouched. */
+.home-logo .logo-lockup{ display:block; width:clamp(250px,64vw,440px); height:auto; }
+.header-logo .logo-lockup{ display:block; width:clamp(200px,50vw,340px); height:auto; }
+.top-bar-logo .logo-mark{ display:block; height:16px; width:auto; }
+.setup-wordmark .logo-mark{ display:inline-block; height:18px; width:auto; vertical-align:middle; }
