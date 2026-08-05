@@ -22,6 +22,18 @@
 // Manual overrides — bottles where the heuristics get it wrong, or where we
 // just want explicit control.
 const PRICE_TIER_OVERRIDES = {
+  // Wine list update 2026-08-05
+  "Ceretto Moscato d'Asti": "BTG",
+  "Calçada Reserva Vinho Verde": "BTG",
+  "Lubanzi Chenin Blanc": "BTG",
+  "Maison du Chancelier Les Mosnières": "BTG",
+  "Painted Fields Curse of Knowledge": "BTG",
+  "Soul of Mendocino": "BTG",
+  "Tenuta dei Sette Cieli Yantra": "BTG",
+  "Tenuta Tascante Ghiaia Nera": "BTG",
+  "Domaine des Ardoisières Silice": "BTG",
+  "Michel Goubard Mont Avril": "MID",
+  "Sanford Pinot Noir": "MID",
   // PREMIUM — allocated / icon / luxury
   'Pappy Van Winkle 13 Year Rye': 'PREMIUM',
   'Pappy Van Winkle 15 Year': 'PREMIUM',

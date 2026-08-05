@@ -131,13 +131,13 @@
     if(_dataCbs){ _dataCbs.push(cb); return; }
     _dataCbs=[cb];
     function inject(src,next){ var s=document.createElement('script'); s.src=src; s.onload=next; s.onerror=next; document.body.appendChild(s); }
-    inject('pairing-map-v2.js?v=100',function(){
+    inject('pairing-map-v2.js?v=101',function(){
       /* specials merge must run before the OOS overlay — bootStage's own call
          no-ops at DOMContentLoaded because the map hasn't been injected yet */
       try{ if(typeof stsMergeSpecials==='function') stsMergeSpecials(); }catch(e){}
       try{ if(typeof applyOosOverlay==='function') applyOosOverlay(); }catch(e){}
       try{ if(typeof applyOosOverlayToHomeCards==='function') applyOosOverlayToHomeCards(); }catch(e){}
-      inject('pairing-notes.js?v=109',function(){
+      inject('pairing-notes.js?v=110',function(){
         var cbs=_dataCbs; _dataCbs=null;
         cbs.forEach(function(fn){ try{ fn(); }catch(e){} });
       });

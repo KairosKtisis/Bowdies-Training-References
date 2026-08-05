@@ -9,6 +9,81 @@
 // distinctive bottle-specific framing that the class default misses.
 
 const BOTTLE_PROFILES_CURATED = {
+  // Wine list update 2026-08-05
+  "Ceretto Moscato d'Asti": {
+    "tastingNotes": [
+      "gently sweet frizzante",
+      "stopped-fermentation Moscato",
+      "5.5% lightness"
+    ],
+    "character": "gently sweet frizzante Moscato at 5.5%",
+    "bridge1": "the honeyed peach-and-melon sweetness meets {foodTarget}",
+    "bridge2": "the gentle bubbles lift {foodSubj}",
+    "bridge1Variants": [
+      "the honeyed peach-and-melon sweetness meets {foodTarget}",
+      "the arrested-fermentation grape sweetness carries {foodTarget}",
+      "the soft frizzante mousse rinses {foodTarget}",
+      "the orange-blossom-and-jasmine lift threads {foodTarget}",
+      "the low-alcohol Moscato lightness floats over {foodTarget}"
+    ],
+    "bridge2Variants": [
+      "the gentle bubbles lift {foodSubj}",
+      "the honeyed finish rounds {foodSubj}",
+      "the Santo-Stefano-Belbo peach note frames {foodSubj}",
+      "the delicate fizz refreshes {foodSubj}",
+      "the sweet-but-weightless register flatters {foodSubj}"
+    ]
+  },
+  // Wine list update 2026-08-05
+  "Tenuta Tascante Ghiaia Nera": {
+    "tastingNotes": [
+      "volcanic Etna Nerello",
+      "smoky black-gravel minerality",
+      "fine soft tannin"
+    ],
+    "character": "volcanic Etna Nerello with smoky fine-tannin elegance",
+    "bridge1": "the ash-and-cherry volcanic register meets {foodTarget}",
+    "bridge2": "the fine-tannin Etna finish frames {foodSubj}",
+    "bridge1Variants": [
+      "the ash-and-cherry volcanic register meets {foodTarget}",
+      "the north-slope 600-meter freshness lifts {foodTarget}",
+      "the black-gravel minerality threads {foodTarget}",
+      "the orange-peel-and-dried-flower lift carries {foodTarget}",
+      "the volcanic-Pinot elegance wraps {foodTarget}"
+    ],
+    "bridge2Variants": [
+      "the fine-tannin Etna finish frames {foodSubj}",
+      "the smoky mineral edge underlines {foodSubj}",
+      "the bright cherry core refreshes {foodSubj}",
+      "the Etna-north-face restraint flatters {foodSubj}",
+      "the volcanic smoke reads alongside {foodSubj}"
+    ]
+  },
+  // Wine list update 2026-08-05
+  "Domaine des Ardoisières Silice": {
+    "tastingNotes": [
+      "chillable Alpine red",
+      "10.5% mountain lightness",
+      "biodynamic terrace fruit"
+    ],
+    "character": "chillable 10.5% Alpine Mondeuse blend",
+    "bridge1": "the wild-strawberry-and-pepper brightness meets {foodTarget}",
+    "bridge2": "the lightly chilled Alpine lift refreshes {foodSubj}",
+    "bridge1Variants": [
+      "the wild-strawberry-and-pepper brightness meets {foodTarget}",
+      "the 10.5% mountain lightness floats over {foodTarget}",
+      "the crunchy redcurrant fruit threads {foodTarget}",
+      "the peppery Mondeuse spice carries {foodTarget}",
+      "the rescued-terrace Alpine energy lifts {foodTarget}"
+    ],
+    "bridge2Variants": [
+      "the lightly chilled Alpine lift refreshes {foodSubj}",
+      "the stony mountain finish frames {foodSubj}",
+      "the violet-and-white-pepper edge underlines {foodSubj}",
+      "the low-alcohol freshness resets {foodSubj}",
+      "the biodynamic mountain-fruit purity flatters {foodSubj}"
+    ]
+  },
   // ── Scotches: Highland ─────────────────────────────────────────────────
   'Glenmorangie 10': {
     tastingNotes: ['Highland entry', 'tallest stills', 'honeysuckle-vanilla'],
