@@ -175,7 +175,7 @@ body::before {
 .home-sub {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-muted);
   margin-top: 10px;
   letter-spacing: 0.05em;
@@ -319,6 +319,7 @@ body::before {
   color: var(--gold);
   letter-spacing: 0.04em;
   margin-top: 1px;
+  text-align: right;
 }
 
 #top-bar-return {
