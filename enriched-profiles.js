@@ -2168,7 +2168,7 @@ const ENRICHED_PROFILES = {
       "abv": null,
       "distillery": null
     },
-    "signature": "Maker's Mark private barrel stirred with Contratto vermouth and vanilla syrup",
+    "signature": "Elijah Craig Private Barrel stirred with Contratto vermouth and vanilla syrup",
     "rawTags": [
       "bold",
       "whiskey",

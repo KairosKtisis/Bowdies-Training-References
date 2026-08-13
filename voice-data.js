@@ -23,20 +23,20 @@ const VOICE_DATA = {
       "Citrus",
       "Stirred"
     ],
-    "sellIt": "The house take on a classic — Buffalo Trace muddled with rum-soaked cherries, orange, and bitters over a large cube. Familiar enough to be a safe recommendation, distinct enough to be memorable.",
-    "staffNotes": "Buffalo Trace brings vanilla and caramel; the rum-infused cherries add a subtle sweetness that sets this apart from a standard Old Fashioned. The brûléed orange garnish adds a faint smokiness on the nose. Lead with this for guests who want something spirit-forward but approachable.",
+    "sellIt": "The house take on a classic — Maker's Mark Private Selection muddled with rum-soaked cherries, orange, and bitters over a large cube. Familiar enough to be a safe recommendation, distinct enough to be memorable.",
+    "staffNotes": "Maker's Mark Private Selection brings vanilla and caramel; the rum-infused cherries add a subtle sweetness that sets this apart from a standard Old Fashioned. The brûléed orange garnish adds a faint smokiness on the nose. Lead with this for guests who want something spirit-forward but approachable.",
     "pairsWith": "Kansas City, Bone Marrow, Prime Tartare",
-    "ingredients": "2 oz Buffalo Trace; 1 tsp Sugar; 3 Rum-infused Cherries; 1 Orange Slice; 3 dash Angostura Bitters",
-    "method": "Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass / Add 2 oz Buffalo Trace / Add Large Cube and stir | Garnish: Brûléed Orange",
+    "ingredients": "2 oz Maker's Mark Private Selection; 1 tsp Sugar; 3 Rum-infused Cherries; 1 Orange Slice; 3 dash Angostura Bitters",
+    "method": "Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass / Add 2 oz Maker's Mark Private Selection / Add Large Cube and stir | Garnish: Brûléed Orange",
     "origin": "",
     "varietal": "",
     "vintage": "",
     "region": "",
     "raw": {
-      "Sell It": "The house take on a classic — Buffalo Trace muddled with rum-soaked cherries, orange, and bitters over a large cube. Familiar enough to be a safe recommendation, distinct enough to be memorable.",
-      "Staff Notes": "Buffalo Trace brings vanilla and caramel; the rum-infused cherries add a subtle sweetness that sets this apart from a standard Old Fashioned. The brûléed orange garnish adds a faint smokiness on the nose. Lead with this for guests who want something spirit-forward but approachable.",
-      "Ingredients": "2 oz Buffalo Trace; 1 tsp Sugar; 3 Rum-infused Cherries; 1 Orange Slice; 3 dash Angostura Bitters",
-      "Method": "Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass / Add 2 oz Buffalo Trace / Add Large Cube and stir | Garnish: Brûléed Orange",
+      "Sell It": "The house take on a classic — Maker's Mark Private Selection muddled with rum-soaked cherries, orange, and bitters over a large cube. Familiar enough to be a safe recommendation, distinct enough to be memorable.",
+      "Staff Notes": "Maker's Mark Private Selection brings vanilla and caramel; the rum-infused cherries add a subtle sweetness that sets this apart from a standard Old Fashioned. The brûléed orange garnish adds a faint smokiness on the nose. Lead with this for guests who want something spirit-forward but approachable.",
+      "Ingredients": "2 oz Maker's Mark Private Selection; 1 tsp Sugar; 3 Rum-infused Cherries; 1 Orange Slice; 3 dash Angostura Bitters",
+      "Method": "Muddle orange slice, sugar, cherries, and bitters in Small Rocks Glass / Add 2 oz Maker's Mark Private Selection / Add Large Cube and stir | Garnish: Brûléed Orange",
       "Pairs With": "Kansas City, Bone Marrow, Prime Tartare"
     }
   },
@@ -49,19 +49,19 @@ const VOICE_DATA = {
       "Spirit Forward",
       "Stirred"
     ],
-    "sellIt": "Maker's Mark private barrel stirred with Contratto vermouth and vanilla syrup — rich, smooth, and built for guests who know what they want.",
+    "sellIt": "Elijah Craig Private Barrel stirred with Contratto vermouth and vanilla syrup — rich, smooth, and built for guests who know what they want.",
     "staffNotes": "The vanilla syrup rounds out what would otherwise be a drier Manhattan, making it more accessible without sacrificing structure. Contratto is a quality Italian vermouth — worth mentioning if a guest asks. This is the move for someone who orders whiskey neat but wants a cocktail.",
     "pairsWith": "Filet Mignon, Mushrooms, Bone Marrow",
-    "ingredients": "2 oz Maker's Mark (private barrel); 1 oz Contratto Vermouth; ½ oz Vanilla Syrup; 6 dash Angostura Bitters",
+    "ingredients": "2 oz Elijah Craig Private Barrel; 1 oz Contratto Vermouth; ½ oz Vanilla Syrup; 6 dash Angostura Bitters",
     "method": "Combine all ingredients in Large Rocks Glass / Add ice and stir | Garnish: Flamed Orange Peel",
     "origin": "",
     "varietal": "",
     "vintage": "",
     "region": "",
     "raw": {
-      "Sell It": "Maker's Mark private barrel stirred with Contratto vermouth and vanilla syrup — rich, smooth, and built for guests who know what they want.",
+      "Sell It": "Elijah Craig Private Barrel stirred with Contratto vermouth and vanilla syrup — rich, smooth, and built for guests who know what they want.",
       "Staff Notes": "The vanilla syrup rounds out what would otherwise be a drier Manhattan, making it more accessible without sacrificing structure. Contratto is a quality Italian vermouth — worth mentioning if a guest asks. This is the move for someone who orders whiskey neat but wants a cocktail.",
-      "Ingredients": "2 oz Maker's Mark (private barrel); 1 oz Contratto Vermouth; ½ oz Vanilla Syrup; 6 dash Angostura Bitters",
+      "Ingredients": "2 oz Elijah Craig Private Barrel; 1 oz Contratto Vermouth; ½ oz Vanilla Syrup; 6 dash Angostura Bitters",
       "Method": "Combine all ingredients in Large Rocks Glass / Add ice and stir | Garnish: Flamed Orange Peel",
       "Pairs With": "Filet Mignon, Mushrooms, Bone Marrow"
     }
